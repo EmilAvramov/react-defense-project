@@ -1,0 +1,5 @@
+@mixin adjust-text($size, $style:normal, $align:center) {
+    font-size: $size;
+    font-style: $style;
+    text-align: $align;
+}

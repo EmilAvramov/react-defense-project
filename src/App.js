@@ -1,9 +1,11 @@
 import Header from "./components/Header";
+import Home from "./components/Home";
 
-function App() {
+const App = () => {
   return (
     <div>
       <Header hasToken={false}/>
+      <Home/>
     </div>
   );
 }

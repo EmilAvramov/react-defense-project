@@ -12,3 +12,23 @@
     column-gap: 40px;
     padding: 20px;
 }
+
+%grid-templated {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+}
+
+%grid-card {
+    display: grid;
+    grid-template-areas: 
+    'title '
+    'img'
+    'img'
+    'img'
+    'img'
+    'img'
+    'btn';
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}

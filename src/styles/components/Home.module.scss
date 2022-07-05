@@ -1,0 +1,29 @@
+@use '../layout/grids';
+@use '../helpers/mixins' as m;
+
+.home__container {
+    @extend %grid-templated;
+
+    margin: 0 auto;;
+    width: 95%;
+    border: 1px solid black;
+}
+
+.card {
+    @extend %grid-card;
+    height: 40vh;
+    border: 1px solid black;
+    margin: 5px;
+    h3 {
+        grid-area: title;
+        @include m.adjust-text(22px, bold)
+    }
+    button {
+        grid-area: btn;
+        @include m.adjust-text(16px)
+    }
+    img {
+        grid-area: img;
+        height: 100%;
+    }
+}

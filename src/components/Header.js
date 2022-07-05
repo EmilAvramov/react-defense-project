@@ -28,7 +28,7 @@ const Header = (props) => {
 
     return (
         <header>
-            <div><img src={logo} alt="" />GameBlob - For All Your Blobbing Needs</div>
+            <div><img src={logo} alt=""/>GameBlob - For All Your Blobbing Needs</div>
             <nav>
                 <ul className={styles['nav__ul']}>
                     {props.hasToken ? userView(): guestView()}
