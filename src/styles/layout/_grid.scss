@@ -1,18 +1,3 @@
-%flex-spaced {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px;
-}
-
-%flex-centered {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    column-gap: 40px;
-    padding: 20px;
-}
-
 %grid-templated {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
