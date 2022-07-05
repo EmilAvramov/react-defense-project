@@ -5,11 +5,11 @@ const Header = (props) => {
     const guestView = () => {
         return (
             <>
-                <li><a href="http://"><i class="fa-solid fa-house"></i>Home</a></li>
-                <li><a href="http://"><i class="fa-solid fa-comments"></i>Community</a></li>
-                <li><a href="http://"><i class="fa-solid fa-circle-info"></i>About</a></li>
-                <li><a href="http://"><i class="fa-solid fa-right-to-bracket"></i>Login</a></li>
-                <li><a href="http://"><i class="fa-solid fa-registered"></i>Register</a></li>
+                <li><a href="http://"><i className="fa-solid fa-house"></i>Home</a></li>
+                <li><a href="http://"><i className="fa-solid fa-comments"></i>Community</a></li>
+                <li><a href="http://"><i className="fa-solid fa-circle-info"></i>About</a></li>
+                <li><a href="http://"><i className="fa-solid fa-right-to-bracket"></i>Login</a></li>
+                <li><a href="http://"><i className="fa-solid fa-registered"></i>Register</a></li>
             </>
         )
     }
@@ -17,11 +17,11 @@ const Header = (props) => {
     const userView = () => {
         return (
             <>
-                <li><a href="http://"><i class="fa-solid fa-house"></i>Home</a></li>
-                <li><a href="http://"><i class="fa-solid fa-user"></i>My Profile</a></li>
-                <li><a href="http://"><i class="fa-solid fa-comments"></i>Community</a></li>
-                <li><a href="http://"><i class="fa-solid fa-circle-info"></i>About</a></li>
-                <li><a href="http://"><i class="fa-solid fa-arrow-up-right-from-square"></i>Logout</a></li>
+                <li><a href="http://"><i className="fa-solid fa-house"></i>Home</a></li>
+                <li><a href="http://"><i className="fa-solid fa-user"></i>My Profile</a></li>
+                <li><a href="http://"><i className="fa-solid fa-comments"></i>Community</a></li>
+                <li><a href="http://"><i className="fa-solid fa-circle-info"></i>About</a></li>
+                <li><a href="http://"><i className="fa-solid fa-arrow-up-right-from-square"></i>Logout</a></li>
             </>
         )
     }
