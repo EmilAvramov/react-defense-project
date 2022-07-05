@@ -1,0 +1,27 @@
+@use '../layout/grids';
+@use '../helpers/resize' as r;
+
+header {
+	height: 10vh;
+	@extend %flex-spaced;
+	div, nav {
+        @extend %flex-centered;
+		height: 100%;
+	}
+    div {
+        font-size: 30px;
+        img {
+			height: 100%;
+		}
+    }
+}
+
+.nav__ul {
+	@extend %flex-centered;
+    height: 100%;
+	li > a {
+			text-decoration: none;
+            color: black;
+            font-size: 20px;
+	}
+}
