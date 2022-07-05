@@ -13,7 +13,7 @@
     @extend %grid-card;
     height: 40vh;
     border: 1px solid black;
-    margin: 5px;
+    margin: 10px;
     h3 {
         grid-area: title;
         @include m.adjust-text(22px, bold)
@@ -24,6 +24,6 @@
     }
     img {
         grid-area: img;
-        height: 100%;
+        height: 95%;
     }
 }

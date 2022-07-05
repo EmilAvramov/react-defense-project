@@ -1,0 +1,24 @@
+@use '../layout/grids';
+@use '../helpers/mixins' as m;
+
+footer {
+    height: 10vh;
+    @extend %flex-centered;
+    gap: 70%;
+    div {
+        @include m.adjust-text(22px, bold);
+        a {
+            text-decoration: none;
+        }
+    }
+    ul {
+        @include m.adjust-text(18px, bold, left);
+        li {
+            @include m.adjust-text(16px, 400, left);
+            padding: 5px 0px;
+            i {
+                padding: 5px;
+            }
+        }
+    }
+}
