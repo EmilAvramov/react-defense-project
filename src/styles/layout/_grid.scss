@@ -6,7 +6,7 @@
 %grid-card {
     display: grid;
     grid-template-areas: 
-    'title '
+    'title'
     'img'
     'img'
     'img'
@@ -18,4 +18,15 @@
     justify-content: center;
     align-items: center;
     padding: 5px;
+}
+
+%grid-search {
+    display: grid;
+    grid-template-areas: 
+    'head head'
+    'label1 radio1'
+    'label2 radio2'
+    'label3 radio3';
+    justify-content: center;
+    align-items: center;
 }
