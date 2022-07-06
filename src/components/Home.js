@@ -12,18 +12,15 @@ const Home = () => {
 	const [offset, setOffset] = useState(0);
 
 	useEffect(() => {
-		getListData(itemsPerPage, offset).then((data) => setData(data));
 		const endOffset = offset + itemsPerPage;
-		console.log(`Loading items from ${offset} to ${endOffset}`);
-		setData(data.slice(offset, endOffset));
-		setPages(Math.ceil(data.length / itemsPerPage));
+		getListData().then((res) => {
+			setPages(Math.ceil(res.length / itemsPerPage));
+			setData(res.slice(offset, endOffset));
+		});
 	}, [offset]);
 
 	const handlePageClick = (e) => {
-		const newOffset = (e.selected * itemsPerPage) ;
-		console.log(
-			`User requested page number ${e.selected}, which is offset ${newOffset}`
-		);
+		const newOffset = e.selected * itemsPerPage;
 		setOffset(newOffset);
 	};
 
@@ -45,13 +42,12 @@ const Home = () => {
 					breakLabel='...'
 					breakClassName='page-item'
 					breakLinkClassName='page-link'
-					pageCount={5}
+					pageCount={pages}
 					marginPagesDisplayed={2}
-					pageRangeDisplayed={5}
+					pageRangeDisplayed={2}
 					onPageChange={handlePageClick}
 					containerClassName='pagination'
 					activeClassName='active'
-					forcePage={offset}
 				/>
 			</div>
 		</main>
