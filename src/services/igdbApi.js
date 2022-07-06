@@ -1,7 +1,7 @@
 const corsProxy = 'https://heroku-proxy-react.herokuapp.com/'
 const baseUrl = 'https://api.igdb.com/v4/';
 
-const getListData = () => {
+const getListData = (qty) => {
 	const request = fetch(`${corsProxy}${baseUrl}games`, {
 	    method: 'POST',
 	    headers: {
@@ -9,7 +9,7 @@ const getListData = () => {
 	        'Client-ID': process.env.REACT_APP_IGDB_ID,
 	        'Authorization': process.env.REACT_APP_IGDB_AUTH
 	    },
-	    body: 'fields id, name, cover.url, platforms.abbreviation, release_dates.*; where cover != null & platforms.abbreviation = "PC"; sort release_dates.date desc; limit 36;'
+	    body: `fields id, name, cover.url, platforms.abbreviation, release_dates.*; where cover != null & platforms.abbreviation = "PC"; sort release_dates.date desc; limit ${qty};`
 	}).then(res => res.json())
 
 	return request;

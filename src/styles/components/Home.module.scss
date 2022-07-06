@@ -28,10 +28,10 @@
     z-index: 1;
     width: 10%;
     position: absolute;
-    right: 0px;
+    right: 90px;
     top: 40px;
     display: none;
-    width: 10vw;
+    width: 15vw;
     button {
         margin: 0 auto;
     }
@@ -41,6 +41,10 @@
     @extend %grid-search;
     legend {
         margin: 10px auto;
+    }
+    button {
+        width: 80%;
+        margin: 10px;
     }
 }
 

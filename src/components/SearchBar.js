@@ -10,7 +10,7 @@ const SearchBar = () => {
 	};
 
 	const [formData, setFormData] = useState({
-        string:'',
+		string: '',
 		category: '',
 		PC: false,
 		PS4: false,
@@ -21,7 +21,6 @@ const SearchBar = () => {
 	const handleChange = (e) => {
 		const { name, value, checked, type } = e.target;
 		setFormData((prevData) => {
-			console.log(name, value, checked, type);
 			return {
 				...prevData,
 				[name]: type === 'checkbox' ? checked : value,
@@ -31,7 +30,7 @@ const SearchBar = () => {
 
 	const clear = () =>
 		setFormData({
-            string:'',
+			string: '',
 			category: '',
 			PC: false,
 			PS4: false,
@@ -40,27 +39,32 @@ const SearchBar = () => {
 			Switch: false,
 		});
 
-    const submit = (e) => {
-        e.preventDefault();
-        console.log({...formData})
-        clear()
-    }
+	const submit = (e) => {
+		e.preventDefault();
+		console.log(formData);
+		clear();
+	};
 
 	const applyFilters = (e) => {
 		e.preventDefault();
-        toggleSearch()
+		toggleSearch();
 	};
 
 	const clearData = (e) => {
 		e.preventDefault();
-        clear()
+		clear();
 	};
 
 	return (
 		<form onSubmit={applyFilters} className={styles['search__container']}>
-			<input type='text' name='string' onChange={handleChange} value={formData.string}/>
+			<input
+				type='text'
+				name='string'
+				onChange={handleChange}
+				value={formData.string}
+			/>
 			<i className='fa-solid fa-filter' onClick={toggleSearch}></i>
-            <button onClick={submit}>Search</button>
+			<button onClick={submit}>Search</button>
 			<div className={styles['search__flyout']}>
 				<fieldset className={styles['search__filters']}>
 					<legend>Search By:</legend>
@@ -68,8 +72,8 @@ const SearchBar = () => {
 						type='radio'
 						name='category'
 						value='name'
-				        onChange={handleChange}
-						checked={formData.category === 'name'}		
+						onChange={handleChange}
+						checked={formData.category === 'name'}
 					/>
 					<label htmlFor='name'>Name</label>
 					<input
