@@ -9,7 +9,7 @@ const getListData = () => {
 	        'Client-ID': process.env.REACT_APP_IGDB_ID,
 	        'Authorization': process.env.REACT_APP_IGDB_AUTH
 	    },
-	    body: "fields id, name, artworks.*, platforms.*; where artworks != null & platforms != null; limit 20;"
+	    body: 'fields id, name, cover.url, platforms.abbreviation, release_dates.*; where cover != null & platforms.abbreviation = "PC"; sort release_dates.date desc; limit 36;'
 	}).then(res => res.json())
 
 	return request;

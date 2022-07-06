@@ -7,7 +7,9 @@ header {
     top:0;
     height: 5vh;
     border-bottom: 3px solid black;
-	
+	background-color: white;
+    z-index: 1;
+
     div, nav {
         @extend %flex-centered;
 		height: 100%;

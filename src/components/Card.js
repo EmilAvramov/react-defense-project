@@ -5,7 +5,7 @@ const Card = (props) => {
 		<div className={styles['card']}>
 			<h3>{props.name}</h3>
 			<img
-				src={props.url}
+				src={props.cover.url}
 				alt=''
 			/>
 			<button>Details</button>

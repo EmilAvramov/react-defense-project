@@ -11,19 +11,29 @@
 
 .card {
     @extend %grid-card;
-    height: 40vh;
+    height: 45vh;
     border: 1px solid black;
     margin: 10px;
+    position: relative;
     h3 {
         grid-area: title;
-        @include m.adjust-text(22px, bold)
-    }
-    button {
-        grid-area: btn;
-        @include m.adjust-text(16px)
+        @include m.adjust-text(20px, bold);
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
     }
     img {
         grid-area: img;
-        height: 95%;
+        width: 90%;
+        margin: 0 auto;
+    }
+    button {
+        position: absolute;
+        bottom: 2%;
+        width: 80%;
+        left: 10%;
+        @include m.adjust-text(16px)
     }
 }
