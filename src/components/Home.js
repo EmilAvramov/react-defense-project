@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
 import Card from './Card';
 import SearchBar from './SearchBar';
+import Paginator from './Paginator';
 import getListData from '../services/igdbApi';
 import styles from '../styles/components/Home.module.scss';
-import ReactPaginate from 'react-paginate';
 
 const Home = () => {
 	const itemsPerPage = 30;
@@ -29,27 +29,7 @@ const Home = () => {
 		<main>
 			<SearchBar />
 			<section className={styles['home__container']}>{cardArray}</section>
-			<div className={styles['home__container']}>
-				<ReactPaginate
-					previousLabel='Previous'
-					nextLabel='Next'
-					pageClassName='page-item'
-					pageLinkClassName='page-link'
-					previousClassName='page-item'
-					previousLinkClassName='page-link'
-					nextClassName='page-item'
-					nextLinkClassName='page-link'
-					breakLabel='...'
-					breakClassName='page-item'
-					breakLinkClassName='page-link'
-					pageCount={pages}
-					marginPagesDisplayed={2}
-					pageRangeDisplayed={2}
-					onPageChange={handlePageClick}
-					containerClassName='pagination'
-					activeClassName='active'
-				/>
-			</div>
+			<Paginator pages={pages} handlePageClick={handlePageClick} />
 		</main>
 	);
 };
