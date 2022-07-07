@@ -1,5 +1,5 @@
-import styles from '../styles/components/Header.module.scss'
-import logo from '../assets/logo.png'
+import styles from '../../styles/components/Header.module.scss'
+import logo from '../../assets/logo.png'
 
 const Header = (props) => {
     const guestView = () => {

@@ -1,9 +1,13 @@
-import { useState } from 'react';
-import styles from '../styles/components/Home.module.scss';
+import { useEffect, useState } from 'react';
+import styles from '../../styles/components/Home.module.scss';
 
 const SearchBar = (props) => {
 	const [flyout, setFlyout] = useState(false);
-	const [menu, setMenu] = useState([]);
+	const [menu, setMenu] = useState(document.querySelector('form > div'));
+
+	// useEffect(() => {
+	// 	flyout ? menu.style.display = 'block ' : menu.style.display = 'none'
+	// }, [flyout, menu])
 
 	const [formData, setFormData] = useState({
 		string: '',
@@ -36,8 +40,6 @@ const SearchBar = (props) => {
 
 	const toggleSearch = () => {
 		setFlyout((flyout) => !flyout);
-		setMenu(document.querySelector('form > div'));
-		flyout ? (menu.style.display = 'block') : (menu.style.display = 'none');
 	};
 
 	const applyFilters = (e) => {

@@ -1,4 +1,4 @@
-import styles from '../styles/components/Home.module.scss';
+import styles from '../../styles/components/Home.module.scss';
 
 const Card = (props) => {
     const imgCover = (props.cover.url).replace('t_thumb', 't_cover_big')

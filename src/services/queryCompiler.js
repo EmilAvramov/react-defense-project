@@ -12,7 +12,7 @@ const compileQuery = (data) => {
 	let filter = `where cover != null & platforms.abbreviation = "PC";`;
 	let search;
 
-	if (!data.string && !data.category && !data.platform) {
+	if (data.length === 0) {
 		return query;
 	} else {
 		if (!data.category || data.category === 'name') {
