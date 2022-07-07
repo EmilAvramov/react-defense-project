@@ -1,7 +1,22 @@
+import { useState } from 'react';
 import styles from '../styles/components/Home.module.scss';
 import ReactPaginate from 'react-paginate';
 
 const Paginator = (props) => {
+    const itemsPerPage = 30;
+    const [data, setData] = useState(props.data)
+	const [pages, setPages] = useState(0);
+	const [offset, setOffset] = useState(0);
+
+    const endOffset = offset + itemsPerPage;
+    setPages(Math.ceil(data.length / itemsPerPage));
+    setData(data.slice(offset, endOffset));
+
+	const handlePageClick = (e) => {
+		const newOffset = e.selected * itemsPerPage;
+		setOffset(newOffset);
+	};
+
     return (
         <div className={styles['home__container']}>
         <ReactPaginate
@@ -16,10 +31,10 @@ const Paginator = (props) => {
             breakLabel='...'
             breakClassName='page-item'
             breakLinkClassName='page-link'
-            pageCount={props.pages}
+            pageCount={pages}
             marginPagesDisplayed={2}
             pageRangeDisplayed={2}
-            onPageChange={props.handlePageClick}
+            onPageChange={handlePageClick}
             containerClassName='pagination'
             activeClassName='active'
         />

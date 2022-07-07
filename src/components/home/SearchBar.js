@@ -3,17 +3,14 @@ import styles from '../styles/components/Home.module.scss';
 
 const SearchBar = (props) => {
 	const [flyout, setFlyout] = useState(false);
-	const toggleSearch = () => {
-		setFlyout((flyout) => !flyout);
-		const menu = document.querySelector('form > div');
-		flyout ? (menu.style.display = 'block') : (menu.style.display = 'none');
-	};
+	const [menu, setMenu] = useState([]);
 
 	const [formData, setFormData] = useState({
 		string: '',
 		category: '',
-		platform: ''
+		platform: '',
 	});
+
 	const handleChange = (e) => {
 		const { name, value, checked, type } = e.target;
 		setFormData((prevData) => {
@@ -28,13 +25,19 @@ const SearchBar = (props) => {
 		setFormData({
 			string: '',
 			category: '',
-			platform: ''
+			platform: '',
 		});
 
 	const submit = (e) => {
 		e.preventDefault();
 		props.sendData(formData);
 		clear();
+	};
+
+	const toggleSearch = () => {
+		setFlyout((flyout) => !flyout);
+		setMenu(document.querySelector('form > div'));
+		flyout ? (menu.style.display = 'block') : (menu.style.display = 'none');
 	};
 
 	const applyFilters = (e) => {
@@ -56,7 +59,11 @@ const SearchBar = (props) => {
 				value={formData.string}
 			/>
 			<i className='fa-solid fa-filter' onClick={toggleSearch}></i>
-			<button onClick={submit}>Search</button>
+			{props.loading ? (
+				<button onClick={submit}>Search</button>
+			) : (
+				<button onClick={submit} disabled>Search</button>
+			)}
 			<div className={styles['search__flyout']}>
 				<fieldset className={styles['search__filters']}>
 					<legend>Search By:</legend>
@@ -76,14 +83,6 @@ const SearchBar = (props) => {
 						checked={formData.category === 'company'}
 					/>
 					<label htmlFor='company'>Company</label>
-					{/* <input
-						type='radio'
-						name='category'
-						value='character'
-						onChange={handleChange}
-						checked={formData.category === 'character'}
-					/>
-					<label htmlFor='character'>Character</label> */}
 				</fieldset>
 				<fieldset className={styles['search__filters']}>
 					<legend>Platforms</legend>
