@@ -10,24 +10,29 @@ const Home = () => {
 	const [data, setData] = useState([]);
 	const [pages, setPages] = useState(0);
 	const [offset, setOffset] = useState(0);
+	const [search, setSearch] = useState([])
 
 	useEffect(() => {
-		const endOffset = offset + itemsPerPage;
-		getListData().then((res) => {
+		const endOffset = offset + itemsPerPage;	
+		getListData(search).then((res) => {
 			setPages(Math.ceil(res.length / itemsPerPage));
 			setData(res.slice(offset, endOffset));
 		});
-	}, [offset]);
+	}, [offset, search]);
 
 	const handlePageClick = (e) => {
 		const newOffset = e.selected * itemsPerPage;
 		setOffset(newOffset);
 	};
 
+	const receiveData = (data) => {
+		setSearch(data)
+	}
+
 	const cardArray = data.map((x) => <Card key={x.id} {...x} />);
 	return (
 		<main>
-			<SearchBar />
+			<SearchBar sendData={receiveData}/>
 			<section className={styles['home__container']}>{cardArray}</section>
 			<Paginator pages={pages} handlePageClick={handlePageClick} />
 		</main>

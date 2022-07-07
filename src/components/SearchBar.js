@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import styles from '../styles/components/Home.module.scss';
 
-const SearchBar = () => {
+const SearchBar = (props) => {
 	const [flyout, setFlyout] = useState(false);
 	const toggleSearch = () => {
 		setFlyout((flyout) => !flyout);
@@ -12,11 +12,7 @@ const SearchBar = () => {
 	const [formData, setFormData] = useState({
 		string: '',
 		category: '',
-		PC: false,
-		PS4: false,
-		PS5: false,
-		XBOX: false,
-		Switch: false,
+		platform: ''
 	});
 	const handleChange = (e) => {
 		const { name, value, checked, type } = e.target;
@@ -32,16 +28,12 @@ const SearchBar = () => {
 		setFormData({
 			string: '',
 			category: '',
-			PC: false,
-			PS4: false,
-			PS5: false,
-			XBOX: false,
-			Switch: false,
+			platform: ''
 		});
 
 	const submit = (e) => {
 		e.preventDefault();
-		console.log(formData);
+		props.sendData(formData);
 		clear();
 	};
 
@@ -75,7 +67,7 @@ const SearchBar = () => {
 						onChange={handleChange}
 						checked={formData.category === 'name'}
 					/>
-					<label htmlFor='name'>Name</label>
+					<label htmlFor='name'>Game Name</label>
 					<input
 						type='radio'
 						name='category'
@@ -84,49 +76,54 @@ const SearchBar = () => {
 						checked={formData.category === 'company'}
 					/>
 					<label htmlFor='company'>Company</label>
-					<input
+					{/* <input
 						type='radio'
 						name='category'
-						value='description'
+						value='character'
 						onChange={handleChange}
-						checked={formData.category === 'description'}
+						checked={formData.category === 'character'}
 					/>
-					<label htmlFor='description'>Description</label>
+					<label htmlFor='character'>Character</label> */}
 				</fieldset>
 				<fieldset className={styles['search__filters']}>
 					<legend>Platforms</legend>
 					<input
-						type='checkbox'
-						name='PC'
-						checked={formData.PC}
+						type='radio'
+						name='platform'
+						value='PC'
+						checked={formData.platform === 'PC'}
 						onChange={handleChange}
 					/>
 					<label htmlFor='PC'>PC</label>
 					<input
-						type='checkbox'
-						name='PS4'
-						checked={formData.PS4}
+						type='radio'
+						name='platform'
+						value='PS4'
+						checked={formData.platform === 'PS4'}
 						onChange={handleChange}
 					/>
 					<label htmlFor='PS4'>PS4</label>
 					<input
-						type='checkbox'
-						name='PS5'
-						checked={formData.PS5}
+						type='radio'
+						name='platform'
+						value='PS5'
+						checked={formData.platform === 'PS5'}
 						onChange={handleChange}
 					/>
 					<label htmlFor='PS5'>PS5</label>
 					<input
-						type='checkbox'
-						name='XBOX'
-						checked={formData.XBOX}
+						type='radio'
+						name='platform'
+						value='XBOX'
+						checked={formData.platform === 'XBOX'}
 						onChange={handleChange}
 					/>
 					<label htmlFor='XBOX'>XBOX</label>
 					<input
-						type='checkbox'
-						name='Switch'
-						checked={formData.Switch}
+						type='radio'
+						name='platform'
+						value='Switch'
+						checked={formData.platform === 'Switch'}
 						onChange={handleChange}
 					/>
 					<label htmlFor='Switch'>Switch</label>
