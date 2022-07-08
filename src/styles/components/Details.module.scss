@@ -7,11 +7,21 @@
     @extend %flex-centered;
     flex-wrap: wrap;
 
+    position: relative;
     width: 25vw;
     height: 65vh;
     margin: 0 auto;
     border: 1px solid black;
 
+    .details__close {
+        background-color: lightcoral;
+        color: black;
+        width: 10%;
+        position: absolute;
+        top: 0;
+        right: 0
+    }
+    
     .details__name {
         flex: v.$flex-full;
 

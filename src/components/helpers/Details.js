@@ -1,8 +1,9 @@
 import styles from '../../styles/components/Details.module.scss';
 
-const Details = (props) => {
+const Details = ({details, single, hasToken}) => {
 	return (
 		<div className={styles['details__container']}>
+            <button onClick={() => details()} className={styles['details__close']}>X</button>
 			<p className={styles['details__name']}>Name</p>
 			<div className={styles['details__body']}>
 				<img
@@ -28,7 +29,7 @@ const Details = (props) => {
 			<p className={styles['details__summary']}>Summary</p>
 			<div className={styles['details__buttons']}>
 				<button>Add to Library</button>
-				{!props.hasToken && <button>Remove from Library</button>}
+				{!hasToken && <button>Remove from Library</button>}
 				<button>Visit Website</button>
 				<button>Community</button>
 			</div>
