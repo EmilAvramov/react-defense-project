@@ -1,13 +1,8 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import styles from '../../styles/components/Home.module.scss';
 
 const SearchBar = (props) => {
 	const [flyout, setFlyout] = useState(false);
-	const [menu, setMenu] = useState(document.querySelector('form > div'));
-
-	// useEffect(() => {
-	// 	flyout ? menu.style.display = 'block ' : menu.style.display = 'none'
-	// }, [flyout, menu])
 
 	const [formData, setFormData] = useState({
 		string: '',
@@ -40,6 +35,7 @@ const SearchBar = (props) => {
 
 	const toggleSearch = () => {
 		setFlyout((flyout) => !flyout);
+		console.log(flyout)
 	};
 
 	const applyFilters = (e) => {
@@ -61,12 +57,14 @@ const SearchBar = (props) => {
 				value={formData.string}
 			/>
 			<i className='fa-solid fa-filter' onClick={toggleSearch}></i>
-			{props.loading ? (
+			{!props.loading ? (
 				<button onClick={submit}>Search</button>
 			) : (
-				<button onClick={submit} disabled>Search</button>
+				<button onClick={submit} disabled>
+					Search
+				</button>
 			)}
-			<div className={styles['search__flyout']}>
+			{flyout && <div className={styles['search__flyout']}>
 				<fieldset className={styles['search__filters']}>
 					<legend>Search By:</legend>
 					<input
@@ -133,7 +131,7 @@ const SearchBar = (props) => {
 					<button>Confirm</button>
 					<button onClick={clearData}>Clear</button>
 				</div>
-			</div>
+			</div>}
 		</form>
 	);
 };

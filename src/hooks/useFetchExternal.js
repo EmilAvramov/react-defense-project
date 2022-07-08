@@ -1,41 +1,25 @@
 import { useEffect, useState } from 'react';
 import compileQuery from '../services/queryCompiler';
-
-const corsProxy = 'https://heroku-proxy-react.herokuapp.com/';
-const baseUrl = 'https://api.igdb.com/v4/';
-const endPoint = 'games';
+import getAll from '../services/igdb';
 
 const useFetchExternal = (filter) => {
 	const [data, setData] = useState([]);
 	const [error, setError] = useState(null);
 	const [loading, setLoading] = useState(false);
 	const query = compileQuery(filter);
-	console.log(query)
 
 	useEffect(() => {
-		setLoading(true);
-		async function getData() {
-			try {
-				const request = await fetch(`${corsProxy}${baseUrl}${endPoint}`, {
-					method: 'POST',
-					headers: {
-						Accept: 'application/json',
-						'Client-ID': process.env.REACT_APP_IGDB_ID,
-						Authorization: process.env.REACT_APP_IGDB_AUTH,
-					},
-					body: query,
-				});
-				const response = await request.json()
-				setData(response)
-				setLoading(false);
-			} catch (err) {
-				setError(err)
-				setLoading(false);
-			}
-		}
-		getData();
+		setLoading((state) => !state);
+		getAll(query)
+			.then((res) => {
+				setData(res);
+				setLoading((state) => !state);
+			})
+			.catch((err) => {
+				setError(err);
+				setLoading((state) => !state);
+			});
 	}, [query]);
-
 	return { data, loading, error };
 };
 
