@@ -6,10 +6,11 @@ import Paginator from '../helpers/Paginator';
 import useFetchExternal from '../../hooks/useFetchExternal';
 
 const Home = () => {
+	// Handle incoming search requests
 	const [search, setSearch] = useState([]);
 	const { data, loading, error } = useFetchExternal(search);
-	console.log(error);
 
+	// Handle passing pages and paginated data to children
 	const itemsPerPage = 30;
 	const [pages, setPages] = useState(0);
 	const [current, setCurrent] = useState(data || [])
@@ -21,8 +22,8 @@ const Home = () => {
 		setCurrent(data.slice(offset, endOffset));
 	}, [data, offset])
 	
-
 	const query = (data) => {
+		setOffset(0)
 		setSearch(data);
 	};
 
@@ -34,14 +35,18 @@ const Home = () => {
 	return (
 		<main>
 			<SearchBar sendData={query} loading={loading} />
-			{loading ? (
-				<Loader loading={loading} />
-			) : (
-				<>
-					<CardList data={current} />
-					<Paginator pages={pages} offset={handleOffset}/>
-				</>
-			)}
+			{error 
+			? <p>{error}</p>
+			: loading 
+				? (
+					<Loader loading={loading} />
+				) : (
+					<>
+						<CardList data={current} />
+						<Paginator pages={pages} offset={handleOffset}/>
+					</>
+				)
+			}
 		</main>
 	);
 };
