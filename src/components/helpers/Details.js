@@ -4,14 +4,14 @@ const Details = ({details, single, hasToken}) => {
 	return (
 		<div className={styles['details__container']}>
             <button onClick={() => details()} className={styles['details__close']}>X</button>
-			<p className={styles['details__name']}>Name</p>
+			<p className={styles['details__name']}>{single.name}</p>
 			<div className={styles['details__body']}>
-				<img
-					className={styles['details__img']}
-					src='//images.igdb.com/igdb/image/upload/t_cover_big/co31ic.jpg'
-					alt=''
-					placeholder=''
-				/>
+				<div className={styles['details__img']}>				
+					<img
+						src={single.cover.url}
+						alt=''
+					/>
+				</div>
 				<div className={styles['details__info']}>
 					<div className={styles['details__subinfo']}>
 						<div>
