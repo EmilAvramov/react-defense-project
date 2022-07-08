@@ -2,7 +2,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px;
+    gap: 10px;
 }
 
 %flex-centered {
@@ -11,4 +11,5 @@
     align-items: center;
     column-gap: 40px;
     padding: 20px;
+    gap: 10px;
 }

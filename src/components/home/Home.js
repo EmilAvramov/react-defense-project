@@ -1,8 +1,11 @@
 import { useEffect, useState } from 'react';
+
 import SearchBar from './SearchBar';
 import CardList from './CardList';
 import Loader from '../helpers/GridLoader';
 import Paginator from '../helpers/Paginator';
+import Details from '../helpers/Details';
+
 import useFetchExternal from '../../hooks/useFetchExternal';
 
 const Home = () => {
@@ -35,6 +38,7 @@ const Home = () => {
 	return (
 		<main>
 			<SearchBar sendData={query} loading={loading} />
+			<Details />
 			{error 
 			? <p>{error}</p>
 			: loading 
