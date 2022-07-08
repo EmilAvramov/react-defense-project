@@ -9,9 +9,10 @@
 
 	position: relative;
 	width: 35vw;
-	height: 65vh;
+	height: auto;
 	margin: 0 auto;
 	border: 1px solid black;
+	
 
 	.details__close {
 		background-color: lightcoral;
@@ -39,34 +40,63 @@
 		.details__img {
 			flex: v.$flex-half;
 			height: 100%;
+            img {
+                width:100%; 
+                height:100%;
+                object-fit: contain;
+            }
 		}
 
 		.details__info {
 			flex: v.$flex-half;
 
 			@extend %flex-spaced;
+			@include m.adjust-text(18px, 400, justify);
+
 			flex-wrap: wrap;
 			width: 50%;
-			height: 100%;
+
+			height: 40vh;
 
 			.details__subinfo {
 				flex: v.$flex-full;
 
 				@extend %flex-spaced;
 				width: 100%;
-				height: 20%;
+				height: 10%;
+				.star {
+					-webkit-clip-path: polygon(50% 0%, 65% 30%, 98% 35%, 70% 55%, 79% 91%, 50% 70%, 21% 91%, 30% 55%, 2% 35%, 35% 30%);
+					clip-path: polygon(50% 0%, 65% 30%, 98% 35%, 70% 55%, 79% 91%, 50% 70%, 21% 91%, 30% 55%, 2% 35%, 35% 30%);	
+					text-align: center;
+					background: red;
+					color: white;
+					width: 55px;
+					height: 45px;
+					line-height: 42px;
+					@include m.adjust-text(16px, bold, center);
+				  }
+				  
+				.star::before {
+					display: inline-block;
+					background: red;
+					vertical-align: middle;
+					content: '';
+				}
 			}
 
 			p {
 				flex: v.$flex-full;
-				height: 10%;
+				height: 5%;
+
 			}
 		}
 	}
 
 	.details__summary {
 		flex: v.$flex-full;
-		height: 20%;
+		margin: 10px;
+		@include m.adjust-text(19px, 400, justify);
+		@include m.clamp-text(1.2, 6);
 	}
 
 	.details__buttons {

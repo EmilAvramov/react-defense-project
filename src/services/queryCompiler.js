@@ -5,12 +5,13 @@ const compileQuery = (data) => {
 	const setCompanyFilter = (val) =>
 		`where cover != null & involved_companies.company.name ~ *"${val}"*;`;
 
-	let query =
-		'fields id, name, cover.url; where cover != null & platforms.abbreviation = "PC"; limit 500;';
-	let fields = 'fields id, name, cover.url;';
+	let fields =
+		'fields id, name, cover.url, genres.name, platforms.abbreviation, involved_companies.company.name, total_rating_count, total_rating, release_dates.human, summary, url;';
 	let limit = 'limit 500;';
 	let filter = `where cover != null & platforms.abbreviation = "PC";`;
 	let search;
+
+	let query = `${fields} where cover != null & platforms.abbreviation = "PC"; limit 500;`;
 
 	if (data.length === 0) {
 		return query;

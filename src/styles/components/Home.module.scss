@@ -64,14 +64,7 @@
     h3 {
         grid-area: title;
         @include m.adjust-text(20px, bold);
-        line-height: 1.3rem;
-        height: 2.6rem;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        display: -webkit-box;
-        -webkit-line-clamp: 2;
-        -webkit-box-orient: vertical;
-
+        @include m.clamp-text(1.3, 2);
     }
     img {
         grid-area: img;
