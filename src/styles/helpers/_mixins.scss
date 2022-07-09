@@ -31,3 +31,11 @@
 	white-space: nowrap;
 	text-overflow: ellipsis;
 }
+
+@mixin format-link($color:black) {
+	text-decoration: none;
+	color: $color;
+	&:visited {
+		color: $color;
+	}
+}
