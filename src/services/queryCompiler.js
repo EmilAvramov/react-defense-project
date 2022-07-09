@@ -55,18 +55,13 @@ const compileQuery = (data) => {
 		return query;
 	} else {
 		if (!data.category || data.category === 'name') {
+			if (checkPlatforms()) {
+				filter = `${compilePlatforms()};`
+			}
 			if (data.string) {
 				search = setSearch(data.string);
-				if (checkPlatforms()) {
-					filter = `${compilePlatforms()};`
-				} else {
-					filter = `where ${platformFilter.join(" | ")};`;
-				}
 				query = `${search} ${fields} ${filter} ${limit}`;
 			} else {
-				if (checkPlatforms()) {
-					filter = `${compilePlatforms()};`
-				}
 				query = `${fields} ${filter} ${limit}`;
 			}
 		} else {
