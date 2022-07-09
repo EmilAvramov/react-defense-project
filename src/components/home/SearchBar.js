@@ -35,7 +35,6 @@ const SearchBar = (props) => {
 
 	const toggleSearch = () => {
 		setFlyout((flyout) => !flyout);
-		console.log(flyout)
 	};
 
 	const applyFilters = (e) => {

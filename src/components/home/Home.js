@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 import SearchBar from './SearchBar';
 import CardList from './CardList';
@@ -12,27 +12,16 @@ const Home = () => {
 	const [search, setSearch] = useState([]);
 	const { data, loading, error } = useFetchExternal(search);
 
-	// Handle passing pages and paginated data to children
-	const itemsPerPage = 30;
-	const [pages, setPages] = useState(0);
+	// Handle passing incoming paginated data
 	const [current, setCurrent] = useState(data || []);
-	const [offset, setOffset] = useState(0);
-
-	useEffect(() => {
-		const endOffset = offset + itemsPerPage;
-		setPages(Math.ceil(data.length / itemsPerPage));
-		setCurrent(data.slice(offset, endOffset));
-	}, [data, offset]);
 
 	const query = (data) => {
-		setOffset(0);
 		setSearch(data);
 	};
 
-	const handleOffset = (e) => {
-		const newOffset = e.selected * itemsPerPage;
-		setOffset(newOffset);
-	};
+	const sendData = (incoming) => {
+		setCurrent(incoming)
+	}
 
 	return (
 		<main>
@@ -44,7 +33,7 @@ const Home = () => {
 			) : (
 				<>
 					<CardList data={current}/>
-					<Paginator pages={pages} offset={handleOffset} />
+					<Paginator rawData={data} sendData={sendData} />
 				</>
 			)}
 		</main>
