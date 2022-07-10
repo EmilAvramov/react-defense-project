@@ -21,11 +21,7 @@ const Details = ({ details, single, hasToken }) => {
 	const urls = [];
 
 	if (single.cover) {
-		if (single.cover.url) {
-			imgCover = single.cover.url.replace('t_thumb', 't_cover_big');
-		} else {
-			imgCover = placeholder;
-		}
+		imgCover = single.cover.url.replace('t_thumb', 't_cover_big');
 	} else {
 		imgCover = placeholder;
 	}

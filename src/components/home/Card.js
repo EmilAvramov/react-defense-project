@@ -4,11 +4,7 @@ import placeholder from '../../assets/no-image.png';
 const Card = (props) => {
 	let imgCover;
 	if (props.cover) {
-		if (props.cover.url) {
-			imgCover = props.cover.url.replace('t_thumb', 't_cover_big');
-		} else {
-			imgCover = placeholder;
-		}
+		imgCover = props.cover.url.replace('t_thumb', 't_cover_big');
 	} else {
 		imgCover = placeholder;
 	}

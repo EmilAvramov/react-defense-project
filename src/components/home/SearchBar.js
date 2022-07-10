@@ -11,7 +11,7 @@ const SearchBar = (props) => {
 		PS4: false,
 		PS5: false,
 		XBOX: false,
-		Switch: false
+		Switch: false,
 	});
 
 	const handleChange = (e) => {
@@ -32,7 +32,7 @@ const SearchBar = (props) => {
 			PS4: false,
 			PS5: false,
 			XBOX: false,
-			Switch: false
+			Switch: false,
 		});
 
 	const submit = (e) => {
@@ -64,76 +64,76 @@ const SearchBar = (props) => {
 				value={formData.string}
 			/>
 			<i className='fa-solid fa-filter' onClick={toggleSearch}></i>
-			{!props.loading ? (
-				<button onClick={submit}>Search</button>
-			) : (
-				<button onClick={submit} disabled>
-					Search
-				</button>
-			)}
-			{flyout && <div className={styles['search__flyout']}>
-				<fieldset className={styles['search__filters']}>
-					<legend>Search By:</legend>
-					<input
-						type='radio'
-						name='category'
-						value='name'
-						onChange={handleChange}
-						checked={formData.category === 'name'}
-					/>
-					<label htmlFor='name'>Game Name</label>
-					<input
-						type='radio'
-						name='category'
-						value='company'
-						onChange={handleChange}
-						checked={formData.category === 'company'}
-					/>
-					<label htmlFor='company'>Company</label>
-				</fieldset>
-				<fieldset className={styles['search__filters']}>
-					<legend>Platforms</legend>
-					<input
-						type='checkbox'
-						name='PC'
-						checked={formData.PC}
-						onChange={handleChange}
-					/>
-					<label htmlFor='PC'>PC</label>
-					<input
-						type='checkbox'
-						name='PS4'
-						checked={formData.PS4}
-						onChange={handleChange}
-					/>
-					<label htmlFor='PS4'>PS4</label>
-					<input
-						type='checkbox'
-						name='PS5'
-						checked={formData.PS5}
-						onChange={handleChange}
-					/>
-					<label htmlFor='PS5'>PS5</label>
-					<input
-						type='checkbox'
-						name='XBOX'
-						checked={formData.XBOX}
-						onChange={handleChange}
-					/>
-					<label htmlFor='XBOX'>XBOX</label>
-					<input
-						type='checkbox'
-						name='Switch'
-						checked={formData.Switch}
-						onChange={handleChange}
-					/>
-					<label htmlFor='Switch'>Switch</label>
-				</fieldset>
-				<div className={styles['search__filters']}>
-					<button>Confirm</button>
-					<button onClick={clearData}>Clear</button>
+
+			<button onClick={submit} disabled={props.loading}>
+				Search
+			</button>
+
+			{flyout && (
+				<div className={styles['search__flyout']}>
+					<fieldset className={styles['search__filters']}>
+						<legend>Search By:</legend>
+						<input
+							type='radio'
+							name='category'
+							value='name'
+							onChange={handleChange}
+							checked={formData.category === 'name'}
+						/>
+						<label htmlFor='name'>Game Name</label>
+						<input
+							type='radio'
+							name='category'
+							value='company'
+							onChange={handleChange}
+							checked={formData.category === 'company'}
+						/>
+						<label htmlFor='company'>Company</label>
+					</fieldset>
+					<fieldset className={styles['search__filters']}>
+						<legend>Platforms</legend>
+						<input
+							type='checkbox'
+							name='PC'
+							checked={formData.PC}
+							onChange={handleChange}
+						/>
+						<label htmlFor='PC'>PC</label>
+						<input
+							type='checkbox'
+							name='PS4'
+							checked={formData.PS4}
+							onChange={handleChange}
+						/>
+						<label htmlFor='PS4'>PS4</label>
+						<input
+							type='checkbox'
+							name='PS5'
+							checked={formData.PS5}
+							onChange={handleChange}
+						/>
+						<label htmlFor='PS5'>PS5</label>
+						<input
+							type='checkbox'
+							name='XBOX'
+							checked={formData.XBOX}
+							onChange={handleChange}
+						/>
+						<label htmlFor='XBOX'>XBOX</label>
+						<input
+							type='checkbox'
+							name='Switch'
+							checked={formData.Switch}
+							onChange={handleChange}
+						/>
+						<label htmlFor='Switch'>Switch</label>
+					</fieldset>
+					<div className={styles['search__filters']}>
+						<button>Confirm</button>
+						<button onClick={clearData}>Clear</button>
+					</div>
 				</div>
-			</div>}
+			)}
 		</form>
 	);
 };
