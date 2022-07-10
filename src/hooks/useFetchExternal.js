@@ -1,6 +1,9 @@
 import { useEffect, useState } from 'react';
 import compileQuery from '../services/queryCompiler';
-import getAll from '../services/igdb';
+
+const corsProxy = 'https://heroku-proxy-react.herokuapp.com/';
+const baseUrl = 'https://api.igdb.com/v4/';
+const endPoint = 'games';
 
 const useFetchExternal = (filter) => {
 	const [data, setData] = useState([]);
@@ -10,9 +13,18 @@ const useFetchExternal = (filter) => {
 
 	useEffect(() => {
 		setLoading((state) => !state);
-		getAll(query)
-			.then((res) => {
-				setData(res);
+		fetch(`${corsProxy}${baseUrl}${endPoint}`, {
+			method: 'POST',
+			headers: {
+				Accept: 'application/json',
+				'Client-ID': `${process.env.REACT_APP_IGDB_ID}`,
+				Authorization: `${process.env.REACT_APP_IGDB_AUTH}`,
+			},
+			body: query,
+		})
+			.then((res) => res.json())
+			.then((resData) => {
+				setData(resData);
 				setLoading((state) => !state);
 			})
 			.catch((err) => {
@@ -20,6 +32,7 @@ const useFetchExternal = (filter) => {
 				setLoading((state) => !state);
 			});
 	}, [query]);
+
 	return { data, loading, error };
 };
 
