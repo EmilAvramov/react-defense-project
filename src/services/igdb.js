@@ -1,4 +1,4 @@
-const corsProxy = 'https://heroku-proxy-react.herokuapp.com/';
+const corsProxy = 'https://cors-anywhere.7ih.repl.co/';
 const baseUrl = 'https://api.igdb.com/v4/';
 const endPoint = 'games';
 
