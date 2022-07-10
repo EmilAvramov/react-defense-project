@@ -17,8 +17,8 @@ const useFetchExternal = (filter) => {
 			method: 'POST',
 			headers: {
 				Accept: 'application/json',
-				'Client-ID': `${process.env.REACT_APP_IGDB_ID}`,
-				Authorization: `${process.env.REACT_APP_IGDB_AUTH}`,
+				'Client-ID': `${process.env.REACT_APP_CLIENT}`,
+				Authorization: `${process.env.REACT_APP_AUTH}`,
 			},
 			body: query,
 		})
