@@ -1,14 +1,8 @@
-import Header from './components/header/Header';
-import Home from './components/home/Home';
-import Footer from './components/footer/Footer';
+import Router from "./components/Router";
 
 const App = () => {
 	return (
-			<div>
-				<Header hasToken={false} />
-				<Home />
-				<Footer />
-			</div>
+		<Router/>
 	);
 };
 

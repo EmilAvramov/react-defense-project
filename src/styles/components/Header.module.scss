@@ -1,38 +1,43 @@
 @use '../layout/flex';
 
 header {
-    @extend %flex-spaced;
-	
-    position:sticky;
-    top:0;
-    height: 5vh;
-    border-bottom: 3px solid black;
-	background-color: white;
-    z-index: 1;
+	@extend %flex-spaced;
 
-    div, nav {
-        @extend %flex-centered;
+	position: sticky;
+	top: 0;
+	height: 5vh;
+	border-bottom: 3px solid black;
+	background-color: white;
+	z-index: 1;
+
+	div,
+	nav {
+		@extend %flex-centered;
 		height: 100%;
 	}
-    div {
-        font-size: 30px;
-        img {
+	div {
+		font-size: 30px;
+		img {
 			height: 100%;
 		}
-    }
+	}
 }
 
 .nav__ul {
 	@extend %flex-centered;
-    
-    height: 100%;
 
-	li > a {
-			text-decoration: none;
-            color: black;
-            font-size: 20px;
-            i {
-                padding: 5px;
-            }
+	height: 100%;
+
+	li > .header__navLink {
+		text-decoration: none;
+		color: black;
+		font-size: 20px;
+
+		i {
+			padding: 5px;
+		}
+	}
+	li > .active {
+		color: red;
 	}
 }
