@@ -1,21 +1,17 @@
 import styles from '../../styles/components/Home.module.scss';
-import placeholder from '../../assets/no-image.png';
+import useCleanData from '../../hooks/useCleanData';
 
 const Card = (props) => {
-	let imgCover;
-	if (props.cover) {
-		imgCover = props.cover.url.replace('t_thumb', 't_cover_big');
-	} else {
-		imgCover = placeholder;
-	}
+	const {id, name, cover} = useCleanData(props)
+
 	return (
 		<div className={styles['card']}>
-			<h3>{props.name}</h3>
-			<img src={imgCover} alt='' />
+			<h3>{name}</h3>
+			<img src={cover} alt='' />
 			<button
 				onClick={() => {
 					props.details();
-					props.send(props.id)
+					props.send(id)
 				}}
 			>
 				Details
