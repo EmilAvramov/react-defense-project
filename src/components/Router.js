@@ -1,6 +1,9 @@
 import Header from './header/Header';
-import Home from './home/Home';
 import Footer from './footer/Footer';
+
+import Home from './home/Home';
+import Search from './search/Search';
+import Details from './helpers/Details';
 import Profile from './profile/Profile'
 import Login from './login/Login'
 import About from './about/About'
@@ -20,6 +23,8 @@ const Router = () => {
                 <Route path='/register' element={<Register />}></Route>
                 <Route path='/login' element={<Login />}></Route>
                 <Route path='/about' element={<About />}></Route>
+				<Route path='/search' element={<Search />}></Route>
+				<Route path='/search/:id' element={<Details/>}></Route>
 			</Routes>
 			<Footer />
 		</BrowserRouter>
