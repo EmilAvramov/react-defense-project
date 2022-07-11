@@ -13,6 +13,7 @@ import Community from './community/Community'
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 const Router = () => {
+
 	return (
 		<BrowserRouter>
 			<Header hasToken={false} />

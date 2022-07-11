@@ -4,10 +4,12 @@ import SearchBar from './SearchBar';
 import CardList from './CardList';
 import Loader from '../helpers/GridLoader';
 import Paginator from '../helpers/Paginator';
+import Err from '../helpers/Error';
+
 
 import useFetchExternal from '../../hooks/useFetchExternal';
 
-const Home = () => {
+const Search = () => {
 	// Handle incoming search requests
 	const [search, setSearch] = useState([]);
 	const { data, loading, error } = useFetchExternal(search);
@@ -20,19 +22,19 @@ const Home = () => {
 	};
 
 	const sendData = (incoming) => {
-		setCurrent(incoming)
-	}
+		setCurrent(incoming);
+	};
 
 	return (
 		<main>
 			<SearchBar sendData={query} loading={loading} />
 			{error ? (
-				<p>{error}</p>
+				<Err error={error}/>
 			) : loading ? (
 				<Loader loading={loading} />
 			) : (
 				<>
-					<CardList data={current}/>
+					<CardList data={current} />
 					<Paginator rawData={data} sendData={sendData} />
 				</>
 			)}
@@ -40,4 +42,4 @@ const Home = () => {
 	);
 };
 
-export default Home;
+export default Search;
