@@ -1,21 +1,15 @@
 import { useState } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 
-import useCleanData from '../../hooks/useCleanData';
 import styles from '../../styles/components/Details.module.scss';
 
-const Details = ({ details, single, hasToken }) => {
+const Details = () => {
+	// Hook data and location from Link
+	const data = useLocation();
+	const navigate = useNavigate();
+
+	// Manage link dropdown toggle
 	const [links, toggleLinks] = useState(false);
-	const {
-		name,
-		cover,
-		summary,
-		platforms,
-		companies,
-		rating,
-		genres,
-		releaseDate,
-		urls,
-	} = useCleanData(single);
 
 	const handleLinks = () => {
 		toggleLinks((state) => !state);
@@ -23,38 +17,31 @@ const Details = ({ details, single, hasToken }) => {
 
 	return (
 		<div className={styles['details__container']}>
-			<button
-				onClick={() => details()}
-				className={styles['details__close']}
-			>
-				X
-			</button>
-			<p className={styles['details__name']}>{name}</p>
+			<button onClick={() => navigate(-1)} className={styles['details__close']}>X</button>
+			<p className={styles['details__name']}>{data.state.name}</p>
 			<div className={styles['details__body']}>
 				<div className={styles['details__img']}>
-					<img src={cover} alt='' />
+					<img src={data.state.cover} alt='' />
 				</div>
 				<div className={styles['details__info']}>
 					<div className={styles['details__subinfo']}>
 						<div>
-							<p>{platforms} </p>
+							<p>{data.state.platforms} </p>
 						</div>
 						<div>
-							<p className={styles['star']}>
-								{rating}
-							</p>
+							<p className={styles['star']}>{data.state.rating}</p>
 						</div>
 					</div>
-					<p>Genres: {genres}</p>
-					<p>Companies: {companies}</p>
-					<p>Release Date: {releaseDate}</p>
+					<p>Genres: {data.state.genres}</p>
+					<p>Companies: {data.state.companies}</p>
+					<p>Release Date: {data.state.releaseDate}</p>
 				</div>
 			</div>
-			<p className={styles['details__summary']}>{summary}</p>
+			<p className={styles['details__summary']}>{data.state.summary}</p>
 			<div className={styles['details__buttons']}>
 				<button>Add to Library</button>
-				{!hasToken && <button>Remove from Library</button>}
-				{urls && (
+				<button>Remove from Library</button>
+				{data.state.urls && (
 					<button
 						className={styles['details__linksHolder']}
 						onClick={handleLinks}
@@ -62,7 +49,7 @@ const Details = ({ details, single, hasToken }) => {
 						Links
 						{links && (
 							<ul className={styles['details__links']}>
-								{urls.map((el) => (
+								{data.state.urls.map((el) => (
 									<li key={el[0]}>
 										<a
 											href={el[1]}

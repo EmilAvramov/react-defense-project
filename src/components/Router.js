@@ -25,7 +25,7 @@ const Router = () => {
                 <Route path='/login' element={<Login />}></Route>
                 <Route path='/about' element={<About />}></Route>
 				<Route path='/search' element={<Search />}></Route>
-				<Route path='/search/:id' element={<Details/>}></Route>
+				<Route exact path='/search/:id' element={<Details/>}></Route>
 			</Routes>
 			<Footer />
 		</BrowserRouter>

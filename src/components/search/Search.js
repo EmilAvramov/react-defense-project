@@ -6,7 +6,6 @@ import Loader from '../helpers/GridLoader';
 import Paginator from '../helpers/Paginator';
 import Err from '../helpers/Error';
 
-
 import useFetchExternal from '../../hooks/useFetchExternal';
 
 const Search = () => {
@@ -14,12 +13,12 @@ const Search = () => {
 	const [search, setSearch] = useState([]);
 	const { data, loading, error } = useFetchExternal(search);
 
-	// Handle passing incoming paginated data
-	const [current, setCurrent] = useState(data || []);
-
 	const query = (data) => {
 		setSearch(data);
 	};
+
+	// Handle passing incoming paginated data
+	const [current, setCurrent] = useState(data || []);
 
 	const sendData = (incoming) => {
 		setCurrent(incoming);
@@ -29,12 +28,12 @@ const Search = () => {
 		<main>
 			<SearchBar sendData={query} loading={loading} />
 			{error ? (
-				<Err error={error}/>
+				<Err error={error} />
 			) : loading ? (
 				<Loader loading={loading} />
 			) : (
 				<>
-					<CardList data={current} />
+					<CardList data={current}/>
 					<Paginator rawData={data} sendData={sendData} />
 				</>
 			)}
