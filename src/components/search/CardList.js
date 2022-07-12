@@ -1,5 +1,5 @@
 import Card from './Card';
-import styles from '../../styles/components/Home.module.scss';
+import styles from '../../styles/components/Search.module.scss';
 
 const CardList = ({ data }) => {
 	const cardArray = data.map((x) => <Card key={x.id} {...x} />);

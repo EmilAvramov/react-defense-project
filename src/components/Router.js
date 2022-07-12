@@ -8,6 +8,7 @@ import Profile from './profile/Profile'
 import Login from './login/Login'
 import About from './about/About'
 import Register from './register/Register'
+import Reset from './reset/Reset';
 import Community from './community/Community'
 
 import { Routes, Route, useLocation } from 'react-router-dom';
@@ -27,7 +28,7 @@ const Router = () => {
                 <Route path='/login' element={<Login />}></Route>
                 <Route path='/about' element={<About />}></Route>
 				<Route path='/search' element={<Search />}></Route>
-				
+				<Route path='/reset' element={<Reset />}></Route>
 			</Routes>
 			{background && (
 				<Routes>

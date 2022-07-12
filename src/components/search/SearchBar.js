@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import styles from '../../styles/components/Home.module.scss';
+import styles from '../../styles/components/Search.module.scss';
 
 const SearchBar = (props) => {
 	const [flyout, setFlyout] = useState(false);

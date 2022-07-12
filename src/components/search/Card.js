@@ -1,4 +1,4 @@
-import styles from '../../styles/components/Home.module.scss';
+import styles from '../../styles/components/Search.module.scss';
 import useCleanData from '../../hooks/useCleanData';
 import { Link, useLocation } from 'react-router-dom';
 
