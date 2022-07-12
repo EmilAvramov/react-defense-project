@@ -1,6 +1,7 @@
 const Err = ({error}) => {
+    const err = error
     return (
-        <p>{error}</p>
+        <p>{err}</p>
     )
 }
 

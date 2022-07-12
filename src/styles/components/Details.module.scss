@@ -3,131 +3,164 @@
 @use '../helpers/mixins' as m;
 @use '../helpers//variables' as v;
 
-.details__container {
-	@extend %flex-centered;
-	flex-wrap: wrap;
+.details__wrapper {
+	@extend %flex-modal;
+    width: 100%;
+	height: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+	background-color: rgba(91, 112, 131, 0.4);
 
-	position: relative;
-	width: 35vw;
-	height: auto;
-	margin: 0 auto;
-	border: 1px solid black;
-	
+	.details__container {
+		@extend %flex-centered;
+		flex-wrap: wrap;
 
-	.details__close {
-		background-color: lightcoral;
-		color: black;
-		width: 10%;
 		position: absolute;
-		top: 0;
-		right: 0;
-	}
+		width: 35vw;
+		height: auto;
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%, -45%);
+		border: 1px solid black;
+		background-color: white;
 
-	.details__name {
-		flex: v.$flex-full;
-
-		@include m.adjust-text(24px, bold, center);
-		height: 8%;
-	}
-
-	.details__body {
-		flex: v.$flex-full;
-
-		@extend %flex-spaced;
-		gap: 10px;
-		height: 60%;
-
-		.details__img {
-			flex: v.$flex-half;
-			height: 100%;
-            img {
-                width:100%; 
-                height:100%;
-                object-fit: contain;
-            }
+		.details__close {
+			background-color: lightcoral;
+			color: black;
+			width: 10%;
+			position: absolute;
+			top: 0;
+			right: 0;
 		}
 
-		.details__info {
-			flex: v.$flex-half;
+		.details__name {
+			flex: v.$flex-full;
+
+			@include m.adjust-text(24px, bold, center);
+			height: 8%;
+		}
+
+		.details__body {
+			flex: v.$flex-full;
 
 			@extend %flex-spaced;
-			@include m.adjust-text(18px, 400, justify);
+			gap: 10px;
+			height: 60%;
 
-			flex-wrap: wrap;
-			width: 50%;
-
-			height: 40vh;
-
-			.details__subinfo {
-				flex: v.$flex-full;
-
-				@extend %flex-spaced;
-				width: 100%;
-				height: 10%;
-				.star {
-					-webkit-clip-path: polygon(50% 0%, 65% 30%, 98% 35%, 70% 55%, 79% 91%, 50% 70%, 21% 91%, 30% 55%, 2% 35%, 35% 30%);
-					clip-path: polygon(50% 0%, 65% 30%, 98% 35%, 70% 55%, 79% 91%, 50% 70%, 21% 91%, 30% 55%, 2% 35%, 35% 30%);	
-					text-align: center;
-					background: red;
-					color: white;
-					width: 55px;
-					height: 45px;
-					line-height: 42px;
-					@include m.adjust-text(16px, bold, center);
-				  }
-				  
-				.star::before {
-					display: inline-block;
-					background: red;
-					vertical-align: middle;
-					content: '';
+			.details__img {
+				flex: v.$flex-half;
+				height: 100%;
+				img {
+					width: 100%;
+					height: 100%;
+					object-fit: contain;
 				}
 			}
 
-			p {
-				flex: v.$flex-full;
-				height: 5%;
+			.details__info {
+				flex: v.$flex-half;
 
+				@extend %flex-spaced;
+				@include m.adjust-text(18px, 400, justify);
+
+				flex-wrap: wrap;
+				width: 50%;
+
+				height: 40vh;
+
+				.details__subinfo {
+					flex: v.$flex-full;
+
+					@extend %flex-spaced;
+					width: 100%;
+					height: 10%;
+					.star {
+						-webkit-clip-path: polygon(
+							50% 0%,
+							65% 30%,
+							98% 35%,
+							70% 55%,
+							79% 91%,
+							50% 70%,
+							21% 91%,
+							30% 55%,
+							2% 35%,
+							35% 30%
+						);
+						clip-path: polygon(
+							50% 0%,
+							65% 30%,
+							98% 35%,
+							70% 55%,
+							79% 91%,
+							50% 70%,
+							21% 91%,
+							30% 55%,
+							2% 35%,
+							35% 30%
+						);
+						text-align: center;
+						background: red;
+						color: white;
+						width: 55px;
+						height: 45px;
+						line-height: 42px;
+						@include m.adjust-text(16px, bold, center);
+					}
+
+					.star::before {
+						display: inline-block;
+						background: red;
+						vertical-align: middle;
+						content: '';
+					}
+				}
+
+				p {
+					flex: v.$flex-full;
+					height: 5%;
+				}
 			}
 		}
-	}
 
-	.details__summary {
-		flex: v.$flex-full;
-		margin: 10px;
-		@include m.adjust-text(19px, 400, justify);
-		@include m.clamp-text(1.2, 6);
-	}
-
-	.details__buttons {
-		height: 8%;
-		flex: v.$flex-full;
-		@extend %grid-buttons;
-		
-		button > a, .details__links > li > a {
-			@include m.format-link()
+		.details__summary {
+			flex: v.$flex-full;
+			margin: 10px;
+			@include m.adjust-text(19px, 400, justify);
+			@include m.clamp-text(1.2, 6);
 		}
-		.details__linksHolder {
-			position: relative;
 
-			.details__links {
-				position: absolute;
-				right: 0px;
-				top: 35px;
-				z-index: 1;
-				width: 100%;
-				
-				li {
-					border: 1px solid black;
-					background-color: whitesmoke;
-					padding: 5px 10px;
-					border-radius: 4px;
-					a {
-						font-weight: bold;
+		.details__buttons {
+			height: 8%;
+			flex: v.$flex-full;
+			@extend %grid-buttons;
+
+			button > a,
+			.details__links > li > a {
+				@include m.format-link();
+			}
+			.details__linksHolder {
+				position: relative;
+
+				.details__links {
+					position: absolute;
+					right: 0px;
+					top: 35px;
+					z-index: 1;
+					width: 100%;
+
+					li {
+						border: 1px solid black;
+						background-color: whitesmoke;
+						padding: 5px 10px;
+						border-radius: 4px;
+						a {
+							font-weight: bold;
+						}
 					}
 				}
 			}
 		}
-
 	}
 }
