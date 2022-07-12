@@ -15,8 +15,7 @@ import { Routes, Route, useLocation } from 'react-router-dom';
 const Router = () => {
 	const location = useLocation();
 	const background = location.state && location.state.background
-	console.log(location, background)
-
+	
 	return (
 		<>
 			<Header hasToken={false} />
