@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 
 import { useAuth } from '../../contexts/AuthContext';
+import useAddGameInternal from '../../hooks/useAddGameInternal';
 
 import styles from '../../styles/components/Details.module.scss';
 
@@ -40,6 +41,19 @@ const Details = () => {
 		setShow(false);
 	};
 
+	// Add to db
+	const [added, setAdded] = useState(false)
+	const { addGame, msg } = useAddGameInternal(data)
+
+	const addHandler = () => {
+		if (msg === 'OK') {
+			addGame()
+			setAdded(true)
+		} else {
+			alert(msg)
+		}
+	}
+
 	return (
 		<div className={styles['details__wrapper']} onClick={closeModal}>
 			<div
@@ -73,7 +87,7 @@ const Details = () => {
 				</div>
 				<p className={styles['details__summary']}>{data.summary}</p>
 				<div className={styles['details__buttons']}>
-					{currentUser && <button>Add to Library</button>}
+					{currentUser && <button onClick={addHandler} disabled={added}>Add to Library</button>}
 					{currentUser && <button>Remove from Library</button>}
 					{data.urls && (
 						<button
