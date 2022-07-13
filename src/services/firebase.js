@@ -57,23 +57,23 @@ const signInWithGoogle = async () => {
 		alert(err.message);
 	}
 };
-const logInWithEmailAndPassword = async (email, password) => {
+const logInWithEmailAndPassword = async (data) => {
 	try {
-		await signInWithEmailAndPassword(auth, email, password);
+		await signInWithEmailAndPassword(auth, data.email, data.password);
 	} catch (err) {
 		console.error(err);
 		alert(err.message);
 	}
 };
-const registerWithEmailAndPassword = async (name, email, password) => {
+const registerWithEmailAndPassword = async (data) => {
 	try {
-		const res = await createUserWithEmailAndPassword(auth, email, password);
+		const res = await createUserWithEmailAndPassword(auth, data.email, data.password);
 		const user = res.user;
 		await addDoc(collection(db, 'users'), {
 			uid: user.uid,
-			name,
+			name: data.name,
 			authProvider: 'local',
-			email,
+			email: data.email,
 		});
 	} catch (err) {
 		console.error(err);

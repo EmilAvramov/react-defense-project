@@ -4,6 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { auth, sendPasswordReset } from '../../services/firebase';
 
+import Err from '../helpers/Error';
 import Loader from '../helpers/GridLoader';
 import styles from '../../styles/components/Auth.module.scss';
 
@@ -19,7 +20,9 @@ const Reset = () => {
 
 	return (
 		<>
-			{loading ? (
+			{error ? (
+				<Err error={error} />
+			) : loading ? (
 				<Loader />
 			) : (
 				<div className={styles['reset']}>
@@ -46,5 +49,5 @@ const Reset = () => {
 			)}
 		</>
 	);
-}
+};
 export default Reset;

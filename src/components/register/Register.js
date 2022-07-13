@@ -8,20 +8,28 @@ import {
 	signInWithGoogle,
 } from '../../services/firebase';
 
+import Err from '../helpers/Error';
 import Loader from '../helpers/GridLoader';
 import styles from '../../styles/components/Auth.module.scss';
 
 const Register = () => {
-	const [email, setEmail] = useState('');
-	const [password, setPassword] = useState('');
-	const [name, setName] = useState('');
 	const [user, loading, error] = useAuthState(auth);
 	const navigate = useNavigate();
-	console.log(error);
+
+	const [formData, setFormData] = useState({
+		email: '',
+		password: '',
+		name: '',
+	});
+
+	const handleChange = (e) => {
+		const { name, value } = e.target;
+		setFormData((prevData) => ({ ...prevData, [name]: value }));
+	};
 
 	const register = () => {
-		if (!name) alert('Please enter name');
-		registerWithEmailAndPassword(name, email, password);
+		if (!formData.name) alert('Please enter name');
+		registerWithEmailAndPassword(formData);
 	};
 
 	useEffect(() => {
@@ -30,7 +38,9 @@ const Register = () => {
 
 	return (
 		<>
-			{loading ? (
+			{error ? (
+				<Err error={error} />
+			) : loading ? (
 				<Loader />
 			) : (
 				<div className={styles['register']}>
@@ -38,25 +48,31 @@ const Register = () => {
 						<input
 							type='text'
 							className={styles['register__textBox']}
-							value={name}
-							onChange={(e) => setName(e.target.value)}
+							name='name'
+							value={formData.name}
+							onChange={handleChange}
 							placeholder='Full Name'
 						/>
 						<input
 							type='text'
 							className={styles['register__textBox']}
-							value={email}
-							onChange={(e) => setEmail(e.target.value)}
+							name='email'
+							value={formData.email}
+							onChange={handleChange}
 							placeholder='E-mail Address'
 						/>
 						<input
 							type='password'
 							className={styles['register__textBox']}
-							value={password}
-							onChange={(e) => setPassword(e.target.value)}
+							name='password'
+							value={formData.password}
+							onChange={handleChange}
 							placeholder='Password'
 						/>
-						<button className={styles['register__btn']} onClick={register}>
+						<button
+							className={styles['register__btn']}
+							onClick={register}
+						>
 							Register
 						</button>
 						<button
@@ -66,8 +82,8 @@ const Register = () => {
 							Register with Google
 						</button>
 						<div>
-							Already have an account? <Link to='/login'>Login</Link>{' '}
-							now.
+							Already have an account?{' '}
+							<Link to='/login'>Login</Link> now.
 						</div>
 					</div>
 				</div>

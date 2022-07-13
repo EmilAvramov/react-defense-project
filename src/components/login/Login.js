@@ -8,15 +8,22 @@ import {
 } from '../../services/firebase';
 import { useAuthState } from 'react-firebase-hooks/auth';
 
+import Err from '../helpers/Error';
 import Loader from '../helpers/GridLoader';
 import styles from '../../styles/components/Auth.module.scss';
 
 const Login = () => {
-	const [email, setEmail] = useState('');
-	const [password, setPassword] = useState('');
+	const [formData, setFormData] = useState({
+		email: '',
+		password: '',
+	});
 	const [user, loading, error] = useAuthState(auth);
 	const navigate = useNavigate();
-    console.log(error)
+
+	const handleChange = (e) => {
+		const { name, value } = e.target;
+		setFormData((prevData) => ({ ...prevData, [name]: value }));
+	};
 
 	useEffect(() => {
 		if (user) navigate('/');
@@ -24,7 +31,9 @@ const Login = () => {
 
 	return (
 		<>
-			{loading ? (
+			{error ? (
+				<Err error={error} />
+			) : loading ? (
 				<Loader />
 			) : (
 				<div className={styles['login']}>
@@ -32,22 +41,22 @@ const Login = () => {
 						<input
 							type='text'
 							className={styles['login__textBox']}
-							value={email}
-							onChange={(e) => setEmail(e.target.value)}
+							name='email'
+							value={formData.email}
+							onChange={handleChange}
 							placeholder='E-mail Address'
 						/>
 						<input
 							type='password'
 							className={styles['login__textBox']}
-							value={password}
-							onChange={(e) => setPassword(e.target.value)}
+							name='password'
+							value={formData.password}
+							onChange={handleChange}
 							placeholder='Password'
 						/>
 						<button
 							className={styles['login__btn']}
-							onClick={() =>
-								logInWithEmailAndPassword(email, password)
-							}
+							onClick={() => logInWithEmailAndPassword(formData)}
 						>
 							Login
 						</button>
