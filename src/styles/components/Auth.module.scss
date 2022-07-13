@@ -1,13 +1,15 @@
+@use '../layout/flex';
+
 .login {
-	height: 100vh;
+	@extend %flex-basic;
+
+	height: 80vh;
 	width: 100vw;
-	display: flex;
-	align-items: center;
-	justify-content: center;
+
 	.login__container {
-		display: flex;
+		@extend %flex-basic;
 		flex-direction: column;
-		text-align: center;
+
 		background-color: #dcdcdc;
 		padding: 30px;
 	}
@@ -17,6 +19,7 @@
 		margin-bottom: 10px;
 	}
 	.login__btn {
+		width: 100%;
 		padding: 10px;
 		font-size: 18px;
 		margin-bottom: 10px;
@@ -33,15 +36,15 @@
 }
 
 .register {
-	height: 100vh;
+	@extend %flex-basic;
+
+	height: 80vh;
 	width: 100vw;
-	display: flex;
-	align-items: center;
-	justify-content: center;
+
 	.register__container {
-		display: flex;
+		@extend %flex-basic;
 		flex-direction: column;
-		text-align: center;
+
 		background-color: #dcdcdc;
 		padding: 30px;
 	}
@@ -51,6 +54,7 @@
 		margin-bottom: 10px;
 	}
 	.register__btn {
+		width: 100%;
 		padding: 10px;
 		font-size: 18px;
 		margin-bottom: 10px;
@@ -67,19 +71,20 @@
 }
 
 .reset {
-	height: 100vh;
+	@extend %flex-basic;
+
+	height: 80vh;
 	width: 100vw;
-	display: flex;
-	align-items: center;
-	justify-content: center;
+
 	.reset__container {
-		display: flex;
+		@extend %flex-basic;
 		flex-direction: column;
-		text-align: center;
+		
 		background-color: #dcdcdc;
 		padding: 30px;
 	}
 	.reset__textBox {
+		width: 90%;
 		padding: 10px;
 		font-size: 18px;
 		margin-bottom: 10px;

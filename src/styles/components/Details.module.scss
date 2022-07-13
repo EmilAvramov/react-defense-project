@@ -4,7 +4,7 @@
 @use '../helpers//variables' as v;
 
 .details__wrapper {
-	@extend %flex-modal;
+	@extend %flex-basic;
     width: 100%;
 	height: 100%;
 	position: fixed;

@@ -9,10 +9,12 @@ import Loader from '../helpers/GridLoader';
 import styles from '../../styles/components/Auth.module.scss';
 
 const Reset = () => {
+	// Manage input data
 	const [email, setEmail] = useState('');
+
+	// Manage auth and redirect
 	const [user, loading, error] = useAuthState(auth);
 	const navigate = useNavigate();
-	console.log(error);
 
 	useEffect(() => {
 		if (user) navigate('/');

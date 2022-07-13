@@ -2,8 +2,7 @@ import { useState } from 'react';
 import styles from '../../styles/components/Search.module.scss';
 
 const SearchBar = (props) => {
-	const [flyout, setFlyout] = useState(false);
-
+	// Manage form data
 	const [formData, setFormData] = useState({
 		string: '',
 		category: '',
@@ -35,14 +34,18 @@ const SearchBar = (props) => {
 			Switch: false,
 		});
 
+	// Manage flyout menu
+	const [flyout, setFlyout] = useState(false);
+
+	const toggleSearch = () => {
+		setFlyout((flyout) => !flyout);
+	};
+
+	// Change handlers
 	const submit = (e) => {
 		e.preventDefault();
 		props.sendData(formData);
 		clear();
-	};
-
-	const toggleSearch = () => {
-		setFlyout((flyout) => !flyout);
 	};
 
 	const applyFilters = (e) => {

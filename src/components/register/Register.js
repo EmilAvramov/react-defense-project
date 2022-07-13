@@ -13,9 +13,7 @@ import Loader from '../helpers/GridLoader';
 import styles from '../../styles/components/Auth.module.scss';
 
 const Register = () => {
-	const [user, loading, error] = useAuthState(auth);
-	const navigate = useNavigate();
-
+	// Manage form data
 	const [formData, setFormData] = useState({
 		email: '',
 		password: '',
@@ -27,14 +25,19 @@ const Register = () => {
 		setFormData((prevData) => ({ ...prevData, [name]: value }));
 	};
 
-	const register = () => {
-		if (!formData.name) alert('Please enter name');
-		registerWithEmailAndPassword(formData);
-	};
+	// Manage auth and redirect
+	const [user, loading, error] = useAuthState(auth);
+	const navigate = useNavigate();
 
 	useEffect(() => {
 		if (user) navigate('/');
 	}, [user, navigate]);
+
+	// Send register request
+	const register = () => {
+		if (!formData.name) alert('Please enter name');
+		registerWithEmailAndPassword(formData);
+	};
 
 	return (
 		<>

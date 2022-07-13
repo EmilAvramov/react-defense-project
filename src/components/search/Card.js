@@ -3,6 +3,7 @@ import useCleanData from '../../hooks/useCleanData';
 import { Link, useLocation } from 'react-router-dom';
 
 const Card = (props) => {
+	// Capture and clean incoming adata
 	const data = useCleanData(props);
 	const location = useLocation();
 

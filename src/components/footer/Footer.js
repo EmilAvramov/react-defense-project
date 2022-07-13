@@ -6,8 +6,8 @@ const Footer = () => {
         <footer>
             <div><Link to='/'>Back to top</Link></div>
             <ul> Need assistance? Contact us!
-                <li><i className="fa-solid fa-phone"></i>Phone: +XXX XXXX XXXX</li>
-                <li><i className="fa-solid fa-envelope"></i>Email: supportemail@gameblob.com</li>
+                <li><i className="fa-solid fa-phone"></i>Phone: +123 4567 8900</li>
+                <li><i className="fa-solid fa-envelope"></i>Email: support@gameblob.com</li>
             </ul>
         </footer>
     )

@@ -13,17 +13,20 @@ import Loader from '../helpers/GridLoader';
 import styles from '../../styles/components/Auth.module.scss';
 
 const Login = () => {
+	// Manage form data
 	const [formData, setFormData] = useState({
 		email: '',
 		password: '',
 	});
-	const [user, loading, error] = useAuthState(auth);
-	const navigate = useNavigate();
 
 	const handleChange = (e) => {
 		const { name, value } = e.target;
 		setFormData((prevData) => ({ ...prevData, [name]: value }));
 	};
+
+	// Manage auth and redirect
+	const [user, loading, error] = useAuthState(auth);
+	const navigate = useNavigate();
 
 	useEffect(() => {
 		if (user) navigate('/');
