@@ -19,7 +19,7 @@ const Router = () => {
 	
 	return (
 		<>
-			<Header hasToken={false} />
+			<Header />
 			<Routes location={background || location}>
 				<Route exact path='/' element={<Home />}></Route>
                 <Route path='/community' element={<Community />}></Route>

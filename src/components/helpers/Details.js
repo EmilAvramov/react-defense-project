@@ -1,9 +1,14 @@
 import { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 
+import { useAuth } from '../../contexts/AuthContext';
+
 import styles from '../../styles/components/Details.module.scss';
 
 const Details = () => {
+	// Get current user if logged in
+	const { currentUser } = useAuth();
+
 	// Hook data and location from Link
 	const { state } = useLocation();
 	const data = state.data;
@@ -68,8 +73,8 @@ const Details = () => {
 				</div>
 				<p className={styles['details__summary']}>{data.summary}</p>
 				<div className={styles['details__buttons']}>
-					<button>Add to Library</button>
-					<button>Remove from Library</button>
+					{currentUser && <button>Add to Library</button>}
+					{currentUser && <button>Remove from Library</button>}
 					{data.urls && (
 						<button
 							className={styles['details__linksHolder']}

@@ -1,8 +1,13 @@
-import styles from '../../styles/components/Header.module.scss'
-import logo from '../../assets/logo.png'
 import { NavLink } from 'react-router-dom'
 
-const Header = (props) => {
+import logout from '../../auth/logout';
+import { useAuth } from '../../contexts/AuthContext';
+
+import styles from '../../styles/components/Header.module.scss'
+import logo from '../../assets/logo.png'
+
+const Header = () => {
+    const { currentUser } = useAuth()
 
     const guestView = () => {
         return (
@@ -25,7 +30,7 @@ const Header = (props) => {
                 <li><NavLink className={styles['header__navLink']}to='/profile'><i className="fa-solid fa-user"></i>My Profile</NavLink></li>
                 <li><NavLink className={styles['header__navLink']}to='/community'><i className="fa-solid fa-comments"></i>Community</NavLink></li>
                 <li><NavLink className={styles['header__navLink']}to='/about'><i className="fa-solid fa-circle-info"></i>About</NavLink></li>
-                <li><NavLink className={styles['header__navLink']}to='/'><i className="fa-solid fa-arrow-up-right-from-square"></i>Logout</NavLink></li>
+                <li onClick={logout}><NavLink className={styles['header__navLink']}to='/'><i className="fa-solid fa-arrow-up-right-from-square"></i>Logout</NavLink></li>
             </>
         )
     }
@@ -35,7 +40,7 @@ const Header = (props) => {
             <div><img src={logo} alt=""/>GameBlob - For All Your Blobbing Needs</div>
             <nav>
                 <ul className={styles['nav__ul']}>
-                    {props.hasToken ? userView(): guestView()}
+                    {currentUser ? userView(): guestView()}
                 </ul>
             </nav>
         </header>
