@@ -3,6 +3,8 @@ import { useLocation, useNavigate } from 'react-router-dom';
 
 import { useAuth } from '../../contexts/AuthContext';
 import useAddGameInternal from '../../hooks/useAddGameInternal';
+import useRemoveGameInternal from '../../hooks/useRemoveGameInternal';
+import useCheckExistsInternal from '../../hooks/useCheckExistsInternal';
 
 import styles from '../../styles/components/Details.module.scss';
 
@@ -41,18 +43,29 @@ const Details = () => {
 		setShow(false);
 	};
 
-	// Add to db
-	const [added, setAdded] = useState(false)
-	const { addGame, msg } = useAddGameInternal(data)
+	// Manage database Create-Delete operations
+	const { exists, docRef, error } = useCheckExistsInternal(data, currentUser);
+	const [added, setAdded] = useState(exists);
+	const { addGame } = useAddGameInternal(data);
+	const { removeGame } = useRemoveGameInternal(docRef);
 
 	const addHandler = () => {
-		if (msg === 'OK') {
-			addGame()
-			setAdded(true)
+		if (!added) {
+			addGame();
+			setAdded(true);
 		} else {
-			alert(msg)
+			alert(error);
 		}
-	}
+	};
+
+	const removeHandler = () => {
+		if (added) {
+			removeGame();
+			setAdded(false);
+		} else {
+			alert(error);
+		}
+	};
 
 	return (
 		<div className={styles['details__wrapper']} onClick={closeModal}>
@@ -87,8 +100,14 @@ const Details = () => {
 				</div>
 				<p className={styles['details__summary']}>{data.summary}</p>
 				<div className={styles['details__buttons']}>
-					{currentUser && <button onClick={addHandler} disabled={added}>Add to Library</button>}
-					{currentUser && <button>Remove from Library</button>}
+					{currentUser && !added && (
+						<button onClick={addHandler}>Add to Library</button>
+					)}
+					{currentUser && added && (
+						<button onClick={removeHandler}>
+							Remove from Library
+						</button>
+					)}
 					{data.urls && (
 						<button
 							className={styles['details__linksHolder']}
