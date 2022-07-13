@@ -2,7 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import { useAuthState } from 'react-firebase-hooks/auth';
-import { auth, db, logout } from '../../services/firebase';
+import { auth, db } from '../../config/firebase-config';
+import logout from '../../auth/logout'
 import { query, collection, getDocs, where } from 'firebase/firestore';
 
 import Err from '../helpers/Error';

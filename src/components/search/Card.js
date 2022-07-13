@@ -1,10 +1,10 @@
 import styles from '../../styles/components/Search.module.scss';
-import useCleanData from '../../hooks/useCleanData';
+import normalizeExternalData from '../../common/normalizeExternalData'
 import { Link, useLocation } from 'react-router-dom';
 
 const Card = (props) => {
 	// Capture and clean incoming adata
-	const data = useCleanData(props);
+	const data = normalizeExternalData(props);
 	const location = useLocation();
 
 	return (

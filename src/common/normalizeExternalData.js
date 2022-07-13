@@ -1,6 +1,6 @@
 import placeholder from '../assets/no-image.png';
 
-const useCleanData = (data) => {
+const normalizeExternalData = (data) => {
 	const allowedPlatforms = ['PC', 'XBOX', 'PS5', 'PS4', 'Switch'];
 	const categories = {
 		1: 'Official',
@@ -83,4 +83,4 @@ const useCleanData = (data) => {
 	};
 };
 
-export default useCleanData;
+export default normalizeExternalData;

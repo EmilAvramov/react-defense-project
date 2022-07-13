@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import compileQuery from '../services/queryCompiler';
+import compileQuery from '../common/queryCompiler';
 
 const corsProxy = 'https://heroku-proxy-react.herokuapp.com/';
 const baseUrl = 'https://api.igdb.com/v4/';

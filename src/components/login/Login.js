@@ -1,11 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
-import {
-	auth,
-	logInWithEmailAndPassword,
-	signInWithGoogle,
-} from '../../services/firebase';
+import { auth } from '../../config/firebase-config';
+import signInWithGoogle from '../../auth/googleLogin';
+import logInWithEmailAndPassword from '../../auth/regularLogin';
 import { useAuthState } from 'react-firebase-hooks/auth';
 
 import Err from '../helpers/Error';

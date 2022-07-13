@@ -2,7 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
 import { useAuthState } from 'react-firebase-hooks/auth';
-import { auth, sendPasswordReset } from '../../services/firebase';
+import { auth } from '../../config/firebase-config';
+import sendPasswordReset from '../../auth/passwordReset'
 
 import Err from '../helpers/Error';
 import Loader from '../helpers/GridLoader';
