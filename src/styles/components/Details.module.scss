@@ -1,7 +1,7 @@
 @use '../layout/flex';
 @use '../layout/grid';
 @use '../helpers/mixins' as m;
-@use '../helpers//variables' as v;
+@use '../helpers/variables' as v;
 
 .details__wrapper {
 	@extend %flex-basic;
