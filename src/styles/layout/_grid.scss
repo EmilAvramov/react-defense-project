@@ -44,11 +44,13 @@
 %grid-library {
     display: grid;
     grid-template-areas: 
-    'img header header header header header'
+    'img header header buttons buttons buttons'
     'img info info info . .'
     'img info info info . .'
-    'img screens screens screens screens .'
-    'img screens screens screens screens actions'
-    'img screens screens screens screens links'
-    'img screens screens screens screens community';
+    'img screens screens screens screens screens'
+    'img screens screens screens screens screens'
+    'img screens screens screens screens screens'
+    'img screens screens screens screens screens';
+    grid-template-rows: 10vh;
+    grid-template-columns: 20% 15% 15% 7% 7% 7%;
 }

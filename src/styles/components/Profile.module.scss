@@ -51,7 +51,6 @@
             @include m.adjust-text(30px, 700, left);
             padding: 10px;
             box-sizing: border-box;
-            height: 80%;
 		}
 		.card__info {
 			grid-area: info;
@@ -69,14 +68,12 @@
             box-sizing: border-box;
             padding: 10px;
 		}
-		.card__remove {
-			grid-area: actions;
-		}
-		.card__links {
-			grid-area: links;
-		}
-		.card__community {
-			grid-area: community;
+		.card__buttons {
+			grid-area: buttons;
+            button {
+                height: 100%;
+                width: 33.3%;
+            }
 		}
 	}
 }

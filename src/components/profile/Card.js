@@ -20,17 +20,18 @@ const Card = (props) => {
 				<p>Rating: {props.rating}</p>
 			</div>
 			<div className={styles['card__screenshots']}>images go here</div>
-			<button
-				className={styles['card__remove']}
-				onClick={() => {
-					removeGame();
-					props.change();
-				}}
-			>
-				Remove
-			</button>
-			<button className={styles['card__links']}>Links</button>
-			<button className={styles['card__community']}>Community</button>
+			<div className={styles['card__buttons']}>
+				<button
+					onClick={() => {
+						removeGame();
+						props.change();
+					}}
+				>
+					Remove
+				</button>
+				<button>Links</button>
+				<button>Community</button>
+			</div>
 		</section>
 	);
 };
