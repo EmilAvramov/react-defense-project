@@ -40,3 +40,15 @@
     justify-content: center;
     align-items: center;
 }
+
+%grid-library {
+    display: grid;
+    grid-template-areas: 
+    'img header header header header header'
+    'img info info info . .'
+    'img info info info . .'
+    'img screens screens screens screens .'
+    'img screens screens screens screens actions'
+    'img screens screens screens screens links'
+    'img screens screens screens screens community';
+}

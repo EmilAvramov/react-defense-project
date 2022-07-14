@@ -4,9 +4,14 @@ import { db } from '../config/firebase-config';
 import { collection, getDocs, query, where } from 'firebase/firestore';
 
 const useGetAllUserGames = (uid) => {
+	const [trigger, setTrigger] = useState(false)
 	const [data, setData] = useState([]);
 	const [loading, setLoading] = useState(false);
 	const [error, setError] = useState();
+
+	const handleRequest = () => {
+		setTrigger(state => !state)
+	}
 
 	useEffect(() => {
 		setLoading(true);
@@ -15,7 +20,11 @@ const useGetAllUserGames = (uid) => {
 			const q = query(collectionRef, where('user', '==', uid));
 			const getData = async () => {
 				const snapshot = await getDocs(q);
-				let games = snapshot.docs.map(doc => ({...doc.data()}))
+				let games = snapshot.docs.map(doc => {
+					let item = {...doc.data()}
+					item.doc = doc.id
+					return item
+				})
 				setData(games);
 			};
             getData();
@@ -23,9 +32,9 @@ const useGetAllUserGames = (uid) => {
 			setError(err);
 		}
 		setLoading(false);
-	}, [uid]);
+	}, [uid, trigger]);
 
-	return { data, loading, error };
+	return { data, loading, error, handleRequest };
 };
 
 export default useGetAllUserGames;
