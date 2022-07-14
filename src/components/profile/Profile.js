@@ -7,7 +7,7 @@ const Profile = () => {
 			<ul className={styles['profile__container']}>
 				<li className={styles['profile__block']}>
 					<Link
-						to='profile/library'
+						to='library'
 						className={styles['profile__link']}
 					>
 						My Library
@@ -15,7 +15,7 @@ const Profile = () => {
 				</li>
 				<li className={styles['profile__block']}>
 					<Link
-						to='profile/content'
+						to='content'
 						className={styles['profile__link']}
 					>
 						My Content
@@ -23,7 +23,7 @@ const Profile = () => {
 				</li>
 				<li className={styles['profile__block']}>
 					<Link
-						to='profile/community'
+						to='community'
 						className={styles['profile__link']}
 					>
 						My Community Activity
@@ -31,7 +31,7 @@ const Profile = () => {
 				</li>
 				<li className={styles['profile__block']}>
 					<Link
-						to='profile/settings'
+						to='settings'
 						className={styles['profile__link']}
 					>
 						Settings
