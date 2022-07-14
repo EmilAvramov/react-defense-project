@@ -1,30 +1,35 @@
 @use '../layout/flex';
 @use '../layout/grid';
 @use '../helpers/mixins' as m;
+@use '../helpers/variables' as v;
 
 .profile__wrapper {
     @extend %flex-basic;
-	height: 80vh;
+	height: 10vh;
 	width: 100vw;
     .profile__container {
         @extend %grid-profile;
-        width: 60%;
-        height: 60%;
 
         .profile__block {
             border: 1px solid black;
-            height: 100%;
-            border-radius: 10%;
+
+            padding: 5px 20px;
 
             .profile__link {
                 @include m.format-link();
                 @include m.adjust-text(24px);
                 display: block;
-                line-height: 20vh;
+
                 width: 100%;
                 height: 100%;
                 text-align: center;
             }
         }
     }
+}
+
+.library__container {
+    @extend %flex-basic;
+    height: 70vh;
+	width: 100vw;
 }

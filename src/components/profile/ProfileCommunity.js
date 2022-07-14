@@ -5,7 +5,7 @@ import Loader from '../helpers/GridLoader';
 
 import styles from '../../styles/components/Profile.module.scss';
 
-const ProfileLibrary = () => {
+const ProfileCommunity = () => {
 	const { currentUser } = useAuth();
 	const { data, loading, error } = useGetAllUserGames(currentUser.uid);
 	console.log(data, error);
@@ -17,4 +17,4 @@ const ProfileLibrary = () => {
     )
 };
 
-export default ProfileLibrary;
+export default ProfileCommunity;

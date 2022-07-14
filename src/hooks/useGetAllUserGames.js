@@ -1,33 +1,31 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect } from 'react';
 
-import { db } from "../config/firebase-config";
-import { collection, getDocs, query, where } from "firebase/firestore";
+import { db } from '../config/firebase-config';
+import { collection, getDocs, query, where } from 'firebase/firestore';
 
 const useGetAllUserGames = (uid) => {
-    const [data, setData] = useState([])
-    const [loading, setLoading] = useState(false)
-    const [error, setError] = useState()
-    const collectionRef = collection(db, 'games')
+	const [data, setData] = useState([]);
+	const [loading, setLoading] = useState(false);
+	const [error, setError] = useState();
 
-    useEffect(() => {
-        const getData = async () => {
-            try {
-                setLoading(true)
-                const q = query(collectionRef('games'), where('user', '==', uid))
-                const collection = await getDocs(q)
-                collection.forEach(doc => {
-                    setData(prevData => ({...prevData, doc}))
-                })
-                setLoading(false)
-            } catch (err) {
-                setError(err)
-                setLoading(false)
-            }
-        }
-        getData();
-    })
+	useEffect(() => {
+		setLoading(true);
+		try {
+			const collectionRef = collection(db, 'games');
+			const q = query(collectionRef, where('user', '==', uid));
+			const getData = async () => {
+				const snapshot = await getDocs(q);
+				let games = snapshot.docs.map(doc => ({...doc.data()}))
+				setData(games);
+			};
+            getData();
+		} catch (err) {
+			setError(err);
+		}
+		setLoading(false);
+	}, [uid]);
 
-    return { data, loading, error }
-}
+	return { data, loading, error };
+};
 
 export default useGetAllUserGames;
