@@ -6,11 +6,13 @@ import { useAuth } from '../contexts/AuthContext';
 import { db } from '../config/firebase-config';
 
 const useGetUserDocument = () => {
+	const [loading, setLoading] = useState(false)
 	const [unique, setUnique] = useState('');
-	const [error, setError] = useState('');
+	const [fetchError, setFetchError] = useState('');
 	const { currentUser } = useAuth();
 
 	useEffect(() => {
+		setLoading(true)
 		try {
 			const collectionRef = collection(db, 'users');
 			const q = query(collectionRef, where('uid', '==', currentUser.uid));
@@ -20,11 +22,12 @@ const useGetUserDocument = () => {
 			};
             findUser();
 		} catch (err) {
-			setError(err);
+			setFetchError(err);
 		}
+		setLoading(false)
 	}, [unique, currentUser.uid]);
 
-    return { unique, error }
+    return { unique, fetchError, loading }
 };
 
 export default useGetUserDocument;
