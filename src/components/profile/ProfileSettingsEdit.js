@@ -1,8 +1,15 @@
 import { useState } from 'react';
 
+import Err from '../helpers/Error';
+import updateUserData from '../../functions/updateUserData';
+import useGetUserDocument from '../../hooks/useGetUserDocument';
+
 import styles from '../../styles/components/Profile.module.scss';
 
 const ProfileSettingsEdit = () => {
+	const [err, setErr] = useState('');
+	const { unique, error } = useGetUserDocument();
+
 	const [formData, setFormData] = useState({
 		name: '',
 		age: '',
@@ -29,9 +36,20 @@ const ProfileSettingsEdit = () => {
 		clear();
 	};
 
-	return (
+	const submitData = (e) => {
+		e.preventDefault();
+		try {
+			updateUserData(formData, unique);
+		} catch (err) {
+			setErr(err);
+		}
+	};
+
+	return err || error ? (
+		<Err error={err} />
+	) : (
 		<div className={styles['edit__wrapper']}>
-			<form className={styles['edit__form']}>
+			<form onSubmit={submitData} className={styles['edit__form']}>
 				<label htmlFor='name' className={styles['edit__label_name']}>
 					Name
 				</label>
