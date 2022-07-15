@@ -11,6 +11,7 @@ import ProfileSettings from './profile/ProfileSettings';
 import ProfileSettingsEdit from './profile/ProfileSettingsEdit';
 import ProfileSettingsDelete from './profile/ProfileSettingsDelete';
 import ProfileSettingsPassword from './profile/ProfileSettingsPassword';
+import ProfileSettingsEmail from './profile/ProfileSettingsEmail';
 import Login from './login/Login';
 import About from './about/About';
 import Register from './register/Register';
@@ -35,6 +36,7 @@ const Router = () => {
 					<Route path='community' element={<ProfileCommunity/>}></Route>
 					<Route path='settings' element={<ProfileSettings/>}>
 						<Route path='edit' element={<ProfileSettingsEdit/>}></Route>
+						<Route path='email' element={<ProfileSettingsEmail/>}></Route>
 						<Route path='password' element={<ProfileSettingsPassword/>}></Route>
 						<Route path='delete' element={<ProfileSettingsDelete/>}></Route>
 					</Route>

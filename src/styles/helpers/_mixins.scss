@@ -39,3 +39,10 @@
 		color: $color;
 	}
 }
+
+@mixin template-grid($columns) {
+	display: grid;
+	grid-template-columns: repeat($columns, 1fr);
+	justify-content: center;
+    align-items: center;
+}

@@ -34,13 +34,6 @@
     }
 }
 
-%grid-profile {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    justify-content: center;
-    align-items: center;
-}
-
 %grid-library {
     display: grid;
     grid-template-areas: 
@@ -53,4 +46,13 @@
     'img screens screens screens screens screens';
     grid-template-rows: 10vh;
     grid-template-columns: 20% 15% 15% 7% 7% 7%;
+}
+
+%grid-edit {
+    display: grid;
+    grid-template-areas: 
+    'label1 input1 input1 input1'
+    'label2 input2 input2 input2'
+    '. submit clear .';
+    grid-template-columns: 30% 20% 20% 30%;
 }

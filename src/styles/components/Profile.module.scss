@@ -7,8 +7,29 @@
 	@extend %flex-basic;
 	height: 10vh;
 	width: 100vw;
+
+	.settings__container {
+		@include m.template-grid(4);
+
+		.profile__block {
+			border: 1px solid black;
+
+			padding: 5px 20px;
+
+			.profile__link {
+				@include m.format-link();
+				@include m.adjust-text(24px);
+				display: block;
+
+				width: 100%;
+				height: 100%;
+				text-align: center;
+			}
+		}
+	}
+
 	.profile__container {
-		@extend %grid-profile;
+		@include m.template-grid(3);
 
 		.profile__block {
 			border: 1px solid black;
@@ -74,6 +95,39 @@
                 height: 70%;
                 width: 33.3%;
             }
+		}
+	}
+}
+
+.edit__wrapper {
+	width: 70%;
+	margin: 0 auto;
+	@extend %flex-centered;
+	
+	.edit__form {
+		flex: v.$flex-half;
+
+		@extend %grid-edit;
+		row-gap: 10px;
+		column-gap: 5px;
+		
+		.edit__submit {
+			grid-area: submit;
+		}
+		.edit__clear {
+			grid-area: clear;
+		}
+		.edit__label_name {
+			grid-area: label1;
+		}
+		.edit__input_name {
+			grid-area: input1;
+		}
+		.edit__label_age {
+			grid-area: label2;
+		}
+		.edit__input_age {
+			grid-area: input2;
 		}
 	}
 }
