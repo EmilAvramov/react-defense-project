@@ -47,10 +47,10 @@
 		.card__header {
 			grid-area: header;
             width: 100%;
-			background-color: lightblue;
             @include m.adjust-text(30px, 700, left);
             padding: 10px;
             box-sizing: border-box;
+            line-height: 5vh;
 		}
 		.card__info {
 			grid-area: info;
@@ -71,7 +71,7 @@
 		.card__buttons {
 			grid-area: buttons;
             button {
-                height: 100%;
+                height: 70%;
                 width: 33.3%;
             }
 		}

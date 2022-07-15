@@ -4,7 +4,7 @@ import styles from '../../styles/components/Profile.module.scss';
 const Profile = () => {
 	return (
 		<>
-			<div className={styles['profile__wrapper']}>
+			<nav className={styles['profile__wrapper']}>
 				<ul className={styles['profile__container']}>
 					<li className={styles['profile__block']}>
 						<Link to='library' className={styles['profile__link']}>
@@ -25,7 +25,7 @@ const Profile = () => {
 						</Link>
 					</li>
 				</ul>
-			</div>
+			</nav>
 			<Outlet/>
 		</>
 	);
