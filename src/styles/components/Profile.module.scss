@@ -59,7 +59,7 @@
 		flex: v.$flex-full;
 
 		@extend %grid-library;
-        justify-content: space-between;
+		justify-content: space-between;
 		border: 1px solid black;
 
 		.card__img {
@@ -67,34 +67,34 @@
 		}
 		.card__header {
 			grid-area: header;
-            width: 100%;
-            @include m.adjust-text(30px, 700, left);
-            padding: 10px;
-            box-sizing: border-box;
-            line-height: 5vh;
+			width: 100%;
+			@include m.adjust-text(30px, 700, left);
+			padding: 10px;
+			box-sizing: border-box;
+			line-height: 5vh;
 		}
 		.card__info {
 			grid-area: info;
-            @extend %flex-basic;
-            flex-wrap: wrap;
-            box-sizing: border-box;
-            padding: 10px;
+			@extend %flex-basic;
+			flex-wrap: wrap;
+			box-sizing: border-box;
+			padding: 10px;
 
-            p {
-               flex: v.$flex-full;
-            }
+			p {
+				flex: v.$flex-full;
+			}
 		}
 		.card__screenshots {
 			grid-area: screens;
-            box-sizing: border-box;
-            padding: 10px;
+			box-sizing: border-box;
+			padding: 10px;
 		}
 		.card__buttons {
 			grid-area: buttons;
-            button {
-                height: 70%;
-                width: 33.3%;
-            }
+			button {
+				height: 70%;
+				width: 33.3%;
+			}
 		}
 		.card__upload {
 			grid-area: upload;
@@ -110,14 +110,14 @@
 	height: 60vh;
 	margin: 0 auto;
 	@extend %flex-centered;
-	
+
 	.edit__form {
 		flex: v.$flex-half;
 
 		@extend %grid-edit;
 		row-gap: 10px;
 		column-gap: 5px;
-		
+
 		.edit__submit {
 			grid-area: submit;
 		}
@@ -144,5 +144,15 @@
 			grid-area: errRePass;
 			color: red;
 		}
+	}
+}
+
+.card__swiper_container {
+	grid-area: screens;
+	width: 50vw;
+	padding: 10px;
+
+	.card__swiper_img {
+		height: 140px;
 	}
 }

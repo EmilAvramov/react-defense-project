@@ -1,16 +1,28 @@
 import { useState } from 'react';
 
+import useGetGameScreenshots from '../../hooks/useGetGameScreenshots';
 import useRemoveGameInternal from '../../hooks/useRemoveGameInternal';
 import useUploadImages from '../../hooks/useUploadImages';
 import updateUserGame from '../../functions/updateUserGame';
 
+import Carousel from '../helpers/Carousel';
 import Err from '../helpers/Error';
 import styles from '../../styles/components/Profile.module.scss';
+import { useEffect } from 'react';
 
 const Card = (props) => {
 	// Prepare upload hook and state
 	const [file, setFile] = useState();
 	const { upload, uploadError, percent, url } = useUploadImages();
+	const { screenshots, fetchError, loading } = useGetGameScreenshots(
+		props.doc
+	);
+
+	useEffect(() => {
+		if (url) {
+			updateUserGame(props.doc, url);
+		}
+	}, [props.doc, url]);
 
 	const selectHandler = (e) => {
 		setFile(e.target.files[0]);
@@ -21,7 +33,6 @@ const Card = (props) => {
 			alert('Please select a file first');
 		} else {
 			upload(file);
-			updateUserGame(props.doc, url);
 		}
 	};
 
@@ -41,7 +52,8 @@ const Card = (props) => {
 				<p>Release Date: {props.releaseDate}</p>
 				<p>Rating: {props.rating}</p>
 			</div>
-			<div className={styles['card__screenshots']}>images go here</div>
+			{/* <div className={styles['card__screenshots']}>images go here</div> */}
+			<Carousel data={screenshots} />
 			<input
 				className={styles['card__image']}
 				type='file'
