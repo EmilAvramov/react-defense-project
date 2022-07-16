@@ -1,8 +1,27 @@
-import useRemoveGameInternal from '../../hooks/useRemoveGameInternal';
+import { useState } from 'react';
 
+import useRemoveGameInternal from '../../hooks/useRemoveGameInternal';
+import useUploadImages from '../../hooks/useUploadImages';
+
+import Err from '../helpers/Error';
 import styles from '../../styles/components/Profile.module.scss';
 
 const Card = (props) => {
+	// Prepare upload hook and state
+	const [file, setFile] = useState();
+	const { upload, uploadError, percent, url } = useUploadImages();
+
+	const selectHandler = (e) => {
+		setFile(e.target.files[0]);
+	};
+
+	const uploadHandler = () => {
+		if (!file) {
+			alert('Please select a file first');
+		}
+		upload(file);
+	};
+
 	// Prepare delete action
 	const { removeGame } = useRemoveGameInternal(props.doc);
 
@@ -20,6 +39,22 @@ const Card = (props) => {
 				<p>Rating: {props.rating}</p>
 			</div>
 			<div className={styles['card__screenshots']}>images go here</div>
+			<input
+				className={styles['card__image']}
+				type='file'
+				accept='/image/*'
+				onChange={selectHandler}
+			/>
+			{uploadError ? (
+				<Err error={uploadError} />
+			) : (
+				<button
+					className={styles['card__upload']}
+					onClick={uploadHandler}
+				>
+					Upload Image
+				</button>
+			)}
 			<div className={styles['card__buttons']}>
 				<button
 					onClick={() => {

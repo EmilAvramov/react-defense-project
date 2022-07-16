@@ -96,6 +96,12 @@
                 width: 33.3%;
             }
 		}
+		.card__upload {
+			grid-area: upload;
+		}
+		.card__image {
+			grid-area: image;
+		}
 	}
 }
 
