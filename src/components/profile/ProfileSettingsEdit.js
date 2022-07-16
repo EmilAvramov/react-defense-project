@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useForm } from 'react-hook-form';
 
 import updateUserData from '../../functions/updateUserData';
 import useGetUserDocument from '../../hooks/useGetUserDocument';
@@ -9,42 +10,30 @@ import Loader from '../helpers/GridLoader';
 import styles from '../../styles/components/Profile.module.scss';
 
 const ProfileSettingsEdit = () => {
-	// Handle errors and retrieve user document ref
+	// Handle hooks and retrieve user document ref
 	const [updateError, setUpdateError] = useState('');
 	const { unique, fetchError, loading } = useGetUserDocument();
 
 	// Manage form data
-	const [formData, setFormData] = useState({
-		name: '',
-		age: '',
+	const {
+		register,
+		handleSubmit,
+		formState: { errors },
+		reset,
+	} = useForm({
+		mode: 'onBlur',
+		reValidateMode: 'onChange',
+		shouldFocusError: true,
 	});
 
-	const clear = () =>
-		setFormData({
-			name: '',
-			age: '',
-		});
-
 	// Form handlers
-	const handleChange = (e) => {
-		const { name, value, checked, type } = e.target;
-		setFormData((prevData) => {
-			return {
-				...prevData,
-				[name]: type === 'checkbox' ? checked : value,
-			};
-		});
-	};
+	const clear = () => reset;
 
-	const clearData = (e) => {
-		e.preventDefault();
-		clear();
-	};
-
-	const submitData = (e) => {
-		e.preventDefault();
+	const submitData = (data) => {
 		try {
-			updateUserData(formData, unique);
+			updateUserData(data, unique);
+			reset();
+			alert('Profile information successfully updated')
 		} catch (err) {
 			setUpdateError(err);
 		}
@@ -57,31 +46,38 @@ const ProfileSettingsEdit = () => {
 	) : (
 		<div className={styles['edit__wrapper']}>
 			{updateError && <div>{updateError.message}</div>}
-			<form onSubmit={submitData} className={styles['edit__form']}>
+			<form
+				onSubmit={handleSubmit(submitData)}
+				className={styles['edit__form']}
+			>
 				<label htmlFor='name' className={styles['edit__label_name']}>
 					Name
 				</label>
 				<input
+					{...register('name')}
 					type='text'
-					name='name'
 					className={styles['edit__input_name']}
-					onChange={handleChange}
-					value={formData.name}
 				/>
 				<label htmlFor='age' className={styles['edit__label_age']}>
 					Age
 				</label>
 				<input
+					{...register('age', {
+						required: true,
+						validate: value => (value > 1 && value < 99) || 'Enter a valid age'
+					})}
 					type='number'
-					name='age'
 					className={styles['edit__input_age']}
-					onChange={handleChange}
-					value={formData.age}
 				/>
+				{errors.age && (
+					<p className={styles['edit__error2']}>
+						{errors.age.message}
+					</p>
+				)}
 				<button className={styles['edit__submit']}>
 					Submit Changes
 				</button>
-				<button className={styles['edit__clear']} onClick={clearData}>
+				<button className={styles['edit__clear']} onClick={clear}>
 					Clear Form
 				</button>
 			</form>

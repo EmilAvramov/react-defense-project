@@ -1,103 +1,124 @@
 @use '../layout/flex';
 
-.login {
+.login__container {
 	@extend %flex-basic;
 
 	height: 80vh;
 	width: 100vw;
 
-	.login__container {
+	.login__form {
 		@extend %flex-basic;
 		flex-direction: column;
 
 		background-color: #dcdcdc;
 		padding: 30px;
-	}
-	.login__textBox {
-		padding: 10px;
-		font-size: 18px;
-		margin-bottom: 10px;
-	}
-	.login__btn {
-		width: 100%;
-		padding: 10px;
-		font-size: 18px;
-		margin-bottom: 10px;
-		border: none;
-		color: white;
-		background-color: black;
-	}
-	.login__google {
-		background-color: #4285f4;
-	}
-	.login div {
-		margin-top: 7px;
+		position: relative;
+
+		.login__textBox {
+			padding: 10px;
+			font-size: 18px;
+			margin-bottom: 10px;
+		}
+		.login__btn {
+			width: 100%;
+			padding: 10px;
+			font-size: 18px;
+			margin-bottom: 10px;
+			border: none;
+			color: white;
+			background-color: black;
+		}
+		.login__google {
+			background-color: #4285f4;
+		}
+		.login div {
+			margin-top: 7px;
+		}
+		.login__error {
+			position: relative;
+			bottom: 5px;
+			color: red;
+		}
 	}
 }
 
-.register {
+.register__container {
 	@extend %flex-basic;
 
 	height: 80vh;
 	width: 100vw;
 
-	.register__container {
+	.register__form {
 		@extend %flex-basic;
 		flex-direction: column;
 
 		background-color: #dcdcdc;
 		padding: 30px;
-	}
-	.register__textBox {
-		padding: 10px;
-		font-size: 18px;
-		margin-bottom: 10px;
-	}
-	.register__btn {
-		width: 100%;
-		padding: 10px;
-		font-size: 18px;
-		margin-bottom: 10px;
-		border: none;
-		color: white;
-		background-color: black;
-	}
-	.register__google {
-		background-color: #4285f4;
-	}
-	.register div {
-		margin-top: 7px;
+		position: relative;
+
+		.register__textBox {
+			padding: 10px;
+			font-size: 18px;
+			margin-bottom: 10px;
+		}
+		.register__btn {
+			width: 100%;
+			padding: 10px;
+			font-size: 18px;
+			margin-bottom: 10px;
+			border: none;
+			color: white;
+			background-color: black;
+		}
+		.register__google {
+			background-color: #4285f4;
+		}
+		.register div {
+			margin-top: 7px;
+		}
+		.register__error {
+			position: relative;
+			bottom: 5px;
+			color: red;
+		}
 	}
 }
 
-.reset {
+.reset__container {
 	@extend %flex-basic;
 
 	height: 80vh;
 	width: 100vw;
 
-	.reset__container {
+	.reset__form {
 		@extend %flex-basic;
 		flex-direction: column;
-		
+
 		background-color: #dcdcdc;
 		padding: 30px;
-	}
-	.reset__textBox {
-		width: 90%;
-		padding: 10px;
-		font-size: 18px;
-		margin-bottom: 10px;
-	}
-	.reset__btn {
-		padding: 10px;
-		font-size: 18px;
-		margin-bottom: 10px;
-		border: none;
-		color: white;
-		background-color: black;
-	}
-	.reset div {
-		margin-top: 7px;
+		position: relative;
+
+		.reset__textBox {
+			width: 90%;
+			padding: 10px;
+			font-size: 18px;
+			margin-bottom: 10px;
+		}
+		.reset__btn {
+			padding: 10px;
+			font-size: 18px;
+			margin-bottom: 10px;
+			border: none;
+			color: white;
+			background-color: black;
+		}
+		.reset div {
+			margin-top: 7px;
+		}
+		.reset__error {
+			position: relative;
+			bottom: 5px;
+			color: red;
+		}
 	}
 }

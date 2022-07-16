@@ -23,7 +23,7 @@ const ProfileSettingsPassword = () => {
 		shouldFocusError: true,
 	});
 
-	const onSubmit = (data) => {
+	const submitData = (data) => {
 		try {
 			updateUserPassword(data.password);
 			alert('Password Successfully Updated');
@@ -37,7 +37,7 @@ const ProfileSettingsPassword = () => {
 		<div className={styles['edit__wrapper']}>
 			{updateError && <p>{updateError.message}</p>}
 			<form
-				onSubmit={handleSubmit(onSubmit)}
+				onSubmit={handleSubmit(submitData)}
 				className={styles['edit__form']}
 			>
 				<label htmlFor='name' className={styles['edit__label_name']}>

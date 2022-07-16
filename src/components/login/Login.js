@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { useForm } from 'react-hook-form';
 
 import { auth } from '../../config/firebase-config';
 import signInWithGoogle from '../../auth/googleLogin';
@@ -12,14 +13,18 @@ import styles from '../../styles/components/Auth.module.scss';
 
 const Login = () => {
 	// Manage form data
-	const [formData, setFormData] = useState({
-		email: '',
-		password: '',
+	const {
+		register,
+		handleSubmit,
+		formState: { errors },
+	} = useForm({
+		mode: 'onBlur',
+		reValidateMode: 'onChange',
+		shouldFocusError: true,
 	});
 
-	const handleChange = (e) => {
-		const { name, value } = e.target;
-		setFormData((prevData) => ({ ...prevData, [name]: value }));
+	const onSubmit = (data) => {
+		logInWithEmailAndPassword(data);
 	};
 
 	// Manage auth and redirect
@@ -37,33 +42,50 @@ const Login = () => {
 			) : loading ? (
 				<Loader />
 			) : (
-				<div className={styles['login']}>
-					<div className={styles['login__container']}>
+				<div className={styles['login__container']}>
+					<form
+						onSubmit={handleSubmit(onSubmit)}
+						className={styles['login__form']}
+					>
 						<input
+							{...register('email', {
+								required: {
+									value: true,
+									message: 'Field is required',
+								},
+							})}
 							type='text'
 							className={styles['login__textBox']}
-							name='email'
-							value={formData.email}
-							onChange={handleChange}
 							placeholder='E-mail Address'
 						/>
+						{errors.email && (
+							<p className={styles['login__error']}>
+								{errors.email.message}
+							</p>
+						)}
 						<input
+							{...register('password', {
+								required: {
+									value: true,
+									message: 'Field is required',
+								},
+							})}
 							type='password'
 							className={styles['login__textBox']}
-							name='password'
-							value={formData.password}
-							onChange={handleChange}
 							placeholder='Password'
 						/>
-						<button
-							className={styles['login__btn']}
-							onClick={() => logInWithEmailAndPassword(formData)}
-						>
-							Login
-						</button>
+						{errors.password && (
+							<p className={styles['login__error']}>
+								{errors.password.message}
+							</p>
+						)}
+						<button className={styles['login__btn']}>Login</button>
 						<button
 							className={`${styles['login__btn']} ${styles['login__google']}`}
-							onClick={signInWithGoogle}
+							onClick={(e) => {
+								e.preventDefault();
+								signInWithGoogle();
+							}}
 						>
 							Login with Google
 						</button>
@@ -74,7 +96,7 @@ const Login = () => {
 							Don't have an account?{' '}
 							<Link to='/register'>Register</Link> now.
 						</div>
-					</div>
+					</form>
 				</div>
 			)}
 		</>

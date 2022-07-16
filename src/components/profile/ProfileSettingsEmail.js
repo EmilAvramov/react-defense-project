@@ -1,19 +1,20 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useForm } from 'react-hook-form';
 
 import updateUserData from '../../functions/updateUserData';
 import useGetUserDocument from '../../hooks/useGetUserDocument';
 import updateUserEmail from '../../auth/updateEmail';
+import { useAuth } from '../../contexts/AuthContext';
 
 import Err from '../helpers/Error';
 import Loader from '../helpers/GridLoader';
-
-import { useForm } from 'react-hook-form';
 
 import styles from '../../styles/components/Profile.module.scss';
 
 const ProfileSettingsEmail = () => {
 	// Setup react hooks
+	const { currentUser } = useAuth();
 	const navigate = useNavigate();
 	const [updateError, setUpdateError] = useState('');
 	const { unique, fetchError, loading } = useGetUserDocument();
@@ -29,27 +30,13 @@ const ProfileSettingsEmail = () => {
 		reValidateMode: 'onChange',
 		shouldFocusError: true,
 	});
-	
-	const [formData, setFormData] = useState({
-		email: '',
-		emailRe: '',
-	});
 
-	const handleChange = (e) => {
-		const { name, value, checked, type } = e.target;
-		setFormData((prevData) => {
-			return {
-				...prevData,
-				[name]: type === 'checkbox' ? checked : value,
-			};
-		});
-	};
+	const pattern = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
 
-	const submitData = (e) => {
-		e.preventDefault();
+	const submitData = (data) => {
 		try {
-			updateUserEmail(formData.email);
-			updateUserData({ email: formData.email }, unique);
+			updateUserEmail(data.email);
+			updateUserData({ email: data.email }, unique);
 			alert('Email Successfully Updated');
 			setTimeout(navigate('/'), 3000);
 		} catch (err) {
@@ -64,27 +51,50 @@ const ProfileSettingsEmail = () => {
 	) : (
 		<div className={styles['edit__wrapper']}>
 			{updateError && <p>{updateError.message}</p>}
-			<form onSubmit={submitData} className={styles['edit__form']}>
+			<form
+				onSubmit={handleSubmit(submitData)}
+				className={styles['edit__form']}
+			>
 				<label htmlFor='name' className={styles['edit__label_name']}>
 					New Email
 				</label>
 				<input
+					{...register('email', {
+						required: { value: true, message: 'Field is required' },
+						validate: (value) => {
+							if (value === currentUser.email) {
+								return 'This is your current email'
+							}
+							if (!pattern.test(value)) {
+								return 'Invalid email address'
+							}
+						}
+					})}
 					type='email'
-					name='email'
 					className={styles['edit__input_name']}
-					onChange={handleChange}
-					value={formData.email}
 				/>
+				{errors.email && (
+					<p className={styles['edit__error1']}>
+						{errors.email.message}
+					</p>
+				)}
 				<label htmlFor='age' className={styles['edit__label_age']}>
 					Repeat New Email
 				</label>
 				<input
+					{...register('emailRe', {
+						required: { value: true, message: 'Field is required' },
+						validate: (value) =>
+							value === watch('email') || "Emails don't match",
+					})}
 					type='email'
-					name='emailRe'
 					className={styles['edit__input_age']}
-					onChange={handleChange}
-					value={formData.emailRe}
 				/>
+				{errors.emailRe && (
+					<p className={styles['edit__error2']}>
+						{errors.emailRe.message}
+					</p>
+				)}
 				<button className={styles['edit__submit']}>
 					Submit Changes
 				</button>
