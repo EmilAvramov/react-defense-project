@@ -2,6 +2,7 @@ import { useState } from 'react';
 
 import useRemoveGameInternal from '../../hooks/useRemoveGameInternal';
 import useUploadImages from '../../hooks/useUploadImages';
+import updateUserGame from '../../functions/updateUserGame';
 
 import Err from '../helpers/Error';
 import styles from '../../styles/components/Profile.module.scss';
@@ -18,8 +19,10 @@ const Card = (props) => {
 	const uploadHandler = () => {
 		if (!file) {
 			alert('Please select a file first');
+		} else {
+			upload(file);
+			updateUserGame(props.doc, url);
 		}
-		upload(file);
 	};
 
 	// Prepare delete action
