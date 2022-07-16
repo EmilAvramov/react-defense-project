@@ -5,7 +5,7 @@ const updateUserPassword = (newPassword) => {
     try {
         updatePassword(auth.currentUser, newPassword)
     } catch (err) {
-        console.log(err)
+        return err.message
     }
 }
 

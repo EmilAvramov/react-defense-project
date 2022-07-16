@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useForm } from 'react-hook-form';
 
 import updateUserPassword from '../../auth/updatePassword';
 
@@ -11,27 +12,22 @@ const ProfileSettingsPassword = () => {
 	const [updateError, setUpdateError] = useState('');
 
 	// Manage form data
-	const [formData, setFormData] = useState({
-		password: '',
-		rePass: '',
+	const {
+		register,
+		handleSubmit,
+		watch,
+		formState: { errors },
+	} = useForm({
+		mode: 'onBlur',
+		reValidateMode: 'onChange',
+		shouldFocusError: true,
 	});
 
-	const handleChange = (e) => {
-		const { name, value, checked, type } = e.target;
-		setFormData((prevData) => {
-			return {
-				...prevData,
-				[name]: type === 'checkbox' ? checked : value,
-			};
-		});
-	};
-
-	const submitData = (e) => {
-		e.preventDefault();
+	const onSubmit = (data) => {
 		try {
-			updateUserPassword(formData.email);
-			alert('Password Successfully Updated')
-			setTimeout(navigate('/'), 3000) 
+			updateUserPassword(data.password);
+			alert('Password Successfully Updated');
+			setTimeout(navigate('/'), 3000);
 		} catch (err) {
 			setUpdateError(err);
 		}
@@ -39,28 +35,52 @@ const ProfileSettingsPassword = () => {
 
 	return (
 		<div className={styles['edit__wrapper']}>
-			{updateError && <div>{updateError.message}</div>}
-			<form onSubmit={submitData} className={styles['edit__form']}>
+			{updateError && <p>{updateError.message}</p>}
+			<form
+				onSubmit={handleSubmit(onSubmit)}
+				className={styles['edit__form']}
+			>
 				<label htmlFor='name' className={styles['edit__label_name']}>
 					New Password
 				</label>
 				<input
+					{...register('password', {
+						required: { value: true, message: 'Field is required' },
+						minLength: {
+							value: 8,
+							message: 'Password must be at least 8 characters',
+						},
+					})}
 					type='password'
-					name='password'
 					className={styles['edit__input_name']}
-					onChange={handleChange}
-					value={formData.password}
 				/>
+				{errors.password && (
+					<p className={styles['edit__error1']}>
+						{errors.password.message}
+					</p>
+				)}
 				<label htmlFor='age' className={styles['edit__label_age']}>
 					Repeat Password
 				</label>
 				<input
+					{...register('rePass', {
+						required: { value: true, message: 'Field is required' },
+						minLength: {
+							value: 8,
+							message: 'Password must be at least 8 characters',
+						},
+						validate: (value) =>
+							value === watch('password') ||
+							"Passwords don't match",
+					})}
 					type='password'
-					name='rePass'
 					className={styles['edit__input_age']}
-					onChange={handleChange}
-					value={formData.rePass}
 				/>
+				{errors.rePass && (
+					<p className={styles['edit__error2']}>
+						{errors.rePass.message}
+					</p>
+				)}
 				<button className={styles['edit__submit']}>
 					Submit Changes
 				</button>

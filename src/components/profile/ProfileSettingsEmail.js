@@ -8,6 +8,8 @@ import updateUserEmail from '../../auth/updateEmail';
 import Err from '../helpers/Error';
 import Loader from '../helpers/GridLoader';
 
+import { useForm } from 'react-hook-form';
+
 import styles from '../../styles/components/Profile.module.scss';
 
 const ProfileSettingsEmail = () => {
@@ -17,6 +19,17 @@ const ProfileSettingsEmail = () => {
 	const { unique, fetchError, loading } = useGetUserDocument();
 
 	// Manage form data
+	const {
+		register,
+		watch,
+		handleSubmit,
+		formState: { errors },
+	} = useForm({
+		mode: 'onBlur',
+		reValidateMode: 'onChange',
+		shouldFocusError: true,
+	});
+	
 	const [formData, setFormData] = useState({
 		email: '',
 		emailRe: '',
@@ -37,8 +50,8 @@ const ProfileSettingsEmail = () => {
 		try {
 			updateUserEmail(formData.email);
 			updateUserData({ email: formData.email }, unique);
-			alert('Email Successfully Updated')
-			setTimeout(navigate('/'), 3000) 
+			alert('Email Successfully Updated');
+			setTimeout(navigate('/'), 3000);
 		} catch (err) {
 			setUpdateError(err);
 		}
@@ -50,7 +63,7 @@ const ProfileSettingsEmail = () => {
 		<Err error={fetchError} />
 	) : (
 		<div className={styles['edit__wrapper']}>
-			{updateError && <div>{updateError.message}</div>}
+			{updateError && <p>{updateError.message}</p>}
 			<form onSubmit={submitData} className={styles['edit__form']}>
 				<label htmlFor='name' className={styles['edit__label_name']}>
 					New Email

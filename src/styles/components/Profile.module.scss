@@ -130,5 +130,13 @@
 		.edit__input_age {
 			grid-area: input2;
 		}
+		.edit__error1 {
+			grid-area: errPass;
+			color: red;
+		}
+		.edit__error2 {
+			grid-area: errRePass;
+			color: red;
+		}
 	}
 }
