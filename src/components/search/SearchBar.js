@@ -1,38 +1,11 @@
 import { useState } from 'react';
+import { useForm } from 'react-hook-form';
+
 import styles from '../../styles/components/Search.module.scss';
 
 const SearchBar = (props) => {
 	// Manage form data
-	const [formData, setFormData] = useState({
-		string: '',
-		category: '',
-		PC: false,
-		PS4: false,
-		PS5: false,
-		XBOX: false,
-		Switch: false,
-	});
-
-	const handleChange = (e) => {
-		const { name, value, checked, type } = e.target;
-		setFormData((prevData) => {
-			return {
-				...prevData,
-				[name]: type === 'checkbox' ? checked : value,
-			};
-		});
-	};
-
-	const clear = () =>
-		setFormData({
-			string: '',
-			category: '',
-			PC: false,
-			PS4: false,
-			PS5: false,
-			XBOX: false,
-			Switch: false,
-		});
+	const { register, handleSubmit, reset } = useForm();
 
 	// Manage flyout menu
 	const [flyout, setFlyout] = useState(false);
@@ -42,10 +15,9 @@ const SearchBar = (props) => {
 	};
 
 	// Change handlers
-	const submit = (e) => {
-		e.preventDefault();
-		props.sendData(formData);
-		clear();
+	const submitData = (data) => {
+		props.sendData(data);
+		reset();
 	};
 
 	const applyFilters = (e) => {
@@ -53,22 +25,13 @@ const SearchBar = (props) => {
 		toggleSearch();
 	};
 
-	const clearData = (e) => {
-		e.preventDefault();
-		clear();
-	};
 
 	return (
-		<form onSubmit={applyFilters} className={styles['search__container']}>
-			<input
-				type='text'
-				name='string'
-				onChange={handleChange}
-				value={formData.string}
-			/>
+		<form onSubmit={handleSubmit(submitData)} className={styles['search__container']}>
+			<input {...register('string')} type='text' />
 			<i className='fa-solid fa-filter' onClick={toggleSearch}></i>
 
-			<button onClick={submit} disabled={props.loading}>
+			<button disabled={props.loading}>
 				Search
 			</button>
 
@@ -77,63 +40,36 @@ const SearchBar = (props) => {
 					<fieldset className={styles['search__filters']}>
 						<legend>Search By:</legend>
 						<input
+							{...register('category')}
 							type='radio'
 							name='category'
 							value='name'
-							onChange={handleChange}
-							checked={formData.category === 'name'}
 						/>
 						<label htmlFor='name'>Game Name</label>
 						<input
+							{...register('category')}
 							type='radio'
 							name='category'
 							value='company'
-							onChange={handleChange}
-							checked={formData.category === 'company'}
 						/>
 						<label htmlFor='company'>Company</label>
 					</fieldset>
 					<fieldset className={styles['search__filters']}>
 						<legend>Platforms</legend>
-						<input
-							type='checkbox'
-							name='PC'
-							checked={formData.PC}
-							onChange={handleChange}
-						/>
+						<input {...register('PC')} type='checkbox' />
 						<label htmlFor='PC'>PC</label>
-						<input
-							type='checkbox'
-							name='PS4'
-							checked={formData.PS4}
-							onChange={handleChange}
-						/>
+						<input {...register('PS4')} type='checkbox' />
 						<label htmlFor='PS4'>PS4</label>
-						<input
-							type='checkbox'
-							name='PS5'
-							checked={formData.PS5}
-							onChange={handleChange}
-						/>
+						<input {...register('PS5')} type='checkbox' />
 						<label htmlFor='PS5'>PS5</label>
-						<input
-							type='checkbox'
-							name='XBOX'
-							checked={formData.XBOX}
-							onChange={handleChange}
-						/>
+						<input {...register('XBOX')} type='checkbox' />
 						<label htmlFor='XBOX'>XBOX</label>
-						<input
-							type='checkbox'
-							name='Switch'
-							checked={formData.Switch}
-							onChange={handleChange}
-						/>
+						<input {...register('Switch')} type='checkbox' />
 						<label htmlFor='Switch'>Switch</label>
 					</fieldset>
 					<div className={styles['search__filters']}>
-						<button>Confirm</button>
-						<button onClick={clearData}>Clear</button>
+						<button onClick={applyFilters}>Confirm</button>
+						<button onClick={() => reset()}>Clear</button>
 					</div>
 				</div>
 			)}
