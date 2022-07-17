@@ -40,7 +40,7 @@ const ProfileSettingsEdit = () => {
 	};
 
 	return loading ? (
-		<Loader />
+		<Loader loading={loading}/>
 	) : fetchError ? (
 		<Err error={fetchError} />
 	) : (

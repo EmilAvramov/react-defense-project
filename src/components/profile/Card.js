@@ -19,6 +19,8 @@ const Card = (props) => {
 		props.doc
 	);
 
+	console.log(percent);
+
 	useEffect(() => {
 		if (url) {
 			updateUserGame(props.doc, url);
@@ -53,7 +55,12 @@ const Card = (props) => {
 				<p>Release Date: {props.releaseDate}</p>
 				<p>Rating: {props.rating}</p>
 			</div>
-			<Carousel data={screenshots} />
+			{fetchError ? (
+				<Err error={fetchError} />
+			) : (
+				<Carousel data={screenshots} />
+			)}
+
 			<input
 				className={styles['card__image']}
 				type='file'
@@ -63,7 +70,7 @@ const Card = (props) => {
 			{uploadError ? (
 				<Err error={uploadError} />
 			) : loading ? (
-				<Loader props={loading} />
+				<Loader loading={loading} />
 			) : (
 				<button
 					className={styles['card__upload']}

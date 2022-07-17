@@ -44,7 +44,7 @@ const Register = () => {
 			{error ? (
 				<Err error={error} />
 			) : loading ? (
-				<Loader />
+				<Loader loading={loading}/>
 			) : (
 				<div className={styles['register__container']}>
 					<form

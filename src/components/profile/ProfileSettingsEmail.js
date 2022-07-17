@@ -45,7 +45,7 @@ const ProfileSettingsEmail = () => {
 	};
 
 	return loading ? (
-		<Loader />
+		<Loader loading={loading}/>
 	) : fetchError ? (
 		<Err error={fetchError} />
 	) : (

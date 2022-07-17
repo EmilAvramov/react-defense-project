@@ -41,7 +41,7 @@ const Reset = () => {
 			{error ? (
 				<Err error={error} />
 			) : loading ? (
-				<Loader />
+				<Loader loading={loading}/>
 			) : (
 				<div className={styles['reset__container']}>
 					<form
