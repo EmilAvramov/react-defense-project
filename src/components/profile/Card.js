@@ -5,6 +5,7 @@ import useRemoveGameInternal from '../../hooks/useRemoveGameInternal';
 import useUploadImages from '../../hooks/useUploadImages';
 import updateUserGame from '../../functions/updateUserGame';
 
+import Loader from '../helpers/GridLoader';
 import Carousel from '../helpers/Carousel';
 import Err from '../helpers/Error';
 import styles from '../../styles/components/Profile.module.scss';
@@ -52,7 +53,6 @@ const Card = (props) => {
 				<p>Release Date: {props.releaseDate}</p>
 				<p>Rating: {props.rating}</p>
 			</div>
-			{/* <div className={styles['card__screenshots']}>images go here</div> */}
 			<Carousel data={screenshots} />
 			<input
 				className={styles['card__image']}
@@ -62,6 +62,8 @@ const Card = (props) => {
 			/>
 			{uploadError ? (
 				<Err error={uploadError} />
+			) : loading ? (
+				<Loader props={loading} />
 			) : (
 				<button
 					className={styles['card__upload']}

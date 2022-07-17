@@ -54,7 +54,7 @@ const Details = () => {
 			addGame();
 			setAdded(true);
 		} else {
-			alert(error);
+			alert(error.message);
 		}
 	};
 
@@ -63,7 +63,7 @@ const Details = () => {
 			removeGame();
 			setAdded(false);
 		} else {
-			alert(error);
+			alert(error.message);
 		}
 	};
 

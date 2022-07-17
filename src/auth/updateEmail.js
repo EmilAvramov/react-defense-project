@@ -5,7 +5,7 @@ const updateUserEmail = (newEmail) => {
     try {
         updateEmail(auth.currentUser, newEmail)
     } catch (err) {
-        console.log(err)
+        alert(err.message) 
     }
 }
 

@@ -17,8 +17,7 @@ const registerWithEmailAndPassword = async (data) => {
 			email: data.email,
 		});
 	} catch (err) {
-		console.error(err);
-		alert(err.message);
+		alert(err.message) 
 	}
 };
 
