@@ -14,7 +14,11 @@ const useGetGameScreenshots = (unique) => {
 			const getScreenshots = async () => {
 				const docRef = collection(db, 'games', unique, 'screenshots');
 				const request = await getDocs(docRef);
-				let imageUrls = request.docs.map((doc) => ({ ...doc.data() }));
+				let imageUrls = request.docs.map((doc) => {
+					let item = { ...doc.data() };
+					item.doc = doc.id;
+					return item;
+				});
 				setScreenshots(imageUrls);
 			};
 			getScreenshots();

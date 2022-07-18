@@ -14,7 +14,7 @@ import styles from '../../styles/components/Profile.module.scss';
 const ProfileLibraryCard = (props) => {
 	// Prepare upload hook and state
 	const [file, setFile] = useState();
-	const { upload, uploadError, url } = useUploadImages();
+	const { upload, uploadError, url, name } = useUploadImages();
 	const { screenshots, fetchError, loading } = useGetGameScreenshots(
 		props.doc
 	);
@@ -23,9 +23,9 @@ const ProfileLibraryCard = (props) => {
 	// Add screenshot to gallery
 	useEffect(() => {
 		if (url) {
-			updateUserGame(props.doc, url);
+			updateUserGame(props.doc, url, name);
 		}
-	}, [props.doc, url]);
+	}, [props.doc, url, name]);
 
 	useEffect(() => {
 		if (file) {
@@ -64,7 +64,7 @@ const ProfileLibraryCard = (props) => {
 			) : fetchError ? (
 				<Err error={fetchError} />
 			) : (
-				<ProfileLibraryCarousel data={screenshots} />
+				<ProfileLibraryCarousel data={screenshots} doc={props.doc}/>
 			)}
 
 			<input

@@ -7,14 +7,14 @@ import { Link, useLocation } from 'react-router-dom';
 
 import styles from '../../styles/components/Profile.module.scss';
 
-const ProfileLibraryCarousel = ({ data }) => {
+const ProfileLibraryCarousel = ({ data, doc }) => {
 	const location = useLocation();
 
 	const screenshots = data.map((x, i) => (
 		<SwiperSlide key={i} className={styles['card__swiper_slide']}>
 			<Link
 				to={`/profile/library/${x.id}`}
-				state={{ x, carouselBackground: location }}
+				state={{ x, doc, carouselBackground: location }}
 			>
 				<img
 					className={styles['card__swiper_img']}
