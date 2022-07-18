@@ -6,7 +6,7 @@ import Search from './search/Search';
 import SearchDetails from './search/SearchDetails';
 import Profile from './profile/Profile';
 import ProfileLibrary from './profile/ProfileLibrary';
-import CarouselDetails from './profile/CarouselDetails';
+import ProfileLibraryDetails from './profile/ProfileLibraryDetails';
 import ProfileCommunity from './profile/ProfileCommunity';
 import ProfileSettings from './profile/ProfileSettings';
 import ProfileSettingsEdit from './profile/ProfileSettingsEdit';
@@ -62,7 +62,7 @@ const Router = () => {
 				<Routes>
 					<Route
 						path='profile/library/:id'
-						element={<CarouselDetails/>}
+						element={<ProfileLibraryDetails/>}
 					>
 					</Route>
 				</Routes>

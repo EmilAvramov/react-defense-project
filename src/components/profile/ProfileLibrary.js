@@ -1,6 +1,6 @@
 import { useAuth } from '../../contexts/AuthContext';
 
-import Card from './Card';
+import ProfileLibraryCard from './ProfileLibraryCard';
 import useGetAllUserGames from '../../hooks/useGetAllUserGames';
 
 import Loader from '../helpers/GridLoader';
@@ -11,7 +11,7 @@ const ProfileLibrary = () => {
 	const { currentUser } = useAuth();
 	const { data, loading, error, handleRequest } = useGetAllUserGames(currentUser.uid);
 
-	const cards = data.map((x) => <Card key={x.id} change={handleRequest} {...x} />);
+	const cards = data.map((x) => <ProfileLibraryCard key={x.id} change={handleRequest} {...x} />);
 
 	return (
 		<div className={styles['library__container']}>

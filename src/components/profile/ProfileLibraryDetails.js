@@ -2,7 +2,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 
 import styles from '../../styles/components/Details.module.scss';
 
-const CarouselDetails = () => {
+const ProfileLibraryDetails = () => {
 	const { state } = useLocation();
 	const data = state.x;
 	const navigate = useNavigate();
@@ -39,4 +39,4 @@ const CarouselDetails = () => {
 	);
 };
 
-export default CarouselDetails;
+export default ProfileLibraryDetails;

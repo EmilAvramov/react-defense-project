@@ -6,12 +6,12 @@ import useUploadImages from '../../hooks/useUploadImages';
 import updateUserGame from '../../functions/updateUserGame';
 
 import Loader from '../helpers/GridLoader';
-import Carousel from './Carousel';
+import ProfileLibraryCarousel from './ProfileLibraryCarousel';
 import Err from '../helpers/Error';
 
 import styles from '../../styles/components/Profile.module.scss';
 
-const Card = (props) => {
+const ProfileLibraryCard = (props) => {
 	// Prepare upload hook and state
 	const [file, setFile] = useState();
 	const { upload, uploadError, url } = useUploadImages();
@@ -64,7 +64,7 @@ const Card = (props) => {
 			) : fetchError ? (
 				<Err error={fetchError} />
 			) : (
-				<Carousel data={screenshots} />
+				<ProfileLibraryCarousel data={screenshots} />
 			)}
 
 			<input
@@ -94,4 +94,4 @@ const Card = (props) => {
 	);
 };
 
-export default Card;
+export default ProfileLibraryCard;

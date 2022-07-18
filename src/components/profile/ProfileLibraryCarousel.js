@@ -7,7 +7,7 @@ import { Link, useLocation } from 'react-router-dom';
 
 import styles from '../../styles/components/Profile.module.scss';
 
-const Carousel = ({ data }) => {
+const ProfileLibraryCarousel = ({ data }) => {
 	const location = useLocation();
 
 	const screenshots = data.map((x, i) => (
@@ -38,4 +38,4 @@ const Carousel = ({ data }) => {
 		</div>
 	);
 };
-export default Carousel;
+export default ProfileLibraryCarousel;
