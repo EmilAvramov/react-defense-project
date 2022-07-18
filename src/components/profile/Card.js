@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 import useGetGameScreenshots from '../../hooks/useGetGameScreenshots';
 import useRemoveGameInternal from '../../hooks/useRemoveGameInternal';
@@ -18,6 +18,7 @@ const Card = (props) => {
 	const { screenshots, fetchError, loading } = useGetGameScreenshots(
 		props.doc
 	);
+	const inputDialog = useRef(null);
 
 	// Add screenshot to gallery
 	useEffect(() => {
@@ -26,18 +27,20 @@ const Card = (props) => {
 		}
 	}, [props.doc, url]);
 
+	useEffect(() => {
+		if (file) {
+			upload(file);
+			setFile('');
+		}
+	}, [file, upload]);
+
 	// Handle changes related to uploads
-	const selectHandler = (e) => {
+	const attachFile = (e) => {
 		setFile(e.target.files[0]);
 	};
 
 	const uploadHandler = () => {
-		if (!file) {
-			alert('Please select a file first');
-		} else {
-			upload(file);
-			setFile('');
-		}
+		inputDialog.current.click();
 	};
 
 	// Prepare delete action
@@ -56,30 +59,21 @@ const Card = (props) => {
 				<p>Release Date: {props.releaseDate}</p>
 				<p>Rating: {props.rating}</p>
 			</div>
-			{fetchError ? (
+			{loading ? (
+				<Loader loading={loading} />
+			) : fetchError ? (
 				<Err error={fetchError} />
 			) : (
 				<Carousel data={screenshots} />
 			)}
 
 			<input
-				className={styles['card__image']}
 				type='file'
 				accept='/image/*'
-				onChange={selectHandler}
+				ref={inputDialog}
+				onChange={attachFile}
+				style={{ display: 'none' }}
 			/>
-			{uploadError ? (
-				<Err error={uploadError} />
-			) : loading ? (
-				<Loader loading={loading} />
-			) : (
-				<button
-					className={styles['card__upload']}
-					onClick={uploadHandler}
-				>
-					Upload Image
-				</button>
-			)}
 			<div className={styles['card__buttons']}>
 				<button
 					onClick={() => {
@@ -90,7 +84,11 @@ const Card = (props) => {
 					Remove
 				</button>
 				<button>Links</button>
-				<button>Community</button>
+				{uploadError ? (
+					<Err error={uploadError} />
+				) : (
+					<button onClick={uploadHandler}>Upload Image</button>
+				)}
 			</div>
 		</section>
 	);

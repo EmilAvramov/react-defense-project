@@ -12,7 +12,10 @@ const Carousel = ({ data }) => {
 
 	const screenshots = data.map((x, i) => (
 		<SwiperSlide key={i} className={styles['card__swiper_slide']}>
-			<Link to={`/profile/library/${x.id}`} state={{ x, carouselBackground: location }}>
+			<Link
+				to={`/profile/library/${x.id}`}
+				state={{ x, carouselBackground: location }}
+			>
 				<img
 					className={styles['card__swiper_img']}
 					src={x.url}
