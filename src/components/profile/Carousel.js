@@ -1,12 +1,11 @@
+import { Navigation } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/scss';
+import 'swiper/css/navigation';
 
 import { Link, useLocation } from 'react-router-dom';
 
 import styles from '../../styles/components/Profile.module.scss';
-import 'swiper/scss';
-import 'swiper/css/navigation';
-
-import { Navigation } from 'swiper';
 
 const Carousel = ({ data }) => {
 	const location = useLocation();

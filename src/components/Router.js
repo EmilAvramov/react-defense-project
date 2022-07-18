@@ -29,7 +29,7 @@ const Router = () => {
 	return (
 		<>
 			<Header />
-			<Routes location={searchBackground || location}>
+			<Routes location={searchBackground || carouselBackground || location}>
 				<Route path='/' element={<Home />}></Route>
 				<Route path='community' element={<Community />}></Route>
 				<Route path='profile' element={<Profile />}>

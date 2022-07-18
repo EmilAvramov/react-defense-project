@@ -6,7 +6,7 @@ import useUploadImages from '../../hooks/useUploadImages';
 import updateUserGame from '../../functions/updateUserGame';
 
 import Loader from '../helpers/GridLoader';
-import Carousel from '../helpers/Carousel';
+import Carousel from './Carousel';
 import Err from '../helpers/Error';
 
 import styles from '../../styles/components/Profile.module.scss';
@@ -14,12 +14,10 @@ import styles from '../../styles/components/Profile.module.scss';
 const Card = (props) => {
 	// Prepare upload hook and state
 	const [file, setFile] = useState();
-	const { upload, uploadError, percent, url } = useUploadImages();
+	const { upload, uploadError, url } = useUploadImages();
 	const { screenshots, fetchError, loading } = useGetGameScreenshots(
 		props.doc
 	);
-
-	console.log(percent);
 
 	// Add screenshot to gallery
 	useEffect(() => {

@@ -50,6 +50,8 @@
 }
 
 .library__container {
+	position: relative;
+
 	@extend %flex-basic;
 	margin: 30px auto;
 	flex-wrap: wrap;
