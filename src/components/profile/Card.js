@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 import useGetGameScreenshots from '../../hooks/useGetGameScreenshots';
 import useRemoveGameInternal from '../../hooks/useRemoveGameInternal';
@@ -8,8 +8,8 @@ import updateUserGame from '../../functions/updateUserGame';
 import Loader from '../helpers/GridLoader';
 import Carousel from '../helpers/Carousel';
 import Err from '../helpers/Error';
+
 import styles from '../../styles/components/Profile.module.scss';
-import { useEffect } from 'react';
 
 const Card = (props) => {
 	// Prepare upload hook and state
@@ -21,12 +21,14 @@ const Card = (props) => {
 
 	console.log(percent);
 
+	// Add screenshot to gallery
 	useEffect(() => {
 		if (url) {
 			updateUserGame(props.doc, url);
 		}
 	}, [props.doc, url]);
 
+	// Handle changes related to uploads
 	const selectHandler = (e) => {
 		setFile(e.target.files[0]);
 	};
@@ -36,6 +38,7 @@ const Card = (props) => {
 			alert('Please select a file first');
 		} else {
 			upload(file);
+			setFile('');
 		}
 	};
 

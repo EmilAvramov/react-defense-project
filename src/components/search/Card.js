@@ -11,7 +11,7 @@ const Card = (props) => {
 		<div className={styles['card']}>
 			<h3>{data.name}</h3>
 			<img src={data.cover} alt='' />
-			<Link to={`/search/${data.id}`} state={{data, background: location}}>
+			<Link to={`/search/${data.id}`} state={{data, searchBackground: location}}>
 				<button>Details</button>
 			</Link>
 		</div>

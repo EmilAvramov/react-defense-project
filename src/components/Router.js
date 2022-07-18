@@ -3,9 +3,10 @@ import Footer from './footer/Footer';
 
 import Home from './home/Home';
 import Search from './search/Search';
-import Details from './helpers/Details';
+import SearchDetails from './search/SearchDetails';
 import Profile from './profile/Profile';
 import ProfileLibrary from './profile/ProfileLibrary';
+import CarouselDetails from './profile/CarouselDetails';
 import ProfileCommunity from './profile/ProfileCommunity';
 import ProfileSettings from './profile/ProfileSettings';
 import ProfileSettingsEdit from './profile/ProfileSettingsEdit';
@@ -22,13 +23,14 @@ import { Routes, Route, useLocation } from 'react-router-dom';
 
 const Router = () => {
 	const location = useLocation();
-	const background = location.state && location.state.background;
+	const searchBackground = location.state && location.state.searchBackground;
+	const carouselBackground = location.state && location.state.carouselBackground
 
 	return (
 		<>
 			<Header />
-			<Routes location={background || location}>
-				<Route exact path='/' element={<Home />}></Route>
+			<Routes location={searchBackground || location}>
+				<Route path='/' element={<Home />}></Route>
 				<Route path='community' element={<Community />}></Route>
 				<Route path='profile' element={<Profile />}>
 					<Route index element={<ProfileLibrary/>}></Route>
@@ -48,13 +50,21 @@ const Router = () => {
 				<Route path='search' element={<Search />}></Route>
 				<Route path='reset' element={<Reset />}></Route>
 			</Routes>
-			{background && (
+			{searchBackground && (
 				<Routes>
 					<Route
-						exact
 						path='search/:id'
-						element={<Details />}
+						element={<SearchDetails />}
 					></Route>
+				</Routes>
+			)}
+			{carouselBackground && (
+				<Routes>
+					<Route
+						path='profile/library/:id'
+						element={<CarouselDetails/>}
+					>
+					</Route>
 				</Routes>
 			)}
 			<Footer />

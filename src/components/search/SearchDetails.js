@@ -8,7 +8,7 @@ import useCheckExistsInternal from '../../hooks/useCheckExistsInternal';
 
 import styles from '../../styles/components/Details.module.scss';
 
-const Details = () => {
+const SearchDetails = () => {
 	// Get current user if logged in
 	const { currentUser } = useAuth();
 
@@ -138,4 +138,4 @@ const Details = () => {
 	);
 };
 
-export default Details;
+export default SearchDetails;

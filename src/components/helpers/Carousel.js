@@ -1,5 +1,7 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 
+import { Link, useLocation } from 'react-router-dom';
+
 import styles from '../../styles/components/Profile.module.scss';
 import 'swiper/scss';
 import 'swiper/css/navigation';
@@ -7,13 +9,17 @@ import 'swiper/css/navigation';
 import { Navigation } from 'swiper';
 
 const Carousel = ({ data }) => {
+	const location = useLocation();
+
 	const screenshots = data.map((x, i) => (
 		<SwiperSlide key={i} className={styles['card__swiper_slide']}>
-			<img
-				className={styles['card__swiper_img']}
-				src={x.imageUrl}
-				alt=''
-			/>
+			<Link to={`/profile/library/${x.id}`} state={{ x, carouselBackground: location }}>
+				<img
+					className={styles['card__swiper_img']}
+					src={x.url}
+					alt=''
+				/>
+			</Link>
 		</SwiperSlide>
 	));
 
