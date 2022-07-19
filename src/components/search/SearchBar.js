@@ -25,15 +25,15 @@ const SearchBar = (props) => {
 		toggleSearch();
 	};
 
-
 	return (
-		<form onSubmit={handleSubmit(submitData)} className={styles['search__container']}>
+		<form
+			onSubmit={handleSubmit(submitData)}
+			className={styles['search__container']}
+		>
 			<input {...register('string')} type='text' />
 			<i className='fa-solid fa-filter' onClick={toggleSearch}></i>
 
-			<button disabled={props.loading}>
-				Search
-			</button>
+			<button disabled={props.loading}>Search</button>
 
 			{flyout && (
 				<div className={styles['search__flyout']}>

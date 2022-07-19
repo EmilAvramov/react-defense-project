@@ -1,27 +1,26 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import { useAuthState } from 'react-firebase-hooks/auth';
-import { auth, db } from '../../config/firebase-config';
-import logout from '../../auth/logout'
+import { db } from '../../config/firebase-config';
 import { query, collection, getDocs, where } from 'firebase/firestore';
 
-import Err from '../helpers/Error';
-import Loader from '../helpers/GridLoader';
+import logout from '../../auth/logout';
+import { useAuth } from '../../contexts/AuthContext';
+
 import styles from '../../styles/components/Home.module.scss';
 
 const Home = () => {
-	const [user, loading, error] = useAuthState(auth);
+	const { currentUser } = useAuth();
 	const [name, setName] = useState('');
 	const navigate = useNavigate();
 
 	useEffect(() => {
-		if (!user) return navigate('/');
+		if (!currentUser) return navigate('/');
 		const fetchUserName = async () => {
 			try {
 				const q = query(
 					collection(db, 'users'),
-					where('uid', '==', user?.uid)
+					where('uid', '==', currentUser.uid)
 				);
 				const doc = await getDocs(q);
 				const data = doc.docs[0].data();
@@ -31,30 +30,28 @@ const Home = () => {
 			}
 		};
 		fetchUserName();
-	}, [user, navigate]);
+	}, [currentUser, navigate]);
 
 	return (
-		<>
-			{error ? (
-				<Err error={error} />
-			) : loading ? (
-				<Loader />
-			) : (
-				<div className={styles['dashboard']}>
-					<div className={styles['dashboard__container']}>
-						Logged in as
+		<div className={styles['dashboard']}>
+			<div className={styles['dashboard__container']}>
+				Logged in as
+				{currentUser ? (
+					<>
 						<div>{name}</div>
-						<div>{user?.email}</div>
+						<div>{currentUser.email}</div>
 						<button
 							className={styles['dashboard__btn']}
 							onClick={logout}
 						>
 							Logout
 						</button>
-					</div>
-				</div>
-			)}
-		</>
+					</>
+				) : (
+					<div>Guest</div>
+				)}
+			</div>
+		</div>
 	);
 };
 export default Home;

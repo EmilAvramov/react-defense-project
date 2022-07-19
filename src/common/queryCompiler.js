@@ -46,7 +46,7 @@ const compileQuery = (data) => {
 		]
 	
 		let fields ='fields id, name, cover.url, genres.name, platforms.abbreviation, involved_companies.company.name, total_rating_count, total_rating, release_dates.human, summary, websites.*;';
-		let limit = 'limit 500;';
+		let limit = 'limit 150;';
 		let filter = `where ${platformFilter.join(" | ")};`;
 		let search;
 	

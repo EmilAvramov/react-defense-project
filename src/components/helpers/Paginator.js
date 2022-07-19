@@ -11,7 +11,7 @@ const Paginator = ({ rawData, sendData }) => {
 	const paginate = (data) => sendData(data);
 
 	// Paginate and manage offset
-    const itemsPerPage = 30;
+    const itemsPerPage = 24;
 	const [pages, setPages] = useState(Math.ceil(data.length / itemsPerPage));
 	const [offset, setOffset] = useState(0);
 
