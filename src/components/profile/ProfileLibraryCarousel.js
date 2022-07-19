@@ -3,32 +3,42 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/scss';
 import 'swiper/css/navigation';
 
+import { useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 
-import styles from '../../styles/components/Profile.module.scss';
-import { useEffect, useState } from 'react';
+import { useLibrary } from '../../contexts/LibraryContext';
+import useGetGameScreenshots from '../../hooks/useGetGameScreenshots';
 
-const ProfileLibraryCarousel = ({ data, doc }) => {
-	const [screenshots, setScreenshots] = useState([])
+import Loader from '../helpers/GridLoader';
+import Err from '../helpers/Error';
+import styles from '../../styles/components/Profile.module.scss';
+
+const ProfileLibraryCarousel = ({ doc }) => {
+	// Prepare upload hook and state
+	const { changed } = useLibrary();
+	const { screenshots, fetchError, loading, handleRequest } =
+		useGetGameScreenshots(doc);
+
 	const location = useLocation();
 
 	useEffect(() => {
-		const slides = data.map((x, i) => (
-			<SwiperSlide key={i} className={styles['card__swiper_slide']}>
-				<Link
-					to={`/profile/library/${x.id}`}
-					state={{ x, doc, carouselBackground: location }}
-				>
-					<img
-						className={styles['card__swiper_img']}
-						src={x.url}
-						alt=''
-					/>
-				</Link>
-			</SwiperSlide>
-		));
-		setScreenshots(slides)
-	}, [data, doc, location])
+		handleRequest();
+	}, [changed]);
+
+	const data = screenshots.map((x, i) => (
+		<SwiperSlide key={i} className={styles['card__swiper_slide']}>
+			<Link
+				to={`/profile/library/${x.id}`}
+				state={{ x, doc, carouselBackground: location }}
+			>
+				<img
+					className={styles['card__swiper_img']}
+					src={x.url}
+					alt=''
+				/>
+			</Link>
+		</SwiperSlide>
+	));
 
 	return (
 		<div className={styles['card__swiper_container']}>
@@ -38,7 +48,13 @@ const ProfileLibraryCarousel = ({ data, doc }) => {
 				slidesPerView={3}
 				navigation={true}
 			>
-				{screenshots}
+				{fetchError ? (
+					<Err error={fetchError} />
+				) : loading ? (
+					<Loader loading={loading} />
+				) : (
+					data
+				)}
 			</Swiper>
 		</div>
 	);

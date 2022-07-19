@@ -1,4 +1,5 @@
 import { useLocation, useNavigate } from 'react-router-dom';
+
 import useRemoveScreenshot from '../../hooks/useRemoveScreenshot';
 
 import styles from '../../styles/components/Details.module.scss';
@@ -7,6 +8,11 @@ const ProfileLibraryDetails = () => {
 	const { state } = useLocation();
 	const data = state.x;
 	const navigate = useNavigate();
+
+	const delScreenshot = () => {
+		removeScreenshot();
+		closeModal();
+	};
 
 	const closeModal = () => {
 		navigate(-1);
@@ -35,10 +41,7 @@ const ProfileLibraryDetails = () => {
 				</button>
 				<button
 					className={styles['carouselDetails__delete']}
-					onClick={() => {
-						closeModal();
-						removeScreenshot();
-					}}
+					onClick={delScreenshot}
 				>
 					DELETE
 				</button>

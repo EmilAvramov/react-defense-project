@@ -1,31 +1,25 @@
 import { useState, useEffect, useRef } from 'react';
 
 import useRemoveGameInternal from '../../hooks/useRemoveGameInternal';
-import updateUserGame from '../../functions/updateUserGame';
 import useUploadImages from '../../hooks/useUploadImages';
 
+import Loader from '../helpers/GridLoader';
 import Err from '../helpers/Error';
 import styles from '../../styles/components/Profile.module.scss';
 
 const ProfileLibraryActions = ({ doc, change }) => {
 	// Prepare upload hook and state
 	const [file, setFile] = useState();
-	const { upload, uploadError, url, name } = useUploadImages();
+	const { upload, uploadError, loading } = useUploadImages(doc);
 	const inputDialog = useRef(null);
 
 	// Add screenshot to gallery
 	useEffect(() => {
-		if (url) {
-			updateUserGame(doc, url, name);
-		}
-	}, [doc, url, name]);
-
-	useEffect(() => {
 		if (file) {
-			upload(file);
+			upload(file, doc);
 			setFile('');
 		}
-	}, [file, upload]);
+	}, [file, upload, doc]);
 
 	// Handle changes related to uploads
 	const attachFile = (e) => {
@@ -60,8 +54,12 @@ const ProfileLibraryActions = ({ doc, change }) => {
 				<button>Links</button>
 				{uploadError ? (
 					<Err error={uploadError} />
+				) : loading ? (
+					<Loader loading={loading} />
 				) : (
-					<button onClick={uploadHandler}>Upload Image</button>
+					<button disabled={loading} onClick={uploadHandler}>
+						Upload Image
+					</button>
 				)}
 			</div>
 		</>

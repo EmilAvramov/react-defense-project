@@ -1,17 +1,21 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
 import { collection, getDocs } from 'firebase/firestore';
 import { db } from '../config/firebase-config';
+import { useEffect } from 'react';
 
 const useGetGameScreenshots = (unique) => {
 	const [screenshots, setScreenshots] = useState([]);
 	const [loading, setLoading] = useState(false);
 	const [fetchError, setFetchError] = useState();
+	const [request, setRequest] = useState(false)
+
+	const handleRequest = () => setRequest(state => !state)
 
 	useEffect(() => {
-		setLoading(true);
-		try {
-			const getScreenshots = async () => {
+		const getScreenshots = async () => {
+			try {
+				setLoading(true);
 				const docRef = collection(db, 'games', unique, 'screenshots');
 				const request = await getDocs(docRef);
 				let imageUrls = request.docs.map((doc) => {
@@ -20,16 +24,16 @@ const useGetGameScreenshots = (unique) => {
 					return item;
 				});
 				setScreenshots(imageUrls);
-			};
-			getScreenshots();
-		} catch (err) {
-			setFetchError(err);
-		}
+				setLoading(false);
+			} catch (err) {
+				setFetchError(err);
+				setLoading(false);
+			}
+		};
+		getScreenshots();
+	}, [unique, request]);
 
-		setLoading(false);
-	}, [unique]);
-
-	return { screenshots, loading, fetchError };
+	return { screenshots, loading, fetchError, handleRequest };
 };
 
 export default useGetGameScreenshots;
