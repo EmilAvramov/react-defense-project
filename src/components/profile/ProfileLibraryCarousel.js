@@ -6,24 +6,29 @@ import 'swiper/css/navigation';
 import { Link, useLocation } from 'react-router-dom';
 
 import styles from '../../styles/components/Profile.module.scss';
+import { useEffect, useState } from 'react';
 
 const ProfileLibraryCarousel = ({ data, doc }) => {
+	const [screenshots, setScreenshots] = useState([])
 	const location = useLocation();
 
-	const screenshots = data.map((x, i) => (
-		<SwiperSlide key={i} className={styles['card__swiper_slide']}>
-			<Link
-				to={`/profile/library/${x.id}`}
-				state={{ x, doc, carouselBackground: location }}
-			>
-				<img
-					className={styles['card__swiper_img']}
-					src={x.url}
-					alt=''
-				/>
-			</Link>
-		</SwiperSlide>
-	));
+	useEffect(() => {
+		const slides = data.map((x, i) => (
+			<SwiperSlide key={i} className={styles['card__swiper_slide']}>
+				<Link
+					to={`/profile/library/${x.id}`}
+					state={{ x, doc, carouselBackground: location }}
+				>
+					<img
+						className={styles['card__swiper_img']}
+						src={x.url}
+						alt=''
+					/>
+				</Link>
+			</SwiperSlide>
+		));
+		setScreenshots(slides)
+	}, [data, doc, location])
 
 	return (
 		<div className={styles['card__swiper_container']}>

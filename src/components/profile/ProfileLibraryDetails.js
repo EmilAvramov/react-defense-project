@@ -12,7 +12,11 @@ const ProfileLibraryDetails = () => {
 		navigate(-1);
 	};
 
-	const { removeScreenshot } = useRemoveScreenshot(state.doc, data.doc, data.name);
+	const { removeScreenshot } = useRemoveScreenshot(
+		state.doc,
+		data.doc,
+		data.name
+	);
 
 	return (
 		<div
@@ -31,7 +35,10 @@ const ProfileLibraryDetails = () => {
 				</button>
 				<button
 					className={styles['carouselDetails__delete']}
-					onClick={removeScreenshot}
+					onClick={() => {
+						closeModal();
+						removeScreenshot();
+					}}
 				>
 					DELETE
 				</button>

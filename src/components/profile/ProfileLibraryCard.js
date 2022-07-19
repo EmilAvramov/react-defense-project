@@ -1,10 +1,6 @@
-import { useState, useEffect, useRef } from 'react';
-
 import useGetGameScreenshots from '../../hooks/useGetGameScreenshots';
-import useRemoveGameInternal from '../../hooks/useRemoveGameInternal';
-import useUploadImages from '../../hooks/useUploadImages';
-import updateUserGame from '../../functions/updateUserGame';
 
+import ProfileLibraryActions from './ProfileLibraryActions';
 import Loader from '../helpers/GridLoader';
 import ProfileLibraryCarousel from './ProfileLibraryCarousel';
 import Err from '../helpers/Error';
@@ -13,38 +9,9 @@ import styles from '../../styles/components/Profile.module.scss';
 
 const ProfileLibraryCard = (props) => {
 	// Prepare upload hook and state
-	const [file, setFile] = useState();
-	const { upload, uploadError, url, name } = useUploadImages();
 	const { screenshots, fetchError, loading } = useGetGameScreenshots(
 		props.doc
 	);
-	const inputDialog = useRef(null);
-
-	// Add screenshot to gallery
-	useEffect(() => {
-		if (url) {
-			updateUserGame(props.doc, url, name);
-		}
-	}, [props.doc, url, name]);
-
-	useEffect(() => {
-		if (file) {
-			upload(file);
-			setFile('');
-		}
-	}, [file, upload]);
-
-	// Handle changes related to uploads
-	const attachFile = (e) => {
-		setFile(e.target.files[0]);
-	};
-
-	const uploadHandler = () => {
-		inputDialog.current.click();
-	};
-
-	// Prepare delete action
-	const { removeGame } = useRemoveGameInternal(props.doc);
 
 	return (
 		<section className={styles['card__wrapper']}>
@@ -67,29 +34,7 @@ const ProfileLibraryCard = (props) => {
 				<ProfileLibraryCarousel data={screenshots} doc={props.doc}/>
 			)}
 
-			<input
-				type='file'
-				accept='/image/*'
-				ref={inputDialog}
-				onChange={attachFile}
-				style={{ display: 'none' }}
-			/>
-			<div className={styles['card__buttons']}>
-				<button
-					onClick={() => {
-						removeGame();
-						props.change();
-					}}
-				>
-					Remove
-				</button>
-				<button>Links</button>
-				{uploadError ? (
-					<Err error={uploadError} />
-				) : (
-					<button onClick={uploadHandler}>Upload Image</button>
-				)}
-			</div>
+			<ProfileLibraryActions doc={props.doc} change={props.change}/>
 		</section>
 	);
 };
