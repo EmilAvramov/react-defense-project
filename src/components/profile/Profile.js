@@ -12,14 +12,6 @@ const Profile = () => {
 						</Link>
 					</li>
 					<li className={styles['profile__block']}>
-						<Link
-							to='community'
-							className={styles['profile__link']}
-						>
-							My Community Activity
-						</Link>
-					</li>
-					<li className={styles['profile__block']}>
 						<Link to='settings' className={styles['profile__link']}>
 							Settings
 						</Link>

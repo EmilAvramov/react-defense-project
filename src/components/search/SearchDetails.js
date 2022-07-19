@@ -131,7 +131,6 @@ const SearchDetails = () => {
 							)}
 						</button>
 					)}
-					<button>Community</button>
 				</div>
 			</div>
 		</div>

@@ -7,7 +7,6 @@ import SearchDetails from './search/SearchDetails';
 import Profile from './profile/Profile';
 import ProfileLibrary from './profile/ProfileLibrary';
 import ProfileLibraryDetails from './profile/ProfileLibraryDetails';
-import ProfileCommunity from './profile/ProfileCommunity';
 import ProfileSettings from './profile/ProfileSettings';
 import ProfileSettingsEdit from './profile/ProfileSettingsEdit';
 import ProfileSettingsDelete from './profile/ProfileSettingsDelete';
@@ -17,7 +16,6 @@ import Login from './login/Login';
 import About from './about/About';
 import Register from './register/Register';
 import Reset from './reset/Reset';
-import Community from './community/Community';
 
 import { Routes, Route, useLocation } from 'react-router-dom';
 
@@ -31,11 +29,9 @@ const Router = () => {
 			<Header />
 			<Routes location={searchBackground || carouselBackground || location}>
 				<Route path='/' element={<Home />}></Route>
-				<Route path='community' element={<Community />}></Route>
 				<Route path='profile' element={<Profile />}>
 					<Route index element={<ProfileLibrary/>}></Route>
 					<Route path='library' element={<ProfileLibrary/>}></Route>
-					<Route path='community' element={<ProfileCommunity/>}></Route>
 					<Route path='settings' element={<ProfileSettings/>}>
 						<Route path='edit' element={<ProfileSettingsEdit/>}></Route>
 						<Route path='email' element={<ProfileSettingsEmail/>}></Route>
