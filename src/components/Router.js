@@ -16,6 +16,8 @@ import Login from './login/Login';
 import About from './about/About';
 import Register from './register/Register';
 import Reset from './reset/Reset';
+import NotFound from './helpers/NotFound';
+import Protected from './helpers/Protected';
 
 import { Routes, Route, useLocation } from 'react-router-dom';
 
@@ -29,7 +31,11 @@ const Router = () => {
 			<Header />
 			<Routes location={searchBackground || carouselBackground || location}>
 				<Route path='/' element={<Home />}></Route>
-				<Route path='profile' element={<Profile />}>
+				<Route path='profile' element={
+					<Protected>
+						<Profile />
+					</Protected>
+					}>
 					<Route index element={<ProfileLibrary/>}></Route>
 					<Route path='library' element={<ProfileLibrary/>}></Route>
 					<Route path='settings' element={<ProfileSettings/>}>
@@ -39,12 +45,12 @@ const Router = () => {
 						<Route path='delete' element={<ProfileSettingsDelete/>}></Route>
 					</Route>
 				</Route>
-				
 				<Route path='register' element={<Register />}></Route>
 				<Route path='login' element={<Login />}></Route>
 				<Route path='about' element={<About />}></Route>
 				<Route path='search' element={<Search />}></Route>
 				<Route path='reset' element={<Reset />}></Route>
+				<Route path='*' element={<NotFound/>}></Route>
 			</Routes>
 			{searchBackground && (
 				<Routes>
