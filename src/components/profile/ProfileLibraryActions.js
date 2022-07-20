@@ -2,12 +2,13 @@ import { useState, useEffect, useRef } from 'react';
 
 import delGameFromLibrary from '../../functions/delGameFromLibrary';
 import useUploadImages from '../../hooks/useUploadImages';
+import processUrls from '../../functions/processUrls';
 
 import Loader from '../helpers/GridLoader';
 import Err from '../helpers/Error';
 import styles from '../../styles/components/Profile.module.scss';
 
-const ProfileLibraryActions = ({ doc, change, user }) => {
+const ProfileLibraryActions = ({ doc, change, user, urls }) => {
 	// Prepare upload hook and state
 	const [file, setFile] = useState();
 	const { upload, uploadError, loading } = useUploadImages();
@@ -33,6 +34,13 @@ const ProfileLibraryActions = ({ doc, change, user }) => {
 	// Prepare delete action
 	const { removeGame } = delGameFromLibrary();
 
+	// Manage link dropdown toggle
+	const [links, toggleLinks] = useState(false);
+
+	const handleLinks = () => {
+		toggleLinks((state) => !state);
+	};
+
 	return (
 		<>
 			<input
@@ -51,7 +59,29 @@ const ProfileLibraryActions = ({ doc, change, user }) => {
 				>
 					Remove
 				</button>
-				<button>Links</button>
+				{urls && (
+					<button
+						className={styles['card__linksHolder']}
+						onClick={handleLinks}
+					>
+						Links
+						{links && (
+							<ul className={styles['card__links']}>
+								{processUrls(urls).map((el) => (
+									<li key={el[0]}>
+										<a
+											href={el[1]}
+											target='_blank'
+											rel='noreferrer'
+										>
+											{el[0]}
+										</a>
+									</li>
+								))}
+							</ul>
+						)}
+					</button>
+				)}
 				{uploadError ? (
 					<Err error={uploadError} />
 				) : loading ? (

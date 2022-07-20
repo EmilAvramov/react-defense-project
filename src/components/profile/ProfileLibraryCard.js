@@ -24,6 +24,7 @@ const ProfileLibraryCard = (props) => {
 				doc={props.doc}
 				change={props.change}
 				user={props.user}
+				urls={props.urls}
 			/>
 		</section>
 	);
