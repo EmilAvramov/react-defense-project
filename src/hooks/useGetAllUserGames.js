@@ -31,10 +31,12 @@ const useGetAllUserGames = (uid) => {
 				setData(games);
 			};
             getData();
+			setLoading(false);
 		} catch (err) {
 			setError(err);
+			setLoading(false);
 		}
-		setLoading(false);
+		
 	}, [uid, trigger]);
 
 	return { data, loading, error, handleRequest };

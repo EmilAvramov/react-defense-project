@@ -12,11 +12,11 @@ const useUploadImages = () => {
 	const [loading, setLoading] = useState(false);
 
 	// Run image upload
-	const upload = async (file, doc, currentUser) => {
+	const upload = async (file, doc, uid) => {
 		setLoading(true);
 		const storageRef = ref(
 			storage,
-			`/screenshots/${currentUser.uid + file.name}`
+			`/screenshots/${uid + file.name}`
 		);
 		const uploadTask = uploadBytesResumable(storageRef, file);
 		uploadTask.on(

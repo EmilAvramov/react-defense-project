@@ -31,7 +31,7 @@ const ProfileLibraryActions = ({ doc, change, user }) => {
 	};
 
 	// Prepare delete action
-	const { removeGame } = delGameFromLibrary(doc, user);
+	const { removeGame } = delGameFromLibrary();
 
 	return (
 		<>
@@ -45,7 +45,7 @@ const ProfileLibraryActions = ({ doc, change, user }) => {
 			<div className={styles['card__buttons']}>
 				<button
 					onClick={() => {
-						removeGame();
+						removeGame(doc);
 						change();
 					}}
 				>

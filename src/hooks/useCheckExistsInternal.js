@@ -16,21 +16,14 @@ const useCheckExistsInternal = (data, user) => {
 	useEffect(() => {
 		const checkIfExists = async () => {
 			try {
-				if (user) {
-					const q = query(
-						collectionRef,
-						where('user', '==', user.uid)
-					);
-					const collection = await getDocs(q);
-					collection.forEach((doc) => {
-						if (doc.data().id === id) {
-							setExists(true);
-							setDocRef(doc.id);
-						}
-					});
-				} else {
-					setError('User is not logged in')
-				}
+				const q = query(collectionRef, where('user', '==', user.uid));
+				const collection = await getDocs(q);
+				collection.forEach((doc) => {
+					if (doc.data().id === id) {
+						setExists(true);
+						setDocRef(doc.id);
+					}
+				});
 			} catch (err) {
 				setError(err);
 			}
