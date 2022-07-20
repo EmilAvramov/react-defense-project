@@ -1,52 +1,33 @@
-import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-
-import { db } from '../../config/firebase-config';
-import { query, collection, getDocs, where } from 'firebase/firestore';
-
+import useFetchUser from '../../hooks/useFetchUser';
 import logout from '../../auth/logout';
 import { useAuth } from '../../contexts/AuthContext';
 
+import { GridLoader } from 'react-spinners';
 import styles from '../../styles/components/Home.module.scss';
 
 const Home = () => {
 	const { currentUser } = useAuth();
-	const [name, setName] = useState('');
-	const navigate = useNavigate();
-
-	useEffect(() => {
-		if (!currentUser) return navigate('/');
-		const fetchUserName = async () => {
-			try {
-				const q = query(
-					collection(db, 'users'),
-					where('uid', '==', currentUser.uid)
-				);
-				const doc = await getDocs(q);
-				const data = doc.docs[0].data();
-				setName(data.name);
-			} catch (err) {
-				alert('An error occured while fetching user data');
-			}
-		};
-		fetchUserName();
-	}, [currentUser, navigate]);
-
+	const { name, userLoading } = useFetchUser(currentUser);
+	
 	return (
 		<div className={styles['dashboard']}>
 			<div className={styles['dashboard__container']}>
-				Logged in as
+				Currently browsing as
 				{currentUser ? (
-					<>
-						<div>{name}</div>
-						<div>{currentUser.email}</div>
-						<button
-							className={styles['dashboard__btn']}
-							onClick={logout}
-						>
-							Logout
-						</button>
-					</>
+					userLoading ? (
+						<GridLoader loading={userLoading} />
+					) : (
+						<>
+							<div>{name}</div>
+							<div>{currentUser.email}</div>
+							<button
+								className={styles['dashboard__btn']}
+								onClick={logout}
+							>
+								Logout
+							</button>
+						</>
+					)
 				) : (
 					<div>Guest</div>
 				)}
