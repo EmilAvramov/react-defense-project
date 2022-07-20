@@ -1,9 +1,12 @@
-import { db } from '../config/firebase-config';
 import { collection, addDoc } from 'firebase/firestore';
 
-const addGameInternal = (data, currentUser) => {
+import { db } from '../config/firebase-config';
+
+const addGameToLibrary = (data, currentUser) => {
+	// Setup ref to collection
 	const collectionRef = collection(db, 'games');
 
+	// Create function to add game to library
 	const addGame = async () => {
 		if (currentUser) {
 			await addDoc(collectionRef, {
@@ -17,4 +20,4 @@ const addGameInternal = (data, currentUser) => {
 	return { addGame };
 };
 
-export default addGameInternal;
+export default addGameToLibrary;

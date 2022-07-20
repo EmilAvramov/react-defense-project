@@ -2,15 +2,16 @@ import { addDoc, collection, doc } from 'firebase/firestore';
 
 import { db } from '../config/firebase-config';
 
-const updateUserGame = (unique, imageUrl, name) => {
+const updateUserGame = (docRef, imageUrl, name) => {
 	// Setup ref for target collection and document
-	const collectionRef = collection(db, 'games', unique, 'screenshots');
-	const docRef = doc(collection(db, 'games', unique, 'screenshots'));
+	const collectionRef = collection(db, 'games', docRef, 'screenshots');
+	const gameRef = doc(collection(db, 'games', docRef, 'screenshots'));
 
+	// Run update
 	const updateScreenshots = async () => {
 		await addDoc(collectionRef, {
 			url: imageUrl,
-			id: docRef.path.split('/')[3],
+			id: gameRef.path.split('/')[3],
 			name,
 		});
 	};

@@ -1,17 +1,20 @@
 import { useState } from 'react';
-import { db } from '../config/firebase-config';
-import { collection, getDocs, query, where } from 'firebase/firestore';
 import { useEffect } from 'react';
 
+import { db } from '../config/firebase-config';
+import { collection, getDocs, query, where } from 'firebase/firestore';
+
 const useCheckExistsInternal = (data, user) => {
+	// Set state, get id and set collection target
 	const [error, setError] = useState('');
 	const [docRef, setDocRef] = useState('');
 	const [exists, setExists] = useState(false);
 	const { id } = data;
 	const collectionRef = collection(db, 'games');
 
+	// Compile firebase query, get docRef if available and set states
 	useEffect(() => {
-		const getUserGames = async () => {
+		const checkIfExists = async () => {
 			try {
 				if (user) {
 					const q = query(
@@ -32,7 +35,7 @@ const useCheckExistsInternal = (data, user) => {
 				setError(err);
 			}
 		};
-		getUserGames();
+		checkIfExists();
 	}, [collectionRef, id, user]);
 	return { exists, docRef, error };
 };

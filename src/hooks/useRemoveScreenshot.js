@@ -3,13 +3,14 @@ import { doc, deleteDoc } from 'firebase/firestore';
 
 import { useLibrary } from '../contexts/LibraryContext'
 import { useAuth } from '../contexts/AuthContext';
-import { storage } from '../config/firebase-config';
-import { db } from '../config/firebase-config';
+import { db, storage } from '../config/firebase-config';
 
 const useRemoveScreenshot = (gameRef, subRef, name) => {
+	// Get user and change trigger context
 	const { currentUser } = useAuth();
 	const { setChanged } = useLibrary();
 
+	// Run delete request for storage and db and flip change handler
 	const removeScreenshot = async () => {
 		if (currentUser) {
 			const screenshot = doc(db, 'games', gameRef, 'screenshots', subRef);

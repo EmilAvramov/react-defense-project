@@ -2,8 +2,8 @@ import { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 
 import { useAuth } from '../../contexts/AuthContext';
-import addGameInternal from '../../functions/addGameInternal';
-import useRemoveGameInternal from '../../hooks/useRemoveGameInternal';
+import addGameToLibrary from '../../functions/addGameToLibrary';
+import delGameFromLibrary from '../../functions/delGameFromLibrary';
 import useCheckExistsInternal from '../../hooks/useCheckExistsInternal';
 
 import styles from '../../styles/components/Details.module.scss';
@@ -46,8 +46,8 @@ const SearchDetails = () => {
 	// Manage database Create-Delete operations
 	const { exists, docRef, error } = useCheckExistsInternal(data, currentUser);
 	const [added, setAdded] = useState(exists);
-	const { addGame } = addGameInternal(data, currentUser);
-	const { removeGame } = useRemoveGameInternal(docRef);
+	const { addGame } = addGameToLibrary(data, currentUser);
+	const { removeGame } = delGameFromLibrary(docRef, currentUser);
 
 	const addHandler = () => {
 		if (!added) {

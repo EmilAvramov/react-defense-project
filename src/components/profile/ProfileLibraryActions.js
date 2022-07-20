@@ -1,25 +1,25 @@
 import { useState, useEffect, useRef } from 'react';
 
-import useRemoveGameInternal from '../../hooks/useRemoveGameInternal';
+import delGameFromLibrary from '../../functions/delGameFromLibrary';
 import useUploadImages from '../../hooks/useUploadImages';
 
 import Loader from '../helpers/GridLoader';
 import Err from '../helpers/Error';
 import styles from '../../styles/components/Profile.module.scss';
 
-const ProfileLibraryActions = ({ doc, change }) => {
+const ProfileLibraryActions = ({ doc, change, user }) => {
 	// Prepare upload hook and state
 	const [file, setFile] = useState();
-	const { upload, uploadError, loading } = useUploadImages(doc);
+	const { upload, uploadError, loading } = useUploadImages();
 	const inputDialog = useRef(null);
 
 	// Add screenshot to gallery
 	useEffect(() => {
 		if (file) {
-			upload(file, doc);
+			upload(file, doc, user);
 			setFile('');
 		}
-	}, [file, upload, doc]);
+	}, [file, upload, doc, user]);
 
 	// Handle changes related to uploads
 	const attachFile = (e) => {
@@ -31,7 +31,7 @@ const ProfileLibraryActions = ({ doc, change }) => {
 	};
 
 	// Prepare delete action
-	const { removeGame } = useRemoveGameInternal(doc);
+	const { removeGame } = delGameFromLibrary(doc, user);
 
 	return (
 		<>

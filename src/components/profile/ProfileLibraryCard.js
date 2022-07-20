@@ -23,6 +23,7 @@ const ProfileLibraryCard = (props) => {
 			<ProfileLibraryActions
 				doc={props.doc}
 				change={props.change}
+				user={props.user}
 			/>
 		</section>
 	);

@@ -1,20 +1,18 @@
 import { useState } from 'react';
-
 import { ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage';
 
 import updateUserGame from '../functions/updateUserGame';
 import { useLibrary } from '../contexts/LibraryContext';
-import { useAuth } from '../contexts/AuthContext';
 import { storage } from '../config/firebase-config';
 
-const useUploadImages = ({ doc }) => {
+const useUploadImages = () => {
+	// Get change handler and set state
 	const { setChanged } = useLibrary();
-	const { currentUser } = useAuth();
-
 	const [uploadError, setUploadError] = useState();
 	const [loading, setLoading] = useState(false);
 
-	const upload = async (file, doc) => {
+	// Run image upload
+	const upload = async (file, doc, currentUser) => {
 		setLoading(true);
 		const storageRef = ref(
 			storage,

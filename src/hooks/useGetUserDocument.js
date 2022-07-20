@@ -1,16 +1,17 @@
 import { useEffect, useState } from 'react';
-
 import { query, where, collection, getDocs } from 'firebase/firestore';
 
 import { useAuth } from '../contexts/AuthContext';
 import { db } from '../config/firebase-config';
 
 const useGetUserDocument = () => {
+	// Setup state
 	const [loading, setLoading] = useState(false)
 	const [unique, setUnique] = useState('');
 	const [fetchError, setFetchError] = useState('');
 	const { currentUser } = useAuth();
 
+	// Run request on user doc or uid change
 	useEffect(() => {
 		setLoading(true)
 		try {

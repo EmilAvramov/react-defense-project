@@ -2,8 +2,8 @@ import { useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import { auth } from '../../config/firebase-config';
 
+import { auth } from '../../config/firebase-config';
 import signInWithGoogle from '../../auth/googleLogin';
 import registerWithEmailAndPassword from '../../auth/regularRegister';
 
