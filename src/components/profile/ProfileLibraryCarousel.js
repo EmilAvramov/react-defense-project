@@ -24,6 +24,7 @@ const ProfileLibraryCarousel = ({ doc }) => {
 	// Update screenshots when handler is triggered
 	useEffect(() => {
 		handleRequest();
+	// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [changed]);
 
 	const data = screenshots.map((x, i) => (
