@@ -8,6 +8,7 @@ import Err from '../helpers/Error';
 import styles from '../../styles/components/Profile.module.scss';
 
 const ProfileLibrary = () => {
+	// Get current user & games and map to list
 	const { currentUser } = useAuth();
 	const { data, loading, error, handleRequest } = useGetAllUserGames(currentUser.uid);
 

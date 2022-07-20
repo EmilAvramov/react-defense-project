@@ -1,4 +1,5 @@
 import { Link, Outlet } from 'react-router-dom';
+
 import styles from '../../styles/components/Profile.module.scss';
 
 const Profile = () => {

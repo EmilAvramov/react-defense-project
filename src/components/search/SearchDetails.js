@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 
 import { useAuth } from '../../contexts/AuthContext';
-import useAddGameInternal from '../../hooks/useAddGameInternal';
+import addGameInternal from '../../functions/addGameInternal';
 import useRemoveGameInternal from '../../hooks/useRemoveGameInternal';
 import useCheckExistsInternal from '../../hooks/useCheckExistsInternal';
 
@@ -46,7 +46,7 @@ const SearchDetails = () => {
 	// Manage database Create-Delete operations
 	const { exists, docRef, error } = useCheckExistsInternal(data, currentUser);
 	const [added, setAdded] = useState(exists);
-	const { addGame } = useAddGameInternal(data);
+	const { addGame } = addGameInternal(data, currentUser);
 	const { removeGame } = useRemoveGameInternal(docRef);
 
 	const addHandler = () => {

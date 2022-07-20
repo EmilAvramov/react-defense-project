@@ -6,7 +6,6 @@ import useGetUserDocument from '../../hooks/useGetUserDocument';
 
 import Err from '../helpers/Error';
 import Loader from '../helpers/GridLoader';
-
 import styles from '../../styles/components/Profile.module.scss';
 
 const ProfileSettingsEdit = () => {

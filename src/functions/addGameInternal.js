@@ -1,9 +1,7 @@
 import { db } from '../config/firebase-config';
 import { collection, addDoc } from 'firebase/firestore';
-import { useAuth } from '../contexts/AuthContext';
 
-const useAddGameInternal = (data) => {
-	const { currentUser } = useAuth();
+const addGameInternal = (data, currentUser) => {
 	const collectionRef = collection(db, 'games');
 
 	const addGame = async () => {
@@ -19,4 +17,4 @@ const useAddGameInternal = (data) => {
 	return { addGame };
 };
 
-export default useAddGameInternal;
+export default addGameInternal;

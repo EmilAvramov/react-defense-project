@@ -23,6 +23,7 @@ const ProfileSettingsPassword = () => {
 		shouldFocusError: true,
 	});
 
+	// Submit data for processing
 	const submitData = (data) => {
 		try {
 			updateUserPassword(data.password);

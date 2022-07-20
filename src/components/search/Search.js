@@ -1,12 +1,13 @@
 import { useState } from 'react';
 
 import SearchBar from './SearchBar';
-import CardList from './CardList';
-import Loader from '../helpers/GridLoader';
-import Paginator from '../helpers/Paginator';
-import Err from '../helpers/Error';
+import SearchCardList from './SearchCardList';
+import SearchPaginator from './SearchPaginator';
 
 import useFetchExternal from '../../hooks/useFetchExternal';
+
+import Loader from '../helpers/GridLoader';
+import Err from '../helpers/Error';
 
 const Search = () => {
 	// Handle incoming search requests
@@ -33,8 +34,8 @@ const Search = () => {
 				<Loader loading={loading} />
 			) : (
 				<>
-					<CardList data={current}/>
-					<Paginator rawData={data} sendData={sendData} />
+					<SearchCardList data={current}/>
+					<SearchPaginator rawData={data} sendData={sendData} />
 				</>
 			)}
 		</main>

@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
-
 import ReactPaginate from 'react-paginate';
+
 import styles from '../../styles/components/Home.module.scss';
 
-const Paginator = ({ rawData, sendData }) => {
+const SearchPaginator = ({ rawData, sendData }) => {
 	// Manage incoming and current page data
 	const [data, setData] = useState(rawData);
 	const [current, setCurrent] = useState([]);
@@ -58,4 +58,4 @@ const Paginator = ({ rawData, sendData }) => {
 	);
 };
 
-export default Paginator;
+export default SearchPaginator;

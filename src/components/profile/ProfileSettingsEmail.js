@@ -9,7 +9,6 @@ import { useAuth } from '../../contexts/AuthContext';
 
 import Err from '../helpers/Error';
 import Loader from '../helpers/GridLoader';
-
 import styles from '../../styles/components/Profile.module.scss';
 
 const ProfileSettingsEmail = () => {
@@ -31,8 +30,10 @@ const ProfileSettingsEmail = () => {
 		shouldFocusError: true,
 	});
 
+	// Pattern for checking email validitiy
 	const pattern = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
 
+	// Submit data for processing
 	const submitData = (data) => {
 		try {
 			updateUserEmail(data.email);

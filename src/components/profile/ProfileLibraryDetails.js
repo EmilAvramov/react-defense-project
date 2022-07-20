@@ -5,10 +5,12 @@ import useRemoveScreenshot from '../../hooks/useRemoveScreenshot';
 import styles from '../../styles/components/Details.module.scss';
 
 const ProfileLibraryDetails = () => {
+	// Get data from location and setup navigate
 	const { state } = useLocation();
 	const data = state.x;
 	const navigate = useNavigate();
 
+	// Handlers for delete/close actions
 	const delScreenshot = () => {
 		removeScreenshot();
 		closeModal();
@@ -18,6 +20,7 @@ const ProfileLibraryDetails = () => {
 		navigate(-1);
 	};
 
+	// Delete function
 	const { removeScreenshot } = useRemoveScreenshot(
 		state.doc,
 		data.doc,

@@ -1,10 +1,10 @@
+import { useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
+
 import { Navigation } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/scss';
 import 'swiper/css/navigation';
-
-import { useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
 
 import { useLibrary } from '../../contexts/LibraryContext';
 import useGetGameScreenshots from '../../hooks/useGetGameScreenshots';
@@ -21,6 +21,7 @@ const ProfileLibraryCarousel = ({ doc }) => {
 
 	const location = useLocation();
 
+	// Update screenshots when handler is triggered
 	useEffect(() => {
 		handleRequest();
 	}, [changed]);

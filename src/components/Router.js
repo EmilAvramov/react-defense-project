@@ -1,9 +1,15 @@
+import { Routes, Route, useLocation } from 'react-router-dom';
+
 import Header from './header/Header';
 import Footer from './footer/Footer';
+import NotFound from './helpers/NotFound';
+import Protected from './helpers/Protected';
 
 import Home from './home/Home';
+
 import Search from './search/Search';
 import SearchDetails from './search/SearchDetails';
+
 import Profile from './profile/Profile';
 import ProfileLibrary from './profile/ProfileLibrary';
 import ProfileLibraryDetails from './profile/ProfileLibraryDetails';
@@ -12,14 +18,11 @@ import ProfileSettingsEdit from './profile/ProfileSettingsEdit';
 import ProfileSettingsDelete from './profile/ProfileSettingsDelete';
 import ProfileSettingsPassword from './profile/ProfileSettingsPassword';
 import ProfileSettingsEmail from './profile/ProfileSettingsEmail';
-import Login from './login/Login';
-import About from './about/About';
-import Register from './register/Register';
-import Reset from './reset/Reset';
-import NotFound from './helpers/NotFound';
-import Protected from './helpers/Protected';
 
-import { Routes, Route, useLocation } from 'react-router-dom';
+import Login from './auth/Login';
+import Register from './auth/Register';
+import Reset from './auth/Reset';
+import About from './about/About';
 
 const Router = () => {
 	const location = useLocation();

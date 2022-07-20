@@ -2,12 +2,15 @@ import { useNavigate } from 'react-router-dom';
 
 import logout from '../../auth/logout';
 import useDeleteUser from '../../hooks/useDeleteUser';
+
 import styles from '../../styles/components/Profile.module.scss';
 
 const ProfileSettingsDelete = () => {
+	// Prepare navigation and delete account hook
 	const navigate = useNavigate();
 	const { deleteAccount } = useDeleteUser();
 
+	// Execute hook, redirect user and logout
 	const runDelete = () => {
 		deleteAccount();
 		navigate('/');

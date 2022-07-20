@@ -1,8 +1,10 @@
-import styles from '../../styles/components/Search.module.scss';
-import normalizeExternalData from '../../common/normalizeExternalData'
 import { Link, useLocation } from 'react-router-dom';
 
-const Card = (props) => {
+import normalizeExternalData from '../../common/normalizeExternalData'
+
+import styles from '../../styles/components/Search.module.scss';
+
+const SearchCard = (props) => {
 	// Capture and clean incoming adata
 	const data = normalizeExternalData(props);
 	const location = useLocation();
@@ -18,4 +20,4 @@ const Card = (props) => {
 	);
 };
 
-export default Card;
+export default SearchCard;
