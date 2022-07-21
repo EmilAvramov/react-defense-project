@@ -17,6 +17,7 @@
 	.home__main {
 		grid-area: main;
 		height: 70vh;
+		@extend %flex-basic;
 	}
 	.home__aside {
 		grid-area: aside;

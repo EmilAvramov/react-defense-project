@@ -26,28 +26,38 @@ const Home = () => {
 					<>Currently browsing as Guest</>
 				)}
 			</div>
-			<main className={styles['home__main']}>Placeholder</main>
-			<aside className={styles['home__aside']}>
-				{dataError ? (
-					<Error error={dataError} />
-				) : dataLoading ? (
-					<GridLoader loading={dataLoading} />
-				) : (
-					<>
-						<div className={styles['home__container']}>
-							We have {userCount} members.
-						</div>
-						<div className={styles['home__container']}>
-							Our members have added {gamesCount} games to their
-							libraries.
-						</div>
-						<div className={styles['home__container']}>
-							Our members have uploaded {screenshotCount}{' '}
-							screenshots.
-						</div>
-					</>
-				)}
-			</aside>
+
+			{currentUser ? (
+				<>
+					<main className={styles['home__main']}>Placeholder</main>
+					<aside className={styles['home__aside']}>
+						{dataError ? (
+							<Error error={dataError} />
+						) : dataLoading ? (
+							<GridLoader loading={dataLoading} />
+						) : (
+							<>
+								<div className={styles['home__container']}>
+									We have {userCount} members.
+								</div>
+								<div className={styles['home__container']}>
+									Our members have added {gamesCount} games to
+									their libraries.
+								</div>
+								<div className={styles['home__container']}>
+									Our members have uploaded {screenshotCount}{' '}
+									screenshots.
+								</div>
+							</>
+						)}
+					</aside>
+				</>
+			) : (
+				<>
+					<main className={styles['home__main']}>Placeholder</main>
+					<aside className={styles['home__aside']}>Placeholder</aside>
+				</>
+			)}
 		</div>
 	);
 };
