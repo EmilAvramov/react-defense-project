@@ -56,3 +56,13 @@
     '. submit clear .';
     grid-template-columns: 30% 20% 20% 30%;
 }
+
+%grid-home {
+    display: grid;
+    grid-template-areas:
+    'user user user user'
+    'main main main aside'
+    'main main main aside'
+    'main main main aside';
+    grid-template-columns: 30% 30% 20% 20%;
+}

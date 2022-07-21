@@ -1,25 +1,36 @@
-.dashboard {
-	height: 100vh;
-	width: 100vw;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	.dashboard__container {
-		display: flex;
+@use '../layout/flex';
+@use '../layout/grid';
+@use '../helpers/mixins' as m;
+@use '../helpers/variables' as v;
+
+.home__wrapper {
+	@extend %grid-home;
+	margin: 20px;
+
+	.home__top {
+		grid-area: user;
+		height: 5vh;
+		@extend %flex-basic;
+		justify-content: right;
+		padding: 0px 30px;
+	}
+	.home__main {
+		grid-area: main;
+		height: 70vh;
+	}
+	.home__aside {
+		grid-area: aside;
+		height: 70vh;
+		@extend %flex-centered;
 		flex-direction: column;
-		text-align: center;
-		background-color: #dcdcdc;
-		padding: 30px;
-	}
-	.dashboard__btn {
-		padding: 10px;
-		font-size: 18px;
-		margin-top: 10px;
-		border: none;
-		color: white;
-		background-color: black;
-	}
-	.dashboard div {
-		margin-top: 7px;
+		.home__container {
+			border: 3px solid green;
+			padding: 10px;
+			border-radius: 100%;
+			height: 30%;
+			width: 60%;
+			@extend %flex-centered;
+			text-align: center;
+		}
 	}
 }
