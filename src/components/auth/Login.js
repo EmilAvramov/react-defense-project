@@ -38,7 +38,7 @@ const Login = () => {
 	return (
 		<>
 			{error ? (
-				<Err error={error} />
+				<Err error={error} styles={styles['login__container']}/>
 			) : loading ? (
 				<Loader />
 			) : (

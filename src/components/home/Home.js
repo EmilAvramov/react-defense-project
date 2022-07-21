@@ -11,7 +11,7 @@ const Home = () => {
 
 	const { name, userLoading } = useFetchUser(currentUser);
 	const { gamesCount, userCount, screenshotCount, dataLoading, dataError } =
-		useGetAllData();
+		useGetAllData(currentUser);
 
 	return (
 		<div className={styles['home__wrapper']}>
@@ -32,7 +32,7 @@ const Home = () => {
 					<main className={styles['home__main']}>Placeholder</main>
 					<aside className={styles['home__aside']}>
 						{dataError ? (
-							<Error error={dataError} />
+							<Error error={dataError} styles={'home__aside'}/>
 						) : dataLoading ? (
 							<GridLoader loading={dataLoading} />
 						) : (

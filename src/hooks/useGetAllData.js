@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react';
 import { storage } from '../config/firebase-config';
 import { db } from '../config/firebase-config';
 
-const useGetAllData = () => {
+const useGetAllData = (user) => {
 	const [gamesCount, setGamesCount] = useState();
 	const [userCount, setUserCount] = useState();
 	const [screenshotCount, setScreenshotCount] = useState();
@@ -17,23 +17,26 @@ const useGetAllData = () => {
 	const usersRef = collection(db, 'users');
 
 	useEffect(() => {
-		setDataLoading(true);
+		if (user) {
+			setDataLoading(true);
 
-		getDocs(gamesRef)
-			.then((res) => setGamesCount(res.docs.length))
-			.catch((err) => setDataError(err));
-		list(storageRef)
-			.then((res) => setScreenshotCount(res.items.length))
-			.catch((err) => setDataError(err));
-		getDocs(usersRef)
-			.then((res) => {
-				setUserCount(res.docs.length);
-			})
-			.catch((err) => setDataError(err));
-		if (gamesCount && userCount && screenshotCount) {
-			setDataLoading(false);
+			getDocs(gamesRef)
+				.then((res) => setGamesCount(res.docs.length))
+				.catch((err) => setDataError(err));
+			list(storageRef)
+				.then((res) => setScreenshotCount(res.items.length))
+				.catch((err) => setDataError(err));
+			getDocs(usersRef)
+				.then((res) => {
+					setUserCount(res.docs.length);
+				})
+				.catch((err) => setDataError(err));
+			if (gamesCount && userCount && screenshotCount) {
+				setDataLoading(false);
+			}
 		}
 	}, [
+		user,
 		gamesCount,
 		gamesRef,
 		screenshotCount,

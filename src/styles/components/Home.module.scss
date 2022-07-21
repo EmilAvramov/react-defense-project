@@ -24,6 +24,12 @@
 		height: 70vh;
 		@extend %flex-centered;
 		flex-direction: column;
+
+		i {
+			color: red;
+			padding: 5px;
+		}
+
 		.home__container {
 			border: 3px solid green;
 			padding: 10px;

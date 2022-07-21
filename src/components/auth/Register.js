@@ -42,7 +42,7 @@ const Register = () => {
 	return (
 		<>
 			{error ? (
-				<Err error={error} />
+				<Err error={error} styles={styles['register__container']}/>
 			) : loading ? (
 				<Loader loading={loading}/>
 			) : (

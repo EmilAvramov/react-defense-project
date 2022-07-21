@@ -39,7 +39,7 @@ const Reset = () => {
 	return (
 		<>
 			{error ? (
-				<Err error={error} />
+				<Err error={error} styles={styles['reset__container']}/>
 			) : loading ? (
 				<Loader loading={loading}/>
 			) : (

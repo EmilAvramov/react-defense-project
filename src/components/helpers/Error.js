@@ -1,8 +1,13 @@
-const Err = ({error}) => {
-    const err = error
-    return (
-        <p>{err}</p>
-    )
-}
+const Err = ({ styles }) => {
+	return (
+		<div className={styles}>
+			<i class='fa-solid fa-triangle-exclamation'></i>
+			<error>
+				Looks like an error occurred. Our support team has been
+				notified.
+			</error>
+		</div>
+	);
+};
 
 export default Err;

@@ -1,0 +1,19 @@
+@use '../layout/flex';
+@use '../layout/grid';
+@use '../helpers/mixins' as m;
+@use '../helpers/variables' as v;
+
+.error__container {
+    @extend %flex-centered;
+    flex-direction: column;
+    background-color: whitesmoke;
+    border: 3px solid black;
+    
+    p {
+        text-align: center;
+    }
+    i {
+        font-size: 30px;
+        color: red;
+    }
+}
