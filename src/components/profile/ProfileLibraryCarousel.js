@@ -51,7 +51,7 @@ const ProfileLibraryCarousel = ({ doc }) => {
 				navigation={true}
 			>
 				{fetchError ? (
-					<Err error={fetchError} />
+					<Err error={fetchError} styles={styles['card__error']}/>
 				) : loading ? (
 					<Loader loading={loading} />
 				) : (

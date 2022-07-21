@@ -1,11 +1,11 @@
 const Err = ({ styles }) => {
 	return (
 		<div className={styles}>
-			<i class='fa-solid fa-triangle-exclamation'></i>
-			<error>
+			<i className='fa-solid fa-triangle-exclamation'></i>
+			<div>
 				Looks like an error occurred. Our support team has been
 				notified.
-			</error>
+			</div>
 		</div>
 	);
 };

@@ -1,10 +1,12 @@
 @use '../layout/grid';
+@use '../layout/flex';
 @use '../helpers/mixins' as m;
 
 .search__container {
     position: relative;
     width: 80%;
     margin: 10px auto;   
+    
     input, i {
         height: 3vh;
         padding: 5px;
@@ -78,5 +80,17 @@
         width: 80%;
         left: 10%;
         @include m.adjust-text(16px)
+    }
+}
+
+.search__error {
+    @extend %flex-centered;
+    height: 70vh;
+    i {
+        color: red;
+        font-size: 30px;
+    }
+    div {
+        font-size: 20px;
     }
 }

@@ -8,6 +8,7 @@ import useFetchExternal from '../../hooks/useFetchExternal';
 
 import Loader from '../helpers/GridLoader';
 import Err from '../helpers/Error';
+import styles from '../../styles/components/Search.module.scss'
 
 const Search = () => {
 	// Handle incoming search requests
@@ -29,7 +30,7 @@ const Search = () => {
 		<main>
 			<SearchBar sendData={query} loading={loading} />
 			{error ? (
-				<Err error={error} />
+				<Err error={error} styles={styles['search__error']}/>
 			) : loading ? (
 				<Loader loading={loading} />
 			) : (

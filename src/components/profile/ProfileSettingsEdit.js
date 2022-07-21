@@ -32,54 +32,62 @@ const ProfileSettingsEdit = () => {
 		try {
 			updateUserData(data, unique);
 			reset();
-			alert('Profile information successfully updated')
+			alert('Profile information successfully updated');
 		} catch (err) {
 			setUpdateError(err);
 		}
 	};
 
 	return loading ? (
-		<Loader loading={loading}/>
+		<Loader loading={loading} />
 	) : fetchError ? (
-		<Err error={fetchError} />
+		<Err error={fetchError} styles={styles['edit__wrapper']} />
 	) : (
 		<div className={styles['edit__wrapper']}>
-			{updateError && <div>{updateError.message}</div>}
-			<form
-				onSubmit={handleSubmit(submitData)}
-				className={styles['edit__form']}
-			>
-				<label htmlFor='name' className={styles['edit__label_name']}>
-					Name
-				</label>
-				<input
-					{...register('name')}
-					type='text'
-					className={styles['edit__input_name']}
-				/>
-				<label htmlFor='age' className={styles['edit__label_age']}>
-					Age
-				</label>
-				<input
-					{...register('age', {
-						required: true,
-						validate: value => (value > 1 && value < 99) || 'Enter a valid age'
-					})}
-					type='number'
-					className={styles['edit__input_age']}
-				/>
-				{errors.age && (
-					<p className={styles['edit__error2']}>
-						{errors.age.message}
-					</p>
-				)}
-				<button className={styles['edit__submit']}>
-					Submit Changes
-				</button>
-				<button className={styles['edit__clear']} onClick={clear}>
-					Clear Form
-				</button>
-			</form>
+			{updateError ? (
+				<Err error={updateError} styles={styles['edit__wrapper']} />
+			) : (
+				<form
+					onSubmit={handleSubmit(submitData)}
+					className={styles['edit__form']}
+				>
+					<label
+						htmlFor='name'
+						className={styles['edit__label_name']}
+					>
+						Name
+					</label>
+					<input
+						{...register('name')}
+						type='text'
+						className={styles['edit__input_name']}
+					/>
+					<label htmlFor='age' className={styles['edit__label_age']}>
+						Age
+					</label>
+					<input
+						{...register('age', {
+							required: true,
+							validate: (value) =>
+								(value > 1 && value < 99) ||
+								'Enter a valid age',
+						})}
+						type='number'
+						className={styles['edit__input_age']}
+					/>
+					{errors.age && (
+						<p className={styles['edit__error2']}>
+							{errors.age.message}
+						</p>
+					)}
+					<button className={styles['edit__submit']}>
+						Submit Changes
+					</button>
+					<button className={styles['edit__clear']} onClick={clear}>
+						Clear Form
+					</button>
+				</form>
+			)}
 		</div>
 	);
 };

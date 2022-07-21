@@ -56,6 +56,18 @@
 	margin: 30px auto;
 	flex-wrap: wrap;
 	width: 70vw;
+	min-height: 60vh;
+
+	.library__error {
+		height: 60vh;
+		@extend %flex-centered;
+		font-size: 20px;
+
+		i {
+			color: red;
+			padding: 10px;
+		}
+	}
 
 	.card__wrapper {
 		flex: v.$flex-full;
@@ -93,14 +105,31 @@
 		}
 		.card__buttons {
 			grid-area: buttons;
+			position: relative;
+
+			.card__error {
+				i {
+					color: red;
+					position: absolute;
+					right: 45px;
+					top: 15px;
+					font-size: 30px;
+				}
+				div {
+					display: none;
+				}
+			}
+
 			button {
 				height: 70%;
 				width: 33.3%;
 			}
+
 			button > a,
 			.details__links > li > a {
 				@include m.format-link();
 			}
+
 			.card__linksHolder {
 				position: relative;
 
@@ -133,6 +162,11 @@
 	height: 60vh;
 	margin: 0 auto;
 	@extend %flex-centered;
+
+	i {
+		color: red;
+		font-size: 30px;
+	}
 
 	.edit__form {
 		flex: v.$flex-half;
@@ -185,5 +219,20 @@
 
 	.card__swiper_img {
 		height: 140px;
+	}
+
+	.card__swiper_body {
+		.card__error {
+			i {
+				position: relative;
+				left: 350px;
+				color: red;
+				font-size: 30px;
+				padding: 20px;
+			}
+			div {
+				text-align: center;
+			}
+		}
 	}
 }

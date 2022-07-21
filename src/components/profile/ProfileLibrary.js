@@ -26,7 +26,7 @@ const ProfileLibrary = () => {
 	return (
 		<div className={styles['library__container']}>
 			{error ? (
-				<Err error={error} />
+				<Err error={error} styles={styles['library__error']} />
 			) : loading ? (
 				<Loader loading={loading} />
 			) : (

@@ -83,7 +83,7 @@ const ProfileLibraryActions = ({ doc, change, user, urls }) => {
 					</button>
 				)}
 				{uploadError ? (
-					<Err error={uploadError} />
+					<Err error={uploadError} styles={styles['card__error']}/>
 				) : loading ? (
 					<Loader loading={loading} />
 				) : (
