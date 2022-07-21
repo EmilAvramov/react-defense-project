@@ -94,3 +94,14 @@
         font-size: 20px;
     }
 }
+
+.pagination__container {
+    margin: 0 auto;
+    width: 95%;
+    @extend %flex-basic;
+    
+    .pagination__wrapper {
+        @extend %flex-centered;
+        column-gap: 50px;
+    }
+}

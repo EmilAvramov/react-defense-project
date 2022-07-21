@@ -27,6 +27,8 @@ const Login = () => {
 		logInWithEmailAndPassword(data);
 	};
 
+	const pattern = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
+
 	// Manage auth and redirect
 	const [user, loading, error] = useAuthState(auth);
 	const navigate = useNavigate();
@@ -38,7 +40,7 @@ const Login = () => {
 	return (
 		<>
 			{error ? (
-				<Err error={error} styles={styles['login__container']}/>
+				<Err error={error} styles={styles['login__container']} />
 			) : loading ? (
 				<Loader />
 			) : (
@@ -53,6 +55,9 @@ const Login = () => {
 									value: true,
 									message: 'Field is required',
 								},
+								validate: (value) =>
+									pattern.test(value) ||
+									'Invalid email address',
 							})}
 							type='text'
 							className={styles['login__textBox']}

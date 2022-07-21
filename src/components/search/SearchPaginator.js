@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import ReactPaginate from 'react-paginate';
 
-import styles from '../../styles/components/Home.module.scss';
+import styles from '../../styles/components/Search.module.scss';
 
 const SearchPaginator = ({ rawData, sendData }) => {
 	// Manage incoming and current page data
@@ -34,25 +34,25 @@ const SearchPaginator = ({ rawData, sendData }) => {
 	});
 
 	return (
-		<div className={styles['home__container']}>
+		<div className={styles['pagination__container']}>
 			<ReactPaginate
 				previousLabel='Previous'
 				nextLabel='Next'
-				pageClassName='page-item'
-				pageLinkClassName='page-link'
-				previousClassName='page-item'
-				previousLinkClassName='page-link'
-				nextClassName='page-item'
-				nextLinkClassName='page-link'
+				pageClassName={styles['pagination__li']}
+				pageLinkClassName={styles['pagination__a']}
+				previousClassName={styles['pagination__previous_li']}
+				previousLinkClassName={styles['pagination__previous_a']}
+				nextClassName={styles['pagination__next_li']}
+				nextLinkClassName={styles['pagination__next_a']}
 				breakLabel='...'
-				breakClassName='page-item'
-				breakLinkClassName='page-link'
+				breakClassName={styles['pagination__break_li']}
+				breakLinkClassName={styles['pagination__break_a']}
 				pageCount={pages}
 				marginPagesDisplayed={2}
 				pageRangeDisplayed={2}
 				onPageChange={handleOffset}
-				containerClassName='pagination'
-				activeClassName='active'
+				containerClassName={styles['pagination__wrapper']}
+				activeClassName={styles['active']}
 			/>
 		</div>
 	);
