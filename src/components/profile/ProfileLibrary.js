@@ -14,23 +14,21 @@ const ProfileLibrary = () => {
 		currentUser.uid
 	);
 
-	const cards = data.map((x) => (
-		<ProfileLibraryCard
-			key={x.id}
-			change={handleRequest}
-			user={currentUser}
-			{...x}
-		/>
-	));
-
 	return (
 		<div className={styles['library__container']}>
 			{error ? (
 				<Err error={error} styles={styles['library__error']} />
 			) : loading ? (
-				<Loader loading={loading} />
+				<Loader loading={loading} size={80}/>
 			) : (
-				cards
+				data.map((x) => (
+					<ProfileLibraryCard
+						key={x.id}
+						change={handleRequest}
+						user={currentUser}
+						{...x}
+					/>
+				))
 			)}
 		</div>
 	);

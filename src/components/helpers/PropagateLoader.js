@@ -1,10 +1,10 @@
 import { useState } from 'react';
-import GridLoader from 'react-spinners/GridLoader';
+import PropagateLoader from 'react-spinners/PropagateLoader';
 
 const Loader = ({loading, styles, size}) => {
     const [color] = useState('#006400');
 	return (
-		<GridLoader
+		<PropagateLoader
 			color={color}
 			loading={loading}
 			cssOverride={styles}

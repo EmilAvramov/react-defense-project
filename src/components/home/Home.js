@@ -2,8 +2,12 @@ import useFetchUser from '../../hooks/useFetchUser';
 import { useAuth } from '../../contexts/AuthContext';
 import useGetAllData from '../../hooks/useGetAllData';
 
-import Error from '../helpers/Error';
-import { GridLoader } from 'react-spinners';
+import Err from '../helpers/Error';
+import Loader from '../helpers/GridLoader';
+import {
+	homeUserLoader,
+	homeStatsLoader,
+} from '../../styles/auxilary/loaderStyles';
 import styles from '../../styles/components/Home.module.scss';
 
 const Home = () => {
@@ -18,7 +22,11 @@ const Home = () => {
 			<div className={styles['home__top']}>
 				{currentUser ? (
 					userLoading ? (
-						<GridLoader loading={userLoading} />
+						<Loader
+							loading={userLoading}
+							styles={homeUserLoader}
+							size={20}
+						/>
 					) : (
 						<>Currently browsing as {name}</>
 					)
@@ -32,9 +40,13 @@ const Home = () => {
 					<main className={styles['home__main']}>Placeholder</main>
 					<aside className={styles['home__aside']}>
 						{dataError ? (
-							<Error error={dataError} styles={'home__aside'}/>
+							<Err error={dataError} styles={'home__aside'} />
 						) : dataLoading ? (
-							<GridLoader loading={dataLoading} />
+							<Loader
+								loading={dataLoading}
+								styles={homeStatsLoader}
+								size={60}
+							/>
 						) : (
 							<>
 								<div className={styles['home__container']}>
