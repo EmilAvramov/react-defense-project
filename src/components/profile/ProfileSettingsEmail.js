@@ -1,11 +1,9 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
+import { useOutletContext } from 'react-router-dom';
 
 import updateUserData from '../../functions/updateUserData';
-import useGetUserDocument from '../../hooks/useGetUserDocument';
 import updateUserEmail from '../../auth/updateEmail';
-import { useAuth } from '../../contexts/AuthContext';
 
 import Err from '../helpers/Error';
 import Loader from '../helpers/GridLoader';
@@ -14,10 +12,9 @@ import { settingsLoader } from '../../styles/auxilary/loaderStyles';
 
 const ProfileSettingsEmail = () => {
 	// Setup react hooks
-	const { currentUser } = useAuth();
-	const navigate = useNavigate();
 	const [updateError, setUpdateError] = useState('');
-	const { unique, fetchError, loading } = useGetUserDocument();
+	const { unique, fetchError, loading, navigate, currentUser } =
+		useOutletContext();
 
 	// Manage form data
 	const {
@@ -47,7 +44,7 @@ const ProfileSettingsEmail = () => {
 	};
 
 	return loading ? (
-		<Loader loading={loading} styles={settingsLoader} size={40}/>
+		<Loader loading={loading} styles={settingsLoader} size={40} />
 	) : fetchError ? (
 		<Err error={fetchError} styles={styles['edit__wrapper']} />
 	) : (

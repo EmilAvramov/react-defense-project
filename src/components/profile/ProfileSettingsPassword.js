@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
+import { useOutletContext } from 'react-router-dom';
 
 import updateUserPassword from '../../auth/updatePassword';
 
@@ -9,7 +9,7 @@ import styles from '../../styles/components/Profile.module.scss';
 
 const ProfileSettingsPassword = () => {
 	// Setup react hooks
-	const navigate = useNavigate();
+	const { navigate } = useOutletContext();
 	const [updateError, setUpdateError] = useState('');
 
 	// Manage form data

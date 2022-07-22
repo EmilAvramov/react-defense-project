@@ -1,8 +1,16 @@
 import { Link, Outlet } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../../contexts/AuthContext';
+
+import useGetUserDocument from '../../hooks/useGetUserDocument';
 
 import styles from '../../styles/components/Profile.module.scss';
 
 const ProfileSettings = () => {
+	const { unique, fetchError, loading } = useGetUserDocument();
+	const navigate = useNavigate();
+	const { currentUser } = useAuth();
+
 	return (
 		<>
 			<nav className={styles['profile__wrapper']}>
@@ -29,7 +37,9 @@ const ProfileSettings = () => {
 					</li>
 				</ul>
 			</nav>
-			<Outlet/>
+			<Outlet
+				context={{ unique, fetchError, loading, navigate, currentUser }}
+			/>
 		</>
 	);
 };

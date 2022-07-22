@@ -8,8 +8,8 @@ import { homeLoader } from '../../styles/auxilary/loaderStyles';
 import styles from '../../styles/components/Home.module.scss';
 
 const Home = () => {
+	// Call relevant hooks
 	const { currentUser } = useAuth();
-
 	const { name, userLoading, userError } = useFetchUser(currentUser);
 	const { gamesCount, userCount, screenshotCount, dataLoading, dataError } =
 		useGetAllData(currentUser);

@@ -5,12 +5,14 @@ import { db } from '../config/firebase-config';
 import { query, collection, getDocs, where } from 'firebase/firestore';
 
 const useFetchUser = (currentUser) => {
+    // Set states and prepare hooks
 	const [userLoading, setUserLoading] = useState(false);
 	const [name, setName] = useState();
     const [userError, setUserError] = useState()
     const navigate = useNavigate();
 	
 	useEffect(() => {
+        // If user is set, then fetch data
         if (currentUser) {
             const fetchUserName = async () => {
                 try {
@@ -30,6 +32,7 @@ const useFetchUser = (currentUser) => {
             };
             fetchUserName();
         }
+        // Otherwise redirect to home (if bug occurs)
         else {
             return navigate('/');
         }

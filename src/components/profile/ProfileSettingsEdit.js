@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
+import { useOutletContext } from 'react-router-dom';
 
 import updateUserData from '../../functions/updateUserData';
-import useGetUserDocument from '../../hooks/useGetUserDocument';
 
 import Err from '../helpers/Error';
 import Loader from '../helpers/GridLoader';
@@ -12,7 +12,7 @@ import { settingsLoader } from '../../styles/auxilary/loaderStyles';
 const ProfileSettingsEdit = () => {
 	// Handle hooks and retrieve user document ref
 	const [updateError, setUpdateError] = useState('');
-	const { unique, fetchError, loading } = useGetUserDocument();
+	const { unique, fetchError, loading } = useOutletContext();
 
 	// Manage form data
 	const {
