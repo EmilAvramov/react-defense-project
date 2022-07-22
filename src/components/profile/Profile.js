@@ -1,8 +1,20 @@
 import { Link, Outlet } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../../contexts/AuthContext';
+
+import useGetAllUserGames from '../../hooks/useGetAllUserGames';
+import useGetUserDocument from '../../hooks/useGetUserDocument';
 
 import styles from '../../styles/components/Profile.module.scss';
 
 const Profile = () => {
+	const { currentUser } = useAuth();
+	const { unique, fetchError, userLoading } = useGetUserDocument();
+	const { data, loading, error, handleRequest } = useGetAllUserGames(
+		currentUser.uid
+	);
+	const navigate = useNavigate();
+
 	return (
 		<>
 			<nav className={styles['profile__wrapper']}>
@@ -19,7 +31,19 @@ const Profile = () => {
 					</li>
 				</ul>
 			</nav>
-			<Outlet/>
+			<Outlet
+				context={{
+					currentUser,
+					unique,
+					fetchError,
+					userLoading,
+					data,
+					loading,
+					error,
+					handleRequest,
+					navigate,
+				}}
+			/>
 		</>
 	);
 };

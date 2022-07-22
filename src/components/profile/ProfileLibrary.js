@@ -1,7 +1,6 @@
 import ProfileLibraryCard from './ProfileLibraryCard';
 
-import { useAuth } from '../../contexts/AuthContext';
-import useGetAllUserGames from '../../hooks/useGetAllUserGames';
+import { useOutletContext } from 'react-router-dom';
 
 import Loader from '../helpers/RingLoader';
 import Err from '../helpers/Error';
@@ -9,8 +8,8 @@ import styles from '../../styles/components/Profile.module.scss';
 
 const ProfileLibrary = () => {
 	// Get current user & games and map to list
-	const { currentUser } = useAuth();
-	const { data, loading, error, handleRequest } = useGetAllUserGames(
+	const { currentUser } = useOutletContext();
+	const { data, loading, error, handleRequest } = useOutletContext(
 		currentUser.uid
 	);
 

@@ -12,7 +12,7 @@ import { settingsLoader } from '../../styles/auxilary/loaderStyles';
 const ProfileSettingsEdit = () => {
 	// Handle hooks and retrieve user document ref
 	const [updateError, setUpdateError] = useState('');
-	const { unique, fetchError, loading } = useOutletContext();
+	const { unique, fetchError, userLoading } = useOutletContext();
 
 	// Manage form data
 	const {
@@ -39,8 +39,8 @@ const ProfileSettingsEdit = () => {
 		}
 	};
 
-	return loading ? (
-		<Loader loading={loading} styles={settingsLoader} size={40}/>
+	return userLoading ? (
+		<Loader loading={userLoading} styles={settingsLoader} size={40}/>
 	) : fetchError ? (
 		<Err error={fetchError} styles={styles['edit__wrapper']} />
 	) : (

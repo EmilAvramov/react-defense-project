@@ -13,7 +13,7 @@ import { settingsLoader } from '../../styles/auxilary/loaderStyles';
 const ProfileSettingsEmail = () => {
 	// Setup react hooks
 	const [updateError, setUpdateError] = useState('');
-	const { unique, fetchError, loading, navigate, currentUser } =
+	const { unique, fetchError, userLoading, navigate, currentUser } =
 		useOutletContext();
 
 	// Manage form data
@@ -43,8 +43,8 @@ const ProfileSettingsEmail = () => {
 		}
 	};
 
-	return loading ? (
-		<Loader loading={loading} styles={settingsLoader} size={40} />
+	return userLoading ? (
+		<Loader loading={userLoading} styles={settingsLoader} size={40} />
 	) : fetchError ? (
 		<Err error={fetchError} styles={styles['edit__wrapper']} />
 	) : (

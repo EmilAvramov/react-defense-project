@@ -1,15 +1,11 @@
 import { Link, Outlet } from 'react-router-dom';
-import { useNavigate } from 'react-router-dom';
-import { useAuth } from '../../contexts/AuthContext';
-
-import useGetUserDocument from '../../hooks/useGetUserDocument';
+import { useOutletContext } from 'react-router-dom';
 
 import styles from '../../styles/components/Profile.module.scss';
 
 const ProfileSettings = () => {
-	const { unique, fetchError, loading } = useGetUserDocument();
-	const navigate = useNavigate();
-	const { currentUser } = useAuth();
+	const { unique, fetchError, userLoading, navigate, currentUser } =
+		useOutletContext();
 
 	return (
 		<>
@@ -38,7 +34,13 @@ const ProfileSettings = () => {
 				</ul>
 			</nav>
 			<Outlet
-				context={{ unique, fetchError, loading, navigate, currentUser }}
+				context={{
+					unique,
+					fetchError,
+					userLoading,
+					navigate,
+					currentUser,
+				}}
 			/>
 		</>
 	);
