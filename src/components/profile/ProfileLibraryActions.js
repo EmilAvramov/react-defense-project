@@ -83,14 +83,14 @@ const ProfileLibraryActions = ({ doc, change, user, urls }) => {
 						)}
 					</button>
 				)}
-				{uploadError ? (
-					<Err error={uploadError} styles={styles['card__error']} />
-				) : loading ? (
+				{loading ? (
 					<Loader
 						loading={loading}
 						styles={actionsCardLoader}
 						size={9}
 					/>
+				) : uploadError ? (
+					<Err error={uploadError} styles={styles['card__error']} />
 				) : (
 					<button disabled={loading} onClick={uploadHandler}>
 						Upload Image

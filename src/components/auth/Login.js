@@ -39,10 +39,10 @@ const Login = () => {
 
 	return (
 		<>
-			{error ? (
+			{loading ? (
+				<Loader loading={loading} />
+			) : error ? (
 				<Err error={error} styles={styles['login__container']} />
-			) : loading ? (
-				<Loader loading={loading}/>
 			) : (
 				<div className={styles['login__container']}>
 					<form

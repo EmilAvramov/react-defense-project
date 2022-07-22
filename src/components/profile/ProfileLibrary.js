@@ -16,13 +16,10 @@ const ProfileLibrary = () => {
 
 	return (
 		<div className={styles['library__container']}>
-			{error ? (
+			{loading ? (
+				<Loader loading={loading} size={80} />
+			) : error ? (
 				<Err error={error} styles={styles['library__error']} />
-			) : loading ? (
-				<Loader
-					loading={loading}
-					size={80}
-				/>
 			) : (
 				data.map((x) => (
 					<ProfileLibraryCard

@@ -38,14 +38,14 @@ const Home = () => {
 				<>
 					<main className={styles['home__main']}>Placeholder</main>
 					<aside className={styles['home__aside']}>
-						{dataError ? (
-							<Err error={dataError} styles={'home__aside'} />
-						) : dataLoading ? (
+						{dataLoading ? (
 							<Loader
 								loading={dataLoading}
 								styles={homeLoader}
 								size={60}
 							/>
+						) : dataError ? (
+							<Err error={dataError} styles={'home__aside'} />
 						) : (
 							<>
 								<div className={styles['home__container']}>

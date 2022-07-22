@@ -51,14 +51,14 @@ const ProfileLibraryCarousel = ({ doc }) => {
 				slidesPerView={3}
 				navigation={true}
 			>
-				{fetchError ? (
-					<Err error={fetchError} styles={styles['card__error']} />
-				) : loading ? (
+				{loading ? (
 					<Loader
 						loading={loading}
 						styles={libraryCardLoader}
 						size={40}
 					/>
+				) : fetchError ? (
+					<Err error={fetchError} styles={styles['card__error']} />
 				) : (
 					data
 				)}

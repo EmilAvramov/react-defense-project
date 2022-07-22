@@ -38,10 +38,10 @@ const Reset = () => {
 
 	return (
 		<>
-			{error ? (
-				<Err error={error} styles={styles['reset__container']}/>
-			) : loading ? (
-				<Loader loading={loading}/>
+			{loading ? (
+				<Loader loading={loading} />
+			) : error ? (
+				<Err error={error} styles={styles['reset__container']} />
 			) : (
 				<div className={styles['reset__container']}>
 					<form

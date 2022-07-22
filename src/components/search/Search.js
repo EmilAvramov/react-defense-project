@@ -6,10 +6,10 @@ import SearchPaginator from './SearchPaginator';
 
 import useFetchExternal from '../../hooks/useFetchExternal';
 
-import { searchLoader } from '../../styles/auxilary/loaderStyles'
+import { searchLoader } from '../../styles/auxilary/loaderStyles';
 import Loader from '../helpers/RingLoader';
 import Err from '../helpers/Error';
-import styles from '../../styles/components/Search.module.scss'
+import styles from '../../styles/components/Search.module.scss';
 
 const Search = () => {
 	// Handle incoming search requests
@@ -30,13 +30,13 @@ const Search = () => {
 	return (
 		<main>
 			<SearchBar sendData={query} loading={loading} />
-			{error ? (
-				<Err error={error} styles={styles['search__error']}/>
-			) : loading ? (
-				<Loader loading={loading} styles={searchLoader} size={80}/>
+			{loading ? (
+				<Loader loading={loading} styles={searchLoader} size={80} />
+			) : error ? (
+				<Err error={error} styles={styles['search__error']} />
 			) : (
 				<>
-					<SearchCardList data={current}/>
+					<SearchCardList data={current} />
 					<SearchPaginator rawData={data} sendData={sendData} />
 				</>
 			)}
