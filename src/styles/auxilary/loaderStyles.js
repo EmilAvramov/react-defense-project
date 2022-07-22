@@ -1,5 +1,5 @@
-export const homeLoader = {
+export const searchLoader = {
 	display: 'block',
-	margin: '100px auto',
-	borderColor: 'red',
+	height: '40vh',
+	margin: '17vh auto'
 };

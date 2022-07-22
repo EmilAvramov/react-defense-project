@@ -6,6 +6,7 @@ import SearchPaginator from './SearchPaginator';
 
 import useFetchExternal from '../../hooks/useFetchExternal';
 
+import { searchLoader } from '../../styles/auxilary/loaderStyles'
 import Loader from '../helpers/GridLoader';
 import Err from '../helpers/Error';
 import styles from '../../styles/components/Search.module.scss'
@@ -32,7 +33,7 @@ const Search = () => {
 			{error ? (
 				<Err error={error} styles={styles['search__error']}/>
 			) : loading ? (
-				<Loader loading={loading} />
+				<Loader loading={loading} styles={searchLoader} size={80}/>
 			) : (
 				<>
 					<SearchCardList data={current}/>
