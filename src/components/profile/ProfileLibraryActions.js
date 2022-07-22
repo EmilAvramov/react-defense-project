@@ -35,6 +35,15 @@ const ProfileLibraryActions = ({ doc, change, user, urls }) => {
 	// Prepare delete action
 	const { removeGame } = delGameFromLibrary();
 
+	const handleDeleteGame = () => {
+		try {
+			removeGame(doc);
+			change();
+		} catch (err) {
+			alert('An error occurred, please try again.');
+		}
+	};
+
 	// Manage link dropdown toggle
 	const [links, toggleLinks] = useState(false);
 
@@ -52,14 +61,7 @@ const ProfileLibraryActions = ({ doc, change, user, urls }) => {
 				style={{ display: 'none' }}
 			/>
 			<div className={styles['card__buttons']}>
-				<button
-					onClick={() => {
-						removeGame(doc);
-						change();
-					}}
-				>
-					Remove
-				</button>
+				<button onClick={handleDeleteGame}>Remove</button>
 				{urls && (
 					<button
 						className={styles['card__linksHolder']}
