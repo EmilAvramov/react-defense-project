@@ -6,7 +6,7 @@
 .profile__wrapper {
 	@extend %flex-basic;
 	height: 10vh;
-	width: 100vw;
+	width: 95vw;
 
 	.settings__container {
 		@include m.template-grid(4);
@@ -101,8 +101,8 @@
 		.card__screenshots {
 			grid-area: screens;
 			box-sizing: border-box;
-			padding: 10px;
 		}
+		
 		.card__buttons {
 			grid-area: buttons;
 			position: relative;

@@ -7,6 +7,7 @@ import useGetUserDocument from '../../hooks/useGetUserDocument';
 import Err from '../helpers/Error';
 import Loader from '../helpers/GridLoader';
 import styles from '../../styles/components/Profile.module.scss';
+import { settingsLoader } from '../../styles/auxilary/loaderStyles';
 
 const ProfileSettingsEdit = () => {
 	// Handle hooks and retrieve user document ref
@@ -39,7 +40,7 @@ const ProfileSettingsEdit = () => {
 	};
 
 	return loading ? (
-		<Loader loading={loading} />
+		<Loader loading={loading} styles={settingsLoader} />
 	) : fetchError ? (
 		<Err error={fetchError} styles={styles['edit__wrapper']} />
 	) : (

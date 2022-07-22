@@ -6,9 +6,9 @@ import { storage } from '../config/firebase-config';
 import { db } from '../config/firebase-config';
 
 const useGetAllData = (user) => {
-	const [gamesCount, setGamesCount] = useState();
-	const [userCount, setUserCount] = useState();
-	const [screenshotCount, setScreenshotCount] = useState();
+	const [gamesCount, setGamesCount] = useState(null);
+	const [userCount, setUserCount] = useState(null);
+	const [screenshotCount, setScreenshotCount] = useState(null);
 	const [dataLoading, setDataLoading] = useState(false);
 	const [dataError, setDataError] = useState();
 
@@ -19,7 +19,6 @@ const useGetAllData = (user) => {
 	useEffect(() => {
 		if (user) {
 			setDataLoading(true);
-
 			getDocs(gamesRef)
 				.then((res) => setGamesCount(res.docs.length))
 				.catch((err) => setDataError(err));
@@ -31,9 +30,17 @@ const useGetAllData = (user) => {
 					setUserCount(res.docs.length);
 				})
 				.catch((err) => setDataError(err));
-			if (gamesCount && userCount && screenshotCount) {
+			if (
+				gamesCount !== null &&
+				userCount !== null &&
+				screenshotCount !== null
+			) {
 				setDataLoading(false);
 			}
+		} else {
+			setGamesCount(null);
+			setUserCount(null);
+			setScreenshotCount(null);
 		}
 	}, [
 		user,

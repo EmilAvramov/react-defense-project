@@ -7,7 +7,7 @@ import SearchPaginator from './SearchPaginator';
 import useFetchExternal from '../../hooks/useFetchExternal';
 
 import { searchLoader } from '../../styles/auxilary/loaderStyles'
-import Loader from '../helpers/GridLoader';
+import Loader from '../helpers/RingLoader';
 import Err from '../helpers/Error';
 import styles from '../../styles/components/Search.module.scss'
 

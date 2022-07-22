@@ -4,10 +4,22 @@ export const searchLoader = {
 	margin: '17vh auto',
 };
 
-export const homeUserLoader = {
+export const homeLoader = {
 	display: 'block',
 };
 
-export const homeStatsLoader = {
+export const libraryCardLoader = {
 	display: 'block',
+	margin: '0 auto',
 };
+
+export const actionsCardLoader = {
+	display: 'inline',
+	margin: '0 auto',
+};
+
+export const settingsLoader = {
+	display: 'block',
+	margin: '0 auto',
+	height: '60vh',
+}

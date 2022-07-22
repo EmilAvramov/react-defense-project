@@ -4,6 +4,7 @@ import delGameFromLibrary from '../../functions/delGameFromLibrary';
 import useUploadImages from '../../hooks/useUploadImages';
 import processUrls from '../../functions/processUrls';
 
+import { actionsCardLoader } from '../../styles/auxilary/loaderStyles';
 import Loader from '../helpers/GridLoader';
 import Err from '../helpers/Error';
 import styles from '../../styles/components/Profile.module.scss';
@@ -83,9 +84,13 @@ const ProfileLibraryActions = ({ doc, change, user, urls }) => {
 					</button>
 				)}
 				{uploadError ? (
-					<Err error={uploadError} styles={styles['card__error']}/>
+					<Err error={uploadError} styles={styles['card__error']} />
 				) : loading ? (
-					<Loader loading={loading} />
+					<Loader
+						loading={loading}
+						styles={actionsCardLoader}
+						size={9}
+					/>
 				) : (
 					<button disabled={loading} onClick={uploadHandler}>
 						Upload Image

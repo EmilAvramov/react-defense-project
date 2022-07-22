@@ -13,16 +13,16 @@ const useGetUserDocument = () => {
 
 	// Run request on user doc or uid change
 	useEffect(() => {
-		setLoading(true);
 		try {
 			const collectionRef = collection(db, 'users');
 			const q = query(collectionRef, where('uid', '==', currentUser.uid));
 			const findUser = async () => {
+				setLoading(true);
 				const snapshot = await getDocs(q);
 				setUnique(snapshot.docs[0].id);
+				setLoading(false);
 			};
 			findUser();
-			setLoading(false);
 		} catch (err) {
 			setFetchError(err);
 			setLoading(false);

@@ -1,7 +1,7 @@
 import { ref, deleteObject } from 'firebase/storage';
 import { doc, deleteDoc } from 'firebase/firestore';
 
-import { useLibrary } from '../contexts/LibraryContext'
+import { useLibrary } from '../contexts/LibraryContext';
 import { useAuth } from '../contexts/AuthContext';
 import { db, storage } from '../config/firebase-config';
 
@@ -14,15 +14,24 @@ const useRemoveScreenshot = (gameRef, subRef, name) => {
 	const removeScreenshot = async () => {
 		if (currentUser) {
 			const screenshot = doc(db, 'games', gameRef, 'screenshots', subRef);
-			const storageRef = ref(storage, `screenshots/${currentUser.uid + name}`);
+			const storageRef = ref(
+				storage,
+				`screenshots/${currentUser.uid + name}`
+			);
 			try {
 				await deleteDoc(screenshot);
-				await deleteObject(storageRef);
 			} catch (err) {
 				alert(err.message);
 			}
+			try {
+				await deleteObject(storageRef);
+			} catch (err) {
+				if (!err.message.includes('not-found')) {
+					alert(err.message);
+				}
+			}
 		}
-		setChanged((state) => !state)
+		setChanged((state) => !state);
 	};
 
 	return { removeScreenshot };

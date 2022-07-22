@@ -3,7 +3,7 @@ import ProfileLibraryCard from './ProfileLibraryCard';
 import { useAuth } from '../../contexts/AuthContext';
 import useGetAllUserGames from '../../hooks/useGetAllUserGames';
 
-import Loader from '../helpers/GridLoader';
+import Loader from '../helpers/RingLoader';
 import Err from '../helpers/Error';
 import styles from '../../styles/components/Profile.module.scss';
 
@@ -19,7 +19,10 @@ const ProfileLibrary = () => {
 			{error ? (
 				<Err error={error} styles={styles['library__error']} />
 			) : loading ? (
-				<Loader loading={loading} size={80}/>
+				<Loader
+					loading={loading}
+					size={80}
+				/>
 			) : (
 				data.map((x) => (
 					<ProfileLibraryCard

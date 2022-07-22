@@ -1,10 +1,10 @@
 import { useState } from 'react';
-import PropagateLoader from 'react-spinners/PropagateLoader';
+import RingLoader from 'react-spinners/RingLoader';
 
 const Loader = ({loading, styles, size}) => {
     const [color] = useState('#006400');
 	return (
-		<PropagateLoader
+		<RingLoader
 			color={color}
 			loading={loading}
 			cssOverride={styles}

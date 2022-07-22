@@ -4,10 +4,7 @@ import useGetAllData from '../../hooks/useGetAllData';
 
 import Err from '../helpers/Error';
 import Loader from '../helpers/GridLoader';
-import {
-	homeUserLoader,
-	homeStatsLoader,
-} from '../../styles/auxilary/loaderStyles';
+import { homeLoader } from '../../styles/auxilary/loaderStyles';
 import styles from '../../styles/components/Home.module.scss';
 
 const Home = () => {
@@ -24,7 +21,7 @@ const Home = () => {
 					userLoading ? (
 						<Loader
 							loading={userLoading}
-							styles={homeUserLoader}
+							styles={homeLoader}
 							size={20}
 						/>
 					) : (
@@ -44,7 +41,7 @@ const Home = () => {
 						) : dataLoading ? (
 							<Loader
 								loading={dataLoading}
-								styles={homeStatsLoader}
+								styles={homeLoader}
 								size={60}
 							/>
 						) : (

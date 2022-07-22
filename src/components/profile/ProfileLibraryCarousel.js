@@ -9,6 +9,7 @@ import 'swiper/css/navigation';
 import { useLibrary } from '../../contexts/LibraryContext';
 import useGetGameScreenshots from '../../hooks/useGetGameScreenshots';
 
+import { libraryCardLoader } from '../../styles/auxilary/loaderStyles';
 import Loader from '../helpers/GridLoader';
 import Err from '../helpers/Error';
 import styles from '../../styles/components/Profile.module.scss';
@@ -24,7 +25,7 @@ const ProfileLibraryCarousel = ({ doc }) => {
 	// Update screenshots when handler is triggered
 	useEffect(() => {
 		handleRequest();
-	// eslint-disable-next-line react-hooks/exhaustive-deps
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [changed]);
 
 	const data = screenshots.map((x, i) => (
@@ -51,9 +52,13 @@ const ProfileLibraryCarousel = ({ doc }) => {
 				navigation={true}
 			>
 				{fetchError ? (
-					<Err error={fetchError} styles={styles['card__error']}/>
+					<Err error={fetchError} styles={styles['card__error']} />
 				) : loading ? (
-					<Loader loading={loading} />
+					<Loader
+						loading={loading}
+						styles={libraryCardLoader}
+						size={40}
+					/>
 				) : (
 					data
 				)}
