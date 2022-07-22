@@ -12,7 +12,10 @@ const useDeleteUser = () => {
 
 	// Create delete function (db doc first, auth second)
 	const deleteAccount = () => {
-		deleteDoc(doc(db, 'users', unique)).then(deleteUser(currentUser));
+		Promise.all([
+			deleteDoc(doc(db, 'users', unique)),
+			deleteUser(currentUser),
+		]);
 	};
 
 	return { deleteAccount };

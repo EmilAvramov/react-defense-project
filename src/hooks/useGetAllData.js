@@ -43,11 +43,11 @@ const useGetAllData = (user) => {
 			setScreenshotCount(null);
 		}
 	}, [
-		user,
 		gamesCount,
 		gamesRef,
 		screenshotCount,
 		storageRef,
+		user,
 		userCount,
 		usersRef,
 	]);

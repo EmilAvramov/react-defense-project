@@ -13,6 +13,14 @@
 		@extend %flex-basic;
 		justify-content: right;
 		padding: 0px 30px;
+		i {
+			color: red;
+			display: inline-block;
+		}
+		div {
+			display: inline-block;
+			padding: 5px;
+		}
 	}
 	.home__main {
 		grid-area: main;

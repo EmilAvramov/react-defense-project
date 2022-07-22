@@ -6,7 +6,8 @@ import { query, collection, getDocs, where } from 'firebase/firestore';
 
 const useFetchUser = (currentUser) => {
 	const [userLoading, setUserLoading] = useState(false);
-	const [name, setName] = useState('');
+	const [name, setName] = useState();
+    const [userError, setUserError] = useState()
     const navigate = useNavigate();
 	
 	useEffect(() => {
@@ -17,14 +18,14 @@ const useFetchUser = (currentUser) => {
                     const q = query(
                         collection(db, 'users'),
                         where('uid', '==', currentUser.uid)
-                    );
+                    );  
                     const doc = await getDocs(q);
                     const data = doc.docs[0].data();
-                    setName(data.name);
+                    setName(data.name)
                     setUserLoading(false);
                 } catch (err) {
                     setUserLoading(false);
-                    alert('An error occured while fetching user data');
+                    setUserError(err)
                 }
             };
             fetchUserName();
@@ -34,7 +35,7 @@ const useFetchUser = (currentUser) => {
         }
 	}, [currentUser, navigate]);
 
-	return { name, userLoading };
+	return { name, userLoading, userError };
 };
 
 export default useFetchUser;

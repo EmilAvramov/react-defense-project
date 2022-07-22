@@ -31,7 +31,9 @@ const Register = () => {
 	const navigate = useNavigate();
 
 	useEffect(() => {
-		if (user) navigate('/');
+		if (user) {
+			setTimeout(() => navigate('/'), 2000);
+		}
 	}, [user, navigate]);
 
 	// Send register request
@@ -41,10 +43,10 @@ const Register = () => {
 
 	return (
 		<>
-			{error ? (
-				<Err error={error} styles={styles['register__container']}/>
-			) : loading ? (
-				<Loader loading={loading}/>
+			{loading ? (
+				<Loader loading={loading} />
+			) : error ? (
+				<Err error={error} styles={styles['register__container']} />
 			) : (
 				<div className={styles['register__container']}>
 					<form

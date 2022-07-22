@@ -10,7 +10,7 @@ import styles from '../../styles/components/Home.module.scss';
 const Home = () => {
 	const { currentUser } = useAuth();
 
-	const { name, userLoading } = useFetchUser(currentUser);
+	const { name, userLoading, userError } = useFetchUser(currentUser);
 	const { gamesCount, userCount, screenshotCount, dataLoading, dataError } =
 		useGetAllData(currentUser);
 
@@ -24,6 +24,8 @@ const Home = () => {
 							styles={homeLoader}
 							size={20}
 						/>
+					) : userError ? (
+						<Err error={userError} styles={'home__top'} />
 					) : (
 						<>Currently browsing as {name}</>
 					)
@@ -47,7 +49,8 @@ const Home = () => {
 						) : (
 							<>
 								<div className={styles['home__container']}>
-									We have {userCount} members.
+									We have {userCount}{' '}
+									{userCount > 1 ? 'members.' : 'member.'}
 								</div>
 								<div className={styles['home__container']}>
 									Our members have added {gamesCount} games to

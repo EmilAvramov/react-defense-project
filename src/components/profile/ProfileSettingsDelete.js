@@ -12,9 +12,13 @@ const ProfileSettingsDelete = () => {
 
 	// Execute hook, redirect user and logout
 	const runDelete = () => {
-		deleteAccount();
-		navigate('/');
-		logout();
+		try {
+			deleteAccount();
+			navigate('/');
+			logout();
+		} catch (err) {
+			alert('Something went wrong, please try again');
+		}
 	};
 
 	return (
