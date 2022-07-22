@@ -40,7 +40,7 @@ const ProfileSettingsEdit = () => {
 	};
 
 	return loading ? (
-		<Loader loading={loading} styles={settingsLoader} />
+		<Loader loading={loading} styles={settingsLoader} size={40}/>
 	) : fetchError ? (
 		<Err error={fetchError} styles={styles['edit__wrapper']} />
 	) : (

@@ -20,6 +20,5 @@ export const actionsCardLoader = {
 
 export const settingsLoader = {
 	display: 'block',
-	margin: '0 auto',
-	height: '60vh',
+	margin: '155.7px auto',
 }

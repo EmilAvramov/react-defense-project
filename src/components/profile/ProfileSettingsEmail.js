@@ -10,6 +10,7 @@ import { useAuth } from '../../contexts/AuthContext';
 import Err from '../helpers/Error';
 import Loader from '../helpers/GridLoader';
 import styles from '../../styles/components/Profile.module.scss';
+import { settingsLoader } from '../../styles/auxilary/loaderStyles';
 
 const ProfileSettingsEmail = () => {
 	// Setup react hooks
@@ -46,7 +47,7 @@ const ProfileSettingsEmail = () => {
 	};
 
 	return loading ? (
-		<Loader loading={loading} />
+		<Loader loading={loading} styles={settingsLoader} size={40}/>
 	) : fetchError ? (
 		<Err error={fetchError} styles={styles['edit__wrapper']} />
 	) : (
