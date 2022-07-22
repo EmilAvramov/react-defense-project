@@ -42,6 +42,7 @@ const Router = () => {
 					<Route index element={<ProfileLibrary/>}></Route>
 					<Route path='library' element={<ProfileLibrary/>}></Route>
 					<Route path='settings' element={<ProfileSettings/>}>
+						<Route index element={<ProfileSettingsEdit/>}></Route>
 						<Route path='edit' element={<ProfileSettingsEdit/>}></Route>
 						<Route path='email' element={<ProfileSettingsEmail/>}></Route>
 						<Route path='password' element={<ProfileSettingsPassword/>}></Route>

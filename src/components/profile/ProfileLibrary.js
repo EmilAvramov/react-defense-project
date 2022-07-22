@@ -20,7 +20,7 @@ const ProfileLibrary = () => {
 				<Loader loading={loading} size={80} />
 			) : error ? (
 				<Err error={error} styles={styles['library__error']} />
-			) : (
+			) : data.length > 0 ? (
 				data.map((x) => (
 					<ProfileLibraryCard
 						key={x.id}
@@ -29,6 +29,10 @@ const ProfileLibrary = () => {
 						{...x}
 					/>
 				))
+			) : (
+				<div className={styles['library__error']}>
+					You have no games in your library.
+				</div>
 			)}
 		</div>
 	);
