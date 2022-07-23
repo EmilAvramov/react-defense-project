@@ -137,23 +137,26 @@
 			}
 
 			button > a,
-			.details__links > li > a {
+			.card__links > li > a {
 				@include m.format-link();
 			}
 
 			.card__linksHolder {
 				position: relative;
+				
 
 				.card__links {
 					position: absolute;
 					right: 0px;
-					top: 50px;
+					top: 42px;
 					z-index: 1;
 					width: 100%;
 					@include m.adjust-text(16px, 600);
+					border: 1px solid black;
+					border-radius: 4px;
 
 					li {
-						border: 1px solid black;
+						
 						background-color: whitesmoke;
 						border-radius: 4px;
 						

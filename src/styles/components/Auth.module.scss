@@ -6,6 +6,7 @@
 
 	height: 80vh;
 	width: 100vw;
+	
 
 	i {
 		color: red;
@@ -17,10 +18,12 @@
 	.login__form {
 		@extend %flex-basic;
 		flex-direction: column;
+		row-gap: 5px;
 
 		background-color: #dcdcdc;
 		padding: 30px;
 		position: relative;
+		border-radius: 4px;
 
 		div {
 			@include m.adjust-text(18px);
@@ -30,6 +33,7 @@
 			padding: 10px;
 			@include m.adjust-text(18px);
 			margin-bottom: 10px;
+			border-radius: 4px;
 		}
 		.login__btn {
 			width: 100%;
@@ -39,6 +43,7 @@
 			border: none;
 			color: white;
 			background-color: black;
+			border-radius: 4px;
 		}
 		.login__google {
 			background-color: #4285f4;
@@ -70,6 +75,7 @@
 	.register__form {
 		@extend %flex-basic;
 		flex-direction: column;
+		gap: 5px;
 
 		background-color: #dcdcdc;
 		padding: 30px;
@@ -123,10 +129,12 @@
 	.reset__form {
 		@extend %flex-basic;
 		flex-direction: column;
+		gap: 5px;
 
 		background-color: #dcdcdc;
 		padding: 30px;
 		position: relative;
+		border-radius: 4px;
 
 		div {
 			@include m.adjust-text(18px);
@@ -137,6 +145,7 @@
 			padding: 10px;
 			@include m.adjust-text(18px);
 			margin-bottom: 10px;
+			border-radius: 4px;
 		}
 		.reset__btn {
 			padding: 10px;
@@ -145,6 +154,7 @@
 			border: none;
 			color: white;
 			background-color: black;
+			border-radius: 4px;
 		}
 		.reset div {
 			margin-top: 7px;
