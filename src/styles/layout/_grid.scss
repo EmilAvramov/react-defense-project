@@ -16,9 +16,20 @@
 
 %grid-search {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas: 
+    'legend1 legend1 legend1 legend1'
+    'radio1 text1 text1 text1'
+    'radio2 text2 text2 text2' 
+    'legend2 legend2 legend2 legend2'
+    'check1 text3 text3 text3'
+    'check2 text4 text4 text4'
+    'check3 text5 text5 text5'
+    'check4 text6 text6 text6'
+    'check5 text7 text7 text7'
+    'button1 button1 button2 button2';    
     justify-content: center;
     align-items: center;
+    grid-template-columns: 30% 10% 10% 30%;
 }
 
 %grid-buttons {

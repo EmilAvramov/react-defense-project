@@ -38,38 +38,106 @@ const SearchBar = (props) => {
 			{flyout && (
 				<div className={styles['search__flyout']}>
 					<fieldset className={styles['search__filters']}>
-						<legend>Search By:</legend>
+						<legend className={styles['search__legend1']}>
+							Search By:
+						</legend>
 						<input
 							{...register('category')}
 							type='radio'
 							name='category'
 							value='name'
+							className={styles['search__radio1']}
 						/>
-						<label htmlFor='name'>Game Name</label>
+						<label
+							htmlFor='name'
+							className={styles['search__text1']}
+						>
+							Game Name
+						</label>
 						<input
 							{...register('category')}
 							type='radio'
 							name='category'
 							value='company'
+							className={styles['search__radio2']}
 						/>
-						<label htmlFor='company'>Company</label>
+						<label
+							htmlFor='company'
+							className={styles['search__text2']}
+						>
+							Company
+						</label>
 					</fieldset>
 					<fieldset className={styles['search__filters']}>
-						<legend>Platforms</legend>
-						<input {...register('PC')} type='checkbox' />
-						<label htmlFor='PC'>PC</label>
-						<input {...register('PS4')} type='checkbox' />
-						<label htmlFor='PS4'>PS4</label>
-						<input {...register('PS5')} type='checkbox' />
-						<label htmlFor='PS5'>PS5</label>
-						<input {...register('XBOX')} type='checkbox' />
-						<label htmlFor='XBOX'>XBOX</label>
-						<input {...register('Switch')} type='checkbox' />
-						<label htmlFor='Switch'>Switch</label>
+						<legend className={styles['search__legend2']}>
+							Platforms
+						</legend>
+						<input
+							{...register('PC')}
+							type='checkbox'
+							className={styles['search__check1']}
+						/>
+						<label htmlFor='PC' className={styles['search__text3']}>
+							PC
+						</label>
+						<input
+							{...register('PS4')}
+							type='checkbox'
+							className={styles['search__check2']}
+						/>
+						<label
+							htmlFor='PS4'
+							className={styles['search__text4']}
+						>
+							PS4
+						</label>
+						<input
+							{...register('PS5')}
+							type='checkbox'
+							className={styles['search__check3']}
+						/>
+						<label
+							htmlFor='PS5'
+							className={styles['search__text5']}
+						>
+							PS5
+						</label>
+						<input
+							{...register('XBOX')}
+							type='checkbox'
+							className={styles['search__check4']}
+						/>
+						<label
+							htmlFor='XBOX'
+							className={styles['search__text6']}
+						>
+							XBOX
+						</label>
+						<input
+							{...register('Switch')}
+							type='checkbox'
+							className={styles['search__check5']}
+						/>
+						<label
+							htmlFor='Switch'
+							className={styles['search__text7']}
+						>
+							Switch
+						</label>
 					</fieldset>
 					<div className={styles['search__filters']}>
-						<button onClick={applyFilters}>Confirm</button>
-						<button onClick={() => reset()}>Clear</button>
+						<button
+							className={styles['search__button1']}
+							onClick={applyFilters}
+						>
+							Confirm
+						</button>
+						<button
+							className={styles['search__button2']}
+							onClick={() => reset()}
+						>
+							Clear
+						</button>
 					</div>
 				</div>
 			)}

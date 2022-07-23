@@ -14,7 +14,7 @@
 	i {
 		height: 3vh;
 		padding: 5px;
-        font-size: 20px;
+		font-size: 20px;
 	}
 	input {
 		width: 80%;
@@ -25,32 +25,84 @@
 	}
 	button {
 		width: 10%;
-		padding: 5px 20px;
-        @include m.adjust-text(18px);
+		padding: 1px 20px;
+		@include m.adjust-text(18px);
 	}
 }
 
 .search__flyout {
 	background-color: white;
 	z-index: 1;
-	width: 10%;
 	position: absolute;
 	right: 90px;
 	top: 40px;
 	width: 15vw;
-	button {
-		margin: 0 auto;
-	}
-}
 
-.search__filters {
-	@extend %grid-search;
-	legend {
-		margin: 10px auto;
-	}
-	button {
-		width: 80%;
-		margin: 10px;
+	.search__filters {
+		@extend %grid-search;
+		legend {
+			margin: 10px auto;
+			@include m.adjust-text(16px, 600);
+		}
+		button {
+			@include m.adjust-text(14px, 400);
+			width: 100%;
+			margin: 10px auto;
+		}
+		.search__legend1 {
+			grid-area: legend1;
+		}
+		.search__legend2 {
+			grid-area: legend2;
+		}
+		.search__check1 {
+			grid-area: check1;
+		}
+		.search__check2 {
+			grid-area: check2;
+		}
+		.search__check3 {
+			grid-area: check3;
+		}
+		.search__check4 {
+			grid-area: check4;
+		}
+		.search__check5 {
+			grid-area: check5;
+		}
+		.search__text1 {
+			grid-area: text1;
+		}
+		.search__text2 {
+			grid-area: text2;
+		}
+		.search__text3 {
+			grid-area: text3;
+		}
+		.search__text4 {
+			grid-area: text4;
+		}
+		.search__text5 {
+			grid-area: text5;
+		}
+		.search__text6 {
+			grid-area: text6;
+		}
+		.search__text7 {
+			grid-area: text7;
+		}
+		.search__radio1 {
+			grid-area: radio1;
+		}
+		.search__radio2 {
+			grid-area: radio2;
+		}
+		.search__button1 {
+			grid-area: button1;
+		}
+		.search__button2 {
+			grid-area: button2;
+		}
 	}
 }
 
