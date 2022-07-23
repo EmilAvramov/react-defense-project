@@ -10,11 +10,13 @@
 
 	.settings__container {
 		@include m.template-grid(4);
+		column-gap: 12px;
 
 		.profile__block {
 			border: 1px solid black;
 
-			padding: 5px 20px;
+			padding: 10px 20px;
+			border-radius: 4px;
 
 			.profile__link {
 				@include m.format-link();
@@ -29,12 +31,15 @@
 	}
 
 	.profile__container {
-		@include m.template-grid(3);
+		@include m.template-grid(2);
+		width: 50%;
+		column-gap: 10px;
 
 		.profile__block {
 			border: 1px solid black;
 
-			padding: 5px 20px;
+			padding: 10px 20px;
+			border-radius: 4px;
 
 			.profile__link {
 				@include m.format-link();
@@ -152,7 +157,6 @@
 						background-color: whitesmoke;
 						border-radius: 4px;
 						
-
 						a {
 							display: block;
 							width: 100%;
@@ -166,10 +170,11 @@
 }
 
 .edit__wrapper {
-	width: 70%;
+	width: 80%;
 	height: 60vh;
 	margin: 0 auto;
 	@extend %flex-centered;
+	position: relative;
 
 	i {
 		color: red;
@@ -178,28 +183,36 @@
 
 	.edit__form {
 		flex: v.$flex-half;
+		position: relative;
+		bottom: 5px;
 
 		@extend %grid-edit;
 		row-gap: 10px;
-		column-gap: 5px;
-		@include m.adjust-text(16px);
+		column-gap: 20px;
+		@include m.adjust-text(18px);
 
 		.edit__submit {
 			grid-area: submit;
 			@include m.adjust-text(14px);
+			padding: 5px 0px;
 		}
 		.edit__clear {
 			grid-area: clear;
 			@include m.adjust-text(14px);
+			padding: 5px 0px;
 		}
 		.edit__label_name {
 			grid-area: label1;
+			padding: 5px 0px;
+			text-align: right;
 		}
 		.edit__input_name {
 			grid-area: input1;
 		}
 		.edit__label_age {
 			grid-area: label2;
+			padding: 5px 0px;
+			text-align: right;
 		}
 		.edit__input_age {
 			grid-area: input2;

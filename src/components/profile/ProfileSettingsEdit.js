@@ -27,7 +27,6 @@ const ProfileSettingsEdit = () => {
 	});
 
 	// Form handlers
-	const clear = () => reset;
 
 	const submitData = (data) => {
 		try {
@@ -83,9 +82,6 @@ const ProfileSettingsEdit = () => {
 					)}
 					<button className={styles['edit__submit']}>
 						Submit Changes
-					</button>
-					<button className={styles['edit__clear']} onClick={clear}>
-						Clear Form
 					</button>
 				</form>
 			)}
