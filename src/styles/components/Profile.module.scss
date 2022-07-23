@@ -18,7 +18,7 @@
 
 			.profile__link {
 				@include m.format-link();
-				@include m.adjust-text(24px);
+				@include m.adjust-text(18px);
 				display: block;
 
 				width: 100%;
@@ -38,7 +38,7 @@
 
 			.profile__link {
 				@include m.format-link();
-				@include m.adjust-text(24px);
+				@include m.adjust-text(18px);
 				display: block;
 
 				width: 100%;
@@ -55,7 +55,7 @@
 	@extend %flex-basic;
 	margin: 30px auto;
 	flex-wrap: wrap;
-	width: 70vw;
+	width: 82vw;
 	min-height: 62vh;
 
 	.library__error {
@@ -83,7 +83,7 @@
 			grid-area: header;
 			width: 100%;
 			@include m.adjust-text(30px, 600, left);
-			padding: 10px;
+			padding: 5px 10px;
 			box-sizing: border-box;
 			line-height: 5vh;
 		}
@@ -93,6 +93,8 @@
 			flex-wrap: wrap;
 			box-sizing: border-box;
 			padding: 10px;
+			line-height: 1.2;
+			@include m.adjust-text(16px, 400, left);
 
 			p {
 				flex: v.$flex-full;
@@ -106,6 +108,10 @@
 		.card__buttons {
 			grid-area: buttons;
 			position: relative;
+			
+			button {
+				@include m.adjust-text(16px);
+			}
 
 			.card__error {
 				i {
@@ -121,7 +127,7 @@
 			}
 
 			button {
-				height: 70%;
+				height: 60%;
 				width: 33.3%;
 			}
 
@@ -139,13 +145,15 @@
 					top: 50px;
 					z-index: 1;
 					width: 100%;
+					@include m.adjust-text(16px, 600);
 
 					li {
 						border: 1px solid black;
 						background-color: whitesmoke;
 						border-radius: 4px;
+						
+
 						a {
-							font-weight: bold;
 							display: block;
 							width: 100%;
 							padding: 5px 0px;
@@ -174,7 +182,7 @@
 		@extend %grid-edit;
 		row-gap: 10px;
 		column-gap: 5px;
-		@include m.adjust-text(18px);
+		@include m.adjust-text(16px);
 
 		.edit__submit {
 			grid-area: submit;
@@ -210,9 +218,8 @@
 		padding: 10px 20px;
 		border-radius: 5px;
 		color: white;
-		font-size: 24px;
 		font-weight: bold;
-		@include m.adjust-text(18px);
+		@include m.adjust-text(24px);
 	}
 }
 

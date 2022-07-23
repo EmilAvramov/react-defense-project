@@ -36,7 +36,7 @@
 		.details__name {
 			flex: v.$flex-full;
 
-			@include m.adjust-text(24px, bold, center);
+			@include m.adjust-text(22px, bold, center);
 			height: 8%;
 		}
 
