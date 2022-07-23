@@ -13,6 +13,8 @@
 		@extend %flex-basic;
 		justify-content: right;
 		padding: 0px 30px;
+		@include m.adjust-text(20px);
+
 		i {
 			color: red;
 			display: inline-block;
@@ -20,6 +22,7 @@
 		div {
 			display: inline-block;
 			padding: 5px;
+			
 		}
 	}
 	.home__main {
@@ -45,7 +48,7 @@
 			height: 30%;
 			width: 60%;
 			@extend %flex-centered;
-			text-align: center;
+			@include m.adjust-text(18px);
 		}
 	}
 }

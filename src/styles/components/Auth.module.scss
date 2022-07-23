@@ -1,4 +1,5 @@
 @use '../layout/flex';
+@use '../helpers/mixins' as m;
 
 .login__container {
 	@extend %flex-basic;
@@ -21,15 +22,19 @@
 		padding: 30px;
 		position: relative;
 
+		div {
+			@include m.adjust-text(18px);
+		}
+
 		.login__textBox {
 			padding: 10px;
-			font-size: 18px;
+			@include m.adjust-text(18px);
 			margin-bottom: 10px;
 		}
 		.login__btn {
 			width: 100%;
 			padding: 10px;
-			font-size: 18px;
+			@include m.adjust-text(18px);
 			margin-bottom: 10px;
 			border: none;
 			color: white;
@@ -70,15 +75,19 @@
 		padding: 30px;
 		position: relative;
 
+		div {
+			@include m.adjust-text(18px);
+		}
+
 		.register__textBox {
 			padding: 10px;
-			font-size: 18px;
+			@include m.adjust-text(18px);
 			margin-bottom: 10px;
 		}
 		.register__btn {
 			width: 100%;
 			padding: 10px;
-			font-size: 18px;
+			@include m.adjust-text(18px);
 			margin-bottom: 10px;
 			border: none;
 			color: white;
@@ -119,15 +128,19 @@
 		padding: 30px;
 		position: relative;
 
+		div {
+			@include m.adjust-text(18px);
+		}
+
 		.reset__textBox {
 			width: 90%;
 			padding: 10px;
-			font-size: 18px;
+			@include m.adjust-text(18px);
 			margin-bottom: 10px;
 		}
 		.reset__btn {
 			padding: 10px;
-			font-size: 18px;
+			@include m.adjust-text(18px);
 			margin-bottom: 10px;
 			border: none;
 			color: white;

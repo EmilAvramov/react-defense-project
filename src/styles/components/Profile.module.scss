@@ -61,7 +61,7 @@
 	.library__error {
 		height: 60vh;
 		@extend %flex-centered;
-		font-size: 20px;
+		@include m.adjust-text(20px);
 
 		i {
 			color: red;
@@ -82,7 +82,7 @@
 		.card__header {
 			grid-area: header;
 			width: 100%;
-			@include m.adjust-text(30px, 700, left);
+			@include m.adjust-text(30px, 600, left);
 			padding: 10px;
 			box-sizing: border-box;
 			line-height: 5vh;
@@ -174,12 +174,15 @@
 		@extend %grid-edit;
 		row-gap: 10px;
 		column-gap: 5px;
+		@include m.adjust-text(18px);
 
 		.edit__submit {
 			grid-area: submit;
+			@include m.adjust-text(14px);
 		}
 		.edit__clear {
 			grid-area: clear;
+			@include m.adjust-text(14px);
 		}
 		.edit__label_name {
 			grid-area: label1;
@@ -209,6 +212,7 @@
 		color: white;
 		font-size: 24px;
 		font-weight: bold;
+		@include m.adjust-text(18px);
 	}
 }
 

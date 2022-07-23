@@ -2,6 +2,7 @@
 	font-size: $size;
 	font-weight: $style;
 	text-align: $align;
+	font-family: 'Mukta', sans-serif;
 }
 
 @mixin clamp-text($height, $lines) {

@@ -1,4 +1,5 @@
 @use '../layout/flex';
+@use '../helpers/mixins' as m;
 
 header {
 	@extend %flex-spaced;
@@ -16,7 +17,8 @@ header {
 		height: 100%;
 	}
 	div {
-		font-size: 30px;
+		@include m.adjust-text(22px, 600, left);
+
 		img {
 			height: 100%;
 		}
@@ -29,9 +31,9 @@ header {
 	height: 100%;
 
 	li > .header__navLink {
+		@include m.adjust-text(20px);
 		text-decoration: none;
 		color: black;
-		font-size: 20px;
 
 		i {
 			padding: 5px;
