@@ -34,15 +34,10 @@
 
 %grid-buttons {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     justify-content: center;
     align-items: center;
     gap: 10px;
-    button {
-        height: 100%;
-        line-height: 1rem;
-        min-height: 2rem;
-    }
 }
 
 %grid-library {

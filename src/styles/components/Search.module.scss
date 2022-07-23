@@ -28,80 +28,79 @@
 		padding: 1px 20px;
 		@include m.adjust-text(18px);
 	}
-}
+	.search__flyout {
+		background-color: white;
+		z-index: 1;
+		position: absolute;
+		right: 90px;
+		top: 40px;
+		width: 15vw;
 
-.search__flyout {
-	background-color: white;
-	z-index: 1;
-	position: absolute;
-	right: 90px;
-	top: 40px;
-	width: 15vw;
-
-	.search__filters {
-		@extend %grid-search;
-		legend {
-			margin: 10px auto;
-			@include m.adjust-text(16px, 600);
-		}
-		button {
-			@include m.adjust-text(14px, 400);
-			width: 100%;
-			margin: 10px auto;
-		}
-		.search__legend1 {
-			grid-area: legend1;
-		}
-		.search__legend2 {
-			grid-area: legend2;
-		}
-		.search__check1 {
-			grid-area: check1;
-		}
-		.search__check2 {
-			grid-area: check2;
-		}
-		.search__check3 {
-			grid-area: check3;
-		}
-		.search__check4 {
-			grid-area: check4;
-		}
-		.search__check5 {
-			grid-area: check5;
-		}
-		.search__text1 {
-			grid-area: text1;
-		}
-		.search__text2 {
-			grid-area: text2;
-		}
-		.search__text3 {
-			grid-area: text3;
-		}
-		.search__text4 {
-			grid-area: text4;
-		}
-		.search__text5 {
-			grid-area: text5;
-		}
-		.search__text6 {
-			grid-area: text6;
-		}
-		.search__text7 {
-			grid-area: text7;
-		}
-		.search__radio1 {
-			grid-area: radio1;
-		}
-		.search__radio2 {
-			grid-area: radio2;
-		}
-		.search__button1 {
-			grid-area: button1;
-		}
-		.search__button2 {
-			grid-area: button2;
+		.search__filters {
+			@extend %grid-search;
+			legend {
+				margin: 10px auto;
+				@include m.adjust-text(16px, 600);
+			}
+			button {
+				@include m.adjust-text(14px, 400);
+				width: 100%;
+				margin: 10px auto;
+			}
+			.search__legend1 {
+				grid-area: legend1;
+			}
+			.search__legend2 {
+				grid-area: legend2;
+			}
+			.search__check1 {
+				grid-area: check1;
+			}
+			.search__check2 {
+				grid-area: check2;
+			}
+			.search__check3 {
+				grid-area: check3;
+			}
+			.search__check4 {
+				grid-area: check4;
+			}
+			.search__check5 {
+				grid-area: check5;
+			}
+			.search__text1 {
+				grid-area: text1;
+			}
+			.search__text2 {
+				grid-area: text2;
+			}
+			.search__text3 {
+				grid-area: text3;
+			}
+			.search__text4 {
+				grid-area: text4;
+			}
+			.search__text5 {
+				grid-area: text5;
+			}
+			.search__text6 {
+				grid-area: text6;
+			}
+			.search__text7 {
+				grid-area: text7;
+			}
+			.search__radio1 {
+				grid-area: radio1;
+			}
+			.search__radio2 {
+				grid-area: radio2;
+			}
+			.search__button1 {
+				grid-area: button1;
+			}
+			.search__button2 {
+				grid-area: button2;
+			}
 		}
 	}
 }
@@ -116,24 +115,26 @@
 
 .card {
 	@extend %grid-card;
-	height: 45vh;
+	height: 50vh;
 	border: 1px solid black;
 	margin: 10px;
 	position: relative;
+	
 	h3 {
 		grid-area: title;
 		@include m.adjust-text(20px);
 		@include m.clamp-text(1.3, 2);
+		height: 50px;
 	}
 	img {
 		grid-area: img;
 		width: 80%;
 		max-height: 80%;
-		margin: 0 auto;
+		margin: -5px auto 30px auto;
 	}
 	button {
 		position: absolute;
-		bottom: 2%;
+		bottom: 5%;
 		width: 80%;
 		left: 10%;
 		@include m.adjust-text(16px);

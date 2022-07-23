@@ -37,15 +37,13 @@
 			flex: v.$flex-full;
 
 			@include m.adjust-text(22px, bold, center);
-			height: 8%;
+			padding: 5px 0px 0px 0px;
 		}
 
 		.details__body {
 			flex: v.$flex-full;
 
 			@extend %flex-spaced;
-			gap: 10px;
-			height: 60%;
 
 			.details__img {
 				flex: v.$flex-half;
@@ -60,15 +58,19 @@
 			.details__info {
 				flex: v.$flex-half;
 
-				@extend %flex-spaced;
-				@include m.adjust-text(18px, 400, justify);
+				@extend %flex-centered;
+				padding: 0px 20px;
+				gap: 0px;
+				@include m.adjust-text(16px, 400, left);
 
 				flex-wrap: wrap;
 				width: 50%;
 
-				height: 40vh;
+				height: 50vh;
+				line-height: 1.2;
 
 				.details__subinfo {
+					@include m.adjust-text(18px, 600, left);
 					flex: v.$flex-full;
 
 					@extend %flex-spaced;
@@ -118,22 +120,30 @@
 
 				p {
 					flex: v.$flex-full;
-					height: 5%;
+					@include m.clamp-text(1.2, 3);	
 				}
 			}
 		}
 
 		.details__summary {
 			flex: v.$flex-full;
-			margin: 10px;
-			@include m.adjust-text(19px, 400, justify);
+			margin: 0px 10px 10px 10px;
+			@include m.adjust-text(16px, 400, justify);
 			@include m.clamp-text(1.2, 6);
 		}
 
 		.details__buttons {
-			height: 8%;
 			flex: v.$flex-full;
-			@extend %grid-buttons;
+			@extend %flex-basic;
+			gap: 10px;
+			flex-direction: column;
+
+			button {
+				width: 205px;
+				padding: 5px 10px;
+				@include m.adjust-text(14px, 400, center);
+				line-height: 1.2;
+			}
 
 			button > a,
 			.details__links > li > a {
@@ -145,7 +155,7 @@
 				.details__links {
 					position: absolute;
 					right: 0px;
-					bottom: 35px;
+					top: 28px;
 					z-index: 1;
 					width: 100%;
 
@@ -154,7 +164,7 @@
 						background-color: whitesmoke;
 						border-radius: 4px;
 						a {
-							font-weight: bold;
+							@include m.adjust-text(14px);
 							display: block;
 							width: 100%;
 							padding: 5px 0px;

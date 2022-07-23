@@ -96,42 +96,46 @@ const SearchDetails = () => {
 						<p>Genres: {data.genres}</p>
 						<p>Companies: {data.companies}</p>
 						<p>Release Date: {data.releaseDate}</p>
+						<div className={styles['details__buttons']}>
+							{currentUser && !added && (
+								<button onClick={addHandler}>
+									Add to Library
+								</button>
+							)}
+							{currentUser && added && (
+								<button onClick={removeHandler}>
+									Remove from Library
+								</button>
+							)}
+							{data.urls && (
+								<button
+									className={styles['details__linksHolder']}
+									onClick={handleLinks}
+								>
+									Links
+									{links && (
+										<ul
+											className={styles['details__links']}
+										>
+											{data.urls.map((el) => (
+												<li key={el[0]}>
+													<a
+														href={el[1]}
+														target='_blank'
+														rel='noreferrer'
+													>
+														{el[0]}
+													</a>
+												</li>
+											))}
+										</ul>
+									)}
+								</button>
+							)}
+						</div>
 					</div>
 				</div>
 				<p className={styles['details__summary']}>{data.summary}</p>
-				<div className={styles['details__buttons']}>
-					{currentUser && !added && (
-						<button onClick={addHandler}>Add to Library</button>
-					)}
-					{currentUser && added && (
-						<button onClick={removeHandler}>
-							Remove from Library
-						</button>
-					)}
-					{data.urls && (
-						<button
-							className={styles['details__linksHolder']}
-							onClick={handleLinks}
-						>
-							Links
-							{links && (
-								<ul className={styles['details__links']}>
-									{data.urls.map((el) => (
-										<li key={el[0]}>
-											<a
-												href={el[1]}
-												target='_blank'
-												rel='noreferrer'
-											>
-												{el[0]}
-											</a>
-										</li>
-									))}
-								</ul>
-							)}
-						</button>
-					)}
-				</div>
 			</div>
 		</div>
 	);
