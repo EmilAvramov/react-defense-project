@@ -29,8 +29,13 @@
 			@include m.adjust-text(18px);
 		}
 
-		.login__link:visited {
+		.login__link:visited,
+		.login__link:link {
 			color: v.$light-green;
+		}
+
+		p {
+			@include m.adjust-text(16px);
 		}
 
 		.login__textBox {
@@ -86,10 +91,15 @@
 		padding: 30px;
 		position: relative;
 
+		p {
+			@include m.adjust-text(16px);
+		}
+
 		div {
 			@include m.adjust-text(18px);
 		}
-		.register__link:visited {
+		.register__link:visited,
+		.register__link:link {
 			color: v.$light-green;
 		}
 
@@ -145,10 +155,15 @@
 		position: relative;
 		border-radius: 4px;
 
+		p {
+			@include m.adjust-text(16px);
+		}
+
 		div {
 			@include m.adjust-text(18px);
 		}
-		.reset__link:visited {
+		.reset__link:visited,
+		.reset__link:link {
 			color: v.$light-green;
 		}
 
