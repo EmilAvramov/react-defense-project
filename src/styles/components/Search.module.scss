@@ -163,9 +163,42 @@
 	width: 95%;
 	@extend %flex-basic;
 	@include m.adjust-text(18px);
+	padding-top: 10px;
+	margin-bottom: -5px;
 
 	.pagination__wrapper {
 		@extend %flex-centered;
 		column-gap: 50px;
+	}
+	.pagination__li,
+	.pagination__previous_li,
+	.pagination__next_li,
+	.pagination__break_li {
+		position: relative;
+		border: 1px solid v.$turquoise;
+		padding: 10px 15px;
+		&:hover {
+			cursor: pointer;
+		}
+	}
+	.pagination__a,
+	.pagination__previous_a,
+	.pagination__next_a,
+	.pagination__break_a {
+		width: 100%;
+	}
+	.pagination__a:after,
+	.pagination__previous_a:after,
+	.pagination__next_a:after,
+	.pagination__break_a:after {
+		content: '';
+		height: 100%;
+		left: 0;
+		position: absolute;
+		top: 0;
+		width: 100%;
+	}
+	.active {
+		background-color: v.$turquoise;
 	}
 }

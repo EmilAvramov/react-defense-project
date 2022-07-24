@@ -27,12 +27,12 @@
 	}
 	.home__main {
 		grid-area: main;
-		height: 70vh;
+		height: 68vh;
 		@extend %flex-basic;
 	}
 	.home__aside {
 		grid-area: aside;
-		height: 70vh;
+		height: 68vh;
 		@extend %flex-centered;
 		flex-direction: column;
 
@@ -42,7 +42,7 @@
 		}
 
 		.home__container {
-			border: 3px solid green;
+			border: 3px solid v.$light-green;
 			padding: 10px;
 			border-radius: 100%;
 			height: 30%;

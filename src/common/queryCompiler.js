@@ -13,6 +13,7 @@ const compileQuery = (data) => {
 		const compilePlatforms = () => {
 			let platforms = 'where '
 			let tempArr = []
+			console.log(data)
 			if (data.PC) {
 				tempArr.push(setPlatformFilter('PC'))
 			}
@@ -22,7 +23,7 @@ const compileQuery = (data) => {
 			if (data.PS5) {
 				tempArr.push(setPlatformFilter('PS5'))
 			}
-			if (data.PS5) {
+			if (data.XBOX) {
 				tempArr.push(setPlatformFilter('XBOX'))
 			}
 			if (data.Switch) {

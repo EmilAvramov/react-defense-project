@@ -248,10 +248,9 @@
 		}
 	}
 	.delete__button {
-		background-color: darkred;
+		background-color: v.$dark_red;
 		padding: 10px 20px;
 		border-radius: 5px;
-		color: white;
 		font-weight: bold;
 		@include m.adjust-text(24px);
 	}

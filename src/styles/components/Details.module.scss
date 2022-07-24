@@ -197,8 +197,9 @@
 		flex-wrap: wrap;
 		position: relative;
 
-		border: 1px solid black;
-		background-color: white;
+		border: 3px solid v.$turquoise;
+		background-color: v.$ash;
+		border-radius: 4px;
 		
 		.carouselDetails__image {
 			height: 35vw;
@@ -208,24 +209,21 @@
 
 		.carouselDetails__close {
 			@include m.adjust-text(14px);
-			background-color: lightcoral;
-			color: black;
+			background-color: v.$dark_green;
+			color: v.$light-green;
 			width: 5%;
 			position: absolute;
-			top: 0;
-			right: 0;
-			border-radius: 4px;
+			top: 2px;
+			right: 2px;
 		}
 		.carouselDetails__delete {
 			@include m.adjust-text(14px);	
-			background-color: red;
-			color: black;
+			background-color: v.$dark_red;
 			width: 10%;
 			position: absolute;
-			top: 0;
-			left: 0;
+			top: 2px;
+			left: 2px;
 			padding: 5px;
-			border-radius: 4px;
 		}
 	}
 }
