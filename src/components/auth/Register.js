@@ -147,7 +147,13 @@ const Register = () => {
 						</button>
 						<div>
 							Already have an account?{' '}
-							<Link to='/login'>Login</Link> now.
+							<Link
+								to='/login'
+								className={styles['register__link']}
+							>
+								Login
+							</Link>{' '}
+							now.
 						</div>
 					</form>
 				</div>

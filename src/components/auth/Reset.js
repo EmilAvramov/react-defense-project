@@ -72,7 +72,13 @@ const Reset = () => {
 						</button>
 						<div>
 							Don't have an account?{' '}
-							<Link to='/register'>Register</Link> now.
+							<Link
+								to='/register'
+								className={styles['reset__link']}
+							>
+								Register
+							</Link>{' '}
+							now.
 						</div>
 					</form>
 				</div>

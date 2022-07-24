@@ -155,19 +155,21 @@
 			.details__linksHolder {
 				position: relative;
 
+
 				.details__links {
 					position: absolute;
 					right: 0px;
 					top: 28px;
 					z-index: 1;
 					width: 100%;
-					border: 1px solid black;
-					border-radius: 4px;
+					border: 1px solid v.$turquoise;
 
 					li {
 						background-color: whitesmoke;
 						
 						a {
+							background-color: v.$light-green;
+							color: v.$turquoise !important;
 							@include m.adjust-text(14px);
 							display: block;
 							width: 100%;

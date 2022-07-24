@@ -9,8 +9,7 @@ button {
 	background-color: v.$turquoise;
 	border-radius: 4px;
 
-	&:hover,
-	&:focus {
+	&:hover {
 		background-color: v.$light_green;
 		color: v.$turquoise !important;
 	}

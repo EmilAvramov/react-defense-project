@@ -55,7 +55,7 @@ const ProfileLibraryActions = ({ doc, change, user, urls }) => {
 		<>
 			<input
 				type='file'
-				accept='/image/*'
+				accept='image/*'
 				ref={inputDialog}
 				onChange={attachFile}
 				style={{ display: 'none' }}

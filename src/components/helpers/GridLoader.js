@@ -2,7 +2,7 @@ import { useState } from 'react';
 import GridLoader from 'react-spinners/GridLoader';
 
 const Loader = ({loading, styles, size}) => {
-    const [color] = useState('#006400');
+    const [color] = useState('#cae9ea');
 	return (
 		<GridLoader
 			color={color}

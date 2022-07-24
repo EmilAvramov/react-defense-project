@@ -18,6 +18,7 @@ export const libraryCardLoader = {
 export const actionsCardLoader = {
 	display: 'inline',
 	margin: '0 auto',
+	paddingLeft: '20px'
 };
 
 export const settingsLoader = {

@@ -95,11 +95,19 @@ const Login = () => {
 							Login with Google
 						</button>
 						<div>
-							<Link to='/reset'>Forgot Password</Link>
+							<Link to='/reset' className={styles['login__link']}>
+								Forgot Password
+							</Link>
 						</div>
 						<div>
 							Don't have an account?{' '}
-							<Link to='/register'>Register</Link> now.
+							<Link
+								to='/register'
+								className={styles['login__link']}
+							>
+								Register
+							</Link>{' '}
+							now.
 						</div>
 					</form>
 				</div>
