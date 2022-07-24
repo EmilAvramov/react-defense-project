@@ -11,6 +11,8 @@
 	.settings__container {
 		@include m.template-grid(4);
 		column-gap: 12px;
+		position: relative;
+		left: 35px;
 
 		.profile__block {
 			border: 1px solid v.$whitesmoke;
@@ -42,6 +44,8 @@
 		@include m.template-grid(2);
 		width: 50%;
 		column-gap: 10px;
+		position: relative;
+		left: 35px;
 
 		.profile__block {
 			border: 1px solid v.$whitesmoke;
@@ -205,7 +209,7 @@
 	.edit__form {
 		flex: v.$flex-half;
 		position: relative;
-		bottom: 5px;
+		bottom: 35px;
 
 		@extend %grid-edit;
 		row-gap: 10px;
