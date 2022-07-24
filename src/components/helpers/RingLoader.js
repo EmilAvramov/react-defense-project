@@ -2,7 +2,7 @@ import { useState } from 'react';
 import RingLoader from 'react-spinners/RingLoader';
 
 const Loader = ({loading, styles, size}) => {
-    const [color] = useState('#006400');
+    const [color] = useState('#cae9ea');
 	return (
 		<RingLoader
 			color={color}

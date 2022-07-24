@@ -13,19 +13,27 @@
 		column-gap: 12px;
 
 		.profile__block {
-			border: 1px solid black;
+			border: 1px solid v.$whitesmoke;
+			background-color: v.$turquoise;
 
 			padding: 10px 20px;
 			border-radius: 4px;
+			&:hover {
+				background-color: v.$light-green;
+			}
 
 			.profile__link {
 				@include m.format-link();
 				@include m.adjust-text(18px);
 				display: block;
-
+				color: v.$light-green !important;
 				width: 100%;
 				height: 100%;
 				text-align: center;
+
+				&:hover {
+					color: v.$turquoise !important;
+				}
 			}
 		}
 	}
@@ -36,10 +44,15 @@
 		column-gap: 10px;
 
 		.profile__block {
-			border: 1px solid black;
+			border: 1px solid v.$whitesmoke;
+			background-color: v.$turquoise;
 
 			padding: 10px 20px;
 			border-radius: 4px;
+
+			&:hover {
+				background-color: v.$light-green;
+			}
 
 			.profile__link {
 				@include m.format-link();
@@ -49,6 +62,11 @@
 				width: 100%;
 				height: 100%;
 				text-align: center;
+				color: v.$light-green !important;
+
+				&:hover {
+					color: v.$turquoise !important;
+				}
 			}
 		}
 	}
@@ -76,10 +94,13 @@
 
 	.card__wrapper {
 		flex: v.$flex-full;
+		margin: 2px 0px;
 
 		@extend %grid-library;
 		justify-content: space-between;
-		border: 1px solid black;
+		border: 1px solid v.$turquoise;
+		background-color: v.$ash;
+		border-radius: 4px;
 
 		.card__img {
 			grid-area: img;
@@ -109,11 +130,11 @@
 			grid-area: screens;
 			box-sizing: border-box;
 		}
-		
+
 		.card__buttons {
 			grid-area: buttons;
 			position: relative;
-			
+
 			button {
 				@include m.adjust-text(16px);
 			}
@@ -143,27 +164,27 @@
 
 			.card__linksHolder {
 				position: relative;
-				
 
 				.card__links {
 					position: absolute;
 					right: 0px;
-					top: 42px;
+					top: 43px;
 					z-index: 1;
 					width: 100%;
 					@include m.adjust-text(16px, 600);
-					border: 1px solid black;
+
 					border-radius: 4px;
 
 					li {
-						
-						background-color: whitesmoke;
 						border-radius: 4px;
-						
+						border: 1px solid v.$turquoise;
+						background-color: v.$light-green;
+
 						a {
 							display: block;
 							width: 100%;
 							padding: 5px 0px;
+							color: v.$turquoise;
 						}
 					}
 				}
@@ -174,7 +195,7 @@
 
 .edit__wrapper {
 	width: 80%;
-	height: 60vh;
+	height: 55vh;
 	margin: 0 auto;
 	@extend %flex-centered;
 	position: relative;
@@ -230,7 +251,7 @@
 		}
 	}
 	.delete__button {
-		background-color: red;
+		background-color: darkred;
 		padding: 10px 20px;
 		border-radius: 5px;
 		color: white;

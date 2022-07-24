@@ -1,7 +1,9 @@
 export const searchLoader = {
 	display: 'block',
 	height: '40vh',
-	margin: '17vh auto',
+	margin: '16vh auto',
+	position: 'relative',
+	top: '85px',
 };
 
 export const homeLoader = {
