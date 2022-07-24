@@ -1,0 +1,20 @@
+@use '../helpers/variables' as v;
+
+html {
+	background-color: v.$black;
+}
+
+button {
+	background-color: v.$turquoise;
+    border-radius: 4px;
+
+	&:hover,
+	&:focus {
+		background-color: v.$light_green;
+		color: v.$turquoise !important;
+	}
+}
+
+i {
+    color: v.$light_green;
+}

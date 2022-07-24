@@ -1,19 +1,21 @@
 @use '../layout/flex';
 @use '../helpers/mixins' as m;
+@use '../helpers/variables' as v;
 
 footer {
     height: 10vh;
     @extend %flex-centered;
-    gap: 70%;
-    border-top: 3px solid black;
+    gap: 80%;
+    border-top: 3px solid v.$turquoise;
+    margin: 20px 0px;
 
     div {
-        @include m.adjust-text(22px, bold);
-        a {
-            text-decoration: none;
+        .footer__arrow {
+            font-size: 36px;
         }
     }
     ul {
+        margin-top: 20px;
         @include m.adjust-text(18px, bold, left);
         li {
             @include m.adjust-text(16px, 400, left);
@@ -23,4 +25,5 @@ footer {
             }
         }
     }
+
 }

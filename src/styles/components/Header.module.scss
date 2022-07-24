@@ -1,5 +1,6 @@
 @use '../layout/flex';
 @use '../helpers/mixins' as m;
+@use '../helpers/variables' as v;
 
 header {
 	@extend %flex-spaced;
@@ -7,9 +8,9 @@ header {
 	position: sticky;
 	top: 0;
 	height: 8vh;
-	border-bottom: 3px solid black;
-	background-color: white;
+	border-bottom: 3px solid v.$turquoise;
 	z-index: 1;
+	background-color: v.$black;
 
 	div,
 	nav {
@@ -21,6 +22,8 @@ header {
 
 		img {
 			height: 200%;
+			filter: invert(83%) sepia(95%) saturate(73%) hue-rotate(131deg)
+				brightness(95%) contrast(92%);
 		}
 	}
 }
@@ -33,7 +36,7 @@ header {
 	li > .header__navLink {
 		@include m.adjust-text(20px);
 		text-decoration: none;
-		color: black;
+		color: v.$light_green;
 
 		i {
 			padding: 5px;

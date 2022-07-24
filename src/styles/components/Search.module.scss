@@ -1,6 +1,7 @@
 @use '../layout/grid';
 @use '../layout/flex';
 @use '../helpers/mixins' as m;
+@use '../helpers/variables' as v;
 
 .search__container {
 	position: relative;
@@ -9,17 +10,14 @@
 
 	input {
 		@include m.adjust-text(18px, 400, left);
+		width: 80%;
 	}
 
 	i {
 		height: 3vh;
 		padding: 5px;
 		font-size: 20px;
-	}
-	input {
-		width: 80%;
-	}
-	i {
+		color: v.$light_green;
 		width: 5%;
 		margin-left: 5px;
 	}
@@ -29,7 +27,7 @@
 		@include m.adjust-text(18px);
 	}
 	.search__flyout {
-		background-color: white;
+		background-color: v.$whitesmoke;
 		z-index: 1;
 		position: absolute;
 		right: 90px;
@@ -41,12 +39,17 @@
 			legend {
 				margin: 10px auto;
 				@include m.adjust-text(16px, 600);
+				color: v.$dark-green;
 			}
 			button {
 				@include m.adjust-text(14px, 400);
 				width: 100%;
 				margin: 10px auto;
 			}
+			label {
+				color: v.$dark-green;
+			}
+
 			.search__legend1 {
 				grid-area: legend1;
 			}
@@ -110,16 +113,17 @@
 
 	margin: 0 auto;
 	width: 95%;
-	border: 1px solid black;
+	border: 1px solid v.$turquoise;
 }
 
 .card {
 	@extend %grid-card;
 	height: 50vh;
-	border: 1px solid black;
 	margin: 10px;
 	position: relative;
-	
+	background-color: v.$dark_green;
+	border-radius: 4px;
+
 	h3 {
 		grid-area: title;
 		@include m.adjust-text(20px);
@@ -138,6 +142,7 @@
 		width: 80%;
 		left: 10%;
 		@include m.adjust-text(16px);
+		border-radius: 4px;
 	}
 }
 

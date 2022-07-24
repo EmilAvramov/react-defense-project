@@ -1,8 +1,11 @@
+@use './variables' as v;
+
 @mixin adjust-text($size, $style: 400, $align: center) {
 	font-size: $size;
 	font-weight: $style;
 	text-align: $align;
 	font-family: 'Mukta', sans-serif;
+	color: v.$light_green;
 }
 
 @mixin clamp-text($height, $lines) {
@@ -33,7 +36,7 @@
 	text-overflow: ellipsis;
 }
 
-@mixin format-link($color:black) {
+@mixin format-link($color: v.$dark-green) {
 	text-decoration: none;
 	color: $color;
 	&:visited {
@@ -45,5 +48,5 @@
 	display: grid;
 	grid-template-columns: repeat($columns, 1fr);
 	justify-content: center;
-    align-items: center;
+	align-items: center;
 }
