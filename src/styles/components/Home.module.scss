@@ -29,6 +29,11 @@
 		grid-area: main;
 		height: 68vh;
 		@extend %flex-basic;
+
+		img {
+			width: 70%;
+			background-color: transparent;
+		}
 	}
 	.home__aside {
 		grid-area: aside;
@@ -39,6 +44,10 @@
 		i {
 			color: red;
 			padding: 5px;
+		}
+
+		img {
+			height: 100%;
 		}
 
 		.home__container {

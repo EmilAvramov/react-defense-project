@@ -5,6 +5,9 @@ import useGetAllData from '../../hooks/useGetAllData';
 import Err from '../helpers/Error';
 import Loader from '../helpers/GridLoader';
 import { homeLoader } from '../../styles/auxilary/loaderStyles';
+
+import banner from '../../assets/guest-banner.png';
+import aside from '../../assets/guest-aside.png';
 import styles from '../../styles/components/Home.module.scss';
 
 const Home = () => {
@@ -66,8 +69,12 @@ const Home = () => {
 				</>
 			) : (
 				<>
-					<main className={styles['home__main']}>Placeholder</main>
-					<aside className={styles['home__aside']}>Placeholder</aside>
+					<main className={styles['home__main']}>
+						<img src={banner} alt='' />
+					</main>
+					<aside className={styles['home__aside']}>
+						<img src={aside} alt='' srcset='' />
+					</aside>
 				</>
 			)}
 		</div>

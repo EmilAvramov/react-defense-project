@@ -7,6 +7,7 @@
 	@extend %flex-centered;
 	flex-wrap: wrap;
 	height: 180vh;
+    line-height: 1.15;
 
 	.about__block {
 		@include m.template-grid(2);
@@ -16,6 +17,8 @@
 			@include m.adjust-text(20px, 400, justify);
 			@extend %flex-centered;
             flex-wrap: wrap;
+            width: 80%;
+            margin: 0 auto;
 		}
 
 		.about__block_img > img {
@@ -50,6 +53,7 @@
 				}
 				p {
 					@include m.adjust-text(20px, 400, center);
+                    
 				}
 			}
 		}
