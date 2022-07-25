@@ -7,13 +7,23 @@ const About = () => {
 	return (
 		<div className={styles['about__wrapper']}>
 			<section className={styles['about__block']}>
-				<p className={styles['about__block_text']}>
-					Gameblob was created for gamers to be able to keep track of
-					their games, store and share screenshots and browse all
-					available games for PC, PS4, PS5, XBOX and Switch. The
-					platform offers a library for each user, which contains all
-					added games and their respective screenshots.
-				</p>
+				<div className={styles['about__block_text']}>
+					<p>
+						Gameblob was created for gamers to be able to keep track
+						of their games, store and share screenshots and browse
+						all available games for PC, PS4, PS5, XBOX and Switch.
+						The platform offers a library for each user, which
+						contains all added games and their respective
+						screenshots.
+					</p>
+					<p>
+						Guests of the website can still use some of the
+						features, but for the best experience a registration is
+						recommended, as it offers access to the library and the
+						ability to upload screenshots.
+					</p>
+				</div>
+
 				<div className={styles['about__block_img']}>
 					<img src={gaming} alt='' />
 				</div>
@@ -22,13 +32,23 @@ const About = () => {
 				<div className={styles['about__block_img']}>
 					<img src={data} alt='' />
 				</div>
-				<p className={styles['about__block_text']}>
-					Gameblob offers direct search access to IGDB, which hosts a
-					database for all games on the market, old and new. You can
-					view different details about the games, including any
-					available links to other platforms such as Steam, GOG and
-					official websites.
-				</p>
+				<div className={styles['about__block_text']}>
+					<p>
+						Gameblob offers direct search access to IGDB, which
+						hosts a database for all games on the market, old and
+						new. You can view different details about the games,
+						including any available links to other platforms such as
+						Steam, GOG and official websites.
+					</p>
+					<p>
+						Users of Gameblob can search either for specific games,
+						or for games published by a specific company. Searching
+						by platform is also available. Each search query will
+						return 100 results, so for larger queries, it is
+						recommended to apply more filters to narrow down the
+						results.
+					</p>
+				</div>
 			</section>
 			<section className={styles['about__feature']}>
 				<h3 className={styles['about__feature_heading']}>
@@ -52,27 +72,30 @@ const About = () => {
 					<div className={styles['about__feature_block']}>
 						<h6>Your screenshot space</h6>
 						<p>
-							Upload your own screenshots to your libray and
-							organize them per game.
+							Upload your own screenshots to your library and
+							organize them per game as you wish.
 						</p>
 					</div>
 					<div className={styles['about__feature_block']}>
 						<h6>Convenience at a glance</h6>
 						<p>
 							Search, organize and manage your games intuitively
-							and conveniently.
+							and conveniently with a glance. 
 						</p>
 					</div>
 					<div className={styles['about__feature_block']}>
 						<h6>Minimal loading times</h6>
 						<p>
 							Gameblob offers minimal loading times and a fluid
-							experience.
+							experience. Browse faster!
 						</p>
 					</div>
 					<div className={styles['about__feature_block']}>
 						<h6>Pac-man is awesome!</h6>
-						<p>Pac-man is our mascot and he feels good about it!</p>
+						<p>
+							Pac-man is our mascot and he feels good about it!
+							Who remembers the Pac-man?
+						</p>
 					</div>
 				</div>
 			</section>

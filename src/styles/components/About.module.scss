@@ -8,15 +8,14 @@
 	flex-wrap: wrap;
 	height: 180vh;
 
-	@include m.adjust-text(22px);
-
 	.about__block {
 		@include m.template-grid(2);
 		height: 60vh;
 
 		.about__block_text {
-			display: block;
-			height: 60vh;
+			@include m.adjust-text(20px, 400, justify);
+			@extend %flex-centered;
+            flex-wrap: wrap;
 		}
 
 		.about__block_img > img {
@@ -25,26 +24,34 @@
 		}
 	}
 	.about__feature {
-		height: 60vh;
-        @extend %flex-centered;
-        flex-direction: column;
-        gap: 50px;
+		height: 55vh;
+		@extend %flex-centered;
+		flex-direction: column;
+		gap: 50px;
+		border: 2px solid v.$turquoise;
+        box-sizing: border-box;
 
 		.about__feature_heading {
-			@include m.adjust-text(24px, 600, center);
+			@include m.adjust-text(26px, 600, center);
 		}
 
 		.about__feature_wrapper {
-			@include m.adjust-text(22px, 400, center);
+			
 			@include m.template-grid(3);
-            gap: 50px;
+			gap: 50px;
 
-            .about__feature_block {
-                width: 70%;
-            }
-            .about__feature_block > p {
-                @include m.adjust-text(20px, 400, center);
-            }
+			.about__feature_block {
+				width: 70%;
+				margin: 0 auto;
+
+				h6 {
+                    @include m.adjust-text(24px, 600, center);
+					padding: 10px;
+				}
+				p {
+					@include m.adjust-text(20px, 400, center);
+				}
+			}
 		}
 	}
 }
