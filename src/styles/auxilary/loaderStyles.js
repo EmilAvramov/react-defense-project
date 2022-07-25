@@ -6,6 +6,11 @@ export const searchLoader = {
 	top: '85px',
 };
 
+export const topLoader = {
+	display: 'block',
+	marginRight: '85px'
+}
+
 export const homeLoader = {
 	display: 'block',
 };

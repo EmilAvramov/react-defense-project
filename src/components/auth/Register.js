@@ -26,20 +26,19 @@ const Register = () => {
 
 	const pattern = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
 
+	const submitData = (data) => {
+		registerWithEmailAndPassword(data);
+	};
+
 	// Manage auth and redirect
 	const [user, loading, error] = useAuthState(auth);
 	const navigate = useNavigate();
 
 	useEffect(() => {
 		if (user) {
-			setTimeout(() => navigate('/'), 2000);
+			navigate('/');
 		}
 	}, [user, navigate]);
-
-	// Send register request
-	const submitData = (data) => {
-		registerWithEmailAndPassword(data);
-	};
 
 	return (
 		<>

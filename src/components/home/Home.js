@@ -1,21 +1,30 @@
+import { useState } from 'react';
 import useFetchUser from '../../hooks/useFetchUser';
 import { useAuth } from '../../contexts/AuthContext';
 import useGetAllData from '../../hooks/useGetAllData';
 
 import Err from '../helpers/Error';
 import Loader from '../helpers/GridLoader';
-import { homeLoader } from '../../styles/auxilary/loaderStyles';
+import { homeLoader, topLoader } from '../../styles/auxilary/loaderStyles';
 
 import banner from '../../assets/guest-banner.png';
 import aside from '../../assets/guest-aside.png';
 import styles from '../../styles/components/Home.module.scss';
+import { useEffect } from 'react';
 
 const Home = () => {
 	// Call relevant hooks
 	const { currentUser } = useAuth();
-	const { name, userLoading, userError } = useFetchUser(currentUser);
+	const { name, userError } = useFetchUser(currentUser);
 	const { gamesCount, userCount, screenshotCount, dataLoading, dataError } =
 		useGetAllData(currentUser);
+	const [userLoading, setUserLoading] = useState(true)
+
+	useEffect(() => {
+		if (name) {
+			setUserLoading(false)
+		}
+	}, [name])
 
 	return (
 		<div className={styles['home__wrapper']}>
@@ -24,7 +33,7 @@ const Home = () => {
 					userLoading ? (
 						<Loader
 							loading={userLoading}
-							styles={homeLoader}
+							styles={topLoader}
 							size={20}
 						/>
 					) : userError ? (
@@ -73,7 +82,7 @@ const Home = () => {
 						<img src={banner} alt='' />
 					</main>
 					<aside className={styles['home__aside']}>
-						<img src={aside} alt='' srcset='' />
+						<img src={aside} alt=''  />
 					</aside>
 				</>
 			)}
