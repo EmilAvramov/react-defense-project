@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import HomeCardList from './HomeCardList';
+import HomeCarousel from './HomeCarousel';
 import useFetchUser from '../../hooks/useFetchUser';
 import { useAuth } from '../../contexts/AuthContext';
 import useGetAllData from '../../hooks/useGetAllData';
@@ -55,15 +55,22 @@ const Home = () => {
 			{currentUser ? (
 				<>
 					<main className={styles['home__main']}>
-						<h2>
-							Our users have added the below games to their libraries.
-						</h2>
 						{fetchLoading ? (
-							<Loader loading={fetchLoading} />
+							<Loader
+								loading={fetchLoading}
+								styles={homeLoader}
+								size={60}
+							/>
 						) : fetchError ? (
 							<Err error={fetchError} />
 						) : (
-							<HomeCardList data={gamesData} />
+							<>
+								<h2>
+									Our users have added the below games to
+									their libraries.
+								</h2>
+								<HomeCarousel data={gamesData} />
+							</>
 						)}
 					</main>
 					<aside className={styles['home__aside']}>
