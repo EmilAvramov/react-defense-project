@@ -1,7 +1,10 @@
 import { useState } from 'react';
+
+import HomeCardList from './HomeCardList';
 import useFetchUser from '../../hooks/useFetchUser';
 import { useAuth } from '../../contexts/AuthContext';
 import useGetAllData from '../../hooks/useGetAllData';
+import useGetAllGames from '../../hooks/useGetAllGames';
 
 import Err from '../helpers/Error';
 import Loader from '../helpers/GridLoader';
@@ -18,13 +21,16 @@ const Home = () => {
 	const { name, userError } = useFetchUser(currentUser);
 	const { gamesCount, userCount, screenshotCount, dataLoading, dataError } =
 		useGetAllData(currentUser);
-	const [userLoading, setUserLoading] = useState(true)
+	const [userLoading, setUserLoading] = useState(true);
+	const { gamesData, fetchError, fetchLoading } = useGetAllGames();
+
+	console.log(gamesData);
 
 	useEffect(() => {
 		if (name) {
-			setUserLoading(false)
+			setUserLoading(false);
 		}
-	}, [name])
+	}, [name]);
 
 	return (
 		<div className={styles['home__wrapper']}>
@@ -48,7 +54,18 @@ const Home = () => {
 
 			{currentUser ? (
 				<>
-					<main className={styles['home__main']}>Placeholder</main>
+					<main className={styles['home__main']}>
+						<h2>
+							Top 3 most popular games in our users' libraries
+						</h2>
+						{fetchLoading ? (
+							<Loader loading={fetchLoading} />
+						) : fetchError ? (
+							<Err error={fetchError} />
+						) : (
+							<HomeCardList data={gamesData} />
+						)}
+					</main>
 					<aside className={styles['home__aside']}>
 						{dataLoading ? (
 							<Loader
@@ -82,7 +99,7 @@ const Home = () => {
 						<img src={banner} alt='' />
 					</main>
 					<aside className={styles['home__aside']}>
-						<img src={aside} alt=''  />
+						<img src={aside} alt='' />
 					</aside>
 				</>
 			)}
