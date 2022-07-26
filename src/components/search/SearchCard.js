@@ -1,6 +1,6 @@
 import { Link, useLocation } from 'react-router-dom';
 
-import normalizeExternalData from '../../common/normalizeExternalData';
+import normalizeExternalData from '../../functions/normalizeExternalData';
 
 import styles from '../../styles/components/Search.module.scss';
 

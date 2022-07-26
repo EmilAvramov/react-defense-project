@@ -64,6 +64,7 @@
 		}
 	}
 	.home__aside {
+		margin: 25px 0px -25px 0px;
 		grid-area: aside;
 		height: 68vh;
 		@extend %flex-centered;

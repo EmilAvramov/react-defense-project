@@ -24,8 +24,6 @@ const Home = () => {
 	const [userLoading, setUserLoading] = useState(true);
 	const { gamesData, fetchError, fetchLoading } = useGetAllGames();
 
-	console.log(gamesData);
-
 	useEffect(() => {
 		if (name) {
 			setUserLoading(false);
@@ -65,10 +63,7 @@ const Home = () => {
 							<Err error={fetchError} />
 						) : (
 							<>
-								<h2>
-									Our users have added the below games to
-									their libraries.
-								</h2>
+								<h2>Most popular games among our users</h2>
 								<HomeCarousel data={gamesData} />
 							</>
 						)}
