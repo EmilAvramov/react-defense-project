@@ -5,7 +5,7 @@
 .login__container {
 	@extend %flex-basic;
 
-	height: 80vh;
+	height: 76vh;
 	width: 100vw;
 
 	i {
@@ -18,7 +18,7 @@
 	.login__form {
 		@extend %flex-basic;
 		flex-direction: column;
-		row-gap: 5px;
+		row-gap: 4px;
 
 		background-color: v.$dark-green;
 		padding: 30px;
@@ -72,7 +72,7 @@
 .register__container {
 	@extend %flex-basic;
 
-	height: 80vh;
+	height: 76vh;
 	width: 100vw;
 
 	i {
@@ -85,7 +85,7 @@
 	.register__form {
 		@extend %flex-basic;
 		flex-direction: column;
-		gap: 5px;
+		gap: 4px;
 
 		background-color: v.$dark-green;
 		padding: 30px;
@@ -135,7 +135,7 @@
 .reset__container {
 	@extend %flex-basic;
 
-	height: 80vh;
+	height: 76vh;
 	width: 100vw;
 
 	i {
@@ -148,7 +148,7 @@
 	.reset__form {
 		@extend %flex-basic;
 		flex-direction: column;
-		gap: 5px;
+		gap: 4px;
 
 		background-color: v.$dark-green;
 		padding: 30px;

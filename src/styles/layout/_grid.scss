@@ -72,3 +72,12 @@
     'main main main aside';
     grid-template-columns: 30% 25% 20% 25%;
 }
+
+%grid-guest {
+    display: grid;
+    grid-template-areas: 
+    '. . . user'
+    'main main main main'
+    'main main main main'
+    'main main main main';
+}

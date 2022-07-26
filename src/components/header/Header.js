@@ -128,7 +128,7 @@ const Header = () => {
 					</NavLink>
 				</li>
 				<li onClick={logout}>
-					<NavLink className={styles['header__navLink']} to='/*'>
+					<NavLink className={styles['header__navLink']} to='/'>
 						<i className='fa-solid fa-arrow-up-right-from-square'></i>
 						Logout
 					</NavLink>

@@ -3,6 +3,31 @@
 @use '../helpers/mixins' as m;
 @use '../helpers/variables' as v;
 
+.home__guest {
+	@extend %grid-guest;
+	margin: 20px;
+
+	.home__top {
+		grid-area: user;
+		height: 5vh;
+		@extend %flex-basic;
+		justify-content: right;
+		padding: 0px 30px;
+		@include m.adjust-text(20px);
+	}
+
+	.home__guest {
+		height: 63vh;
+		grid-area: main;
+		@extend %flex-basic;
+
+		img {
+			height: 95%;
+			width: 100%;
+		}
+	}
+}
+
 .home__wrapper {
 	@extend %grid-home;
 	margin: 20px;
@@ -23,11 +48,6 @@
 			display: inline-block;
 			padding: 5px;
 		}
-	}
-
-	.home__guest {
-		width: 80%;
-		height: 90%;
 	}
 
 	.home__main {
@@ -55,7 +75,6 @@
 			margin-top: 5px;
 
 			.home__carousel {
-
 				.home__card {
 					@extend %flex-basic;
 					flex-direction: column;
@@ -96,15 +115,4 @@
 			@include m.adjust-text(18px);
 		}
 	}
-}
-
-.swiper-button-prev {
-	left: -16px;
-	right: auto;
-	color: red;
-}
-
-.swiper-button-next {
-	right: -16px;
-	left: auto;
 }

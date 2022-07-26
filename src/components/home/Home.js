@@ -30,7 +30,11 @@ const Home = () => {
 	}, [name]);
 
 	return (
-		<div className={styles['home__wrapper']}>
+		<div
+			className={
+				currentUser ? styles['home__wrapper'] : styles['home__guest']
+			}
+		>
 			<div className={styles['home__top']}>
 				{currentUser ? (
 					userLoading ? (
