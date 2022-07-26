@@ -1,5 +1,7 @@
+import { useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 
+import Confirm from '../helpers/Confirm';
 import useRemoveScreenshot from '../../hooks/useRemoveScreenshot';
 
 import styles from '../../styles/components/Details.module.scss';
@@ -27,7 +29,14 @@ const ProfileLibraryDetails = () => {
 		data.name
 	);
 
-	return (
+	// Handle delete confirmation
+	const [confirm, setConfirm] = useState(false);
+
+	const handleConfirm = () => {
+		setConfirm((state) => !state);
+	};
+
+	return !confirm ? (
 		<div
 			className={styles['carouselDetails__wrapper']}
 			onClick={closeModal}
@@ -44,7 +53,7 @@ const ProfileLibraryDetails = () => {
 				</button>
 				<button
 					className={styles['carouselDetails__delete']}
-					onClick={delScreenshot}
+					onClick={handleConfirm}
 				>
 					DELETE
 				</button>
@@ -55,6 +64,8 @@ const ProfileLibraryDetails = () => {
 				/>
 			</div>
 		</div>
+	) : (
+		<Confirm action={delScreenshot} handle={setConfirm}/>
 	);
 };
 

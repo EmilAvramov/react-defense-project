@@ -8,7 +8,6 @@ export const searchLoader = {
 
 export const topLoader = {
 	display: 'block',
-
 }
 
 export const homeLoader = {
@@ -23,7 +22,7 @@ export const libraryCardLoader = {
 export const actionsCardLoader = {
 	display: 'inline',
 	margin: '0 auto',
-	paddingLeft: '20px'
+	paddingLeft: '30px'
 };
 
 export const settingsLoader = {

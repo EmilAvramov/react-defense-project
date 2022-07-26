@@ -19,7 +19,6 @@ const ProfileLibraryCarousel = ({ doc }) => {
 	const { changed } = useLibrary();
 	const { screenshots, fetchError, loading, handleRequest } =
 		useGetGameScreenshots(doc);
-
 	const location = useLocation();
 
 	// Update screenshots when handler is triggered
