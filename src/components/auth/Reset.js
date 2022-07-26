@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { useAuthState } from 'react-firebase-hooks/auth';
 
+import { useAuth } from '../../contexts/AuthContext';
 import { auth } from '../../config/firebase-config';
 import sendPasswordReset from '../../auth/passwordReset';
 
@@ -29,12 +30,15 @@ const Reset = () => {
 	const pattern = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
 
 	// Manage auth and redirect
-	const [user, loading, error] = useAuthState(auth);
+	const { currentUser } = useAuth();
+	const [loading, error] = useAuthState(auth);
 	const navigate = useNavigate();
 
 	useEffect(() => {
-		if (user) navigate('/');
-	}, [user, navigate]);
+		if (currentUser) {
+			navigate('/');
+		}
+	}, [currentUser, navigate]);
 
 	return (
 		<>

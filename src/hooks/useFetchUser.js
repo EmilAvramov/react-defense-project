@@ -29,11 +29,7 @@ const useFetchUser = (currentUser) => {
                 };
                 fetchUserName();
             }
-            // Otherwise redirect to home (if bug occurs)
-            else {
-                return navigate('/');
-            }
-        }, 3000)
+        }, 2000)
 
 	}, [currentUser, navigate]);
 
