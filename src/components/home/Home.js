@@ -41,7 +41,7 @@ const Home = () => {
 						<Loader
 							loading={userLoading}
 							styles={topLoader}
-							size={20}
+							size={10}
 						/>
 					) : userError ? (
 						<Err error={userError} styles={'home__top'} />
@@ -60,7 +60,7 @@ const Home = () => {
 							<Loader
 								loading={fetchLoading}
 								styles={homeLoader}
-								size={60}
+								size={30}
 							/>
 						) : fetchError ? (
 							<Err error={fetchError} />
@@ -76,7 +76,7 @@ const Home = () => {
 							<Loader
 								loading={dataLoading}
 								styles={homeLoader}
-								size={60}
+								size={30}
 							/>
 						) : dataError ? (
 							<Err error={dataError} styles={'home__aside'} />

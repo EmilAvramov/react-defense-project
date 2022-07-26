@@ -57,8 +57,8 @@ header {
 		.header__navlink_active {
 			@include m.adjust-text(20px);
 			text-decoration: none;
-			color: v.$dark_green;
-			background-color: v.$light-green;
+			color: v.$light-green;
+			background-color: v.$turquoise;
 			border-radius: 4px;
 			display: block;
 			width: 100%;
@@ -67,7 +67,7 @@ header {
 			i {
 				padding: 5px;
 				font-size: 18px;
-				color: v.$dark_green;
+				color: v.$light-green;
 			}
 		}
 	}

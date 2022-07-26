@@ -106,8 +106,36 @@
 		background-color: v.$dark-green;
 		border-radius: 4px;
 
+
+		.card__swiper_container {
+			grid-area: screens;
+			width: 60vw;
+			padding: 10px;
+
+			.card__swiper_img {
+				height: 180px;
+			}
+
+			.card__swiper_body {
+				.card__error {
+					i {
+						position: relative;
+						left: 350px;
+						color: red;
+						font-size: 30px;
+						padding: 20px;
+					}
+					div {
+						text-align: center;
+					}
+				}
+			}
+		}
+
 		.card__img {
 			grid-area: img;
+
+
 		}
 		.card__header {
 			grid-area: header;
@@ -178,7 +206,7 @@
 					@include m.adjust-text(16px, 600);
 					border: 1px solid v.$turquoise;
 
-					li {				
+					li {
 						background-color: v.$light-green;
 
 						a {
@@ -257,30 +285,5 @@
 		border-radius: 5px;
 		font-weight: bold;
 		@include m.adjust-text(24px);
-	}
-}
-
-.card__swiper_container {
-	grid-area: screens;
-	width: 50vw;
-	padding: 10px;
-
-	.card__swiper_img {
-		height: 140px;
-	}
-
-	.card__swiper_body {
-		.card__error {
-			i {
-				position: relative;
-				left: 350px;
-				color: red;
-				font-size: 30px;
-				padding: 20px;
-			}
-			div {
-				text-align: center;
-			}
-		}
 	}
 }

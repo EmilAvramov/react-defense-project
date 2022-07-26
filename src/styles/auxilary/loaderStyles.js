@@ -8,7 +8,7 @@ export const searchLoader = {
 
 export const topLoader = {
 	display: 'block',
-	marginRight: '85px'
+
 }
 
 export const homeLoader = {

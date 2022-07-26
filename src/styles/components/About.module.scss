@@ -11,7 +11,7 @@
 
 	.about__block {
 		@include m.template-grid(2);
-		height: 60vh;
+		height: 58.5vh;
 
 		.about__block_text {
 			@include m.adjust-text(20px, 400, justify);
