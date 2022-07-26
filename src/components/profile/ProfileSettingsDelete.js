@@ -1,5 +1,7 @@
+import { useState } from 'react';
 import { useOutletContext } from 'react-router-dom';
 
+import Confirm from '../helpers/Confirm';
 import logout from '../../auth/logout';
 import useDeleteUser from '../../hooks/useDeleteUser';
 
@@ -21,11 +23,29 @@ const ProfileSettingsDelete = () => {
 		}
 	};
 
+	// Handle delete confirmation
+	const [confirm, setConfirm] = useState(false);
+
+	const handleConfirm = () => {
+		setConfirm((state) => !state);
+	};
+
 	return (
 		<div className={styles['edit__wrapper']}>
-			<button className={styles['delete__button']} onClick={runDelete}>
-				Delete Account
-			</button>
+			{!confirm ? (
+				<button
+					className={styles['delete__button']}
+					onClick={handleConfirm}
+				>
+					Delete Account
+				</button>
+			) : (
+				<Confirm
+					action={runDelete}
+					handle={setConfirm}
+					location={'account'}
+				/>
+			)}
 		</div>
 	);
 };

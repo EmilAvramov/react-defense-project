@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 
+import Confirm from '../helpers/Confirm';
 import delGameFromLibrary from '../../functions/delGameFromLibrary';
 import useUploadImages from '../../hooks/useUploadImages';
 import processUrls from '../../functions/processUrls';
@@ -51,6 +52,13 @@ const ProfileLibraryActions = ({ doc, change, user, urls }) => {
 		toggleLinks((state) => !state);
 	};
 
+	// Handle delete confirmation
+	const [confirm, setConfirm] = useState(false);
+
+	const handleConfirm = () => {
+		setConfirm((state) => !state);
+	};
+
 	return (
 		<>
 			<input
@@ -61,7 +69,7 @@ const ProfileLibraryActions = ({ doc, change, user, urls }) => {
 				style={{ display: 'none' }}
 			/>
 			<div className={styles['card__buttons']}>
-				<button onClick={handleDeleteGame}>Remove</button>
+				<button onClick={handleConfirm}>Remove</button>
 				{urls && (
 					<button
 						className={styles['card__linksHolder']}
@@ -99,6 +107,13 @@ const ProfileLibraryActions = ({ doc, change, user, urls }) => {
 					</button>
 				)}
 			</div>
+			{confirm && (
+				<Confirm
+					action={handleDeleteGame}
+					handle={setConfirm}
+					location={'library'}
+				/>
+			)}
 		</>
 	);
 };

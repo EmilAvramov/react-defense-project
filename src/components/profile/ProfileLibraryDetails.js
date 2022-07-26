@@ -65,7 +65,11 @@ const ProfileLibraryDetails = () => {
 			</div>
 		</div>
 	) : (
-		<Confirm action={delScreenshot} handle={setConfirm}/>
+		<Confirm
+			action={delScreenshot}
+			handle={setConfirm}
+			location={'screenshot'}
+		/>
 	);
 };
 

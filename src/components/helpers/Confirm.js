@@ -2,12 +2,16 @@ import { useNavigate } from 'react-router-dom';
 
 import styles from '../../styles/components/Helpers.module.scss';
 
-const Confirm = ({ action, handle }) => {
+const Confirm = ({ action, handle, location }) => {
 	const navigate = useNavigate();
 
 	const sendConfirm = () => {
 		action();
-		navigate(-2);
+		location === 'account'
+			? navigate('/')
+			: location === 'screenshot'
+				? navigate(-2)
+				: handle(false);
 	};
 
 	const closeModal = () => {
