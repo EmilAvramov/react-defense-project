@@ -43,37 +43,30 @@ const ProfileLibraryCarousel = ({ doc }) => {
 		</SwiperSlide>
 	));
 
-		console.log(data)
-
-	return (
+	return data.length > 0 ? (
 		<div className={styles['card__swiper_container']}>
-			{data.length > 0 ? (
-				<Swiper
-					className={styles['card__swiper_body']}
-					modules={[Navigation]}
-					slidesPerView={3}
-					navigation={true}
-				>
-					{loading ? (
-						<Loader
-							loading={loading}
-							styles={libraryCardLoader}
-							size={40}
-						/>
-					) : fetchError ? (
-						<Err
-							error={fetchError}
-							styles={styles['card__error']}
-						/>
-					) : (
-						data
-					)}
-				</Swiper>
-			) : (
-				<div className={styles['card__swiper_body']}>
-					No content uploaded yet.
-				</div>
-			)}
+			<Swiper
+				className={styles['card__swiper_body']}
+				modules={[Navigation]}
+				slidesPerView={3}
+				navigation={true}
+			>
+				{loading ? (
+					<Loader
+						loading={loading}
+						styles={libraryCardLoader}
+						size={20}
+					/>
+				) : fetchError ? (
+					<Err error={fetchError} styles={styles['card__error']} />
+				) : (
+					data
+				)}
+			</Swiper>
+		</div>
+	) : (
+		<div className={styles['card__swiper_placeholder']}>
+			No content uploaded yet.
 		</div>
 	);
 };

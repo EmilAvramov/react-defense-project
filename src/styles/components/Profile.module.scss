@@ -82,7 +82,7 @@
 	@extend %flex-basic;
 	margin: 30px auto;
 	flex-wrap: wrap;
-	width: 82vw;
+	width: 90vw;
 	min-height: 62vh;
 
 	.library__error {
@@ -106,14 +106,25 @@
 		background-color: v.$dark-green;
 		border-radius: 4px;
 
+		.card__swiper_placeholder {
+			grid-area: screens;
+			width: 64vw;
+			padding: 10px;
+			height: 15vh;
+			@include m.adjust-text(20px, 400, center);
+			@extend %flex-basic;
+
+		}
 
 		.card__swiper_container {
 			grid-area: screens;
-			width: 60vw;
+			width: 64vw;
 			padding: 10px;
+			height: 15vh;
 
 			.card__swiper_img {
 				height: 180px;
+				width: 320px;
 			}
 
 			.card__swiper_body {
@@ -134,13 +145,18 @@
 
 		.card__img {
 			grid-area: img;
+			width: 100%;
+			@extend %flex-basic;
 
-
+			img {
+				object-fit: contain;
+				width: 100%;
+			}
 		}
 		.card__header {
 			grid-area: header;
 			width: 100%;
-			@include m.adjust-text(30px, 600, left);
+			@include m.adjust-text(26px, 600, left);
 			padding: 5px 10px;
 			box-sizing: border-box;
 			line-height: 5vh;
@@ -151,11 +167,11 @@
 			flex-wrap: wrap;
 			box-sizing: border-box;
 			padding: 10px;
-			line-height: 1.2;
 			@include m.adjust-text(16px, 400, left);
 
 			p {
 				flex: v.$flex-full;
+				@include m.clamp-text(1.2, 2);
 			}
 		}
 		.card__screenshots {
