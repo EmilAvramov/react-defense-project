@@ -22,17 +22,46 @@
 		div {
 			display: inline-block;
 			padding: 5px;
-			
 		}
 	}
 	.home__main {
 		grid-area: main;
 		height: 68vh;
-		@extend %flex-basic;
+		@extend %flex-centered;
+		flex-wrap: wrap;
+		gap: 10px;
+		padding: 0px;
+		margin-bottom: 3px;
+
+		h2 {
+			flex: v.$flex-full;
+			@include m.adjust-text(22px, 600);
+		}
 
 		img {
 			width: 70%;
 			background-color: transparent;
+		}
+
+		.home__list {
+			@include m.template-grid(3);
+			flex: v.$flex-full;
+
+			.home__card {
+				@extend %flex-basic;
+				flex-direction: column;
+				padding: 1px;
+				margin: 10px;
+				position: relative;
+				background-color: v.$turquoise;
+				border-radius: 4px;
+				height: 80%;
+
+				img {
+					width: 100%;
+					max-height: 100%;
+				}
+			}
 		}
 	}
 	.home__aside {

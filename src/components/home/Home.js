@@ -56,7 +56,7 @@ const Home = () => {
 				<>
 					<main className={styles['home__main']}>
 						<h2>
-							Top 3 most popular games in our users' libraries
+							Our users have added the below games to their libraries.
 						</h2>
 						{fetchLoading ? (
 							<Loader loading={fetchLoading} />
@@ -79,14 +79,14 @@ const Home = () => {
 							<>
 								<div className={styles['home__container']}>
 									We have {userCount}{' '}
-									{userCount > 1 ? 'members.' : 'member.'}
+									{userCount > 1 ? 'users.' : 'user.'}
 								</div>
 								<div className={styles['home__container']}>
-									Our members have added {gamesCount} games to
+									Our users have added {gamesCount} games to
 									their libraries.
 								</div>
 								<div className={styles['home__container']}>
-									Our members have uploaded {screenshotCount}{' '}
+									Our users have uploaded {screenshotCount}{' '}
 									screenshots.
 								</div>
 							</>
