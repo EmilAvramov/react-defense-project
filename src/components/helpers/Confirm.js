@@ -10,8 +10,8 @@ const Confirm = ({ action, handle, location }) => {
 		location === 'account'
 			? navigate('/')
 			: location === 'screenshot'
-				? navigate(-2)
-				: handle(false);
+			? navigate(-2)
+			: handle(false);
 	};
 
 	const closeModal = () => {
@@ -19,8 +19,11 @@ const Confirm = ({ action, handle, location }) => {
 	};
 
 	return (
-		<div className={styles['confirm__wrapper']}>
-			<div className={styles['confirm__container']}>
+		<div className={styles['confirm__wrapper']} onClick={closeModal}>
+			<div
+				className={styles['confirm__container']}
+				onClick={(e) => e.stopPropagation()}
+			>
 				<p className={styles['confirm__text']}>
 					Are you sure you want to do that?
 				</p>
