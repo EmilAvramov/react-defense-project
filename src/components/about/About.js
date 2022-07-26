@@ -77,10 +77,10 @@ const About = () => {
 						</p>
 					</div>
 					<div className={styles['about__feature_block']}>
-						<h6>Convenience at a glance</h6>
+						<h6>Retro-style theme</h6>
 						<p>
-							Search, organize and manage your games intuitively
-							and conveniently with a glance. 
+							Enjoy an old-school game feel, mixed with excellent
+							modern browser functionality.
 						</p>
 					</div>
 					<div className={styles['about__feature_block']}>
@@ -94,7 +94,7 @@ const About = () => {
 						<h6>Pac-man is awesome!</h6>
 						<p>
 							Pac-man is our mascot and he feels good about it!
-							Who remembers the Pac-man?
+							Who remembers Pac-man?
 						</p>
 					</div>
 				</div>

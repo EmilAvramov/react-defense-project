@@ -66,9 +66,9 @@
 %grid-home {
     display: grid;
     grid-template-areas:
-    'user user user user'
+    'main main main user'
     'main main main aside'
     'main main main aside'
     'main main main aside';
-    grid-template-columns: 30% 30% 20% 20%;
+    grid-template-columns: 30% 25% 20% 25%;
 }

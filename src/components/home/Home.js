@@ -11,7 +11,6 @@ import Loader from '../helpers/GridLoader';
 import { homeLoader, topLoader } from '../../styles/auxilary/loaderStyles';
 
 import banner from '../../assets/guest-banner.png';
-import aside from '../../assets/guest-aside.png';
 import styles from '../../styles/components/Home.module.scss';
 import { useEffect } from 'react';
 
@@ -97,12 +96,9 @@ const Home = () => {
 				</>
 			) : (
 				<>
-					<main className={styles['home__main']}>
+					<main className={styles['home__guest']}>
 						<img src={banner} alt='' />
 					</main>
-					<aside className={styles['home__aside']}>
-						<img src={aside} alt='' />
-					</aside>
 				</>
 			)}
 		</div>

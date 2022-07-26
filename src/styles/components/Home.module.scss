@@ -24,14 +24,20 @@
 			padding: 5px;
 		}
 	}
+
+	.home__guest {
+		width: 80%;
+		height: 90%;
+	}
+
 	.home__main {
 		grid-area: main;
-		height: 68vh;
+		height: 70vh;
 		@extend %flex-centered;
 		flex-wrap: wrap;
 		gap: 30px;
 		padding: 0px;
-		margin-bottom: 3px;
+		margin-top: 10px;
 
 		h2 {
 			flex: v.$flex-full;
@@ -45,8 +51,9 @@
 
 		.home__list {
 			height: inherit;
-			width: 65vw;
-			
+			width: 68vw;
+			margin-top: 5px;
+
 			.home__carousel {
 
 				.home__card {
@@ -64,7 +71,7 @@
 		}
 	}
 	.home__aside {
-		margin: 25px 0px -25px 0px;
+		margin: 15px 0px -15px 0px;
 		grid-area: aside;
 		height: 68vh;
 		@extend %flex-centered;
@@ -83,10 +90,21 @@
 			border: 3px solid v.$light-green;
 			padding: 10px;
 			border-radius: 100%;
-			height: 30%;
-			width: 60%;
+			height: 35%;
+			width: 50%;
 			@extend %flex-centered;
 			@include m.adjust-text(18px);
 		}
 	}
+}
+
+.swiper-button-prev {
+	left: -16px;
+	right: auto;
+	color: red;
+}
+
+.swiper-button-next {
+	right: -16px;
+	left: auto;
 }

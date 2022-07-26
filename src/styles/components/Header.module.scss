@@ -39,18 +39,36 @@ header {
 	@extend %flex-centered;
 
 	height: 100%;
+	li {
+		padding: 0px 3px;
 
-	li > .header__navLink {
-		@include m.adjust-text(20px);
-		text-decoration: none;
-		color: v.$light_green;
+		.header__navLink {
+			@include m.adjust-text(20px);
+			text-decoration: none;
+			color: v.$light_green;
+			width: 100%;
 
-		i {
-			padding: 5px;
-			font-size: 18px;
+			i {
+				padding: 5px;
+				font-size: 18px;
+			}
 		}
-	}
-	li > .active {
-		color: red;
+
+		.header__navlink_active {
+			@include m.adjust-text(20px);
+			text-decoration: none;
+			color: v.$dark_green;
+			background-color: v.$light-green;
+			border-radius: 4px;
+			display: block;
+			width: 100%;
+			padding: 5px 6px 5px 1px;
+
+			i {
+				padding: 5px;
+				font-size: 18px;
+				color: v.$dark_green;
+			}
+		}
 	}
 }
