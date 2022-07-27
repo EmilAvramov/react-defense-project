@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { HashLink } from 'react-router-hash-link';
 
 import styles from '../../styles/components/Footer.module.scss';
 
@@ -6,12 +6,11 @@ const Footer = () => {
 	return (
 		<footer>
 			<div>
-				<Link to='/' className={styles['footer__arrow']}>
+				<HashLink smooth to='#top' className={styles['footer__arrow']}>
 					<i className='fa-solid fa-angle-up'></i>
-				</Link>
+				</HashLink>
 			</div>
 			<ul>
-				{' '}
 				Need assistance? Contact us!
 				<li>
 					<i className='fa-solid fa-phone'></i>Phone: +123 4567 8900

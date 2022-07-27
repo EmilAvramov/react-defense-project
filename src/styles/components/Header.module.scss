@@ -22,11 +22,14 @@ header {
 	.header__logo {
 		@include m.adjust-text(22px, 600, left);
 		text-decoration: none;
+		position: relative;
 
 		img {
-			height: 200%;
+			height: 300%;
 			filter: invert(83%) sepia(95%) saturate(73%) hue-rotate(131deg)
 				brightness(95%) contrast(92%);
+			position: relative;
+			top: 5px;
 		}
 	}
 }

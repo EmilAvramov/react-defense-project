@@ -291,6 +291,8 @@
 	.delete__button {
 		background-color: v.$dark_red;
 		padding: 10px 20px;
+		position: relative;
+		bottom: 35px;
 		@include m.adjust-border(1px, v.$light-green);
 		@include m.adjust-text(24px, 600);
 	}

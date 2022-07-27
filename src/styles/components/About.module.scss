@@ -27,6 +27,7 @@
 		}
 	}
 	.about__feature {
+		margin-top: 40px;
 		height: 55vh;
 		@extend %flex-centered;
 		flex-direction: column;
