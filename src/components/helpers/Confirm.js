@@ -7,7 +7,6 @@ const Confirm = ({ action, handle, location }) => {
 
 	const sendConfirm = () => {
 		action();
-		console.log(location);
 		location === 'account' ? navigate('/') : navigate('/profile/library');
 	};
 

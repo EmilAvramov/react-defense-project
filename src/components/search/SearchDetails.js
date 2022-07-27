@@ -45,9 +45,13 @@ const SearchDetails = () => {
 
 	// Manage database Create-Delete operations
 	const { exists, docRef, error } = useCheckExistsInternal(data, currentUser);
-	const [added, setAdded] = useState(exists);
+	const [added, setAdded] = useState(false);
 	const { addGame } = addGameToLibrary();
 	const { removeGame } = delGameFromLibrary();
+
+	useEffect(() => {
+		exists ? setAdded(true) : setAdded(false);
+	}, [exists]);
 
 	const addHandler = () => {
 		if (!added) {
@@ -97,12 +101,11 @@ const SearchDetails = () => {
 						<p>Companies: {data.companies}</p>
 						<p>Release Date: {data.releaseDate}</p>
 						<div className={styles['details__buttons']}>
-							{currentUser && !added && (
+							{currentUser && !added ? (
 								<button onClick={addHandler}>
 									Add to Library
 								</button>
-							)}
-							{currentUser && added && (
+							) : (
 								<button onClick={removeHandler}>
 									Remove from Library
 								</button>

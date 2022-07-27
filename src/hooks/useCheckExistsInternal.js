@@ -9,28 +9,33 @@ const useCheckExistsInternal = (data, user) => {
 	const [error, setError] = useState('');
 	const [docRef, setDocRef] = useState('');
 	const [exists, setExists] = useState(false);
+	const [checkLoading, setCheckLoading] = useState(false)
 	const { id } = data;
-	const collectionRef = collection(db, 'games');
 
 	// Compile firebase query, get docRef if available and set states
 	useEffect(() => {
 		const checkIfExists = async () => {
 			try {
+				setCheckLoading(true)
+				const collectionRef = collection(db, 'games');
+				
 				const q = query(collectionRef, where('user', '==', user.uid));
-				const collection = await getDocs(q);
-				collection.forEach((doc) => {
+				const snapshot = await getDocs(q);
+				snapshot.forEach((doc) => {
 					if (doc.data().id === id) {
 						setExists(true);
 						setDocRef(doc.id);
 					}
 				});
+				setCheckLoading(false)
 			} catch (err) {
 				setError(err);
+				setCheckLoading(false)
 			}
 		};
 		checkIfExists();
-	}, [collectionRef, id, user]);
-	return { exists, docRef, error };
+	}, [id, user]);
+	return { exists, docRef, error, checkLoading };
 };
 
 export default useCheckExistsInternal;
