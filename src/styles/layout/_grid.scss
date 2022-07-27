@@ -57,9 +57,9 @@
 %grid-edit {
     display: grid;
     grid-template-areas: 
-    'label1 input1 input1 errPass'
-    'label2 input2 input2 errRePass'
-    '. submit clear .';
+    'label1 input1 input1 error1'
+    'label2 input2 input2 error2'
+    '. submit . .';
     grid-template-columns: 30% 20% 20% 30%;
 }
 

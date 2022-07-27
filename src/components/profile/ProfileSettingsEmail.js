@@ -57,8 +57,8 @@ const ProfileSettingsEmail = () => {
 					className={styles['edit__form']}
 				>
 					<label
-						htmlFor='name'
-						className={styles['edit__label_name']}
+						htmlFor='email'
+						className={styles['edit__label1']}
 					>
 						New Email
 					</label>
@@ -78,14 +78,14 @@ const ProfileSettingsEmail = () => {
 							},
 						})}
 						type='email'
-						className={styles['edit__input_name']}
+						className={styles['edit__input1']}
 					/>
 					{errors.email && (
 						<p className={styles['edit__error1']}>
 							{errors.email.message}
 						</p>
 					)}
-					<label htmlFor='age' className={styles['edit__label_age']}>
+					<label htmlFor='emailRe' className={styles['edit__label2']}>
 						Repeat New Email
 					</label>
 					<input
@@ -99,7 +99,7 @@ const ProfileSettingsEmail = () => {
 								"Emails don't match",
 						})}
 						type='email'
-						className={styles['edit__input_age']}
+						className={styles['edit__input2']}
 					/>
 					{errors.emailRe && (
 						<p className={styles['edit__error2']}>

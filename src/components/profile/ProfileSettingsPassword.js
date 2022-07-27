@@ -45,8 +45,8 @@ const ProfileSettingsPassword = () => {
 					className={styles['edit__form']}
 				>
 					<label
-						htmlFor='name'
-						className={styles['edit__label_name']}
+						htmlFor='password'
+						className={styles['edit__label1']}
 					>
 						New Password
 					</label>
@@ -63,14 +63,14 @@ const ProfileSettingsPassword = () => {
 							},
 						})}
 						type='password'
-						className={styles['edit__input_name']}
+						className={styles['edit__input1']}
 					/>
 					{errors.password && (
 						<p className={styles['edit__error1']}>
 							{errors.password.message}
 						</p>
 					)}
-					<label htmlFor='age' className={styles['edit__label_age']}>
+					<label htmlFor='rePass' className={styles['edit__label2']}>
 						Repeat Password
 					</label>
 					<input
@@ -89,7 +89,7 @@ const ProfileSettingsPassword = () => {
 								"Passwords don't match",
 						})}
 						type='password'
-						className={styles['edit__input_age']}
+						className={styles['edit__input2']}
 					/>
 					{errors.rePass && (
 						<p className={styles['edit__error2']}>

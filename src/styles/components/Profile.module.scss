@@ -257,35 +257,49 @@
 		column-gap: 20px;
 		@include m.adjust-text(18px);
 
+		.edit__label1, .edit__label2, .edit__submit {
+			padding: 5px 0px;
+		}
+
+		.edit__label1, .edit__label2 {
+			text-align: right;
+			line-height: 5vh;
+		}
+
+		.edit__input1, .edit__input2 {
+			height: 5vh;
+			@include m.adjust-text(16px, 400, left);
+			color: v.$dark-green;
+		}
+
+		.edit__error1, .edit__error2 {
+			@extend %flex-basic;
+			@include m.adjust-text(16px, 400, center);
+			color: red;
+		}
+
 		.edit__submit {
 			grid-area: submit;
-			@include m.adjust-text(14px);
-			padding: 5px 0px;
+			@include m.adjust-text(16px);
 			@include m.adjust-border(1px, v.$light-green);
 		}
-		.edit__label_name {
+		.edit__label1 {
 			grid-area: label1;
-			padding: 5px 0px;
-			text-align: right;
 		}
-		.edit__input_name {
+		.edit__label2 {
+			grid-area: label2;
+		}
+		.edit__input1 {
 			grid-area: input1;
 		}
-		.edit__label_age {
-			grid-area: label2;
-			padding: 5px 0px;
-			text-align: right;
-		}
-		.edit__input_age {
+		.edit__input2 {
 			grid-area: input2;
 		}
 		.edit__error1 {
-			grid-area: errPass;
-			color: red;
+			grid-area: error1;
 		}
 		.edit__error2 {
-			grid-area: errRePass;
-			color: red;
+			grid-area: error2;
 		}
 	}
 	.delete__button {

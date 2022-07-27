@@ -39,7 +39,7 @@ const ProfileSettingsEdit = () => {
 	};
 
 	return userLoading ? (
-		<Loader loading={userLoading} styles={settingsLoader} size={40}/>
+		<Loader loading={userLoading} styles={settingsLoader} size={40} />
 	) : fetchError ? (
 		<Err error={fetchError} styles={styles['edit__wrapper']} />
 	) : (
@@ -51,29 +51,39 @@ const ProfileSettingsEdit = () => {
 					onSubmit={handleSubmit(submitData)}
 					className={styles['edit__form']}
 				>
-					<label
-						htmlFor='name'
-						className={styles['edit__label_name']}
-					>
+					<label htmlFor='name' className={styles['edit__label1']}>
 						Name
 					</label>
 					<input
-						{...register('name')}
+						{...register('name', {
+							required: {
+								value: true,
+								message: 'Field is required',
+							},
+						})}
 						type='text'
-						className={styles['edit__input_name']}
+						className={styles['edit__input1']}
 					/>
-					<label htmlFor='age' className={styles['edit__label_age']}>
+					{errors.name && (
+						<p className={styles['edit__error1']}>
+							{errors.name.message}
+						</p>
+					)}
+					<label htmlFor='age' className={styles['edit__label2']}>
 						Age
 					</label>
 					<input
 						{...register('age', {
-							required: true,
+							required: {
+								value: true,
+								message: 'Field is required',
+							},
 							validate: (value) =>
 								(value > 1 && value < 99) ||
 								'Enter a valid age',
 						})}
 						type='number'
-						className={styles['edit__input_age']}
+						className={styles['edit__input2']}
 					/>
 					{errors.age && (
 						<p className={styles['edit__error2']}>
