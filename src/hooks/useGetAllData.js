@@ -7,23 +7,33 @@ import { db } from '../config/firebase-config';
 
 const useGetAllData = (currentUser) => {
 	// Set states
+	const [gamesData, setGamesData] = useState(null);
 	const [gamesCount, setGamesCount] = useState(null);
 	const [userCount, setUserCount] = useState(null);
 	const [screenshotCount, setScreenshotCount] = useState(null);
 	const [dataLoading, setDataLoading] = useState(false);
 	const [dataError, setDataError] = useState();
 
-	// Set references to different endpoints
-	const gamesRef = collection(db, 'games');
-	const storageRef = ref(storage, 'screenshots');
-	const usersRef = collection(db, 'users');
-
 	useEffect(() => {
 		// If user is present, request data
 		if (currentUser) {
+			// Set references to different endpoints
+			const gamesRef = collection(db, 'games');
+			const storageRef = ref(storage, 'screenshots');
+			const usersRef = collection(db, 'users');
+			// Start request
 			setDataLoading(true);
 			getDocs(gamesRef)
-				.then((res) => setGamesCount(res.docs.length))
+				.then((res) => {
+					setGamesCount(res.docs.length);
+					setGamesData(
+						res.docs.map((doc) => {
+							let item = { ...doc.data() };
+							item.doc = doc.id;
+							return item;
+						})
+					);
+				})
 				.catch((err) => setDataError(err));
 			list(storageRef)
 				.then((res) => setScreenshotCount(res.items.length))
@@ -33,31 +43,25 @@ const useGetAllData = (currentUser) => {
 					setUserCount(res.docs.length);
 				})
 				.catch((err) => setDataError(err));
-			// If all requests are finished, change loading
-			if (
-				gamesCount !== null &&
-				userCount !== null &&
-				screenshotCount !== null
-			) {
-				setDataLoading(false);
-			}
-			// If user logs out, change states to prevent firebase errors
+			setDataLoading(false);
 		} else {
+			// If user logs out, change states to prevent firebase errors
+			setGamesData(null);
 			setGamesCount(null);
 			setUserCount(null);
 			setScreenshotCount(null);
+			setDataLoading(false);
 		}
-	}, [
-		gamesCount,
-		gamesRef,
-		screenshotCount,
-		storageRef,
-		currentUser,
-		userCount,
-		usersRef,
-	]);
+	}, [currentUser]);
 
-	return { gamesCount, userCount, screenshotCount, dataLoading, dataError };
+	return {
+		gamesData,
+		gamesCount,
+		userCount,
+		screenshotCount,
+		dataLoading,
+		dataError,
+	};
 };
 
 export default useGetAllData;

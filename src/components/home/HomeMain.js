@@ -6,7 +6,6 @@ import styles from '../../styles/components/Home.module.scss';
 
 const HomeMain = ({
 	currentUser,
-	fetchError,
 	gamesData,
 	dataError,
 	userCount,
@@ -18,8 +17,8 @@ const HomeMain = ({
 			{currentUser ? (
 				<>
 					<main className={styles['home__main']}>
-						{fetchError ? (
-							<Err error={fetchError} />
+						{dataError ? (
+							<Err error={dataError} />
 						) : (
 							<>
 								<h2>Most popular games among our users</h2>
@@ -34,7 +33,7 @@ const HomeMain = ({
 							<>
 								<div className={styles['home__container']}>
 									We have {userCount}
-									{userCount > 1 ? 'users.' : 'user.'}
+									{userCount > 1 ? ' users.' : ' user.'}
 								</div>
 								<div className={styles['home__container']}>
 									Our users have added {gamesCount} games to
