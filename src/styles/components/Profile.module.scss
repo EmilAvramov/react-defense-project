@@ -18,24 +18,10 @@
 			@include m.adjust-border(1px, v.$whitesmoke);
 			background-color: v.$turquoise;
 
-			padding: 10px 20px;
-
-			&:hover {
-				background-color: v.$light-green;
-			}
-
 			.profile__link {
 				@include m.format-link();
-				@include m.adjust-text(18px);
-				display: block;
-				color: v.$light-green !important;
-				width: 100%;
-				height: 100%;
-				text-align: center;
-
-				&:hover {
-					color: v.$turquoise !important;
-				}
+				@include m.adjust-text(18px, 400, center);
+				@include m.adjust-nav-link();
 			}
 		}
 	}
@@ -50,25 +36,11 @@
 		.profile__block {
 			@include m.adjust-border(1px, v.$whitesmoke);
 			background-color: v.$turquoise;
-			padding: 10px 20px;
-
-			&:hover {
-				background-color: v.$light-green;
-			}
 
 			.profile__link {
 				@include m.format-link();
 				@include m.adjust-text(18px);
-				display: block;
-
-				width: 100%;
-				height: 100%;
-				text-align: center;
-				color: v.$light-green !important;
-
-				&:hover {
-					color: v.$turquoise !important;
-				}
+				@include m.adjust-nav-link();
 			}
 		}
 	}
@@ -200,6 +172,7 @@
 			button {
 				height: 60%;
 				width: 33.3%;
+				cursor: pointer;
 			}
 
 			button > a,

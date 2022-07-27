@@ -60,3 +60,15 @@
 	transform: translate(-50%, -45%);
 	background-color: v.$ash;
 }
+
+@mixin adjust-nav-link() {
+	display: block;
+	color: v.$light-green !important;
+	height: 100%;
+	padding: 10px 20px;
+
+	&:hover {
+		color: v.$turquoise !important;
+		background-color: v.$light-green;
+	}
+}
