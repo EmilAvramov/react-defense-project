@@ -12,7 +12,13 @@ const SearchCard = (props) => {
 	return (
 		<div className={styles['card']}>
 			<h3>{data.name}</h3>
-			<img src={data.cover} alt='' />
+			<Link
+				className={styles['card__img_wrapper']}
+				to={`/search/${data.id}`}
+				state={{ data, searchBackground: location }}
+			>
+				<img src={data.cover} alt='' />
+			</Link>
 			<Link
 				to={`/search/${data.id}`}
 				state={{ data, searchBackground: location }}

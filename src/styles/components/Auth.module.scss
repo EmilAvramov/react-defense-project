@@ -52,12 +52,14 @@
 		}
 		.login__btn {
 			@include m.adjust-border(1px, v.$light-green);
+			cursor: pointer;
 		}
 
 		.login__google {
 			background-color: v.$light-green;
 			color: v.$dark-green;
 			@include m.adjust-border(1px, v.$turquoise);
+			cursor: pointer;
 		}
 		.login div {
 			margin-top: 7px;
@@ -120,11 +122,13 @@
 		}
 		.register__btn {
 			@include m.adjust-border(1px, v.$light-green);
+			cursor: pointer;
 		}
 		.register__google {
 			background-color: v.$light-green;
 			color: v.$dark-green;
 			@include m.adjust-border(1px, v.$turquoise);
+			cursor: pointer;
 		}
 		.register div {
 			margin-top: 7px;
@@ -186,6 +190,7 @@
 		}
 		.reset__btn {
 			width: 100%;
+			cursor: pointer;
 		}
 		.reset div {
 			margin-top: 7px;

@@ -22,6 +22,7 @@
 			top: 0;
 			right: 0;
 			@include m.adjust-border(1px, v.$light-green);
+			cursor: pointer;
 		}
 
 		.details__name {
@@ -99,6 +100,7 @@
 						height: 45px;
 						line-height: 42px;
 						@include m.adjust-text(16px, bold, center);
+						cursor: default;
 					}
 
 					.star::before {
@@ -135,6 +137,7 @@
 				@include m.adjust-text(14px, 400, center);
 				line-height: 1.2;
 				@include m.adjust-border(1px, v.$light-green);
+				cursor: pointer;
 			}
 
 			button > a,
@@ -162,6 +165,9 @@
 							display: block;
 							width: 100%;
 							padding: 5px 0px;
+							&:hover {
+								color: v.$ash !important;
+							}
 						}
 					}
 				}

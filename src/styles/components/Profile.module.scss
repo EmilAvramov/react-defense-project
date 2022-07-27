@@ -200,6 +200,9 @@
 							width: 100%;
 							padding: 5px 0px;
 							color: v.$turquoise;
+							&:hover {
+								color: v.$ash;
+							}
 						}
 					}
 				}
@@ -255,6 +258,7 @@
 			grid-area: submit;
 			@include m.adjust-text(16px);
 			@include m.adjust-border(1px, v.$light-green);
+			cursor: pointer;
 		}
 		.edit__label1 {
 			grid-area: label1;
@@ -282,5 +286,6 @@
 		bottom: 35px;
 		@include m.adjust-border(1px, v.$light-green);
 		@include m.adjust-text(24px, 600);
+		cursor: pointer;
 	}
 }

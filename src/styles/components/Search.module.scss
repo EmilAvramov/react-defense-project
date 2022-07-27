@@ -17,20 +17,27 @@
 
 	i {
 		height: 3vh;
-		padding: 5px;
+		padding: 5px 25px 5px 5px;
 		font-size: 20px;
 		color: v.$light_green;
-		width: 5%;
-		margin-left: 5px;
+		width: 6%;
+		box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		-webkit-box-sizing: border-box;
+
+		cursor: pointer;
+		text-align: center;
 	}
 	.search__button {
 		width: 10%;
 		padding: 1px 20px;
 		@include m.adjust-text(18px);
 		@include m.adjust-border(1px, v.$light-green);
+		cursor: pointer;
 	}
 	.search__disabled {
 		color: v.$ash;
+		cursor: auto;
 		&:hover {
 			background-color: v.$turquoise;
 			color: v.$ash !important;
@@ -45,6 +52,7 @@
 		top: 40px;
 		width: 15vw;
 		padding: 5px;
+		@include m.adjust-border(1px, v.$turquoise);
 
 		.search__filters {
 			@extend %grid-search;
@@ -59,6 +67,8 @@
 				@include m.adjust-text(14px, 400);
 				width: 100%;
 				margin: 10px auto;
+				cursor: pointer;
+				@include m.adjust-border(1px, v.$light-green);
 			}
 			label {
 				color: v.$dark-green;
@@ -150,13 +160,17 @@
 		border-bottom: 1px solid v.$turquoise;
 		padding-bottom: 5px;
 	}
-	img {
-		grid-area: img;
-		width: 80%;
+	.card__img_wrapper {
+		@extend %flex-basic;
+		img {
+			grid-area: img;
+			width: 80%;
 
-		margin: -5px auto 30px auto;
-		object-fit: contain;
+			margin: -5px auto 35px auto;
+			object-fit: contain;
+		}
 	}
+
 	button {
 		position: absolute;
 		bottom: 5.5%;
@@ -164,6 +178,7 @@
 		left: 10%;
 		@include m.adjust-text(16px);
 		@include m.adjust-border(1px, v.$light-green);
+		cursor: pointer;
 	}
 }
 
