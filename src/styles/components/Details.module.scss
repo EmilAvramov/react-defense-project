@@ -22,9 +22,8 @@
 		left: 50%;
 		top: 50%;
 		transform: translate(-50%, -45%);
-		border: 1px solid v.$light_green;
+		@include m.adjust-border(1px, v.$light-green);
 		background-color: v.$ash;
-		border-radius: 4px;
 
 		.details__close {
 			@include m.adjust-text(14px);
@@ -33,7 +32,7 @@
 			position: absolute;
 			top: 0;
 			right: 0;
-			border-radius: 4px;
+			@include m.adjust-border(1px, v.$light-green);
 		}
 
 		.details__name {
@@ -146,7 +145,7 @@
 				padding: 5px 10px;
 				@include m.adjust-text(14px, 400, center);
 				line-height: 1.2;
-				border-radius: 4px;
+				@include m.adjust-border(1px, v.$light-green);
 			}
 
 			button > a,
@@ -163,7 +162,7 @@
 					top: 28px;
 					z-index: 1;
 					width: 100%;
-					border: 1px solid v.$turquoise;
+					@include m.adjust-border(1px, v.$turquoise);
 
 					li {
 						background-color: whitesmoke;
@@ -198,9 +197,8 @@
 		flex-wrap: wrap;
 		position: relative;
 
-		border: 3px solid v.$turquoise;
+		@include m.adjust-border(3px, v.$turquoise);
 		background-color: v.$ash;
-		border-radius: 4px;
 		
 		.carouselDetails__image {
 			height: 35vw;

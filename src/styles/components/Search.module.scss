@@ -114,7 +114,7 @@
 
 	margin: 0 auto;
 	width: 95%;
-	border: 3px solid v.$turquoise;
+	@include m.adjust-border(3px, v.$turquoise);
 }
 
 .card {
@@ -145,7 +145,7 @@
 		width: 80%;
 		left: 10%;
 		@include m.adjust-text(16px);
-		border-radius: 4px;
+		@include m.adjust-border(1px, v.$light-green);
 	}
 }
 
@@ -178,7 +178,7 @@
 	.pagination__next_li,
 	.pagination__break_li {
 		position: relative;
-		border: 1px solid v.$turquoise;
+		@include m.adjust-border(1px, v.$turquoise);
 		padding: 10px 15px;
 		&:hover {
 			cursor: pointer;

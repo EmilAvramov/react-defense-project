@@ -31,8 +31,7 @@
 		@extend %flex-centered;
 		flex-direction: column;
 		gap: 50px;
-		border: 2px solid v.$turquoise;
-        box-sizing: border-box;
+		@include m.adjust-border(2px, v.$turquoise);
 
 		.about__feature_heading {
 			@include m.adjust-text(26px, 600, center);

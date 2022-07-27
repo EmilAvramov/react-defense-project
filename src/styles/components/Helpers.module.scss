@@ -7,7 +7,7 @@
 	@extend %flex-centered;
 	flex-direction: column;
 	background-color: whitesmoke;
-	border: 3px solid black;
+	@include m.adjust-border(3px, v.$ash);
 
 	p {
 		text-align: center;
@@ -38,9 +38,8 @@
 		left: 50%;
 		top: 50%;
 		transform: translate(-50%, -45%);
-		border: 1px solid v.$light_green;
+		@include m.adjust-border(1px, v.$light-green);
 		background-color: v.$ash;
-		border-radius: 4px;
 
 		.confirm__text {
 			flex: v.$flex-full;

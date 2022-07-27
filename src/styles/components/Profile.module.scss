@@ -15,11 +15,11 @@
 		left: 35px;
 
 		.profile__block {
-			border: 1px solid v.$whitesmoke;
+			@include m.adjust-border(1px, v.$whitesmoke);
 			background-color: v.$turquoise;
 
 			padding: 10px 20px;
-			border-radius: 4px;
+
 			&:hover {
 				background-color: v.$light-green;
 			}
@@ -48,11 +48,9 @@
 		left: 35px;
 
 		.profile__block {
-			border: 1px solid v.$whitesmoke;
+			@include m.adjust-border(1px, v.$whitesmoke);
 			background-color: v.$turquoise;
-
 			padding: 10px 20px;
-			border-radius: 4px;
 
 			&:hover {
 				background-color: v.$light-green;
@@ -102,9 +100,8 @@
 
 		@extend %grid-library;
 		justify-content: space-between;
-		border: 1px solid v.$turquoise;
+		@include m.adjust-border(1px, v.$turquoise);
 		background-color: v.$dark-green;
-		border-radius: 4px;
 
 		.card__swiper_placeholder {
 			grid-area: screens;
@@ -113,7 +110,6 @@
 			height: 15vh;
 			@include m.adjust-text(20px, 400, center);
 			@extend %flex-basic;
-
 		}
 
 		.card__swiper_container {
@@ -220,7 +216,7 @@
 					z-index: 1;
 					width: 100%;
 					@include m.adjust-text(16px, 600);
-					border: 1px solid v.$turquoise;
+					@include m.adjust-border(1px, v.$turquoise);
 
 					li {
 						background-color: v.$light-green;
@@ -298,8 +294,7 @@
 	.delete__button {
 		background-color: v.$dark_red;
 		padding: 10px 20px;
-		border-radius: 5px;
-		font-weight: bold;
-		@include m.adjust-text(24px);
+		@include m.adjust-border(1px, v.$light-green);
+		@include m.adjust-text(24px, 600);
 	}
 }
