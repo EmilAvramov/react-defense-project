@@ -6,7 +6,7 @@
 .error__container {
 	@extend %flex-centered;
 	flex-direction: column;
-	background-color: whitesmoke;
+	background-color: v.$whitesmoke;
 	@include m.adjust-border(3px, v.$ash);
 
 	p {
@@ -20,26 +20,14 @@
 
 .confirm__wrapper {
 	@extend %flex-basic;
-	width: 100%;
-	height: 100%;
-	position: fixed;
-	top: 0;
-	left: 0;
-	background-color: rgba(91, 112, 131, 0.4);
-	z-index: 5;
+	@include m.add-modal-background();
 
 	.confirm__container {
 		@extend %flex-centered;
 		flex-wrap: wrap;
 
-		position: absolute;
-		width: 35vw;
-		height: 30vh;
-		left: 50%;
-		top: 50%;
-		transform: translate(-50%, -45%);
+		@include m.adjust-modal-container(30vh);
 		@include m.adjust-border(1px, v.$light-green);
-		background-color: v.$ash;
 
 		.confirm__text {
 			flex: v.$flex-full;

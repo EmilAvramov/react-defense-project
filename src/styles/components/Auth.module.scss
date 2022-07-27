@@ -38,18 +38,19 @@
 			@include m.adjust-text(16px);
 		}
 
-		.login__textBox {
-			padding: 10px;
-			@include m.adjust-text(18px);
-			color: v.$dark-green;
-			margin-bottom: 10px;
-			@include m.adjust-border(1px, v.$turquoise);
-		}
+		.login__textBox,
 		.login__btn {
 			width: 100%;
 			padding: 10px;
 			@include m.adjust-text(18px);
 			margin-bottom: 10px;
+		}
+
+		.login__textBox {
+			color: v.$dark-green;
+			@include m.adjust-border(1px, v.$turquoise);
+		}
+		.login__btn {
 			@include m.adjust-border(1px, v.$light-green);
 		}
 
@@ -90,6 +91,7 @@
 		background-color: v.$dark-green;
 		padding: 30px;
 		position: relative;
+		@include m.adjust-border(1px, v.$turquoise);
 
 		p {
 			@include m.adjust-text(16px);
@@ -103,17 +105,19 @@
 			color: v.$light-green;
 		}
 
-		.register__textBox {
-			padding: 10px;
-			@include m.adjust-text(18px);
-			margin-bottom: 10px;
-			color: v.$dark-green;
-		}
+		.register__textBox,
 		.register__btn {
 			width: 100%;
 			padding: 10px;
 			@include m.adjust-text(18px);
 			margin-bottom: 10px;
+		}
+
+		.register__textBox {
+			@include m.adjust-border(1px, v.$turquoise);
+			color: v.$dark-green;
+		}
+		.register__btn {
 			@include m.adjust-border(1px, v.$light-green);
 		}
 		.register__google {
@@ -167,19 +171,19 @@
 			color: v.$light-green;
 		}
 
-		.reset__textBox {
-			width: 100%;
-			padding: 10px;
-			@include m.adjust-text(18px);
-			margin-bottom: 10px;
-			@include m.adjust-border(1px, v.$light-green);
-			color: v.$dark-green;
-		}
+		.reset__textBox,
 		.reset__btn {
 			padding: 10px;
 			@include m.adjust-text(18px);
-			margin-bottom: 10px;
 			@include m.adjust-border(1px, v.$light-green);
+			margin-bottom: 10px;
+		}
+
+		.reset__textBox {
+			width: 100%;
+			color: v.$dark-green;
+		}
+		.reset__btn {
 			width: 100%;
 		}
 		.reset div {

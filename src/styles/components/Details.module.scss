@@ -5,25 +5,14 @@
 
 .details__wrapper {
 	@extend %flex-basic;
-	width: 100%;
-	height: 100%;
-	position: fixed;
-	z-index: 5;
-	top: 0;
-	background-color: rgba(91, 112, 131, 0.4);
+	@include m.add-modal-background();
 
 	.details__container {
 		@extend %flex-centered;
 		flex-wrap: wrap;
 
-		position: absolute;
-		width: 35vw;
-		height: auto;
-		left: 50%;
-		top: 50%;
-		transform: translate(-50%, -45%);
+		@include m.adjust-modal-container(auto);
 		@include m.adjust-border(1px, v.$light-green);
-		background-color: v.$ash;
 
 		.details__close {
 			@include m.adjust-text(14px);
@@ -122,7 +111,7 @@
 
 				p {
 					flex: v.$flex-full;
-					@include m.clamp-text(1.2, 3);	
+					@include m.clamp-text(1.2, 3);
 				}
 			}
 		}
@@ -155,7 +144,6 @@
 			.details__linksHolder {
 				position: relative;
 
-
 				.details__links {
 					position: absolute;
 					right: 0px;
@@ -166,7 +154,7 @@
 
 					li {
 						background-color: whitesmoke;
-						
+
 						a {
 							background-color: v.$light-green;
 							color: v.$turquoise !important;
@@ -184,13 +172,7 @@
 
 .carouselDetails__wrapper {
 	@extend %flex-basic;
-	top: 0;
-	width: 100%;
-	height: 100%;
-	position: fixed;
-	z-index: 5;
-
-	background-color: rgba(91, 112, 131, 0.4);
+	@include m.add-modal-background();
 
 	.carouselDetails__container {
 		@extend %flex-centered;
@@ -199,7 +181,7 @@
 
 		@include m.adjust-border(3px, v.$turquoise);
 		background-color: v.$ash;
-		
+
 		.carouselDetails__image {
 			height: 35vw;
 			padding: 25px;
@@ -216,7 +198,7 @@
 			right: 2px;
 		}
 		.carouselDetails__delete {
-			@include m.adjust-text(14px);	
+			@include m.adjust-text(14px);
 			background-color: v.$dark_red;
 			width: 10%;
 			position: absolute;

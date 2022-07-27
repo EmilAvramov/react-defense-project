@@ -10,14 +10,8 @@ header {
 	height: 8vh;
 	border-bottom: 3px solid v.$turquoise;
 	z-index: 3;
-	background: rgb(60, 71, 72);
-	background: linear-gradient(
-		90deg,
-		rgba(60, 71, 72, 1) 0%,
-		rgba(29, 29, 29, 1) 25%,
-		rgba(29, 29, 29, 1) 75%,
-		rgba(60, 71, 72, 1) 100%
-	);
+	background: v.$gradient-color;
+	background: v.$gradient-flow;
 
 	.header__logo,
 	nav {
@@ -39,8 +33,8 @@ header {
 
 .nav__ul {
 	@extend %flex-centered;
-
 	height: 100%;
+
 	li {
 		padding: 0px 3px;
 

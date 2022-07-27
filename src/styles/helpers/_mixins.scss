@@ -37,4 +37,26 @@
 	border: $px solid $color;
 	border-radius: 4px;
 	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+}
+
+@mixin add-modal-background() {
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	z-index: 5;
+	background-color: v.$background_modal;
+}
+
+@mixin adjust-modal-container($height) {
+	position: absolute;
+	width: 35vw;
+	height: $height;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -45%);
+	background-color: v.$ash;
 }
