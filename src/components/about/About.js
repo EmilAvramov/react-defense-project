@@ -44,7 +44,7 @@ const About = () => {
 						Users of Gameblob can search either for specific games,
 						or for games published by a specific company. Searching
 						by platform is also available. Each search query will
-						return 100 results, so for larger queries, it is
+						return 150 results, so for larger queries, it is
 						recommended to apply more filters to narrow down the
 						results.
 					</p>

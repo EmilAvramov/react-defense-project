@@ -33,7 +33,16 @@ const SearchBar = (props) => {
 			<input {...register('string')} type='text' />
 			<i className='fa-solid fa-filter' onClick={toggleSearch}></i>
 
-			<button disabled={props.loading}>Search</button>
+			<button
+				disabled={props.loading}
+				className={
+					props.loading
+						? `${styles['search__disabled']} ${styles['search__button']}`
+						: styles['search__button']
+				}
+			>
+				Search
+			</button>
 
 			{flyout && (
 				<div className={styles['search__flyout']}>

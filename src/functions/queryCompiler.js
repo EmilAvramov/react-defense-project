@@ -13,7 +13,7 @@ const compileQuery = (data) => {
 		const compilePlatforms = () => {
 			let platforms = 'where '
 			let tempArr = []
-			console.log(data)
+
 			if (data.PC) {
 				tempArr.push(setPlatformFilter('PC'))
 			}
@@ -73,7 +73,7 @@ const compileQuery = (data) => {
 					}
 				} else {
 					if (!checkPlatforms()) {
-						filter = `where ${setCompanyFilter(data.string)}`
+						filter = `where (${platformFilter.join(" | ")}) & ${setCompanyFilter(data.string)}`
 					} else {
 						filter = `${compilePlatforms()} & ${setCompanyFilter(data.string)}`;
 					}
@@ -82,7 +82,7 @@ const compileQuery = (data) => {
 			}
 		}
 		return query;
-	} catch (err) {
+	} catch (err) { 
 		alert(err.message)
 	}
 

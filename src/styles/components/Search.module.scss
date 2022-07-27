@@ -23,12 +23,20 @@
 		width: 5%;
 		margin-left: 5px;
 	}
-	button {
+	.search__button {
 		width: 10%;
 		padding: 1px 20px;
 		@include m.adjust-text(18px);
 		@include m.adjust-border(1px, v.$light-green);
 	}
+	.search__disabled {
+		color: v.$ash;
+		&:hover {
+			background-color: v.$turquoise;
+			color: v.$ash !important;
+		}
+	}
+
 	.search__flyout {
 		background-color: v.$whitesmoke;
 		z-index: 1;
