@@ -36,9 +36,12 @@
 		right: 90px;
 		top: 40px;
 		width: 15vw;
+		padding: 5px;
 
 		.search__filters {
 			@extend %grid-search;
+			line-height: 1.2;
+
 			legend {
 				margin: 10px auto;
 				@include m.adjust-text(16px, 600);
@@ -55,9 +58,13 @@
 
 			.search__legend1 {
 				grid-area: legend1;
+				padding: 5px 0px;
+				margin: 0 auto;
 			}
 			.search__legend2 {
 				grid-area: legend2;
+				padding: 5px 0px;
+				margin: 0 auto;
 			}
 			.search__check1 {
 				grid-area: check1;
@@ -138,8 +145,9 @@
 	img {
 		grid-area: img;
 		width: 80%;
-		max-height: 80%;
+
 		margin: -5px auto 30px auto;
+		object-fit: contain;
 	}
 	button {
 		position: absolute;

@@ -181,6 +181,7 @@
 
 			button {
 				@include m.adjust-text(16px);
+				@include m.adjust-border(1px, v.$light-green);
 			}
 
 			.card__error {
@@ -260,11 +261,7 @@
 			grid-area: submit;
 			@include m.adjust-text(14px);
 			padding: 5px 0px;
-		}
-		.edit__clear {
-			grid-area: clear;
-			@include m.adjust-text(14px);
-			padding: 5px 0px;
+			@include m.adjust-border(1px, v.$light-green);
 		}
 		.edit__label_name {
 			grid-area: label1;
