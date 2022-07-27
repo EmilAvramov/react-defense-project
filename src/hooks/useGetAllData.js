@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react';
 import { storage } from '../config/firebase-config';
 import { db } from '../config/firebase-config';
 
-const useGetAllData = (user) => {
+const useGetAllData = (currentUser) => {
 	// Set states
 	const [gamesCount, setGamesCount] = useState(null);
 	const [userCount, setUserCount] = useState(null);
@@ -20,7 +20,7 @@ const useGetAllData = (user) => {
 
 	useEffect(() => {
 		// If user is present, request data
-		if (user) {
+		if (currentUser) {
 			setDataLoading(true);
 			getDocs(gamesRef)
 				.then((res) => setGamesCount(res.docs.length))
@@ -41,7 +41,7 @@ const useGetAllData = (user) => {
 			) {
 				setDataLoading(false);
 			}
-		// If user logs out, change states to prevent firebase errors
+			// If user logs out, change states to prevent firebase errors
 		} else {
 			setGamesCount(null);
 			setUserCount(null);
@@ -52,7 +52,7 @@ const useGetAllData = (user) => {
 		gamesRef,
 		screenshotCount,
 		storageRef,
-		user,
+		currentUser,
 		userCount,
 		usersRef,
 	]);

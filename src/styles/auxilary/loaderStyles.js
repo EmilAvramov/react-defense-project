@@ -11,7 +11,10 @@ export const topLoader = {
 }
 
 export const homeLoader = {
-	display: 'block',
+	display: 'inline',
+	height: '46vh',
+	marginLeft: '700px',
+	marginTop: '200px'
 };
 
 export const libraryCardLoader = {

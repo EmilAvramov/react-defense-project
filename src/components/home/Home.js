@@ -15,11 +15,12 @@ import styles from '../../styles/components/Home.module.scss';
 const Home = () => {
 	// Call relevant hooks
 	const { currentUser } = useAuth();
+	const [userLoading, setUserLoading] = useState(true);
+	
 	const { name, userError } = useFetchUser(currentUser);
 	const { gamesCount, userCount, screenshotCount, dataLoading, dataError } =
 		useGetAllData(currentUser);
-	const [userLoading, setUserLoading] = useState(true);
-	const { gamesData, fetchError, fetchLoading } = useGetAllGames();
+	const { gamesData, fetchError, fetchLoading } = useGetAllGames(currentUser);
 
 	useEffect(() => {
 		if (name) {
@@ -33,24 +34,35 @@ const Home = () => {
 				currentUser ? styles['home__wrapper'] : styles['home__guest']
 			}
 		>
-			{userLoading || fetchLoading || dataLoading ? (
-				<Loader loading={userLoading} styles={homeLoader} size={80} />
+			{currentUser ? (
+				userLoading || fetchLoading || dataLoading ? (
+					<Loader
+						loading={userLoading}
+						styles={homeLoader}
+						size={80}
+					/>
+				) : (
+					<>
+						<HomeTop
+							currentUser={currentUser}
+							userError={userError}
+							name={name}
+						/>
+						<HomeMain
+							currentUser={currentUser}
+							fetchError={fetchError}
+							gamesData={gamesData}
+							dataError={dataError}
+							userCount={userCount}
+							gamesCount={gamesCount}
+							screenshotCount={screenshotCount}
+						/>
+					</>
+				)
 			) : (
 				<>
-					<HomeTop
-						currentUser={currentUser}
-						userError={userError}
-						name={name}
-					/>
-					<HomeMain
-						currentUser={currentUser}
-						fetchError={fetchError}
-						gamesData={gamesData}
-						dataError={dataError}
-						userCount={userCount}
-						gamesCount={gamesCount}
-						screenshotCount={screenshotCount}
-					/>
+					<HomeTop currentUser={currentUser} />
+					<HomeMain currentUser={currentUser} />
 				</>
 			)}
 		</div>
