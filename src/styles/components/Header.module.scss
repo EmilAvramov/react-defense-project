@@ -19,13 +19,15 @@ header {
 		rgba(60, 71, 72, 1) 100%
 	);
 
-	div,
+	.header__logo,
 	nav {
 		@extend %flex-centered;
 		height: 100%;
 	}
-	div {
+
+	.header__logo {
 		@include m.adjust-text(22px, 600, left);
+		text-decoration: none;
 
 		img {
 			height: 200%;

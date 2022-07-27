@@ -1,4 +1,4 @@
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 
 import logout from '../../auth/logout';
 import { useAuth } from '../../contexts/AuthContext';
@@ -139,10 +139,11 @@ const Header = () => {
 
 	return (
 		<header>
-			<div>
+			<Link to='/' className={styles['header__logo']}>
 				<img src={logo} alt='' />
 				GameBlob - For All Your Blobbing Needs
-			</div>
+			</Link>
+
 			<nav>
 				<ul className={styles['nav__ul']}>
 					{currentUser ? userView() : guestView()}

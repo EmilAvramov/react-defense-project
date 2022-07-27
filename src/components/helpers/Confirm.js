@@ -7,11 +7,8 @@ const Confirm = ({ action, handle, location }) => {
 
 	const sendConfirm = () => {
 		action();
-		location === 'account'
-			? navigate('/')
-			: location === 'screenshot'
-			? navigate(-2)
-			: handle(false);
+		console.log(location);
+		location === 'account' ? navigate('/') : navigate('/profile/library');
 	};
 
 	const closeModal = () => {

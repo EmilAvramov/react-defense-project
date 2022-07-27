@@ -1,6 +1,6 @@
 export const searchLoader = {
 	display: 'block',
-	height: '40vh',
+	height: '40.8vh',
 	margin: '16vh auto',
 	position: 'relative',
 	top: '85px',
