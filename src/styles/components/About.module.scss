@@ -6,8 +6,8 @@
 .about__wrapper {
 	@extend %flex-centered;
 	flex-wrap: wrap;
-	height: 180vh;
-    line-height: 1.15;
+	height: auto;
+	line-height: 1.15;
 
 	.about__block {
 		@include m.template-grid(2);
@@ -16,9 +16,9 @@
 		.about__block_text {
 			@include m.adjust-text(20px, 400, justify);
 			@extend %flex-centered;
-            flex-wrap: wrap;
-            width: 80%;
-            margin: 0 auto;
+			flex-wrap: wrap;
+			width: 80%;
+			margin: 0 auto;
 		}
 
 		.about__block_img > img {
@@ -28,7 +28,7 @@
 	}
 	.about__feature {
 		margin-top: 40px;
-		height: 55vh;
+		height: auto;
 		@extend %flex-centered;
 		flex-direction: column;
 		gap: 50px;
@@ -39,21 +39,26 @@
 		}
 
 		.about__feature_wrapper {
-			
 			@include m.template-grid(3);
 			gap: 50px;
 
 			.about__feature_block {
 				width: 70%;
+				@extend %flex-basic;
+				flex-wrap: wrap;
 				margin: 0 auto;
+				img {
+					width: 20%;
+				}
 
 				h6 {
-                    @include m.adjust-text(24px, 600, center);
+					flex: v.$flex-full;
+					@include m.adjust-text(24px, 600, center);
 					padding: 10px;
 				}
 				p {
+					flex: v.$flex-full;
 					@include m.adjust-text(20px, 400, center);
-                    
 				}
 			}
 		}

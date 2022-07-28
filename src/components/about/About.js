@@ -1,5 +1,11 @@
 import gaming from '../../assets/about__gaming.png';
 import data from '../../assets/about__data.png';
+import search from '../../assets/about__search.png';
+import library from '../../assets/about__library.png';
+import screenshot from '../../assets/about__screenshot.png';
+import retro from '../../assets/about__retro.png';
+import pacman from '../../assets/about__pacman.png';
+import browse from '../../assets/about__browse.png';
 
 import styles from '../../styles/components/About.module.scss';
 
@@ -56,6 +62,7 @@ const About = () => {
 				</h3>
 				<div className={styles['about__feature_wrapper']}>
 					<div className={styles['about__feature_block']}>
+						<img src={search} alt='' />
 						<h6>IGDB search access</h6>
 						<p>
 							Browse, view and add all games on the market to your
@@ -63,6 +70,7 @@ const About = () => {
 						</p>
 					</div>
 					<div className={styles['about__feature_block']}>
+						<img src={library} alt='' />
 						<h6>Your personal library</h6>
 						<p>
 							Gameblob offers users a library of their own, which
@@ -70,6 +78,7 @@ const About = () => {
 						</p>
 					</div>
 					<div className={styles['about__feature_block']}>
+						<img src={screenshot} alt='' />
 						<h6>Your screenshot space</h6>
 						<p>
 							Upload your own screenshots to your library and
@@ -77,6 +86,7 @@ const About = () => {
 						</p>
 					</div>
 					<div className={styles['about__feature_block']}>
+						<img src={retro} alt='' />
 						<h6>Retro-style theme</h6>
 						<p>
 							Enjoy an old-school game feel, mixed with excellent
@@ -84,6 +94,7 @@ const About = () => {
 						</p>
 					</div>
 					<div className={styles['about__feature_block']}>
+						<img src={browse} alt='' />
 						<h6>Minimal loading times</h6>
 						<p>
 							Gameblob offers minimal loading times and a fluid
@@ -91,6 +102,7 @@ const About = () => {
 						</p>
 					</div>
 					<div className={styles['about__feature_block']}>
+						<img src={pacman} alt='' />
 						<h6>Pac-man is awesome!</h6>
 						<p>
 							Pac-man is our mascot and he feels good about it!
