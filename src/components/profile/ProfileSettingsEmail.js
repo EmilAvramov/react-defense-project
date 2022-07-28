@@ -56,10 +56,7 @@ const ProfileSettingsEmail = () => {
 					onSubmit={handleSubmit(submitData)}
 					className={styles['edit__form']}
 				>
-					<label
-						htmlFor='email'
-						className={styles['edit__label1']}
-					>
+					<label htmlFor='email' className={styles['edit__label1']}>
 						New Email
 					</label>
 					<input
@@ -78,7 +75,12 @@ const ProfileSettingsEmail = () => {
 							},
 						})}
 						type='email'
-						className={styles['edit__input1']}
+						className={
+							errors.email
+								? styles['edit__input_border1']
+								: styles['edit__input1']
+						}
+						id='email'
 					/>
 					{errors.email && (
 						<p className={styles['edit__error1']}>
@@ -99,7 +101,12 @@ const ProfileSettingsEmail = () => {
 								"Emails don't match",
 						})}
 						type='email'
-						className={styles['edit__input2']}
+						className={
+							errors.emailRe
+								? styles['edit__input_border2']
+								: styles['edit__input2']
+						}
+						id='emailRe'
 					/>
 					{errors.emailRe && (
 						<p className={styles['edit__error2']}>

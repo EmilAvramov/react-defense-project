@@ -229,13 +229,9 @@
 		bottom: 35px;
 
 		@extend %grid-edit;
-		row-gap: 10px;
+		row-gap: 20px;
 		column-gap: 20px;
 		@include m.adjust-text(18px);
-
-		.edit__label1, .edit__label2, .edit__submit {
-			padding: 5px 0px;
-		}
 
 		.edit__label1, .edit__label2 {
 			text-align: right;
@@ -246,6 +242,15 @@
 			height: 5vh;
 			@include m.adjust-text(16px, 400, left);
 			color: v.$dark-green;
+			@include m.adjust-border(1px, v.$turquoise);
+		}
+
+		.edit__input_border1, .edit__input_border2 {
+			height: 5vh;
+			@include m.adjust-text(16px, 400, left);
+			color: v.$dark-green;
+			border: 1px solid red;
+			@include m.adjust-border(1px, red);
 		}
 
 		.edit__error1, .edit__error2 {
@@ -259,6 +264,7 @@
 			@include m.adjust-text(16px);
 			@include m.adjust-border(1px, v.$light-green);
 			cursor: pointer;
+			padding: 5px 0px;
 		}
 		.edit__label1 {
 			grid-area: label1;
@@ -266,10 +272,10 @@
 		.edit__label2 {
 			grid-area: label2;
 		}
-		.edit__input1 {
+		.edit__input1, .edit__input_border1 {
 			grid-area: input1;
 		}
-		.edit__input2 {
+		.edit__input2, .edit__input_border2 {
 			grid-area: input2;
 		}
 		.edit__error1 {

@@ -57,6 +57,7 @@ const SearchBar = (props) => {
 							name='category'
 							value='name'
 							className={styles['search__radio1']}
+							id='name'
 						/>
 						<label
 							htmlFor='name'
@@ -70,6 +71,7 @@ const SearchBar = (props) => {
 							name='category'
 							value='company'
 							className={styles['search__radio2']}
+							id='company'
 						/>
 						<label
 							htmlFor='company'
@@ -86,6 +88,7 @@ const SearchBar = (props) => {
 							{...register('PC')}
 							type='checkbox'
 							className={styles['search__check1']}
+							id='PC'
 						/>
 						<label htmlFor='PC' className={styles['search__text3']}>
 							PC
@@ -94,6 +97,7 @@ const SearchBar = (props) => {
 							{...register('PS4')}
 							type='checkbox'
 							className={styles['search__check2']}
+							id='PS4'
 						/>
 						<label
 							htmlFor='PS4'
@@ -105,6 +109,7 @@ const SearchBar = (props) => {
 							{...register('PS5')}
 							type='checkbox'
 							className={styles['search__check3']}
+							id='PS5'
 						/>
 						<label
 							htmlFor='PS5'
@@ -116,6 +121,7 @@ const SearchBar = (props) => {
 							{...register('XBOX')}
 							type='checkbox'
 							className={styles['search__check4']}
+							id='XBOX'
 						/>
 						<label
 							htmlFor='XBOX'
@@ -127,6 +133,7 @@ const SearchBar = (props) => {
 							{...register('Switch')}
 							type='checkbox'
 							className={styles['search__check5']}
+							id='Switch'
 						/>
 						<label
 							htmlFor='Switch'

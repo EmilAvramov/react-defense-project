@@ -63,7 +63,12 @@ const ProfileSettingsPassword = () => {
 							},
 						})}
 						type='password'
-						className={styles['edit__input1']}
+						className={
+							errors.password
+								? styles['edit__input_border1']
+								: styles['edit__input1']
+						}
+						id='password'
 					/>
 					{errors.password && (
 						<p className={styles['edit__error1']}>
@@ -89,7 +94,12 @@ const ProfileSettingsPassword = () => {
 								"Passwords don't match",
 						})}
 						type='password'
-						className={styles['edit__input2']}
+						className={
+							errors.rePass
+								? styles['edit__input_border2']
+								: styles['edit__input2']
+						}
+						id='rePass'
 					/>
 					{errors.rePass && (
 						<p className={styles['edit__error2']}>

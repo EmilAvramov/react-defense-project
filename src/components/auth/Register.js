@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { useAuthState } from 'react-firebase-hooks/auth';
 
-import {useAuth} from '../../contexts/AuthContext'
+import { useAuth } from '../../contexts/AuthContext';
 import { auth } from '../../config/firebase-config';
 import signInWithGoogle from '../../auth/googleLogin';
 import registerWithEmailAndPassword from '../../auth/regularRegister';
@@ -32,7 +32,7 @@ const Register = () => {
 	};
 
 	// Manage auth and redirect
-	const {currentUser} = useAuth()
+	const { currentUser } = useAuth();
 	const [loading, error] = useAuthState(auth);
 	const navigate = useNavigate();
 
@@ -62,7 +62,11 @@ const Register = () => {
 								},
 							})}
 							type='text'
-							className={styles['register__textBox']}
+							className={
+								errors.name
+									? styles['register__textBox_error']
+									: styles['register__textBox']
+							}
 							placeholder='Full Name'
 						/>
 						{errors.name && (
@@ -81,7 +85,11 @@ const Register = () => {
 									'Invalid email address',
 							})}
 							type='text'
-							className={styles['register__textBox']}
+							className={
+								errors.email
+									? styles['register__textBox_error']
+									: styles['register__textBox']
+							}
 							placeholder='E-mail Address'
 						/>
 						{errors.email && (
@@ -102,7 +110,11 @@ const Register = () => {
 								},
 							})}
 							type='password'
-							className={styles['register__textBox']}
+							className={
+								errors.password
+									? styles['register__textBox_error']
+									: styles['register__textBox']
+							}
 							placeholder='Password'
 						/>
 						{errors.password && (
@@ -126,7 +138,11 @@ const Register = () => {
 									"Passwords don't match",
 							})}
 							type='password'
-							className={styles['register__textBox']}
+							className={
+								errors.rePass
+									? styles['register__textBox_error']
+									: styles['register__textBox']
+							}
 							placeholder='Confirm Password'
 						/>
 						{errors.rePass && (

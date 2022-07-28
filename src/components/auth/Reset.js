@@ -63,7 +63,11 @@ const Reset = () => {
 									'Invalid email address',
 							})}
 							type='text'
-							className={styles['reset__textBox']}
+							className={
+								errors.email
+									? styles['reset__textBox_error']
+									: styles['reset__textBox']
+							}
 							placeholder='E-mail Address'
 						/>
 						{errors.email && (

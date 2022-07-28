@@ -62,7 +62,12 @@ const ProfileSettingsEdit = () => {
 							},
 						})}
 						type='text'
-						className={styles['edit__input1']}
+						className={
+							errors.name
+								? styles['edit__input_border1']
+								: styles['edit__input1']
+						}
+						id='name'
 					/>
 					{errors.name && (
 						<p className={styles['edit__error1']}>
@@ -83,7 +88,12 @@ const ProfileSettingsEdit = () => {
 								'Enter a valid age',
 						})}
 						type='number'
-						className={styles['edit__input2']}
+						className={
+							errors.age
+								? styles['edit__input_border2']
+								: styles['edit__input2']
+						}
+						id='age'
 					/>
 					{errors.age && (
 						<p className={styles['edit__error2']}>

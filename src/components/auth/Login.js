@@ -64,7 +64,11 @@ const Login = () => {
 									'Invalid email address',
 							})}
 							type='text'
-							className={styles['login__textBox']}
+							className={
+								errors.email
+									? styles['login__textBox_error']
+									: styles['login__textBox']
+							}
 							placeholder='E-mail Address'
 						/>
 						{errors.email && (
@@ -80,7 +84,11 @@ const Login = () => {
 								},
 							})}
 							type='password'
-							className={styles['login__textBox']}
+							className={
+								errors.password
+									? styles['login__textBox_error']
+									: styles['login__textBox']
+							}
 							placeholder='Password'
 						/>
 						{errors.password && (

@@ -39,6 +39,7 @@
 		}
 
 		.login__textBox,
+		.login__textBox_error,
 		.login__btn {
 			width: 100%;
 			padding: 10px;
@@ -50,6 +51,12 @@
 			color: v.$dark-green;
 			@include m.adjust-border(1px, v.$turquoise);
 		}
+
+		.login__textBox_error {
+			color: v.$dark-green;
+			@include m.adjust-border(1px, red);
+		}
+
 		.login__btn {
 			@include m.adjust-border(1px, v.$light-green);
 			cursor: pointer;
@@ -93,6 +100,7 @@
 
 		background-color: v.$dark-green;
 		padding: 30px;
+		top: 10px;
 		position: relative;
 		@include m.adjust-border(1px, v.$turquoise);
 
@@ -109,6 +117,7 @@
 		}
 
 		.register__textBox,
+		.register__textBox_error,
 		.register__btn {
 			width: 100%;
 			padding: 10px;
@@ -120,6 +129,12 @@
 			@include m.adjust-border(1px, v.$turquoise);
 			color: v.$dark-green;
 		}
+
+		.register__textBox_error {
+			color: v.$dark-green;
+			@include m.adjust-border(1px, red);
+		}
+
 		.register__btn {
 			@include m.adjust-border(1px, v.$light-green);
 			cursor: pointer;
@@ -177,6 +192,7 @@
 		}
 
 		.reset__textBox,
+		.reset__textBox_error,
 		.reset__btn {
 			padding: 10px;
 			@include m.adjust-text(18px);
@@ -185,9 +201,16 @@
 		}
 
 		.reset__textBox {
+			@include m.adjust-border(1px, v.$turquoise);
 			width: 100%;
 			color: v.$dark-green;
 		}
+
+		.reset__textBox_error {
+			color: v.$dark-green;
+			@include m.adjust-border(1px, red);
+		}
+
 		.reset__btn {
 			width: 100%;
 			cursor: pointer;
