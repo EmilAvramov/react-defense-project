@@ -1,4 +1,8 @@
+import { useEffect, useState } from 'react';
+
 import HomeCarousel from './HomeCarousel';
+
+import aggregateData from '../../functions/aggregateData';
 
 import Err from '../helpers/Error';
 import banner from '../../assets/home__banner.png';
@@ -9,9 +13,16 @@ const HomeMain = ({
 	gamesData,
 	dataError,
 	userCount,
-	gamesCount,
 	screenshotCount,
 }) => {
+	const [filtered, setFiltered] = useState(gamesData);
+
+	useEffect(() => {
+		if (currentUser) {
+			setFiltered(aggregateData(gamesData));
+		}
+	}, [currentUser, gamesData]);
+
 	return (
 		<>
 			{currentUser ? (
@@ -22,7 +33,7 @@ const HomeMain = ({
 						) : (
 							<>
 								<h2>Most popular games among our users</h2>
-								<HomeCarousel data={gamesData} />
+								<HomeCarousel data={filtered} />
 							</>
 						)}
 					</main>
@@ -36,8 +47,8 @@ const HomeMain = ({
 									{userCount > 1 ? ' users.' : ' user.'}
 								</div>
 								<div className={styles['home__container']}>
-									Our users have added {gamesCount} games to
-									their libraries.
+									Our users have added {filtered.length} games
+									to their libraries.
 								</div>
 								<div className={styles['home__container']}>
 									Our users have uploaded {screenshotCount}{' '}

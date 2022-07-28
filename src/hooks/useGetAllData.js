@@ -8,7 +8,6 @@ import { db } from '../config/firebase-config';
 const useGetAllData = (currentUser) => {
 	// Set states
 	const [gamesData, setGamesData] = useState(null);
-	const [gamesCount, setGamesCount] = useState(null);
 	const [userCount, setUserCount] = useState(null);
 	const [screenshotCount, setScreenshotCount] = useState(null);
 	const [dataLoading, setDataLoading] = useState(false);
@@ -24,16 +23,15 @@ const useGetAllData = (currentUser) => {
 			// Start request
 			setDataLoading(true);
 			getDocs(gamesRef)
-				.then((res) => {
-					setGamesCount(res.docs.length);
+				.then((res) =>
 					setGamesData(
 						res.docs.map((doc) => {
 							let item = { ...doc.data() };
 							item.doc = doc.id;
 							return item;
 						})
-					);
-				})
+					)
+				)
 				.catch((err) => setDataError(err));
 			list(storageRef)
 				.then((res) => setScreenshotCount(res.items.length))
@@ -47,7 +45,6 @@ const useGetAllData = (currentUser) => {
 		} else {
 			// If user logs out, change states to prevent firebase errors
 			setGamesData(null);
-			setGamesCount(null);
 			setUserCount(null);
 			setScreenshotCount(null);
 			setDataLoading(false);
@@ -56,7 +53,6 @@ const useGetAllData = (currentUser) => {
 
 	return {
 		gamesData,
-		gamesCount,
 		userCount,
 		screenshotCount,
 		dataLoading,

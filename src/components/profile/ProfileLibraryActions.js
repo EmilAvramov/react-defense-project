@@ -70,7 +70,7 @@ const ProfileLibraryActions = ({ doc, change, user, urls }) => {
 			/>
 			<div className={styles['card__buttons']}>
 				<button onClick={handleConfirm}>Remove</button>
-				{urls && (
+				{urls ? (
 					<button
 						className={styles['card__linksHolder']}
 						onClick={handleLinks}
@@ -91,6 +91,10 @@ const ProfileLibraryActions = ({ doc, change, user, urls }) => {
 								))}
 							</ul>
 						)}
+					</button>
+				) : (
+					<button className={styles['card__linksHolder']}>
+						Links
 					</button>
 				)}
 				{loading ? (
