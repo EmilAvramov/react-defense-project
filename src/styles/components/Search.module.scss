@@ -15,18 +15,13 @@
 		@include m.adjust-border(1px, v.$light-green);
 	}
 
-	i {
-		height: 3vh;
-		padding: 5px 25px 5px 5px;
-		font-size: 20px;
-		color: v.$light_green;
-		width: 6%;
-		box-sizing: border-box;
-		-moz-box-sizing: border-box;
-		-webkit-box-sizing: border-box;
-
+	img {
+		height: 100%;
+		width: 3%;
+		vertical-align: middle;
+		padding-bottom: 5px;
+		margin: 0px 10px;
 		cursor: pointer;
-		text-align: center;
 	}
 	.search__button {
 		width: 10%;

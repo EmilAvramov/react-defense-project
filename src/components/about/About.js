@@ -1,5 +1,5 @@
-import gaming from '../../assets/gaming.png';
-import data from '../../assets/data.png';
+import gaming from '../../assets/about__gaming.png';
+import data from '../../assets/about__data.png';
 
 import styles from '../../styles/components/About.module.scss';
 

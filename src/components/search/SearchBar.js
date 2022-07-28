@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 
+import filter from '../../assets/search__filter.png';
 import styles from '../../styles/components/Search.module.scss';
 
 const SearchBar = (props) => {
@@ -31,7 +32,7 @@ const SearchBar = (props) => {
 			className={styles['search__container']}
 		>
 			<input {...register('string')} type='text' />
-			<i className='fa-solid fa-filter' onClick={toggleSearch}></i>
+			<img src={filter} alt='' onClick={toggleSearch} />
 
 			<button
 				disabled={props.loading}

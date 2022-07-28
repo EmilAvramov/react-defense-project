@@ -1,7 +1,7 @@
 import HomeCarousel from './HomeCarousel';
 
 import Err from '../helpers/Error';
-import banner from '../../assets/guest-banner.png';
+import banner from '../../assets/home__banner.png';
 import styles from '../../styles/components/Home.module.scss';
 
 const HomeMain = ({

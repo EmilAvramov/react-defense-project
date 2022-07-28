@@ -1,4 +1,4 @@
-import placeholder from '../assets/no-image.png';
+import placeholder from '../assets/search__placeholder.png';
 
 const normalizeExternalData = (data) => {
 	try {

@@ -4,7 +4,7 @@ import logout from '../../auth/logout';
 import { useAuth } from '../../contexts/AuthContext';
 
 import styles from '../../styles/components/Header.module.scss';
-import logo from '../../assets/logo.png';
+import logo from '../../assets/header__logo.png';
 
 const Header = () => {
 	const { currentUser } = useAuth();
