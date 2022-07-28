@@ -41,7 +41,7 @@
 		@include m.adjust-text(20px);
 
 		i {
-			color: red;
+			color: v.$red;
 			display: inline-block;
 		}
 		div {
@@ -95,7 +95,7 @@
 		flex-direction: column;
 
 		i {
-			color: red;
+			color: v.$red;
 			padding: 5px;
 		}
 

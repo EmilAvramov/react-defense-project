@@ -61,7 +61,7 @@
 		@include m.adjust-text(20px);
 
 		i {
-			color: red;
+			color: v.$red;
 			padding: 10px;
 		}
 	}
@@ -100,7 +100,7 @@
 					i {
 						position: relative;
 						left: 350px;
-						color: red;
+						color: v.$red;
 						font-size: 30px;
 						padding: 20px;
 					}
@@ -158,7 +158,7 @@
 
 			.card__error {
 				i {
-					color: red;
+					color: v.$red;
 					position: absolute;
 					right: 45px;
 					top: 15px;
@@ -219,7 +219,7 @@
 	position: relative;
 
 	i {
-		color: red;
+		color: v.$red;
 		font-size: 30px;
 	}
 
@@ -249,14 +249,13 @@
 			height: 5vh;
 			@include m.adjust-text(16px, 400, left);
 			color: v.$dark-green;
-			border: 1px solid red;
-			@include m.adjust-border(1px, red);
+			@include m.adjust-border(1px, v.$red);
 		}
 
 		.edit__error1, .edit__error2 {
 			@extend %flex-basic;
 			@include m.adjust-text(16px, 400, center);
-			color: red;
+			color: v.$red;
 		}
 
 		.edit__submit {

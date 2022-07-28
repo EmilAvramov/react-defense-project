@@ -132,7 +132,7 @@
 }
 
 .home__container {
-	@extend %grid-templated;
+	@include m.template-grid(6);
 
 	margin: 0 auto;
 	width: 95%;
@@ -181,7 +181,7 @@
 	@extend %flex-centered;
 	height: 70vh;
 	i {
-		color: red;
+		color: v.$red;
 		font-size: 30px;
 	}
 	div {

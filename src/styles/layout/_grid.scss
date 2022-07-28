@@ -1,8 +1,3 @@
-%grid-templated {
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
-}
-
 %grid-card {
     display: grid;
     grid-template-areas: 
@@ -30,14 +25,6 @@
     justify-content: center;
     align-items: center;
     grid-template-columns: 30% 10% 10% 30%;
-}
-
-%grid-buttons {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
 }
 
 %grid-library {

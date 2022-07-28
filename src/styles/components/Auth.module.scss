@@ -9,7 +9,7 @@
 	width: 100vw;
 
 	i {
-		color: red;
+		color: v.$red;
 		font-size: 30px;
 		padding: 20px;
 		line-height: 30px;
@@ -36,6 +36,7 @@
 
 		p {
 			@include m.adjust-text(16px);
+			color: v.$red;
 		}
 
 		.login__textBox,
@@ -54,7 +55,7 @@
 
 		.login__textBox_error {
 			color: v.$dark-green;
-			@include m.adjust-border(1px, red);
+			@include m.adjust-border(1px, v.$red);
 		}
 
 		.login__btn {
@@ -74,7 +75,7 @@
 		.login__error {
 			position: relative;
 			bottom: 5px;
-			color: red;
+			color: v.$red;
 
 		}
 	}
@@ -87,7 +88,7 @@
 	width: 100vw;
 
 	i {
-		color: red;
+		color: v.$red;
 		font-size: 30px;
 		padding: 20px;
 		line-height: 30px;
@@ -106,6 +107,7 @@
 
 		p {
 			@include m.adjust-text(16px);
+			color: v.$red;
 		}
 
 		div {
@@ -132,7 +134,7 @@
 
 		.register__textBox_error {
 			color: v.$dark-green;
-			@include m.adjust-border(1px, red);
+			@include m.adjust-border(1px, v.$red);
 		}
 
 		.register__btn {
@@ -151,7 +153,7 @@
 		.register__error {
 			position: relative;
 			bottom: 5px;
-			color: red;
+			color: v.$red;
 		}
 	}
 }
@@ -163,7 +165,7 @@
 	width: 100vw;
 
 	i {
-		color: red;
+		color: v.$red;
 		font-size: 30px;
 		padding: 20px;
 		line-height: 30px;
@@ -181,6 +183,7 @@
 
 		p {
 			@include m.adjust-text(16px);
+			color: v.$red;
 		}
 
 		div {
@@ -208,7 +211,7 @@
 
 		.reset__textBox_error {
 			color: v.$dark-green;
-			@include m.adjust-border(1px, red);
+			@include m.adjust-border(1px, v.$red);
 		}
 
 		.reset__btn {
@@ -221,7 +224,7 @@
 		.reset__error {
 			position: relative;
 			bottom: 5px;
-			color: red;
+			color: v.$red;
 		}
 	}
 }
