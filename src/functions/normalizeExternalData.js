@@ -1,6 +1,7 @@
 import placeholder from '../assets/search__placeholder.png';
 
 const normalizeExternalData = (data) => {
+	// Normalize IGDB data
 	try {
 		const allowedPlatforms = ['PC', 'XBOX', 'PS5', 'PS4', 'Switch'];
 		const categories = {
