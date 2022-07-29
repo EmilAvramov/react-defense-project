@@ -44,7 +44,10 @@ const SearchDetails = () => {
 	};
 
 	// Manage database Create-Delete operations
-	const { exists, docRef, error } = useCheckExistsInternal(data, currentUser);
+	const { exists, docRef, error, handleTrigger } = useCheckExistsInternal(
+		data,
+		currentUser
+	);
 	const [added, setAdded] = useState(false);
 	const { addGame } = addGameToLibrary();
 	const { removeGame } = delGameFromLibrary();
@@ -57,6 +60,7 @@ const SearchDetails = () => {
 		if (!added) {
 			addGame(data, currentUser);
 			setAdded(true);
+			handleTrigger();
 		} else {
 			alert(error.message);
 		}
@@ -64,7 +68,6 @@ const SearchDetails = () => {
 
 	const removeHandler = () => {
 		if (added) {
-			console.log(docRef)
 			removeGame(docRef);
 			setAdded(false);
 		} else {

@@ -10,7 +10,13 @@ const useCheckExistsInternal = (data, user) => {
 	const [docRef, setDocRef] = useState('');
 	const [exists, setExists] = useState(false);
 	const [checkLoading, setCheckLoading] = useState(false)
+	const [trigger, setTrigger] = useState(false)
 	const { id } = data;
+
+	// Handle change
+	const handleTrigger = () => {
+		setTrigger(state => !state)
+	}
 
 	// Compile firebase query, get docRef if available and set states
 	useEffect(() => {
@@ -34,8 +40,8 @@ const useCheckExistsInternal = (data, user) => {
 			}
 		};
 		checkIfExists();
-	}, [id, user]);
-	return { exists, docRef, error, checkLoading };
+	}, [id, user, trigger]);
+	return { exists, docRef, error, checkLoading, handleTrigger };
 };
 
 export default useCheckExistsInternal;
