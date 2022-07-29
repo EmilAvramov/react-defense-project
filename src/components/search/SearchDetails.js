@@ -101,14 +101,18 @@ const SearchDetails = () => {
 						<p>Companies: {data.companies}</p>
 						<p>Release Date: {data.releaseDate}</p>
 						<div className={styles['details__buttons']}>
-							{currentUser && !added ? (
-								<button onClick={addHandler}>
-									Add to Library
-								</button>
+							{currentUser ? (
+								!added ? (
+									<button onClick={addHandler}>
+										Add to Library
+									</button>
+								) : (
+									<button onClick={removeHandler}>
+										Remove from Library
+									</button>
+								)
 							) : (
-								<button onClick={removeHandler}>
-									Remove from Library
-								</button>
+								<></>
 							)}
 							{data.urls && (
 								<button

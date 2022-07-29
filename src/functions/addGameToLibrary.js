@@ -8,11 +8,15 @@ const addGameToLibrary = () => {
 
 	// Create function to add game to library
 	const addGame = async (data, currentUser) => {
-		await addDoc(collectionRef, {
-			...data,
-			urls: data.urls.flat(1).join(', '),
-			user: currentUser.uid,
-		});
+		try {
+			await addDoc(collectionRef, {
+				...data,
+				urls: data.urls.flat(1).join(', '),
+				user: currentUser.uid,
+			});
+		} catch (err) {
+			alert(err.message);
+		}
 	};
 
 	return { addGame };
