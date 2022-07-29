@@ -29,7 +29,7 @@ const SearchBar = (props) => {
 	return (
 		<form
 			onSubmit={handleSubmit(submitData)}
-			className={styles['search__container']}
+			className={styles['search__bar']}
 		>
 			<input {...register('string')} type='text' />
 			<img src={filter} alt='' onClick={toggleSearch} />

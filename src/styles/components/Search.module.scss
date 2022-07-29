@@ -3,233 +3,241 @@
 @use '../helpers/mixins' as m;
 @use '../helpers/variables' as v;
 
-.search__container {
-	position: relative;
-	width: 80%;
-	margin: 10px auto;
+.search__master_wrapper {
 
-	input {
-		@include m.adjust-text(18px, 400, left);
-		width: 80%;
-		color: v.$dark-green;
-		@include m.adjust-border(1px, v.$light-green);
-	}
-
-	img {
-		height: 100%;
-		width: 3%;
-		vertical-align: middle;
-		padding-bottom: 5px;
-		margin: 0px 10px;
-		cursor: pointer;
-	}
-	.search__button {
-		width: 10%;
-		padding: 1px 20px;
-		@include m.adjust-text(18px);
-		@include m.adjust-border(1px, v.$light-green);
-		cursor: pointer;
-	}
-	.search__disabled {
-		color: v.$ash;
-		cursor: auto;
-		&:hover {
-			background-color: v.$turquoise;
-			color: v.$ash !important;
-		}
-	}
-
-	.search__flyout {
-		background-color: v.$whitesmoke;
-		z-index: 1;
-		position: absolute;
-		right: 90px;
-		top: 40px;
-		width: 15vw;
-		padding: 5px;
-		@include m.adjust-border(1px, v.$turquoise);
-
-		.search__filters {
-			@extend %grid-search;
-			line-height: 1.2;
-
-			legend {
-				margin: 10px auto;
-				@include m.adjust-text(16px, 600);
-				color: v.$dark-green;
-			}
-			button {
-				@include m.adjust-text(14px, 400);
-				width: 100%;
-				margin: 10px auto;
-				cursor: pointer;
-				@include m.adjust-border(1px, v.$light-green);
-			}
-			label {
-				color: v.$dark-green;
-			}
-
-			.search__legend1 {
-				grid-area: legend1;
-				padding: 5px 0px;
-				margin: 0 auto;
-			}
-			.search__legend2 {
-				grid-area: legend2;
-				padding: 5px 0px;
-				margin: 0 auto;
-			}
-			.search__check1 {
-				grid-area: check1;
-			}
-			.search__check2 {
-				grid-area: check2;
-			}
-			.search__check3 {
-				grid-area: check3;
-			}
-			.search__check4 {
-				grid-area: check4;
-			}
-			.search__check5 {
-				grid-area: check5;
-			}
-			.search__text1 {
-				grid-area: text1;
-			}
-			.search__text2 {
-				grid-area: text2;
-			}
-			.search__text3 {
-				grid-area: text3;
-			}
-			.search__text4 {
-				grid-area: text4;
-			}
-			.search__text5 {
-				grid-area: text5;
-			}
-			.search__text6 {
-				grid-area: text6;
-			}
-			.search__text7 {
-				grid-area: text7;
-			}
-			.search__radio1 {
-				grid-area: radio1;
-			}
-			.search__radio2 {
-				grid-area: radio2;
-			}
-			.search__button1 {
-				grid-area: button1;
-			}
-			.search__button2 {
-				grid-area: button2;
-			}
-		}
-	}
-}
-
-.home__container {
-	@include m.template-grid(6);
-
-	margin: 0 auto;
-	width: 95%;
-	@include m.adjust-border(3px, v.$turquoise);
-}
-
-.card {
-	@extend %grid-card;
-	height: 50vh;
-	margin: 10px;
-	position: relative;
-	background-color: v.$dark_green;
-	@include m.adjust-border(1px, v.$turquoise);
-
-	h3 {
-		grid-area: title;
-		@include m.adjust-text(20px);
-		@include m.clamp-text(1.3, 2);
-		height: 50px;
-		border-bottom: 1px solid v.$turquoise;
-		padding-bottom: 5px;
-	}
-	.card__img_wrapper {
+	.search__empty {
 		@extend %flex-basic;
-		img {
-			grid-area: img;
-			width: 80%;
-
-			margin: -5px auto 35px auto;
-			object-fit: contain;
-		}
+		@include m.adjust-text(22px);
+		height: 68.74vh;
 	}
 
-	button {
-		position: absolute;
-		bottom: 5.5%;
-		width: 80%;
-		left: 10%;
-		@include m.adjust-text(16px);
-		@include m.adjust-border(1px, v.$light-green);
-		cursor: pointer;
-	}
-}
-
-.search__error {
-	@extend %flex-centered;
-	height: 70vh;
-	i {
-		color: v.$red;
-		font-size: 30px;
-	}
-	div {
-		@include m.adjust-text(20px);
-	}
-}
-
-.pagination__container {
-	margin: 0 auto;
-	width: 95%;
-	@extend %flex-basic;
-	@include m.adjust-text(18px);
-	padding-top: 10px;
-	margin-bottom: -5px;
-
-	.pagination__wrapper {
-		@extend %flex-centered;
-		column-gap: 35px;
-	}
-	.pagination__li,
-	.pagination__previous_li,
-	.pagination__next_li,
-	.pagination__break_li {
+	.search__bar {
 		position: relative;
-		@include m.adjust-border(1px, v.$turquoise);
-		padding: 10px 15px;
-		&:hover {
+		width: 80%;
+		margin: 10px auto;
+
+		input {
+			@include m.adjust-text(18px, 400, left);
+			width: 80%;
+			color: v.$dark-green;
+			@include m.adjust-border(1px, v.$light-green);
+		}
+
+		img {
+			height: 100%;
+			width: 3%;
+			vertical-align: middle;
+			padding-bottom: 5px;
+			margin: 0px 10px;
 			cursor: pointer;
 		}
+		.search__button {
+			width: 10%;
+			padding: 1px 20px;
+			@include m.adjust-text(18px);
+			@include m.adjust-border(1px, v.$light-green);
+			cursor: pointer;
+		}
+		.search__disabled {
+			color: v.$ash;
+			cursor: auto;
+			&:hover {
+				background-color: v.$turquoise;
+				color: v.$ash !important;
+			}
+		}
+
+		.search__flyout {
+			background-color: v.$whitesmoke;
+			z-index: 1;
+			position: absolute;
+			right: 90px;
+			top: 40px;
+			width: 15vw;
+			padding: 5px;
+			@include m.adjust-border(1px, v.$turquoise);
+
+			.search__filters {
+				@extend %grid-search;
+				line-height: 1.2;
+
+				legend {
+					margin: 10px auto;
+					@include m.adjust-text(16px, 600);
+					color: v.$dark-green;
+				}
+				button {
+					@include m.adjust-text(14px, 400);
+					width: 100%;
+					margin: 10px auto;
+					cursor: pointer;
+					@include m.adjust-border(1px, v.$light-green);
+				}
+				label {
+					color: v.$dark-green;
+				}
+
+				.search__legend1 {
+					grid-area: legend1;
+					padding: 5px 0px;
+					margin: 0 auto;
+				}
+				.search__legend2 {
+					grid-area: legend2;
+					padding: 5px 0px;
+					margin: 0 auto;
+				}
+				.search__check1 {
+					grid-area: check1;
+				}
+				.search__check2 {
+					grid-area: check2;
+				}
+				.search__check3 {
+					grid-area: check3;
+				}
+				.search__check4 {
+					grid-area: check4;
+				}
+				.search__check5 {
+					grid-area: check5;
+				}
+				.search__text1 {
+					grid-area: text1;
+				}
+				.search__text2 {
+					grid-area: text2;
+				}
+				.search__text3 {
+					grid-area: text3;
+				}
+				.search__text4 {
+					grid-area: text4;
+				}
+				.search__text5 {
+					grid-area: text5;
+				}
+				.search__text6 {
+					grid-area: text6;
+				}
+				.search__text7 {
+					grid-area: text7;
+				}
+				.search__radio1 {
+					grid-area: radio1;
+				}
+				.search__radio2 {
+					grid-area: radio2;
+				}
+				.search__button1 {
+					grid-area: button1;
+				}
+				.search__button2 {
+					grid-area: button2;
+				}
+			}
+		}
 	}
-	.pagination__a,
-	.pagination__previous_a,
-	.pagination__next_a,
-	.pagination__break_a {
-		width: 100%;
+
+	.search__cardList {
+		@include m.template-grid(6);
+
+		margin: 0 auto;
+		width: 95%;
+		@include m.adjust-border(3px, v.$turquoise);
+
+		.card {
+			@extend %grid-card;
+			height: 50vh;
+			margin: 10px;
+			position: relative;
+			background-color: v.$dark_green;
+			@include m.adjust-border(1px, v.$turquoise);
+
+			h3 {
+				grid-area: title;
+				@include m.adjust-text(20px);
+				@include m.clamp-text(1.3, 2);
+				height: 50px;
+				border-bottom: 1px solid v.$turquoise;
+				padding-bottom: 5px;
+			}
+			.card__img_wrapper {
+				@extend %flex-basic;
+				img {
+					grid-area: img;
+					width: 80%;
+
+					margin: -5px auto 35px auto;
+					object-fit: contain;
+				}
+			}
+
+			button {
+				position: absolute;
+				bottom: 5.5%;
+				width: 80%;
+				left: 10%;
+				@include m.adjust-text(16px);
+				@include m.adjust-border(1px, v.$light-green);
+				cursor: pointer;
+			}
+		}
 	}
-	.pagination__a:after,
-	.pagination__previous_a:after,
-	.pagination__next_a:after,
-	.pagination__break_a:after {
-		content: '';
-		height: 100%;
-		left: 0;
-		position: absolute;
-		top: 0;
-		width: 100%;
+	
+	.search__error {
+		@extend %flex-centered;
+		height: 70vh;
+		i {
+			color: v.$red;
+			font-size: 30px;
+		}
+		div {
+			@include m.adjust-text(20px);
+		}
 	}
-	.active {
-		background-color: v.$turquoise;
+	.pagination__container {
+		margin: 0 auto;
+		width: 95%;
+		@extend %flex-basic;
+		@include m.adjust-text(18px);
+		padding-top: 10px;
+		margin-bottom: -5px;
+
+		.pagination__wrapper {
+			@extend %flex-centered;
+			column-gap: 35px;
+		}
+		.pagination__li,
+		.pagination__previous_li,
+		.pagination__next_li,
+		.pagination__break_li {
+			position: relative;
+			@include m.adjust-border(1px, v.$turquoise);
+			padding: 10px 15px;
+			&:hover {
+				cursor: pointer;
+			}
+		}
+		.pagination__a,
+		.pagination__previous_a,
+		.pagination__next_a,
+		.pagination__break_a {
+			width: 100%;
+		}
+		.pagination__a:after,
+		.pagination__previous_a:after,
+		.pagination__next_a:after,
+		.pagination__break_a:after {
+			content: '';
+			height: 100%;
+			left: 0;
+			position: absolute;
+			top: 0;
+			width: 100%;
+		}
+		.active {
+			background-color: v.$turquoise;
+		}
 	}
 }

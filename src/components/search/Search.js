@@ -28,7 +28,7 @@ const Search = () => {
 	};
 
 	return (
-		<main>
+		<main className={styles['search__master_wrapper']}>
 			<SearchBar sendData={query} loading={loading} />
 			{loading ? (
 				<Loader loading={loading} styles={searchLoader} size={80} />
@@ -36,9 +36,16 @@ const Search = () => {
 				<Err error={error} styles={styles['search__error']} />
 			) : (
 				<>
-					<SearchCardList data={current} />
-					<SearchPaginator rawData={data} sendData={sendData} />
+					{data.length > 0 && <SearchCardList data={current} />}
+					{data.length > 0 && (
+						<SearchPaginator rawData={data} sendData={sendData} />
+					)}
 				</>
+			)}
+			{data.length === 0 && !loading && (
+				<p className={styles['search__empty']}>
+					No results found matching your query.
+				</p>
 			)}
 		</main>
 	);

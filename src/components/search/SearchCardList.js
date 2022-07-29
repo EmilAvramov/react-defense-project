@@ -6,10 +6,12 @@ const SearchCardList = ({ data }) => {
 	const cardArray = data.map((x) => <SearchCard key={x.id} {...x} />);
 
 	return (
-		<section className={styles['home__container']}>
-			{cardArray}
-		</section>
-	)
+		<>
+			<section className={styles['search__cardList']}>
+				{cardArray}
+			</section>
+		</>
+	);
 };
 
 export default SearchCardList;
