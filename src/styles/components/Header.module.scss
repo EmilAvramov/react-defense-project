@@ -23,6 +23,7 @@ header {
 		@include m.adjust-text(22px, 600, left);
 		text-decoration: none;
 		position: relative;
+		vertical-align: middle;
 
 		img {
 			height: 300%;

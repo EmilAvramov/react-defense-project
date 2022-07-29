@@ -145,7 +145,7 @@
 	margin: 10px;
 	position: relative;
 	background-color: v.$dark_green;
-	border-radius: 4px;
+	@include m.adjust-border(1px, v.$turquoise);
 
 	h3 {
 		grid-area: title;

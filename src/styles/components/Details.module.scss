@@ -12,7 +12,7 @@
 		flex-wrap: wrap;
 
 		@include m.adjust-modal-container(auto);
-		@include m.adjust-border(1px, v.$light-green);
+		@include m.adjust-border(1px, v.$turquoise);
 
 		.details__close {
 			@include m.adjust-text(14px);
@@ -21,7 +21,7 @@
 			position: absolute;
 			top: 0;
 			right: 0;
-			@include m.adjust-border(1px, v.$light-green);
+			@include m.adjust-border(1px, v.$turquoise);
 			cursor: pointer;
 		}
 
@@ -71,34 +71,34 @@
 					.star {
 						-webkit-clip-path: polygon(
 							50% 0%,
-							65% 30%,
+							61% 35%,
 							98% 35%,
-							70% 55%,
+							68% 57%,
 							79% 91%,
 							50% 70%,
 							21% 91%,
-							30% 55%,
+							32% 57%,
 							2% 35%,
-							35% 30%
+							39% 35%
 						);
 						clip-path: polygon(
 							50% 0%,
-							65% 30%,
+							61% 35%,
 							98% 35%,
-							70% 55%,
+							68% 57%,
 							79% 91%,
 							50% 70%,
 							21% 91%,
-							30% 55%,
+							32% 57%,
 							2% 35%,
-							35% 30%
+							39% 35%
 						);
 						text-align: center;
 						background: v.$turquoise;
 						color: white;
-						width: 55px;
-						height: 45px;
-						line-height: 42px;
+						width: 70px;
+						height: 60px;
+						line-height: 62px;
 						@include m.adjust-text(16px, bold, center);
 						cursor: default;
 					}

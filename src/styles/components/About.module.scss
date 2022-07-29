@@ -33,9 +33,11 @@
 		flex-direction: column;
 		gap: 50px;
 		@include m.adjust-border(2px, v.$turquoise);
+		padding-bottom: 40px;
 
 		.about__feature_heading {
 			@include m.adjust-text(26px, 600, center);
+			margin-top: 30px;
 		}
 
 		.about__feature_wrapper {
