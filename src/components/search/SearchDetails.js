@@ -64,6 +64,7 @@ const SearchDetails = () => {
 
 	const removeHandler = () => {
 		if (added) {
+			console.log(docRef)
 			removeGame(docRef);
 			setAdded(false);
 		} else {

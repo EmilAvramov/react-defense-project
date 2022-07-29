@@ -4,7 +4,6 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import styles from '../../styles/components/Home.module.scss';
 
 const HomeCarousel = ({ data }) => {
-	
 	const slides = data.map((x, i) => (
 		<SwiperSlide key={i} className={styles['home__card']}>
 			<img src={x.cover} alt='' />
@@ -19,7 +18,13 @@ const HomeCarousel = ({ data }) => {
 				slidesPerView={3}
 				navigation={true}
 			>
-				{slides}
+				{slides.length > 0 ? (
+					slides
+				) : (
+					<div className={styles['home__empty']}>
+						No games added yet.
+					</div>
+				)}
 			</Swiper>
 		</div>
 	);

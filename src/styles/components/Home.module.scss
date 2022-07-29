@@ -84,6 +84,11 @@
 						width: 100%;
 					}
 				}
+				.home__empty {
+					@extend %flex-basic;
+					height: 60vh;
+					@include m.adjust-text(20px)
+				};
 			}
 		}
 	}
