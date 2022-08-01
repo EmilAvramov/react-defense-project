@@ -4,21 +4,26 @@
 @use '../helpers/variables' as v;
 
 .about__wrapper {
+	height: auto;
+
 	@extend %flex-centered;
 	flex-wrap: wrap;
-	height: auto;
+
 	line-height: 1.15;
 
 	.about__block {
-		@include m.template-grid(2);
 		height: 58.5vh;
 
+		@include m.template-grid(2);
+
 		.about__block_text {
-			@include m.adjust-text(20px, 400, justify);
-			@extend %flex-centered;
-			flex-wrap: wrap;
 			width: 80%;
 			margin: 0 auto;
+
+			@extend %flex-centered;
+			flex-wrap: wrap;
+
+			@include m.adjust-text(20px, 400, justify);
 		}
 
 		.about__block_img > img {
@@ -29,15 +34,18 @@
 	.about__feature {
 		margin-top: 40px;
 		height: auto;
+		padding-bottom: 40px;
+
 		@extend %flex-centered;
 		flex-direction: column;
 		gap: 50px;
-		@include m.adjust-border(2px, v.$turquoise);
-		padding-bottom: 40px;
 
+		@include m.adjust-border(2px, v.$turquoise);
+		
 		.about__feature_heading {
-			@include m.adjust-text(26px, 600, center);
 			margin-top: 30px;
+
+			@include m.adjust-text(26px, 600, center);
 		}
 
 		.about__feature_wrapper {
@@ -46,20 +54,26 @@
 
 			.about__feature_block {
 				width: 70%;
+				margin: 0 auto;
+
 				@extend %flex-basic;
 				flex-wrap: wrap;
-				margin: 0 auto;
+
 				img {
 					width: 20%;
 				}
 
 				h6 {
-					flex: v.$flex-full;
-					@include m.adjust-text(24px, 600, center);
 					padding: 10px;
+
+					flex: v.$flex-full;
+
+					@include m.adjust-text(24px, 600, center);
 				}
+
 				p {
 					flex: v.$flex-full;
+					
 					@include m.adjust-text(20px, 400, center);
 				}
 			}

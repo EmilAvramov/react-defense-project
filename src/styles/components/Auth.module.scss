@@ -3,26 +3,28 @@
 @use '../helpers/variables' as v;
 
 .login__container {
-	@extend %flex-basic;
-
 	height: 76vh;
 	width: 100vw;
 
+	@extend %flex-basic;
+
 	i {
+		padding: 20px;
+
 		color: v.$red;
 		font-size: 30px;
-		padding: 20px;
 		line-height: 30px;
 	}
 
 	.login__form {
+		padding: 30px;
+		position: relative;
+
 		@extend %flex-basic;
 		flex-direction: column;
 		row-gap: 4px;
 
 		background-color: v.$dark-green;
-		padding: 30px;
-		position: relative;
 		@include m.adjust-border(1px, v.$turquoise);
 
 		div {
@@ -44,18 +46,19 @@
 		.login__btn {
 			width: 100%;
 			padding: 10px;
-			@include m.adjust-text(18px);
 			margin-bottom: 10px;
+
+			@include m.adjust-text(18px);
 		}
 
 		.login__textBox {
-			color: v.$dark-green;
 			@include m.adjust-border(1px, v.$turquoise);
+			color: v.$dark-green;
 		}
 
 		.login__textBox_error {
-			color: v.$dark-green;
 			@include m.adjust-border(1px, v.$red);
+			color: v.$dark-green;
 		}
 
 		.login__btn {
@@ -65,16 +68,18 @@
 
 		.login__google {
 			background-color: v.$light-green;
-			color: v.$dark-green;
 			@include m.adjust-border(1px, v.$turquoise);
+			color: v.$dark-green;
 			cursor: pointer;
 		}
 		.login div {
 			margin-top: 7px;
 		}
+
 		.login__error {
 			position: relative;
 			bottom: 5px;
+
 			color: v.$red;
 
 		}
@@ -82,27 +87,29 @@
 }
 
 .register__container {
-	@extend %flex-basic;
-
 	height: 76vh;
 	width: 100vw;
 
+	@extend %flex-basic;
+
 	i {
+		padding: 20px;
+
 		color: v.$red;
 		font-size: 30px;
-		padding: 20px;
 		line-height: 30px;
 	}
 
 	.register__form {
+		padding: 30px;
+		top: 10px;
+		position: relative;
+
 		@extend %flex-basic;
 		flex-direction: column;
 		gap: 4px;
 
 		background-color: v.$dark-green;
-		padding: 30px;
-		top: 10px;
-		position: relative;
 		@include m.adjust-border(1px, v.$turquoise);
 
 		p {
@@ -113,6 +120,7 @@
 		div {
 			@include m.adjust-text(18px);
 		}
+
 		.register__link:visited,
 		.register__link:link {
 			color: v.$light-green;
@@ -123,8 +131,9 @@
 		.register__btn {
 			width: 100%;
 			padding: 10px;
-			@include m.adjust-text(18px);
 			margin-bottom: 10px;
+
+			@include m.adjust-text(18px);
 		}
 
 		.register__textBox {
@@ -133,52 +142,57 @@
 		}
 
 		.register__textBox_error {
-			color: v.$dark-green;
 			@include m.adjust-border(1px, v.$red);
+			color: v.$dark-green;
 		}
 
 		.register__btn {
 			@include m.adjust-border(1px, v.$light-green);
 			cursor: pointer;
 		}
+
 		.register__google {
 			background-color: v.$light-green;
-			color: v.$dark-green;
 			@include m.adjust-border(1px, v.$turquoise);
+			color: v.$dark-green;
 			cursor: pointer;
 		}
 		.register div {
 			margin-top: 7px;
 		}
+
 		.register__error {
 			position: relative;
 			bottom: 5px;
+
 			color: v.$red;
 		}
 	}
 }
 
 .reset__container {
-	@extend %flex-basic;
-
 	height: 76vh;
 	width: 100vw;
 
+	@extend %flex-basic;
+
 	i {
+		padding: 20px;
+
 		color: v.$red;
 		font-size: 30px;
-		padding: 20px;
 		line-height: 30px;
 	}
 
 	.reset__form {
+		padding: 30px;
+		position: relative;
+
 		@extend %flex-basic;
 		flex-direction: column;
 		gap: 4px;
 
 		background-color: v.$dark-green;
-		padding: 30px;
-		position: relative;
 		@include m.adjust-border(1px, v.$turquoise);
 
 		p {
@@ -189,6 +203,7 @@
 		div {
 			@include m.adjust-text(18px);
 		}
+
 		.reset__link:visited,
 		.reset__link:link {
 			color: v.$light-green;
@@ -198,32 +213,37 @@
 		.reset__textBox_error,
 		.reset__btn {
 			padding: 10px;
+			margin-bottom: 10px;
+
 			@include m.adjust-text(18px);
 			@include m.adjust-border(1px, v.$light-green);
-			margin-bottom: 10px;
 		}
 
 		.reset__textBox {
-			@include m.adjust-border(1px, v.$turquoise);
 			width: 100%;
+
+			@include m.adjust-border(1px, v.$turquoise);
 			color: v.$dark-green;
 		}
 
 		.reset__textBox_error {
-			color: v.$dark-green;
 			@include m.adjust-border(1px, v.$red);
+			color: v.$dark-green;
 		}
 
 		.reset__btn {
 			width: 100%;
+
 			cursor: pointer;
 		}
 		.reset div {
 			margin-top: 7px;
 		}
+
 		.reset__error {
 			position: relative;
 			bottom: 5px;
+
 			color: v.$red;
 		}
 	}

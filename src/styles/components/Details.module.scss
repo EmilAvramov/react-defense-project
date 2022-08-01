@@ -5,6 +5,7 @@
 
 .details__wrapper {
 	@extend %flex-basic;
+
 	@include m.add-modal-background();
 
 	.details__container {
@@ -15,31 +16,34 @@
 		@include m.adjust-border(1px, v.$turquoise);
 
 		.details__close {
-			@include m.adjust-text(14px);
-			background-color: v.$dark_green;
 			width: 10%;
 			position: absolute;
 			top: 0;
 			right: 0;
+
+			background-color: v.$dark_green;
+			@include m.adjust-text(14px);
 			@include m.adjust-border(1px, v.$turquoise);
 			cursor: pointer;
 		}
 
 		.details__name {
+			padding: 5px 0px 0px 0px;
+
 			flex: v.$flex-full;
 
 			@include m.adjust-text(22px, bold, center);
-			padding: 5px 0px 0px 0px;
 		}
 
 		.details__body {
 			flex: v.$flex-full;
-
 			@extend %flex-spaced;
 
 			.details__img {
-				flex: v.$flex-half;
 				height: 100%;
+
+				flex: v.$flex-half;
+				
 				img {
 					width: 100%;
 					height: 100%;
@@ -48,26 +52,27 @@
 			}
 
 			.details__info {
-				flex: v.$flex-half;
-
-				@extend %flex-centered;
-				padding: 0px 20px;
-				gap: 0px;
-				@include m.adjust-text(16px, 400, left);
-
-				flex-wrap: wrap;
 				width: 50%;
-
 				height: 50vh;
+				padding: 0px 20px;
+
+				flex: v.$flex-half;
+				@extend %flex-centered;
+				flex-wrap: wrap;
+				gap: 0px;
+				
+				@include m.adjust-text(16px, 400, left);
 				line-height: 1.2;
 
 				.details__subinfo {
-					@include m.adjust-text(18px, 600, left);
-					flex: v.$flex-full;
-
-					@extend %flex-spaced;
 					width: 100%;
 					height: 10%;
+
+					flex: v.$flex-full;
+					@extend %flex-spaced;
+
+					@include m.adjust-text(18px, 600, left);
+
 					.star {
 						-webkit-clip-path: polygon(
 							50% 0%,
@@ -93,13 +98,13 @@
 							2% 35%,
 							39% 35%
 						);
-						text-align: center;
-						background: v.$turquoise;
-						color: white;
+
 						width: 70px;
 						height: 60px;
-						line-height: 62px;
+
+						background: v.$turquoise;
 						@include m.adjust-text(16px, bold, center);
+						line-height: 62px;
 						cursor: default;
 					}
 
@@ -113,14 +118,17 @@
 
 				p {
 					flex: v.$flex-full;
+
 					@include m.clamp-text(1.2, 3);
 				}
 			}
 		}
 
 		.details__summary {
-			flex: v.$flex-full;
 			margin: 0px 10px 10px 10px;
+
+			flex: v.$flex-full;
+			
 			@include m.adjust-text(16px, 400, justify);
 			@include m.clamp-text(1.2, 6);
 		}
@@ -134,9 +142,10 @@
 			button {
 				width: 205px;
 				padding: 5px 10px;
+				
 				@include m.adjust-text(14px, 400, center);
-				line-height: 1.2;
 				@include m.adjust-border(1px, v.$light-green);
+				line-height: 1.2;
 				cursor: pointer;
 			}
 
@@ -144,6 +153,7 @@
 			.details__links > li > a {
 				@include m.format-link();
 			}
+
 			.details__linksHolder {
 				position: relative;
 
@@ -153,18 +163,21 @@
 					top: 28px;
 					z-index: 1;
 					width: 100%;
+
 					@include m.adjust-border(1px, v.$turquoise);
 
 					li {
 						background-color: whitesmoke;
 
 						a {
-							background-color: v.$light-green;
-							color: v.$turquoise !important;
-							@include m.adjust-text(14px);
 							display: block;
 							width: 100%;
 							padding: 5px 0px;
+
+							background-color: v.$light-green;
+							color: v.$turquoise !important;
+							@include m.adjust-text(14px);
+
 							&:hover {
 								color: v.$ash !important;
 							}
@@ -178,6 +191,7 @@
 
 .carouselDetails__wrapper {
 	@extend %flex-basic;
+
 	@include m.add-modal-background();
 
 	.carouselDetails__container {
@@ -195,23 +209,25 @@
 		}
 
 		.carouselDetails__close {
-			@include m.adjust-text(14px);
-			background-color: v.$dark_green;
-			color: v.$light-green;
 			width: 5%;
 			position: absolute;
 			top: 0;
 			right: 0;
+
+			@include m.adjust-text(14px);
+			background-color: v.$dark_green;
+			color: v.$light-green;
 			@include m.adjust-border(1px, v.$light-green);
 		}
 		.carouselDetails__delete {
-			@include m.adjust-text(14px);
-			background-color: v.$dark_red;
 			width: 10%;
 			position: absolute;
 			top: 0;
 			left: 0;
 			padding: 5px;
+
+			background-color: v.$dark_red;
+			@include m.adjust-text(14px);
 			@include m.adjust-border(1px, v.$light-green);
 		}
 	}
