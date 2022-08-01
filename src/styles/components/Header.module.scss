@@ -3,69 +3,78 @@
 @use '../helpers/variables' as v;
 
 header {
-	@extend %flex-spaced;
-
 	position: sticky;
 	top: 0;
 	height: 8vh;
-	border-bottom: 3px solid v.$turquoise;
-	z-index: 3;
+	z-index: 3;	
+	
+	@extend %flex-spaced;
+
 	background: v.$gradient-color;
 	background: v.$gradient-flow;
+	border-bottom: 3px solid v.$turquoise;
 
 	.header__logo,
 	nav {
-		@extend %flex-centered;
 		height: 100%;
+
+		@extend %flex-centered;
 	}
 
 	.header__logo {
-		@include m.adjust-text(22px, 600, left);
-		text-decoration: none;
 		position: relative;
 		vertical-align: middle;
 
+		@include m.adjust-text(22px, 600, left);
+		text-decoration: none;
+
 		img {
+			position: relative;
 			height: 300%;
+			top: 5px;
+
 			filter: invert(83%) sepia(95%) saturate(73%) hue-rotate(131deg)
 				brightness(95%) contrast(92%);
-			position: relative;
-			top: 5px;
 		}
 	}
 }
 
 .nav__ul {
-	@extend %flex-centered;
 	height: 100%;
+
+	@extend %flex-centered;
 
 	li {
 		padding: 0px 3px;
 
 		.header__navLink {
+			width: 100%;
+
 			@include m.adjust-text(20px);
 			text-decoration: none;
 			color: v.$light_green;
-			width: 100%;
 
 			i {
 				padding: 5px;
+
 				font-size: 18px;
 			}
 		}
 
 		.header__navlink_active {
+			display: block;
+			width: 100%;
+			padding: 5px 6px 5px 1px;
+
 			@include m.adjust-text(20px);
 			text-decoration: none;
 			color: v.$light-green;
 			background-color: v.$turquoise;
 			border-radius: 4px;
-			display: block;
-			width: 100%;
-			padding: 5px 6px 5px 1px;
 
 			i {
 				padding: 5px;
+				
 				font-size: 18px;
 				color: v.$light-green;
 			}

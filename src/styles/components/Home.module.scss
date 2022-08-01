@@ -4,20 +4,24 @@
 @use '../helpers/variables' as v;
 
 .home__guest {
-	@extend %grid-guest;
 	margin: 20px 0px;
 
+	@extend %grid-guest;
+
 	.home__top {
-		grid-area: user;
 		height: 5vh;
+		padding: 0px 30px;
+
+		grid-area: user;
 		@extend %flex-basic;
 		justify-content: center;
-		padding: 0px 30px;
+
 		@include m.adjust-text(20px);
 	}
 
 	.home__guest {
 		height: 63vh;
+
 		grid-area: main;
 		@extend %flex-basic;
 
@@ -29,15 +33,18 @@
 }
 
 .home__wrapper {
-	@extend %grid-home;
 	margin: 20px;
 
+	@extend %grid-home;
+
 	.home__top {
-		grid-area: user;
 		height: 5vh;
+		padding: 0px 30px;
+
+		grid-area: user;
 		@extend %flex-basic;
 		justify-content: center;
-		padding: 0px 30px;
+
 		@include m.adjust-text(20px);
 
 		i {
@@ -51,21 +58,24 @@
 	}
 
 	.home__main {
-		grid-area: main;
 		height: 70vh;
-		@extend %flex-centered;
-		flex-wrap: wrap;
-		gap: 30px;
 		padding: 0px;
 		margin-top: 10px;
 
+		grid-area: main;
+		@extend %flex-centered;
+		flex-wrap: wrap;
+		gap: 30px;
+
 		h2 {
 			flex: v.$flex-full;
+
 			@include m.adjust-text(22px, 600);
 		}
 
 		img {
 			width: 70%;
+
 			background-color: transparent;
 		}
 
@@ -78,6 +88,7 @@
 				.home__card {
 					@extend %flex-basic;
 					flex-direction: column;
+
 					@include m.adjust-border(2px, v.$turquoise);
 
 					img {
@@ -85,8 +96,10 @@
 					}
 				}
 				.home__empty {
-					@extend %flex-basic;
 					height: 60vh;
+
+					@extend %flex-basic;
+					
 					@include m.adjust-text(20px)
 				};
 			}
@@ -94,14 +107,16 @@
 	}
 	.home__aside {
 		margin: 15px 0px -15px 0px;
-		grid-area: aside;
 		height: 68vh;
+
+		grid-area: aside;
 		@extend %flex-centered;
 		flex-direction: column;
 
 		i {
-			color: v.$red;
 			padding: 5px;
+
+			color: v.$red;
 		}
 
 		img {
@@ -109,12 +124,14 @@
 		}
 
 		.home__container {
-			@include m.adjust-border(3px, v.$turquoise);
-			padding: 10px;
-			border-radius: 100%;
 			height: 35%;
 			width: 50%;
+			padding: 10px;
+
 			@extend %flex-centered;
+
+			@include m.adjust-border(3px, v.$turquoise);
+			border-radius: 100%;
 			@include m.adjust-text(18px);
 		}
 	}

@@ -6,12 +6,14 @@
 .error__container {
 	@extend %flex-centered;
 	flex-direction: column;
+
 	background-color: v.$whitesmoke;
 	@include m.adjust-border(3px, v.$ash);
 
 	p {
 		text-align: center;
 	}
+
 	i {
 		font-size: 30px;
 		color: v.$red;
@@ -20,6 +22,7 @@
 
 .confirm__wrapper {
 	@extend %flex-basic;
+
 	@include m.add-modal-background();
 
 	.confirm__container {
@@ -32,12 +35,15 @@
 		.confirm__text {
 			flex: v.$flex-full;
 			@extend %flex-centered;
+
 			@include m.adjust-text(24px);
 		}
 		.confirm__yes,
 		.confirm__no {
-			flex: 0 0 40%;
 			height: 30%;
+
+			flex: 0 0 40%;
+
 			@include m.adjust-text(20px);
 		}
 		.confirm__yes {

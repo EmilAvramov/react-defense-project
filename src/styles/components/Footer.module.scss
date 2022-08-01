@@ -7,10 +7,12 @@ footer {
     bottom: 0;
     width: 100%;
     height: 10vh;
+    margin: 20px 0px;
+
     @extend %flex-centered;
     gap: 80%;
+
     border-top: 3px solid v.$turquoise;
-    margin: 20px 0px;
 
     div {
         .footer__arrow {
@@ -19,7 +21,9 @@ footer {
     }
     ul {
         margin-top: 20px;
+        
         @include m.adjust-text(18px, bold, left);
+
         li {
             @include m.adjust-text(16px, 400, left);
             
