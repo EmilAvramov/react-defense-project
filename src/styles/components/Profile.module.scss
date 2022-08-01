@@ -4,15 +4,17 @@
 @use '../helpers/variables' as v;
 
 .profile__wrapper {
-	@extend %flex-basic;
 	height: 10vh;
 	width: 95vw;
 
+	@extend %flex-basic;
+
 	.settings__container {
-		@include m.template-grid(4);
-		column-gap: 12px;
 		position: relative;
 		left: 35px;
+
+		@include m.template-grid(4);
+		column-gap: 12px;
 
 		.profile__block {
 			@include m.adjust-border(1px, v.$whitesmoke);
@@ -27,11 +29,12 @@
 	}
 
 	.profile__container {
-		@include m.template-grid(2);
-		width: 50%;
-		column-gap: 10px;
 		position: relative;
 		left: 35px;
+		width: 50%;
+
+		@include m.template-grid(2);
+		column-gap: 10px;
 
 		.profile__block {
 			@include m.adjust-border(1px, v.$whitesmoke);
@@ -48,47 +51,54 @@
 
 .library__container {
 	position: relative;
-
-	@extend %flex-basic;
-	margin: 30px auto;
-	flex-wrap: wrap;
 	width: 90vw;
 	min-height: 60vh;
+	margin: 30px auto;
+
+	@extend %flex-basic;
+	flex-wrap: wrap;
 
 	.library__error {
 		height: 60vh;
+
 		@extend %flex-centered;
+
 		@include m.adjust-text(20px);
 
 		i {
-			color: v.$red;
 			padding: 10px;
+
+			color: v.$red;
 		}
 	}
 
 	.card__wrapper {
-		flex: v.$flex-full;
 		margin: 2px 0px;
 
+		flex: v.$flex-full;
 		@extend %grid-library;
 		justify-content: space-between;
+
 		@include m.adjust-border(1px, v.$turquoise);
 		background-color: v.$dark-green;
 
 		.card__swiper_placeholder {
-			grid-area: screens;
 			width: 64vw;
 			padding: 10px;
 			height: 15vh;
-			@include m.adjust-text(20px, 400, center);
+
+			grid-area: screens;
 			@extend %flex-basic;
+
+			@include m.adjust-text(20px, 400, center);
 		}
 
 		.card__swiper_container {
-			grid-area: screens;
 			width: 64vw;
 			padding: 10px;
 			height: 15vh;
+
+			grid-area: screens;
 
 			.card__swiper_img {
 				height: 180px;
@@ -99,10 +109,12 @@
 				.card__error {
 					i {
 						position: relative;
+						padding: 20px;
 						left: 350px;
+
 						color: v.$red;
 						font-size: 30px;
-						padding: 20px;
+
 					}
 					div {
 						text-align: center;
@@ -112,44 +124,53 @@
 		}
 
 		.card__img {
-			grid-area: img;
 			width: 100%;
+
+			grid-area: img;
 			@extend %flex-basic;
 
 			img {
-				object-fit: contain;
 				width: 100%;
+				object-fit: contain;
 			}
 		}
 		.card__header {
-			grid-area: header;
 			width: 100%;
-			@include m.adjust-text(26px, 600, left);
 			padding: 5px 10px;
+
+			grid-area: header;
+			
+			@include m.adjust-text(26px, 600, left);
 			box-sizing: border-box;
 			line-height: 5vh;
 		}
+
 		.card__info {
+			padding: 10px;
+
 			grid-area: info;
 			@extend %flex-basic;
 			flex-wrap: wrap;
 			box-sizing: border-box;
-			padding: 10px;
+
 			@include m.adjust-text(16px, 400, left);
 
 			p {
 				flex: v.$flex-full;
+
 				@include m.clamp-text(1.2, 2);
 			}
 		}
 		.card__screenshots {
 			grid-area: screens;
+
 			box-sizing: border-box;
 		}
 
 		.card__buttons {
-			grid-area: buttons;
 			position: relative;
+
+			grid-area: buttons;			
 
 			button {
 				@include m.adjust-text(16px);
@@ -158,12 +179,14 @@
 
 			.card__error {
 				i {
-					color: v.$red;
 					position: absolute;
 					right: 45px;
 					top: 15px;
+
+					color: v.$red;
 					font-size: 30px;
 				}
+
 				div {
 					display: none;
 				}
@@ -172,6 +195,7 @@
 			button {
 				height: 60%;
 				width: 33.3%;
+
 				cursor: pointer;
 			}
 
@@ -189,6 +213,7 @@
 					top: 43px;
 					z-index: 1;
 					width: 100%;
+
 					@include m.adjust-text(16px, 600);
 					@include m.adjust-border(1px, v.$turquoise);
 
@@ -199,7 +224,9 @@
 							display: block;
 							width: 100%;
 							padding: 5px 0px;
+
 							color: v.$turquoise;
+
 							&:hover {
 								color: v.$ash;
 							}
@@ -212,11 +239,12 @@
 }
 
 .edit__wrapper {
+	position: relative;
 	width: 80%;
 	height: 55vh;
 	margin: 0 auto;
+
 	@extend %flex-centered;
-	position: relative;
 
 	i {
 		color: v.$red;
@@ -224,13 +252,14 @@
 	}
 
 	.edit__form {
-		flex: v.$flex-half;
 		position: relative;
 		bottom: 35px;
 
+		flex: v.$flex-half;
 		@extend %grid-edit;
 		row-gap: 20px;
 		column-gap: 20px;
+
 		@include m.adjust-text(18px);
 
 		.edit__label1, .edit__label2 {
@@ -240,6 +269,7 @@
 
 		.edit__input1, .edit__input2 {
 			height: 5vh;
+
 			@include m.adjust-text(16px, 400, left);
 			color: v.$dark-green;
 			@include m.adjust-border(1px, v.$turquoise);
@@ -247,6 +277,7 @@
 
 		.edit__input_border1, .edit__input_border2 {
 			height: 5vh;
+
 			@include m.adjust-text(16px, 400, left);
 			color: v.$dark-green;
 			@include m.adjust-border(1px, v.$red);
@@ -254,17 +285,21 @@
 
 		.edit__error1, .edit__error2 {
 			@extend %flex-basic;
+
 			@include m.adjust-text(16px, 400, center);
 			color: v.$red;
 		}
 
 		.edit__submit {
+			padding: 5px 0px;
+
 			grid-area: submit;
+
 			@include m.adjust-text(16px);
 			@include m.adjust-border(1px, v.$light-green);
 			cursor: pointer;
-			padding: 5px 0px;
 		}
+
 		.edit__label1 {
 			grid-area: label1;
 		}
@@ -284,11 +319,13 @@
 			grid-area: error2;
 		}
 	}
+
 	.delete__button {
-		background-color: v.$dark_red;
 		padding: 10px 20px;
 		position: relative;
 		bottom: 35px;
+
+		background-color: v.$dark_red;
 		@include m.adjust-border(1px, v.$light-green);
 		@include m.adjust-text(24px, 600);
 		cursor: pointer;
