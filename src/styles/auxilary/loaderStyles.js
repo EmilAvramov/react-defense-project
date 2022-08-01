@@ -1,6 +1,6 @@
 export const searchLoader = {
 	display: 'block',
-	height: '40.8vh',
+	height: '39.8vh',
 	margin: '16vh auto',
 	position: 'relative',
 	top: '85px',
@@ -11,10 +11,11 @@ export const topLoader = {
 }
 
 export const homeLoader = {
-	display: 'inline',
-	height: '46vh',
-	marginLeft: '700px',
-	marginTop: '200px'
+	display: 'block',
+	height: '50vh',
+	margin: '10.55vh auto',
+	left: '33vw',
+	top: '20vh'
 };
 
 export const libraryCardLoader = {

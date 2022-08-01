@@ -3,7 +3,7 @@
 @use '../helpers/variables' as v;
 
 .login__container {
-	height: 76vh;
+	height: 73.2vh;
 	width: 100vw;
 
 	@extend %flex-basic;
@@ -87,7 +87,7 @@
 }
 
 .register__container {
-	height: 76vh;
+	height: 73.2vh;
 	width: 100vw;
 
 	@extend %flex-basic;
@@ -171,7 +171,7 @@
 }
 
 .reset__container {
-	height: 76vh;
+	height: 73.2vh;
 	width: 100vw;
 
 	@extend %flex-basic;

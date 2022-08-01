@@ -20,7 +20,7 @@
 	}
 
 	.home__guest {
-		height: 63vh;
+		height: 62vh;
 
 		grid-area: main;
 		@extend %flex-basic;
@@ -107,7 +107,7 @@
 	}
 	.home__aside {
 		margin: 15px 0px -15px 0px;
-		height: 68vh;
+		height: 62vh;
 
 		grid-area: aside;
 		@extend %flex-centered;
@@ -125,7 +125,7 @@
 
 		.home__container {
 			height: 35%;
-			width: 50%;
+			width: 45%;
 			padding: 10px;
 
 			@extend %flex-centered;
