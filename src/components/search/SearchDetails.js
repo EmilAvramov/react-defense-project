@@ -24,23 +24,9 @@ const SearchDetails = () => {
 		toggleLinks((state) => !state);
 	};
 
-	// Manage overlay scroll and padding when modal is on
-	const [show, setShow] = useState(true);
-
-	useEffect(() => {
-		if (show) {
-			document.body.style.overflowY = 'hidden';
-			document.body.style.paddingRight = '17px';
-		} else {
-			document.body.style.paddingRight = '0px';
-			document.body.style.overflow = 'unset';
-		}
-	}, [show]);
-
 	// Close modal and go back to search page
 	const closeModal = () => {
 		navigate(-1);
-		setShow(false);
 	};
 
 	// Manage database Create-Delete operations
