@@ -51,6 +51,6 @@ firebase deploy // If using firebase
 
 ### Architecture
 #### Guest:
-![alt guest](https://raw.githubusercontent.com/EmilAvramov/react-defense-project/master/GuestArchitecture.png)
+!['alt guest'](/GuestArchitecture.png)
 #### User:
-![alt user](https://raw.githubusercontent.com/EmilAvramov/react-defense-project/master/User%20Architecture.png)
+!['alt user'](/User%20Architecture.png)
