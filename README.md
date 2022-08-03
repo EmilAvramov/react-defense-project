@@ -1,11 +1,11 @@
-### Project Description
+### Project description
 Gameblob is a simple website where users can register/login, search games via IGDB's API, add games to their libraries, upload screenshots and edit their profiles.
 
 The home page is different depending on whether the user is authenticated or not and some sections of the website (e.g. library/profile) are not visible to guests.
 
 Users can upload screenshots to their library games, which get displayed in a carousel and can still access IGDB's game information from their profile page. Each user's profile page features sections for changing personal information, email, password and deleting the account altogether.
 
-### Project Purpose
+### Project purpose and requirements
 This is my project for Softuni's ReactJS 2022 course. The main project requirements are:
 * Create a live, functional website using React, any back-end
 * Implement user authentication
@@ -40,20 +40,31 @@ To deploy this project locally, you will need Node.js, an IGDB API Key and a web
 	* Change/specify your Firebase project name in ./firebaserc
 	* Add both the IGDB (/src/hooks/useFetchExternal.js) and Firebase Config (used in /src/config/firebase-config.js) variables to your hosting provider's environment 
 
-* Firebase:
+* Firebase (both local and web):
 	* Enable Firestore, authentication and storage
 	* Enable local and google email providers in authentication
 	* Add your hosting url as an authorized domain in authentication
-	* Set storage and firestore rules to:
+	* Set firestore rules to:
 	```
 	rules_version = '2';
 	service cloud.firestore {
-	match /databases/{database}/documents {
-		match /{document=**} {
-			allow read, write: if request.auth != null;
+		match /databases/{database}/documents {
+			match /{document=**} {
+				allow read, write: if request.auth != null;
 		}
 	}
 	}
+	```
+	* Set storage rules to:
+	```
+	rules_version = '2';
+	service firebase.storage {
+		match /b/{bucket}/o {
+			match /{allPaths=**} {
+				allow read, write: if request.auth != null;
+			}
+		}
+		}
 	```
 
 Once the above is set up, you can run the following:
@@ -67,8 +78,8 @@ npm start // Starts the local dev server
 ```
 npm install // Installs node modules
 npm run build // Creates the app build
-firebase init hosting // If using firebase
-firebase deploy // If using firebase
+firebase init hosting // If using firebase, follow the prompts
+firebase deploy // If using firebase, deploys the app to web
 ```
 
 ### Architecture
