@@ -30,9 +30,31 @@ This is my project for Softuni's ReactJS 2022 course. The main project requireme
 	* Swiper
 
 ### Setup:
-To deploy this project locally, you will need an IGDB API Key and a web-enabled Firebase project with Firestore, Firebase Auth and Firebase Storage enabled. IGDB keys expire every 2 months and need to be renewed free of charge.
-* Locally: Label your variables according to the firebase-config.js name-conventions and place them in an .env file. 
-* Live: You will need to add the firebase-config.js variables to your hosting provider. 
+To deploy this project locally, you will need Node.js, an IGDB API Key and a web-enabled Firebase project with Firestore, Firebase Auth and Firebase Storage. You will need the variables from the generated config. IGDB keys are free, expire every 2 months and can be renewed free of charge. Please use the exact naming conventions as used in the project for any variables.
+
+* Local Hosting: 
+	* Change/specify your Firebase project name in ./firebaserc
+	* Link your IGDB API details to an .env file in the root dir (used in /src/hooks/useFetchExternal.js)
+	* Add your firebase variables to an .env file in the root dir (used in /src/config/firebase-config.js)
+* Web Hosting: 
+	* Change/specify your Firebase project name in ./firebaserc
+	* Add both the IGDB (/src/hooks/useFetchExternal.js) and Firebase Config (used in /src/config/firebase-config.js) variables to your hosting provider's environment 
+
+* Firebase:
+	* Enable Firestore, authentication and storage
+	* Enable local and google email providers in authentication
+	* Add your hosting url as an authorized domain in authentication
+	* Set storage and firestore rules to:
+	```
+	rules_version = '2';
+	service cloud.firestore {
+	match /databases/{database}/documents {
+		match /{document=**} {
+			allow read, write: if request.auth != null;
+		}
+	}
+	}
+	```
 
 Once the above is set up, you can run the following:
 * Locally:
@@ -41,7 +63,7 @@ npm install // Installs node modules
 npm run build // Creates the app build
 npm start // Starts the local dev server
 ```
-* Live:
+* Web:
 ```
 npm install // Installs node modules
 npm run build // Creates the app build
