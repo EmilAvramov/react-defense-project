@@ -48,3 +48,9 @@ npm run build // Creates the app build
 firebase init hosting // If using firebase
 firebase deploy // If using firebase
 ```
+
+### Architecture
+#### Guest:
+```
+![alt text](https://github.com/EmilAvramov/react-defense-project/GuestArchitecture.png "Guest Architecture")
+```
