@@ -19,6 +19,7 @@ This is my project for Softuni's ReactJS 2022 course. The main project requireme
 * Front-end - Javascript, SCSS
 * Back-end - Firebase Firestore, Firebase Authentication, Firebase Storage
 * Data APIs - IGDB (Apocalypse queries/SQL), Firebase (Firestore queries/NoSQL)
+* Hosting - Heroku -> https://gameblob.herokuapp.com/
 * Libraries - 
 	* React-dom
 	* React-router
