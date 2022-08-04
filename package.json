@@ -44,6 +44,7 @@
     ]
   },
   "devDependencies": {
+    "react-devtools": "^4.25.0",
     "sass": "^1.53.0"
   }
 }
