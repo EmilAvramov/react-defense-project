@@ -1,6 +1,6 @@
 export const searchLoader = {
 	display: 'block',
-	height: '39.8vh',
+	height: '38.2vh',
 	margin: '16vh auto',
 	position: 'relative',
 	top: '85px',
@@ -12,7 +12,7 @@ export const topLoader = {
 
 export const homeLoader = {
 	display: 'block',
-	height: '50vh',
+	height: '47.85vh',
 	margin: '10.55vh auto',
 	left: '33vw',
 	top: '20vh'

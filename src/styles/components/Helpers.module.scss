@@ -52,3 +52,12 @@
 		}
 	}
 }
+
+.notFound__container {
+	height: 72vh;
+
+	@extend %flex-centered;
+
+	@include m.adjust-text(24px);
+
+}
